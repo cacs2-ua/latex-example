@@ -161,6 +161,12 @@ En este apartado hemos decidido dividir en varios grupos a los posibles interesa
 
 Hemos hecho un análisis de varias aplicaciones similares a nuestro proyecto. De cada una hemos intentado obtener los mejores puntos para imitarlos, y los peores, para evitarlos:
 
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image1.png}}
+\caption{Diagrama del diseño del asistente.} \label{fig:image1}
+\end{figure}
+
 
 
 
