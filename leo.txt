@@ -24,12 +24,10 @@
   \markright{\thechapter.\ #1}%
 }
 
-% Redefinir la marca de sección: actualiza \rightmark con el número y título de la sección.
-\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
 
-% Configurar el encabezado:
-\fancyhead[L]{\nouppercase{\textit{\rightmark}}}
+\fancyhead[L]{\nouppercase{\textit{\leftmark}}}
 \fancyhead[R]{\thepage}
+
 
 
 
