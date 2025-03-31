@@ -142,59 +142,27 @@ Solventados los problemas durante el desarrollo incremental de este proyecto, lo
 
 
 
-\chapter{Introducción}
-Con el avance del procesamiento de la información, han surgido herramientas para músicos que ayudan a realizar tareas tanto a nivel de tratamiento del sonido, edición y síntesis como a nivel de aprendizaje musical y rítmico, abarcando tanto a músicos aficionados o profesionales como a ingenieros de diversas ramas. Una de las vías que mantiene unidos a los músicos profesionales y los ingenieros es la música por ordenador (o la representación musical), donde los grupos que tratan esta materia investigan y desarrollan estructuras, lenguajes y paradigmas adaptados a la música.
+\chapter{CAGA}
 
-Las áreas que más se tratan en estos grupos actualmente son la clasificación de música, análisis y composición automática (siendo esta la que más tiempo se lleva investigando y desarrollando). Todas estas áreas de la música conllevan el conocimiento de técnicas como el reconocimiento de patrones (\emph{pattern recognition}) o el aprendizaje máquina (\emph{machine learning}). Desarrollaremos en este trabajo la asistencia para la composición de obras dodecafónicas por ordenador, aún no desarrollada en el ámbito de la composición automática.
+\section{Breve descripción de la aplicación}
+La aplicación de Confianza Asegurada en Geolocalización de Aseos (C.A.G.A.), consiste en una herramienta que ayudará a sus usuarios a localizar aseos. De forma que, en casos en los que uno no se encuentra en casa o en una zona desconocida, se pueda recurrir a esta aplicación para buscar un aseo que satisfaga las necesidades de la persona, ya sean el estado de limpieza, la accesibilidad, el coste de uso del servicio, etc.
 
-\section{Justificación y objetivos}
-La principal razón por la que he realizado este trabajo ha sido por aprovechar los conocimientos de los dos estudios realizados, el Grado Profesional de música y el Grado en Ingeniería Informática con especialidad en Computación en un proyecto que pueda ser útil para ambas áreas, ayudando a los músicos a componer y sentando una base para los ingenieros que quieran hacer un asistente de composición o que tengan ideas para mejorarlo. También una de las razones por la cuál he elegido esta área de la música como es la composición, y más concretamente el dodecafonismo, es la curiosidad sobre la programación en entornos de composición musical, la mejora e integración de los ordenadores en tareas mecánicas o programables como la composición de música dodecafónica y la relación de la música dodecafónica con el álgebra lineal.
+\section{Análisis de Stakeholders (Optativo)}
 
-El objetivo principal que se quiere alcanzar con este trabajo es, como he mencionado antes, mejorar el proceso de composición de música dodecafónica con una herramienta inédita proporcionando al compositor ideas y fragmentos generados con las restricciones que él desee así como retroalimentar al programa proponiendo más restricciones o formas compositivas que pueda crear para que otros ingenieros puedan mejorar este sistema.
+En este apartado hemos decidido dividir en varios grupos a los posibles interesados en nuestra aplicación:
 
+\begin{enumerate}
+  \item Usuarios finales: en este grupo se encuentran todos los individuos que pensamos que pueden estar más interesados en nuestro servicio, aquí incluimos tanto a turistas, ya que se mueven por zonas desconocidas; como a personas con necesidades especiales, personas mayores de movilidad reducida, personas con algún tipo de discapacidad, madres que necesitan un lugar para asear a su bebé.
+  \item Establecimientos: locales como bares, restaurantes, gasolineras, tiendas, o incluso centros comerciales; se pueden ver beneficiados de esta aplicación, siendo un punto atracción para potenciales clientes.
+  \item Anunciantes: la aplicación también puede resultar útil para que ciertas marcas promocionen sus productos entre los usuarios. Ya que se trata de un servicio de búsqueda de aseos, los anunciantes serían principalmente productos de higiene.
+\end{enumerate}
 
-\section{Dodecafonismo}
+\section{Análisis competencia}
 
-Arnold Schoenberg (1874-1951) fue un compositor, teórico musical y pintor austriaco de origen judío. En 1905 creó un método de composición basado en la ausencia de centro tonal, el atonalismo, ya que para Schoenberg la tonalidad era un recurso que se había explotado al máximo y se debía buscar alternativas armónicas para la composición. Este método aumentó la dificultad de composición de obras extensas ya que era muy limitado para crear estructuras coherentes de larga duración sin que estuviesen apoyadas en un texto que las cohesionase. Este movivo provocó que entre 1914 y 1921 no publicara ningún escrito hasta que creó una solución. Entre 1921 y 1923 inició un método de composición musical derivado del atonalismo que solventaba sus limitaciones: el dodecafonismo (\emph{twelve-tone method})\cite{styleandidea}. La primera obra que publicó con este método es la Suite para piano Op. 25.
-
-Schoenberg creó este método por el mismo hecho histórico por el que se pasó de la música modal a la música tonal: por el desarrollo natural e histórico de la música.
-
-\begin{quote}
-\em Este compromiso que se llama 'sistema temperado', representa una tregua por un tiempo indeterminado. Pues esta reducción de las relaciones naturales a las manejables no podrá resistir indefinidamente la evolución musical; y cuando el oído lo exija se enfrentará con el problema. Y entonces nuestra escala quedará asumida en una ordenación superior, como lo fueron los modos eclesiásticos en los modos mayor y menor. Y no podemos prever si habrá cuartos, octavos, tercios de tono o (como piensa Busoni) sextos de tono, o si iremos directamente a una escala de 53 sonidos como la establecida por el Dr. Robert Neuman.\cite{tratadodearmonia}
-\end{quote}
-
-Este método de composición es un tipo de serialismo (composición basada en series de notas, de ritmos, de dinámicas...) en el que no se busca la importancia de unas notas sobre otras (que es la base de la tonalidad). Es decir, busca lo contrario que la música tonal (por ejemplo, la música clásica, o la música rock), que tiene normalmente un tono predominante y unas notas dominantes sobre otras (la dominante sobre la tónica, que definen el tono y crea centros tonales). Para evitar este énfasis, se crea una serie con las doce notas de la escala cromática  sin repetirse ninguna, de forma que se les da la misma importancia, se crean series derivadas, y se compone solamente con estas construcciones \cite{wiki:twelvetonetechnique}. Esta forma de componer crea, pues, atonalidad pero mantiene una razón para la estructura que son las series. 
-
-Para componer con el método dodecafonista primero se ha de obtener, como hemos dicho anteriormente, una matriz donde la primera fila es la serie original (las 12 notas de la escala cromática en un orden) y la primera columna es la serie invertida (serie construida por movimiento contrario de la serie original, es decir, si la primera nota es un Do y la segunda un Re en la serie original, en la invertida será un Do y un Si). Si leemos la fila y columna al contrario (de derecha a izquierda o de abajo a arriba respectivamente) obtenemos la serie retrógrada y la serie retrógrada inversa en cada caso. El resto de elementos de la matriz se puede obtener transportando en base a los elementos de la primera fila o la primera columna.
-
-En la figura \ref{fig:matrix} vemos un ejemplo. La primera fila de la matriz es la serie original (Do, Do\textsharp, Re, Si, La\textsharp, Sol\textsharp, Mi, La, Re\textsharp, Fa\textsharp, Fa, Sol) y que la serie inversa se obtiene leyéndola de derecha a izquierda: Sol, Fa, Fa\textsharp, Re\textsharp, La, Mi, Sol\textsharp, La\textsharp, Si, Re, Do\textsharp, Do). Para obtener la primera columna vemos que la distancia del primer elemento con el segundo es un semitono ascendente (de Do a Do\textsharp), con lo que el segundo elemento de la serie inversa será un Si, es decir, un semitono descendente. Exactamente igual con el tercer elemento, en el que del segundo elemento al tercero de la serie original (Do\textsharp y Re) hay otro semitono ascendente, con lo que en la serie invertida, será un semitono descendente respecto al segundo elemento de la serie inversa (Si), por lo que la serie por ahora sería: Do, Si, La\textsharp. Si continuamos con este procedimiento obtenemos la serie inversa: Do, Si, La\textsharp, Do\textsharp Re, Mi, Sol\textsharp, Re\textsharp, La, Fa\textsharp, Sol, Fa. 
-
-La numeración se basa en el número de la nota: 0 es Do, 1 es Do\textsharp, 2 es Re, etc.; y P es la serie original, R la retrógrada, I la inversa y RI es la retrógrada inversa. Para el resto de matriz, transportamos verticalmente o horizontalmente. Si lo hacemos horizontalmente, vemos que como del primer elemento al segundo hay un semitono descendente (de Do a Si), transportamos todos los elementos de la serie original un semitono hacia abajo. Y aplicamos este procedimiento sucesivamente con el resto de filas.
-
-Un ejemplo muy claro de una obra dodecafónica se puede ver en la figura \ref{fig:exampleTwelveToneScore} extraída de una referencia rápida sobre el dodecafonismo cortesía de Dan Román del Conservatorio de Música de Puerto Rico \cite{quickreference}.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{img/exampleTwelveToneScore.png} 
-\caption{Ejemplo de obra dodecafónica. \cite{quickreference}} \label{fig:exampleTwelveToneScore}
-\end{figure}
+Hemos hecho un análisis de varias aplicaciones similares a nuestro proyecto. De cada una hemos intentado obtener los mejores puntos para imitarlos, y los peores, para evitarlos:
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{img/12_tone_matrix.jpg} 
-\caption{Matriz dodecafónica. \cite{musictheory}} \label{fig:matrix}
-\end{figure}
 
-\begin{quote}
-\em Expuesto de esta manera, el método puede parecer arbitrario. Pero para Schönberg, se trataba de un modo sistemático de llevar a cabo lo que ya estaba haciendo en su música tonal: integrar la armonía y la melodía mediante la composición con un número limitado de conjuntos (aquí, los definidos por los segmentos de la serie), delimitar las frases y subfrases por medio de la saturación cromática (regulada por la aparición de las doce notas en cada exposición de la serie) y apoyarse en la variación en desarrollo. \cite{palisca}
-\end{quote}
-
-
-\section{Composición automática}
-La composición automática es una forma de composición basada en elementos mecánicos, o más frecuentemente electrónicos y digitales, en la toma de decisiones. Sirve para componer en base a algoritmos y nutrirse de ideas en el caso de que la composición sea difícil por la complejidad en el proceso de la creación o por conseguir coherencia (por ejemplo, en música atonal).
-
-Es interesante unir el concepto de música dodecafónica y la composición automática ya que la música dodecafónica tiene unos patrones y unos algoritmos fuertemente definidos pero ello también crea dificultad en el compositor de crear obras atractivas y coherentes. Así dejamos al ordenador las tareas programáticas y mecánicas para que el compositor se centre en restringir las ideas que produce el asistente.
 
 \chapter{Tecnologías utilizadas}\label{marcoteorico}
 
