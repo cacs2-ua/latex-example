@@ -1,0 +1,8 @@
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries} % Formato: Helvetica, \Huge, negrita
+  {Capítulo \thechapter} % Muestra "Capítulo" y el número
+  {1em} % Espacio entre la etiqueta y el título
+  {\Huge} % Formato aplicado al título
+\titleformat{\section}
+  {\normalfont\fontfamily{phv}\selectfont\Large\bfseries}{\thesection}{1em}{}
