@@ -7,6 +7,8 @@
 ]{geometry}
 \usepackage{setspace}
 \onehalfspacing
+\setlength{\parskip}{0.75\baselineskip}  % ← prueba con 0.5–1.0 \baselineskip
+\setlength{\parindent}{20pt}             % ← conserva la sangría habitual
 \raggedbottom 
 \usepackage[spanish]{babel}
 \usepackage{mathpazo}
@@ -124,10 +126,37 @@ A mis compañeros y profesores del grado, con los que he compartido muy buenos m
 
 
 
-\chapter{UCA}
+\chapter{Aspectos de seguridad}
 
-\section{Breve descripción de la aplicación}
-La aplicación de Confianza Asegurada en Geolocalización de Aseos (C.A.G.A.), consiste en una herramienta que ayudará a sus usuarios a localizar aseos. De forma que, en casos en los que uno no se encuentra en casa o en una zona desconocida, se pueda recurrir a esta aplicación para buscar un aseo que satisfaga las necesidades de la persona, ya sean el estado de limpieza, la accesibilidad, el coste de uso del servicio, etc.
+
+\section{Seguridad en la Firma Digital de Documentos}
+La autenticación de usuarios en \textbf{VitalSanity} se realiza mediante certificados digitales \textbf{X.509}, integrados en la plataforma a través de \textbf{Spring Security}. Cada profesional sanitario o usuario autorizado debe \textbf{identificarse con un certificado digital reconocido} y su correspondiente clave privada, lo que proporciona un nivel alto de seguridad en la verificación de la identidad. En la práctica, esto implica que el sistema solo permite el acceso a quienes posean un certificado válido emitido por una Autoridad de Certificación de confianza (por ejemplo, el DNIe o certificados de la FNMT), aumentando significativamente la protección frente a accesos no autorizados o suplantación de identidad.
+
+
+Cabe destacar de que en la aplicación también se ha incluido la opción tradicional de iniciar sesión con email y contraseña. Esto se ha realizado para poder hacer las pruebas pertinentes en la aplicación durante desarrollo (debido a que se necesitaba crear múltiples usuarios y trabajar con múltiples usuarios y roles para poder probar todas las funcionalidades de la aplicación). Cabe destacar de que en producción se eliminaría esta opción de iniciar sesión con email y contraseña, imponiendo a los usuarios el autenticarse mediante un certificado digital válido para así defenderse de forma robusta frente a accesos no autorizados o suplantación de identidad, consiguiendo de esta manera una seguridad muy potente a la hora de acceder al sistema.
+
+Por otra parte, la plataforma verifica rigurosamente la validez del certificado presentado en cada inicio de sesión. Este proceso incluye la comprobación de que el certificado \textbf{no haya sido revocado} y que siga siendo \textbf{plenamente válido para identificar a su propietario}. Solo tras superar estas verificaciones criptográficas, Spring Security \textbf{autentica al usuario} y le concede acceso a las funciones de la aplicación. Este mecanismo de autenticación basada en certificados digitales ofrece garantías de seguridad equiparables a la autenticación de múltiples factores, pues requiere algo que el usuario \textbf{posee} (su certificado y clave privada) y algo que el usuario \textbf{es} (su identidad avalada por el certificado). Gracias a ello, VitalSanity asegura que únicamente personas autorizadas puedan acceder a datos sensibles, evitando accesos indebidos incluso en entornos distribuidos o remotos.
+
+
+\section{Seguridad en la Firma Digital de Documentos}
+VitalSanity incorpora el uso de herramientas oficiales de \textbf{firma electrónica} proporcionadas por el Gobierno de España para garantizar la autenticidad e integridad de los documentos clínicos generados en la plataforma. En particular, se utiliza la aplicación \textbf{AutoFirma}, así como su cliente móvil @firma, para la firma digital de autorizaciones de pacientes y de informes médicos emitidos por los profesionales sanitarios. AutoFirma, desarrollada por el Ministerio de Hacienda y Administraciones Públicas, es parte de la suite @firma y permite realizar la firma electrónica de documentos cumpliendo con estándares abiertos, \textbf{garantizando la interoperabilidad y la seguridad en las transacciones electrónicas}. De este modo, cada vez que un médico emite un informe o un paciente otorga una autorización en VitalSanity, el documento correspondiente es firmado digitalmente mediante un certificado electrónico reconocido, usando AutoFirma en entornos de escritorio o el Cliente @firma en dispositivos móviles.
+
+
+El empleo de \textbf{certificados digitales reconocidos} en la firma confiere a los documentos un alto nivel de protección: \textbf{integridad}, porque cualquier alteración posterior invalida la firma digital; \textbf{autenticidad}, porque vincula criptográficamente la identidad del firmante al documento; y \textbf{no repudio}, ya que el firmante no puede negar la autoría de la firma. Estas propiedades son cruciales tratándose de autorizaciones sanitarias e informes médicos, que requieren la máxima fiabilidad y validez legal. Cabe destacar que las soluciones de la suite @firma están alineadas con la normativa española y europea de firma electrónica (eIDAS), por lo que las firmas generadas a través de AutoFirma gozan de reconocimiento legal equivalente a la firma manuscrita. En resumen, VitalSanity garantiza que todos los documentos críticos se firman digitalmente de forma segura y \textbf{formalmente válida}, fortaleciendo la confianza en la documentación clínica intercambiada a través de la aplicación.
+
+\section{Protección de los Datos en el Almacenamiento}
+En \textbf{VitalSanity}, los datos sensibles (historias clínicas, informes, consentimientos firmados, imágenes médicas, etc.) se almacenan de forma segura utilizando \textbf{Amazon Web Services (AWS)}, concretamente en \textbf{buckets de Amazon S3} dedicados. Estos repositorios de almacenamiento en la nube están configurados como privados y se han implementado controles estrictos para su acceso. La aplicación nunca expone directamente los contenidos almacenados; en su lugar, utiliza \textbf{URLs prefirmadas} de S3 para cualquier acceso a documentos. Una URL prefirmada es un enlace temporal generado por la aplicación que concede acceso limitado a un objeto (archivo) específico en S3, sin necesidad de revelar credenciales o permisos permanentes de AWS. Estas URLs prefirmadas incorporan \textbf{tokens de seguridad y expiración}: solo el usuario autorizado puede utilizar el enlace, y además este caduca tras un intervalo breve predefinido, impidiendo accesos posteriores no autorizados. Gracias a este mecanismo, si un tercero intenta acceder directamente a los buckets de S3 sin un enlace válido, la solicitud será denegada. En esencia, las URLs prefirmadas actúan como pases de acceso de un solo uso y con vigencia limitada, garantizando que los datos clínicos almacenados solo sean accesibles para quienes tengan derechos y solo durante el tiempo.
+
+
+Por otro lado, VitalSanity protege la \textbf{confidencialidad de los datos en reposo} mediante cifrado robusto administrado con un \textbf{gestor de claves (KMS) personalizado}. Para todos los ficheros y datos almacenados en AWS S3, se habilita el \textbf{cifrado del lado del servidor con AWS KMS} (AWS Key Management Service), utilizando una clave de cifrado \textbf{CMK} propia  de la aplicación. Esto implica que cada objeto se almacena cifrado criptográficamente; solo a través de la clave CMK correspondiente (custodiada de forma segura) puede descifrarse su contenido. VitalSanity, al hacer uso de esta \textbf{clave CMK administrada por el cliente}, esto implica que la organización mantiene control total sobre el ciclo de vida y el uso de dichas. 
+
+
+Este enfoque –recomendado por AWS para clientes que requieren un control granular de sus llaves criptográficas– permite definir políticas estrictas sobre quién o qué componentes de la aplicación pueden usar las claves para desencriptar información. En la práctica, incluso si alguien no autorizado consiguiera acceder al bucket de almacenamiento, los datos allí contenidos permanecerían ininteligibles gracias al cifrado. Adicionalmente, la gestión personalizada que ofrece KMS  da pie a poder utilizar rotación periódica de claves y registros de auditoría (vía AWS CloudTrail) de cada uso de las claves, añadiendo trazabilidad y cumplimiento de políticas de seguridad corporativas. Todo este conjunto de medidas asegura que la información médica en VitalSanity esté protegida tanto \textbf{en tránsito} (mediante conexiones HTTPS cifradas cuando se transfieren los datos) como \textbf{en reposo} (almacenada cifradamente en S3), alcanzando un nivel de seguridad acorde a la naturaleza crítica de dichos datos.
+
+
+
+
+
 
 \section{Análisis de Stakeholders}
 
