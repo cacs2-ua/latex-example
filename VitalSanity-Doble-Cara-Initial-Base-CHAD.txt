@@ -1,7 +1,13 @@
 \documentclass[a4paper,twoside,openright,12pt]{book}
-\usepackage[left=3cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[
+  inner=3cm,      % margen de encuadernación
+  outer=2.5cm,    % margen exterior
+  top=2.5cm,
+  bottom=2.5cm
+]{geometry}
 \usepackage{setspace}
 \onehalfspacing
+\raggedbottom 
 \usepackage[spanish]{babel}
 \usepackage{mathpazo}
 \usepackage{graphicx}
