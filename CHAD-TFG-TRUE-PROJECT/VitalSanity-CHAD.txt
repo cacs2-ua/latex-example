@@ -158,6 +158,87 @@ Este enfoque –recomendado por AWS para clientes que requieren un control granu
 
 
 
+
+\chapter{Metodologías a emplear}
+\section{Importancia de aplicar metodologías}. En el desarrollo de proyectos tecnológicos es fundamental apoyarse en metodologías de trabajo establecidas. La adopción de metodologías de desarrollo de software se ha convertido en una base esencial para llevar a cabo proyectos de forma \textbf{productiva y eficaz}. De hecho, aplicar enfoques estructurados es \textbf{imprescindible} para organizar el trabajo y lograr \textbf{resultados de alta calidad} en los productos de software. Trabajar con una metodología adecuada permite reducir la dificultad del proyecto, organizar las tareas, agilizar el proceso y mejorar el resultado final de las aplicaciones desarrolladas. En el contexto de un Trabajo de Fin de Grado (TFG) como \textbf{VitalSanity}, seguir metodologías rigurosas no solo asegura un desarrollo más ordenado, sino que también aporta formalidad académica al proyecto.
+
+
+\newpage
+
+\section{Control de versiones con Git y GitHub}
+Un \textbf{sistema de control de versiones} permite gestionar eficientemente los cambios en el código fuente a lo largo del tiempo. Git, en particular, es un sistema de control distribuido ampliamente utilizado que registra cada modificación realizada, facilitando la recuperación de versiones anteriores y la colaboración simultánea entre desarrolladores. GitHub, por su parte, es una plataforma en la nube basada en Git donde es posible \textbf{almacenar, compartir y trabajar conjuntamente} en repositorios de código. \textbf{Guardar el código en un repositorio GitHub} ofrece múltiples beneficios: se puede mostrar o compartir el trabajo, rastrear y gestionar el historial de cambios, recibir revisiones de código de otras personas y colaborar en un proyecto sin temor a interferir en el trabajo de los demás. Esta capacidad de trabajo colaborativo, fundamental en GitHub, es posible gracias a Git, sobre el cual está construida la plataformadocs.
+
+
+\subsection{Importancia de Git y GitHub para el desarrollo de la aplicación} La gestión del código fuente mediante Git y GitHub tiene como objetivo principal \textbf{mantener la integridad y el historial del proyecto}, así como facilitar la colaboración y revisión del código. Incluso tratándose de un TFG, el cual es desarrollado individualmente, utilizar control de versiones es considerado una práctica profesional esencial, ya que aporta beneficios significativos en la organización del trabajo y la prevención de pérdidas o errores. En VitalSanity, Git permitirá revertir el proyecto a estados previos si fuese necesario, comparar cambios y atribuir cada modificación a su autor o contexto. GitHub añadirá a ello un respaldo remoto del repositorio y herramientas integradas (como gestión de issues y documentación) que mejoran la coordinación con el tutor y potenciales colaboradores. Al adoptar Git/GitHub, el proyecto asegura un desarrollo \textbf{trazable, seguro y transparente}, cumpliendo con estándares industriales ampliamente aceptados.
+
+\newpage
+
+\section{Planificación y seguimiento de tareas}
+
+Kanban con tablero de GitHub
+Para la \textbf{planificación y seguimiento} de las tareas del proyecto se empleará la metodología \textbf{Kanban}, implementada a través de los Project boards de GitHub (tableros Kanban digitales). Kanban es un marco de trabajo ágil que enfatiza la visualización continua del trabajo y la transparencia total del flujo de tareas. En Kanban, los elementos de trabajo (tareas, funcionalidades, etc.) se representan en tarjetas dispuestas en columnas que típicamente reflejan estados como Pendiente, En progreso y Terminado. Este tablero visual permite al equipo (o desarrollador) conocer de un vistazo el estado de cada tarea en cada momento. Un tablero Kanban –ya sea físico o digital– es una herramienta diseñada para visualizar el trabajo, limitar el trabajo en curso y maximizar la eficiencia del flujo de trabajo. En otras palabras, ayuda a identificar cuellos de botella y a asegurar que no se inicie más trabajo del que puede completarse, mejorando la productividad.
+
+En GitHub, la funcionalidad Projects proporciona precisamente este tipo de tableros Kanban integrados con el repositorio. Un Project de GitHub es una colección adaptable de ítems que puede visualizarse como tabla, tablero Kanban o cronograma, manteniéndose siempre sincronizada con los datos del repositorio (issues, pull requests, notas). GitHub incluso ofrece plantillas predefinidas de tablero Kanban con columnas To do, In progress y Done (Por hacer, En curso, Hecho), facilitando la rápida configuración de un tablero de tareas alineado con esta metodología. Así, las tareas de VitalSanity podrán gestionarse creando issues (incidencias o tarjetas) que se mueven a través de dichas columnas conforme avanzan, ofreciendo una vista clara del progreso.
+
+
+\subsection{Importancia de Kanban para el desarrollo de la aplicación} La utilización de Kanban tiene como objetivo organizar el trabajo de forma visual y eficiente, priorizando las tareas de VitalSanity e incrementando la transparencia del estado del proyecto. Dado que un TFG suele implicar múltiples actividades (desarrollo de funcionalidades, pruebas, documentación, etc.) a lo largo de semanas o meses, un tablero Kanban permitirá al desarrollador (y al tutor) monitorear el avance de cada componente del proyecto de un vistazo. Se ha elegido la herramienta de tablero de GitHub por su integración directa con el repositorio, lo que significa que cada tarea puede vincularse a commits, branches o pull requests relevantes, manteniendo todo centralizado. Este enfoque asegura una planificación adaptable: Kanban no impone iteraciones fijas, sino que permite incorporar nuevas tareas o re-priorizar según sea necesario, algo valioso en el contexto de un proyecto académico donde pueden surgir cambios de alcance o nuevas ideas. En síntesis, el tablero Kanban de GitHub proporcionará a VitalSanity un control estructurado pero flexible de las tareas, mejorando la gestión del tiempo y la productividad durante el desarrollo.
+
+\newpage
+
+\section{Flujo de trabajo Gitflow (con Pull Requests)}
+En el desarrollo de VitalSanity se adoptará el flujo de trabajo \textbf{GitFlow} para gestionar las ramas (branches) de Git, complementado con el uso de \textbf{Pull Requests} para la integración de cambios. GitFlow es un modelo de ramificación ampliamente conocido que \textbf{describe el ciclo de lanzamiento del proyecto asignando roles específicos a distintas ramas} y definiendo \textbf{cuándo y cómo deben interactuar} entre sí. En este modelo se distinguen principalmente dos ramas permanentes: la rama \textbf{principal} (master o main), que almacena el historial oficial de lanzamientos estables, y la rama \textbf{de desarrollo} (develop), que es el punto de integración de las nuevas funcionalidades. 
+
+A partir de ellas, GitFlow emplea ramas de soporte de vida corta para estructurar el trabajo: las ramas \textbf{de funcionalidad} (feature branches), creadas desde develop para desarrollar cada nueva característica o mejora; las ramas \textbf{de lanzamiento} (release branches), que se crean desde develop cuando se acumulan suficientes funcionalidades para preparar una versión pública, permitiendo pulir detalles finales (ej. corrección de bugs, documentación) sin detener el desarrollo de nuevas funciones; y las ramas \textbf{de corrección rápida} (hotfix branches), que se derivan directamente de master/main cuando es necesario corregir de urgencia un fallo en producción, aplicando el arreglo y luego fusionándolo tanto a master como a develop.
+
+Este esquema, propuesto originalmente por Vincent Driessen, impone una disciplina en la gestión de versiones: la rama develop siempre contiene el código en estado integrador (inestable pero con las últimas novedades), mientras que master/main solo recibe código que ha pasado por un ciclo completo de pruebas y está listo para liberación. Cada fusión significativa va acompañada de un \textbf{número de versión}. Por ejemplo, al fusionar develop en master tras completar un conjunto de funcionalidades, se etiqueta una nueva versión de lanzamiento (vX.Y.Z). Esta estrategia de ramificación organizada alrededor de las publicaciones del proyecto ayuda a mantener la estabilidad en la rama principal y a aislar el desarrollo de nuevas características hasta que estén maduras.
+
+El uso de \textbf{Pull Requests (PR)} en este flujo aportará un nivel adicional de control y revisión. Una pull request es una petición formal para incorporar los cambios de una rama en otra, usualmente acompañada de una discusión o revisión de código. Integrar pull requests dentro de GitFlow proporciona a los desarrolladores (en este caso, al desarrollador y su tutor) un espacio conveniente para \textbf{discutir los cambios de una rama antes de fusionarlos}.
+
+En la práctica, cuando una rama de funcionalidad esté lista, se creará una pull request para que su contenido sea evaluado antes de integrarse a develop; de modo similar, se usarán pull requests al preparar una rama de lanzamiento o al aplicar un hotfix, asegurando que dichos cambios sean revisados y aprobados antes de incorporarlos tanto a develop como a main. Las pull requests actúan así como \textbf{puntos de control de calidad}: permiten revisar el código, comentar sobre él e incluso proponer modificaciones antes de que forme parte de la base de código principal. En última instancia, tras la aprobación, el mantenedor del proyecto realizará la fusión (merge) correspondiente y cerrará la pull request, quedando registro de dicha discusión y aprobación.
+
+\subsection{Importancia de Gitflow para el desarrollo de la aplicación}
+Adoptar GitFlow persigue el objetivo de \textbf{ordenar el proceso de integración de código}, evitando confusiones y manteniendo versiones estables del proyecto a lo largo del tiempo. En VitalSanity, esta metodología sirve para asegurar que la rama principal siempre esté lista para una posible entrega o demostración, mientras el desarrollo cotidiano ocurre en ramas separadas. GitFlow facilita tener esas versiones listas sin frenar la incorporación de nuevas ideas en paralelo.
+
+El flujo GitFlow con pull requests dota a la aplicación de un \textbf{proceso de desarrollo estructurado, colaborativo y trazable}, adecuado tanto para garantizar la robustez del resultado final como para evidenciar el rigor en la gestión del proyecto.
+
+\newpage
+
+\section{Versionado Semántico}
+Se ha empleado \textbf{Versionado Semántico} (Semantic Versioning o \textbf{SemVer}) para asignar identificadores de versión al software VitalSanity. 
+
+El versionado semántico es una convención ampliamente adoptada 
+que define un formato \textbf{MAJOR.MINOR.PATCH} para los números de versión, donde cada componente numérico transmite información sobre la naturaleza de los cambios realizados. En concreto, la especificación SemVer 2.0.0 establece las siguientes reglas:
+
+\begin{itemize}
+  \item \textbf{MAYOR (Major)}: Se incrementa la versión mayor cuando se introducen \textbf{cambios incompatibles} con versiones anteriores (por ejemplo, modificaciones que rompen la compatibilidad de la API o eliminan funcionalidad previa).
+  \item \textbf{MENOR (Minor)}: Se incrementa la versión menor cuando se añade \textbf{nueva funcionalidad de forma compatible} con la versión existente. Es decir, mejoras o características adicionales que mantienen la compatibilidad hacia atrás.
+  \item \textbf{PARCHE (Patch)}: Se incrementa la versión parche cuando se realizan \textbf{correcciones de errores o cambios menores compatibles} con versiones previas. Son típicamente arreglos que no afectan la funcionalidad de forma sustancial ni rompen compatibilidad.
+\end{itemize}
+
+La esencia de esta metodología de versionado es transmitir claramente el significado y alcance de los cambios a través del número de versión, de modo que desarrolladores y usuarios puedan entender la evolución del software de un vistazo. Comunicar si una nueva versión introduce mejoras menores, correcciones críticas o posibles incompatibilidades es crucial especialmente en entornos con dependencias entre componentes software, pues evita el llamado "infierno de dependencias" al establecer expectativas claras sobre la compatibilidad.
+
+\subsection{Importancia del versionado semántico para el desarrollo de la aplicación}
+La aplicación de versionado semántico en VitalSanity ha tenido como objetivo el de proporcionar un \textbf{esquema claro y consistente} para identificar cada entrega o iteración del software. Dado que el proyecto ha constado de diferentes fases, etiquetar cada liberación con un número de versión semántica contribuye a obtener una mejor comprensión de la \textbf{relevancia de cada versión}. 
+
+La elección de SemVer se justifica por ser un \textbf{estándar ampliamente reconocido} en la industria del software (adoptado por multitud de proyectos y plataformas) y por proveer un conjunto de reglas objetivo para el versionado. En términos académicos, demuestra la preocupación por la mantenibilidad y claridad en la evolución del proyecto. Un esquema de versionado claro facilita las discusiones sobre avances en el proyecto (por ejemplo, "en la versión 1.2.1 se incorporó la funcionalidad X") y respalda la trazabilidad de la evolución del software. En resumen, mediante el versionado semántico VitalSanity comunicará de forma profesional el estado de cada entrega, asegurando coherencia y profesionalidad en la gestión de sus versiones.
+
+\newpage
+
+\section{Reuniones periódicas de seguimiento con el tutor}
+Como parte de la metodología de trabajo, se han llevado a cabo \textbf{reuniones periódicas} de seguimiento y con el tutor del TFG.
+
+Dichas reuniones, han resultado de gran utilidad para revisar el progreso, resolver dudas, recibir orientación y asegurar que el proyecto se encamina al cumplimiento de sus objetivos. Asimismo, todas estas reuniones han servido para detectar riesgos o desviaciones a tiempo y proponer correcciones o mejoras en cada sesión.
+
+\subsection{Importancia de las reuniones periódicas para el desarrollo de la aplicación} 
+La agenda de reuniones periódicas ha tenido como objetivo el de garantizar un \textbf{seguimiento continuo} del proyecto y una alineación constante con los objetivos planteados, asegurando que el desarrollo técnico esté respaldado por un control académico sólido.
+
+
+
+
+\newpage
+
+
+
 \section{Análisis de Stakeholders}
 
 En este apartado hemos decidido dividir en varios grupos a los posibles interesados en nuestra aplicación:
