@@ -40,8 +40,6 @@
 \fancyhead[RE]{\nouppercase{\textit{\leftmark}}}    % capítulo en par (der.)
 
 
-
-
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
   {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}{}
@@ -630,5 +628,7 @@ A continuación, se adjuntan los enlaces de descarga de las aplicaciones mencion
 \item Descarga de la aplicación 'OstomiAseo': \url{https://play.google.com/store/apps/details?id=com.viacoreit.ostomiaseo}
 
 \item Descarga de la aplicación 'Toilet Finder': \url{https://play.google.com/store/apps/details?id=com.bto.toilet}
+
+\end{itemize}
 
 \end{document}
