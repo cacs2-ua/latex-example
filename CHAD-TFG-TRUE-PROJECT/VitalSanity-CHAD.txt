@@ -1,0 +1,634 @@
+\documentclass[a4paper,twoside,openright,12pt]{book}
+\usepackage[
+  inner=3cm,      % margen de encuadernación
+  outer=2.5cm,    % margen exterior
+  top=2.5cm,
+  bottom=2.5cm
+]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\raggedbottom 
+\usepackage[spanish]{babel}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} % Para poner acentos y eñes directamente.
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{algorithm2e}
+\usepackage{float} 
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}  % limpia encabezados y pies
+
+% Actualiza marks para dos caras
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+
+% Cabeceras/pies diferenciados par (E) / impar (O)
+\fancyhead[RO]{\thepage}                            % página en el lado derecho impar
+\fancyhead[LE]{\thepage}                            % página en el lado izquierdo par
+\fancyhead[LO]{\nouppercase{\textit{\rightmark}}}   % sección en impar (izq.)
+\fancyhead[RE]{\nouppercase{\textit{\leftmark}}}    % capítulo en par (der.)
+
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}{}
+  {0pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\fontfamily{phv}\selectfont\Large\bfseries}{\thesection}{1em}{}
+
+\usepackage{courier} % Esto configura \ttfamily a Courier
+\lstset{basicstyle=\fontfamily{pcr}\selectfont}
+
+\SetAlFnt{\fontfamily{pcr}\selectfont\footnotesize}
+
+
+
+
+\renewcommand{\textsharp}{$\sharp$}
+
+\begin{document}
+
+\includepdf[pages={1}]{img/C.A.G.A Portada.pdf}
+
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+
+
+\chapter*{}
+\begin{flushright}
+\textit{Dedicado a Cristina Cachero \\
+y a su pasión por el aprendizaje (y la oratoria)}
+\end{flushright}
+
+
+\tableofcontents % indice de contenidos
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+
+
+
+
+
+\chapter{UCA}
+
+\section{Breve descripción de la aplicación}
+La aplicación de Confianza Asegurada en Geolocalización de Aseos (C.A.G.A.), consiste en una herramienta que ayudará a sus usuarios a localizar aseos. De forma que, en casos en los que uno no se encuentra en casa o en una zona desconocida, se pueda recurrir a esta aplicación para buscar un aseo que satisfaga las necesidades de la persona, ya sean el estado de limpieza, la accesibilidad, el coste de uso del servicio, etc.
+
+\section{Análisis de Stakeholders}
+
+En este apartado hemos decidido dividir en varios grupos a los posibles interesados en nuestra aplicación:
+
+\begin{enumerate}
+  \item \textbf{Usuarios finales:} en este grupo se encuentran todos los individuos que pensamos que pueden estar más interesados en nuestro servicio, aquí incluimos tanto a turistas, ya que se mueven por zonas desconocidas; como a personas con necesidades especiales, personas mayores de movilidad reducida, personas con algún tipo de discapacidad, madres que necesitan un lugar para asear a su bebé, entre otros.
+  \item \textbf{Establecimientos:} locales como bares, restaurantes, gasolineras, tiendas, o incluso centros comerciales; se pueden ver beneficiados de esta aplicación, siendo un punto de atracción para potenciales clientes.
+  \item \textbf{Anunciantes:} la aplicación también puede resultar útil para que ciertas marcas promocionen sus productos entre los usuarios. Ya que se trata de un servicio de búsqueda de aseos, los anunciantes serían principalmente productos de higiene.
+\end{enumerate}
+
+\section{Análisis de la competencia}
+
+Hemos hecho un análisis de varias aplicaciones similares a nuestro proyecto. De cada una hemos intentado obtener los mejores puntos para imitarlos, así como los peores para poder evitarlos:
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image1.png}}
+\caption{Flush - Public Toilet Finder} \label{fig:image1}
+\end{figure}
+
+En esta aplicación, encontramos una interfaz bastante sencilla y que nos indica directamente la información que nos puede interesar al buscar un aseo, sin embargo las imágenes que ofrece de los aseos son poco útiles; te pueden servir para orientarte mínimamente, pero no indican dónde está exactamente el aseo ni las condiciones en las que se encuentra.
+
+
+Leyendo las reseñas, también nos damos cuenta que la información se encuentra bastante desactualizada y a los usuarios les gustaría que los aportes de la comunidad se tengan más en cuenta.
+
+\textbf{OstomiAseo:}
+
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image2.png}}
+\caption{OstomiAseo} \label{fig:image1}
+\end{figure}
+
+\newpage
+
+
+Similar a la aplicación anterior, esta implementa el horario de cada aseo. Los problemas que encontramos son los mismos. Al ser una aplicación menos conocida, y con menos comentarios, no obtenemos nada relevante de las reseñas
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image3.png}}
+\caption{Toilet Finder} \label{fig:image1}
+\end{figure}
+
+En este caso, vemos una falta de información en los menús principales, no se sabe si un aseo está abierto, limpio, es de pago, etc. En las reseñas encontramos algunos casos de gente que no consigue hacer funcionar la aplicación. Esto puede deberse a una menor experiencia con los dispositivos o a situaciones concretas en las que la aplicación no funciona.
+
+\newpage
+
+
+\section{Definición de objetivos: Plantilla estrategia de diseño. Cinco tareas clave.}
+
+Nuestros objetivos principales con el desarrollo de esta aplicación son:
+
+\begin{itemize}
+  \item Solucionar la falta de señalización en la vía pública para encontrar aseos.
+  \item Asegurar un mínimo de comodidad y seguridad a los usuarios de nuestra aplicación.
+  \item Ayudar a aquellas personas con necesidades concretas a la hora de acceder a un aseo.
+\end{itemize}
+
+Para cumplir estos objetivos, vamos a seguir la siguiente estructura para diseñar nuestra aplicación:
+
+\begin{itemize}
+  \item \textbf{Usuario objetivo:} el usuario principal al que va a ir dirigida nuestra aplicación serán los turistas, ya que suelen desplazarse por lugares desconocidos para ellos.
+  \item \textbf{Problema a solucionar:} como ya se ha mencionado en los objetivos principales, buscamos facilitar la búsqueda de aseos en lugares desconocidos y poco señalizados.
+  \item \textbf{Solución propuesta:} con nuestra aplicación, los usuarios podrán ver la ubicación y calificación de cada aseo, para poder elegir el que más les interese según su situación.
+  \item \textbf{Principios de diseño:} crearemos una interfaz amigable que permita a los usuarios acceder a la información que buscan rápidamente.
+  \item \textbf{Métricas de éxito:} un incremento en la cantidad de usuarios que califican aseos y añaden información a la base de datos.
+\end{itemize}
+
+Por último, las tareas clave de nuestra aplicación van a ser:
+
+\begin{enumerate}
+  \item Investigación de usuarios
+  \item Creación de prototipos
+  \item Implementación
+  \item Pruebas de usabilidad
+  \item Optimización del sistema
+\end{enumerate}
+
+\section{Conversión de KI a medidas de ROI}
+
+Tras haber establecido en conjunto un análisis y debate, hemos decidido que nuestros KI van a ser:
+
+\begin{itemize}
+  \item Número de descargas de la app
+  \item Promedio de satisfacción de los usuarios
+  \item Número de baños añadidos por los usuarios
+  \item Tiempo de búsqueda de un baño
+\end{itemize}
+
+Donde cada ROI será, respectivamente:
+
+\begin{itemize}
+  \item Incremento en monetización o impacto publicitario --> ROI = Ingresos por publicidad / Coste de atracción del usuario
+\end{itemize}
+
+\begin{itemize}
+  \item Aumento en la recomendación de la app --> ROI = Usuarios nuevos por popularización de la app / Gastos en publicidad
+\end{itemize}
+
+\begin{itemize}
+  \item Incremento de los datos con coste--> ROI = Ahorro en actualizaciones de la base de datos / Coste de animar a los usuarios a hacerlo
+\end{itemize}
+
+\begin{itemize}
+  \item Tiempo de búsqueda de un baño --> ROI = Tiempo ahorrado por usuario / Coste de optimización de la app
+\end{itemize}
+
+\newpage
+
+\section{Definición de grupos de usuario (todos) con una breve descripción}
+
+Para este apartado vamos a desglosar los grupos que teníamos en la sección de stakeholders:
+
+\subsection{Usuarios locales}
+
+Personas que viven en la zona en la que buscan baño y pasan mucho tiempo fuera de casa debido a trabajo o aficiones. Utilizan la aplicación por rapidez.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.20\paperwidth]{img/image4.png}}
+\caption{Usuario local} \label{fig:image4}
+\end{figure}
+
+\subsection{Turistas}
+
+Personas que no son de la zona, dependen de la aplicación para encontrar un baño. Este grupo le da mayor importancia a la comodidad del servicio en comparación al resto.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.20\paperwidth]{img/image5.png}}
+\caption{Turistas} \label{fig:image5}
+\end{figure}
+
+\subsection{Personas con necesidades especiales}
+
+Personas que requieren de una necesidad que puede no estar en todos los baños. Ejemplos serían personas con movilidad reducida como personas mayores o personas en silla de ruedas; padres y madres que buscan asear a su bebé también estarían incluidos en este grupo.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.20\paperwidth]{img/image6.png}}
+\caption{Personas con necesidades especiales} \label{fig:image6}
+\end{figure}
+
+\subsection{Transportistas y conductores}
+
+Personas que trabajan en la carretera y que se mueven por zonas como gasolineras o estaciones de servicio. Para este grupo es importante marcar el horario de los aseos, ya que pueden requerir usarlos a altas horas de la noche.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.20\paperwidth]{img/image7.png}}
+\caption{Transportistas y conductores} \label{fig:image7}
+\end{figure}
+
+\subsection{Asistentes a eventos especiales}
+
+Personas que asisten a eventos como conciertos pueden buscar evitar los aseos que proporciona el evento debido a su falta de comodidad e higiene.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.20\paperwidth]{img/image8.png}}
+\caption{Asistentes a eventos especiales} \label{fig:image8}
+\end{figure}
+
+\subsection{Establecimientos}
+
+Ya mencionados como stakeholders, las tiendas, bares, restaurantes, e incluso centros comerciales pueden aprovechar la aplicación para atraer potenciales clientes.
+
+
+\section{Elección de un grupo de usuarios}
+
+Como grupo principal de usuarios hemos seleccionado a los turistas, ya que se trata de un grupo grande de usuarios potenciales. Cualquier persona que visite una zona desconocida para ella se puede incluir en este grupo. Además, se trata de un grupo más fácil de testear con usuarios finales que, por ejemplo, el de usuarios con necesidades especiales:
+
+\subsection{Customer jobs}
+
+
+Para los customer jobs, hemos definido las siguientes cinco actividades:
+
+\begin{enumerate}
+  \item Buscar un aseo
+  \item Publicar un aseo
+  \item Calificar un aseo
+  \item Ver detalles de un aseo
+  \item Encontrar asesos gratuitos
+  \item Ver perfil
+\end{enumerate}
+
+Consideramos que son las actividades más importantes que debe poder realizar un usuario sin complicarse lo más mínimo.
+
+
+\subsection{Puntos de dolor}
+
+
+
+Poniéndonos en el punto de vista de una persona en un lugar desconocido, creemos que los mayores problemas que podemos encontrar son:
+
+\begin{enumerate}
+    \item \textbf{Falta de información:} Información incompleta o desactualizada sobre los aseos.
+    \item \textbf{Falta de baños gratuitos:} Dificultad para identificar claramente cuáles aseos son gratuitos y conocer sus condiciones.
+    \item \textbf{Baños en mal estado:} Riesgo de encontrar aseos con deficiencias en higiene o mantenimiento.
+    \item \textbf{Baños inseguros:} Preocupación por la seguridad y el ambiente del aseo.
+    \item \textbf{Barreras de idioma:} Dificultad en la comprensión de la información por usuarios que no dominan el idioma local.
+    \item \textbf{Interfaz poco intuitiva y procesos confusos:} Dificultad para navegar en la app, especialmente en funciones como publicar o calificar aseos.
+    \item \textbf{Formularios y procesos complejos:} Formularios extensos o con campos confusos que generan incertidumbre en la publicación de nuevos aseos.
+    \item \textbf{Falta de retroalimentación inmediata:} Demoras en la validación de la información publicada o en la actualización de reseñas, lo que genera inseguridad en el usuario.
+    \item \textbf{Incertidumbre sobre la veracidad de la información:} Dudas acerca de la exactitud y fiabilidad de los datos proporcionados por otros usuarios.
+    \item \textbf{Dificultad para filtrar y localizar características específicas:} Problemas para aplicar filtros que permitan identificar rápidamente aseos gratuitos, accesibles o con otras características relevantes.
+\end{enumerate}
+
+\newpage
+
+\subsection{Desired gains}
+
+Basándonos en los anteriores puntos de dolor, las mayores mejoras que un usuario puede obtener con nuestra aplicación son.
+
+\begin{enumerate}
+    \item \textbf{Información fiable:} Datos verificados y consistentes que generen confianza en el usuario.
+    \item \textbf{Información actualizada:} Contenido en tiempo real que refleje la situación actual de los aseos.
+    \item \textbf{Mapa interactivo:} Visualización clara y dinámica de la ubicación y disponibilidad de los aseos.
+    \item \textbf{Calificaciones y reseñas de los aseos:} Opiniones y valoraciones que ayuden a tomar decisiones informadas.
+    \item \textbf{Traducción del texto o iconos representativos:} Soluciones que superen las barreras de idioma mediante traducciones o elementos visuales universales.
+    \item \textbf{Proceso intuitivo y sencillo para publicar aseos:} Interfaces amigables y formularios simplificados que faciliten la contribución del usuario.
+    \item \textbf{Validación y retroalimentación inmediata:} Confirmación rápida al publicar o calificar, lo que genera confianza y compromiso.
+    \item \textbf{Acceso a detalles completos y centralizados:} Información detallada (fotos, horarios, reseñas, etc.) en una vista unificada que facilite la toma de decisiones.
+    \item \textbf{Filtrado avanzado y personalizado:} Herramientas que permitan a los usuarios encontrar fácilmente aseos gratuitos, accesibles o con características específicas según sus necesidades.
+    \item \textbf{Experiencia personalizada y adaptada:} Funcionalidades que se ajusten a las preferencias y condiciones particulares de cada usuario, mejorando la usabilidad y satisfacción.
+    \item \textbf{Incremento en la confianza y sensación de seguridad:} Asegurar al usuario que la información es fiable y que puede encontrar un aseo seguro y en buenas condiciones, reduciendo la incertidumbre en entornos desconocidos.
+\end{enumerate}
+
+\newpage
+
+\subsection{Customer jobs}
+
+Como usuario principal, definiremos a una persona que viaja mucho, prefiere soluciones digitales y odia perder el tiempo. Esta persona prefiere ir a baños limpios y seguros, y detesta tener que ir entrando a lugares como los bares donde le obliguen a consumir para poder acceder al aseo o cualquier otro sitio donde se vea en la obligación de pagar para poder hacer uso del aseo.
+
+\subsection{Perfil de tarea}
+
+En este apartado vamos a clasificar las tareas que ya hemos definido anteriormente según su importancia  y frecuencia de uso:
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image9.png}}
+\caption{Tabla para el perfil de tareas} \label{fig:image9}
+\end{figure}
+
+\subsection{Perfil de entorno}
+
+El entorno de nuestra aplicación es muy variado, pudiendo abarcar desde zonas urbanas con ciudades como Madrid hasta zonas rurales como parques o descampados.
+
+\newpage
+
+\section{Definición de una Persona (Primaria) que resuma la información de los tres perfiles}
+
+\subsection{Datos generales}
+
+\begin{itemize}
+  \item \textbf{Nombre}: Ana García
+  \item \textbf{Edad}: 27 años
+  \item \textbf{Ocupación}: Diseñadora 
+  \item \textbf{Ubicación}: España (viaja constantemente por trabajo y ocio)
+\end{itemize}
+
+\subsection{Descripción}
+
+
+Ana es una viajera frecuente que recorre diferentes ciudades por turismo y trabajo remoto. Planea sus recorridos con aplicaciones móviles y depende de la tecnología para moverse con facilidad. No habla todos los idiomas de los países que visita, por lo que prefiere apps intuitivas y con información confiable en tiempo real.
+
+\subsection{Motivaciones y necesidades}
+
+\begin{itemize}
+  \item Quiere explorar la ciudad sin preocuparse por encontrar un baño en el momento que lo necesite.
+  \item Prefiere baños gratuitos o con opciones accesibles y en buenas condiciones.
+  \item Necesita una app que le muestre baños cercanos con reseñas y fotos para evitar sorpresas desagradables.
+\end{itemize}
+
+\newpage
+
+\section{Artefactos de síntesis de la experiencia de usuario}
+
+\subsection{Mapa de empatía de la app}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image10.png}}
+\caption{Mapa de empatía de la app} \label{fig:image10}
+\end{figure}
+
+
+\subsection{Escenarios de uso}
+
+
+\begin{itemize}
+  \item \textbf{Buscar un aseo}
+    \begin{itemize}
+      \item Ana está en el centro de una ciudad desconocida y siente urgencia por encontrar un baño, abre la app y ve un mapa con baños cercanos. Selecciona el más próximo con buenas reseñas y sigue la ruta guiada.
+    \end{itemize}
+  \item \textbf{Publicar un aseo}
+    \begin{itemize}
+      \item Ana estaba de camino a un aseo de la aplicación, pero se encuentra otro aseo de camino al anterior que no estaba marcado en la app, por lo que decide añadirlo.
+    \end{itemize}
+
+    \newpage
+    
+  \item \textbf{Calificar un aseo}
+    \begin{itemize}
+      \item Tras usar un aseo que estaba mal calificado, ya que no podía ir a ningún otro, Ana decide dejar una reseña al baño, ya que no estaba en tan malas condiciones como especificaba la aplicación.
+    \end{itemize}
+  \item \textbf{Ver detalles de un aseo}
+    \begin{itemize}
+      \item Ana encuentra un aseo con calificaciones intermedias (ni buenas ni malas), por lo que decide investigar qué problemas hay con ese aseo antes de utilizarlo.
+    \end{itemize}
+  \item \textbf{Encontrar baños gratuitos}
+    \begin{itemize}
+      \item Ana no quiere gastar más dinero en su viaje, por lo que busca aseos en la app que estén señalizados como gratuitos.
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+
+\subsection{User journey maps}
+
+\subsubsection{User journey map para la tarea 'Buscar un aseo'}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image11.png}}
+\caption{User journey map para la tarea 'Buscar un aseo'} \label{fig:image11}
+\end{figure}
+
+\subsubsection{User journey map para la tarea 'Publicar un aseo'}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image12.png}}
+\caption{User journey map para la tarea 'Publicar un aseo'} \label{fig:image12}
+\end{figure}
+
+\subsubsection{User journey map para la tarea 'Ver detalles de un aseo'}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image14.png}}
+\caption{User journey map para la tarea 'Ver detalles de un aseo'} \label{fig:image14}
+\end{figure}
+
+\subsubsection{User journey map para la tarea 'Calificar un aseo'}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image13.png}}
+\caption{User journey map para la tarea 'Calificar un aseo'} \label{fig:image13}
+\end{figure}
+
+\subsubsection{User journey map para la tarea 'Encontrar baños gratuitos'}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/image16.png}}
+\caption{User journey map para la tarea 'Encontrar baños gratuitos'} \label{fig:image16}
+\end{figure}
+
+\newpage
+
+
+
+\subsection{User flows}
+
+\subsubsection{User flow de la tarea 'Buscar un aseo'}
+
+Para la tarea 'Buscar un aseo', el flujo sería:
+
+\begin{enumerate}
+  \item \textbf{Inicio de la Aplicación:} Se abre la app y se carga la interfaz principal.
+  \item \textbf{Permisos y Configuración Inicial:} Se solicitan permisos de geolocalización y se configura la ubicación actual del usuario.
+  \item \textbf{Pantalla Principal:} Se muestra o bien un listado o bien un mapa centrado en la ubicación del usuario con marcadores de los aseos disponibles.
+  \item \textbf{Interacción con el Mapa:} El usuario hace zoom y desplaza el mapa; al pulsar sobre un marcador, se muestra una vista previa con información básica del aseo.
+  \item \textbf{Selección y Visualización de Detalles:} Al seleccionar un aseo, se muestra una pantalla con su ubicación, fotos, reseñas, si es gratis o no, etc.
+  \item \textbf{Decisión y Navegación:} Con la información, el usuario decide si dirigirse al aseo y puede iniciar la navegación o guardar el aseo en favoritos.
+  \item \textbf{Uso y Retroalimentación:} La app invita al usuario a dejar una reseña o calificación para actualizar la información del servicio.
+\end{enumerate}
+
+\subsubsection{User flow de la tarea 'Publicar un aseo'}
+
+Para la tarea 'Publicar un aseo', el flujo sería:
+
+\begin{enumerate}
+  \item \textbf{Abrir la app:} El usuario inicia la aplicación desde su dispositivo.
+  \item \textbf{Acceder a la sección “Registrar un aseo”:} Desde el menú principal o la pantalla de inicio, el usuario selecciona la opción para añadir o registrar un nuevo aseo.
+  \item \textbf{Rellenar los datos de registro:} Se solicitan datos obligatorios: fotos, horarios, si es gratuito o no y si cubre necesidades especiales.
+  \item \textbf{Revisar y confirmar la información:} El usuario revisa que todos los datos ingresados sean correctos y procede a confirmar el registro.
+  \item \textbf{Enviar el registro para revisión:} La app muestra un mensaje confirmando el envío del aseo para verificación (ya que el registro será validado antes de publicarse).
+  \item \textbf{Recibir notificación de aprobación (opcional):} Una vez verificado el contenido, al usuario se le muestra un mensaje informando de que el aseo se ha registrado correctamente.
+\end{enumerate}
+
+\subsubsection{User flow de la tarea 'Ver detalles de un aseo'}
+
+Para la tarea 'Ver detalles de un aseo', el flujo sería:
+
+\begin{enumerate}
+  \item \textbf{Abrir la app:} El usuario inicia la aplicación.
+  \item \textbf{Buscar o localizar el aseo de interés:} El usuario puede ubicar el aseo a través del mapa o desde un listado.
+  \item \textbf{Seleccionar el aseo:} Al pulsar sobre el aseo deseado, se accede a su información detallada.
+  \item \textbf{Visualizar la pantalla de detalles:} En esta pantalla se muestran los datos del aseo: ubicación, fotos, reseñas, si es gratis o no, etc.
+  \item \textbf{Tomar la decisión de uso:} Con la información disponible, el usuario decide si utilizar el aseo o buscar otro.
+  \item \textbf{(Opcional) Acceder a la función “Seguir la ruta”:} Si decide utilizarlo, el usuario puede iniciar la navegación hacia el lugar.
+\end{enumerate}
+
+
+\subsubsection{User flow de la tarea 'Calificar un aseo'}
+
+Para la tarea 'Calificar un aseo', el flujo sería:
+
+\begin{enumerate}
+  \item \textbf{Abrir la app:} El usuario inicia la aplicación.
+  \item \textbf{Seleccionar el aseo a calificar:} Puede hacerlo desde el mapa o desde un listado.
+  \item \textbf{Seleccionar la calificación:} En los detalles del aseo se presenta un sistema de valoración (de 1 a 5 estrellas) para que el usuario elija la puntuación.
+  \item \textbf{Enviar la calificación:} Tras revisar, el usuario envía su calificación. La app muestra un mensaje de confirmación del envío de la reseña.
+  \item \textbf{Actualización de la valoración media:} La calificación se integra al promedio del aseo, visible para futuros usuarios (este paso ocurre en segundo plano).
+  \item \textbf{Redactar comentario (opcional):} Además del sistema de valoración, el usuario puede agregar comentarios acerca del aseo concreto.
+\end{enumerate}
+
+
+\subsubsection{User flow de la tarea 'Encontrar aseos gratuitos'}
+
+Para la tarea 'Encontrar aseos gratuitos', el flujo sería:
+
+\begin{enumerate}
+  \item \textbf{Abrir la app:} El usuario inicia la aplicación.
+  \item \textbf{Aplicar filtro de “Baños gratuitos”:} En la pantalla principal (en la que se muestra el mapa), el usuario activa el filtro para mostrar únicamente los aseos gratuitos.
+  \item \textbf{Visualizar el mapa o listado filtrado:} La app muestra únicamente aquellos aseos que están señalizados como gratuitos.
+  \item \textbf{Seleccionar el baño gratuito deseado:} Tras haber aplicado el filtro, el usuario elige un aseo del mapa.
+  \item \textbf{Ver detalles del aseo:} Se despliega la información completa del aseo: ubicación, fotos, reseñas, si es gratis o no, etc.
+  \item \textbf{Seguir la ruta hacia el aseo:} El usuario opta por iniciar la navegación guiada hasta el baño.
+  \item \textbf{(Opcional) Dejar reseña:} Tras utilizar el aseo, el usuario puede calificarlo y comentar su experiencia.
+\end{enumerate}
+
+
+
+
+\newpage
+
+\section{Prototipado: wireflows de los dos prototipos del equipo.}
+
+Destacar que hemos hecho un uso ampliado de los overflows con la intención de otorgar un efecto más fluido y más dinámico al usuario, estableciendo para ello un formato sencillo que permitiese a cualquier usuario con un mínimo de conocimiento el poder utilizar esta app sin complicaciones y de forma directa.
+
+\subsection{Prototipo 1}
+
+\begin{itemize}
+  \item \textbf{Prototipo realizado por Haytam, Cristian y Daniel)} \href{https://www.figma.com/design/yvzAlxuBHP34HGJYMlhMZK/Prototipo-1?node-id=0-1&t=U10uxjSJYDmeR4hT-1}{Ver prototipo 1}
+\end{itemize}
+
+Las páginas principales para este prototipo son las siguientes:
+
+\begin{itemize}
+  \item \textbf{Registro e inicio de sesión: } Formularios que permiten al usuario registrarse e iniciar sesión.
+  \item \textbf{Mapa interactivo } Mapa con los marcadores de las ubicaciones de los aseos.
+  \item \textbf{Pantalla de favoritos:} Tenemos una funcionalidad de favoritos, la cual trata de poder agregar distintos aseos en un apartado “Favoritos”, para poder acceder a ellos de forma rápida y desde cualquier lado. De este modo, no hará falta buscar todo el rato los mismos baños, ya que si se actualiza el aseo, ya sea porque no esté disponible o por algún cambio, se le mostrará en este apartado.
+  \item \textbf{Pantalla de comentarios:} Se ha dado a los usuarios la posibilidad de poner sus opiniones sobre cada aseo, proporcionando un mejor feedback.
+  \item \textbf{Registro de aseo:} Se ha habilitado la opción para que los usuarios puedan añadir un aseo que no exista en la base de datos. Este registro será revisado para comprobar la veracidad de la petición, e incluirá información como tipos de baños, días de apertura, horas de apertura y unas fotos del aseo.
+  \item \textbf{Modificación de perfil:} El usuario podrá modificar su información personal cuando lo desee.
+  \item \textbf{Valoraciones:} Se ofrece una forma adicional de feedback a través de una valoración con estrellas (de 1 a 5), la cual se mostrará como la media de todas las valoraciones de ese baño.
+\end{itemize}
+
+
+\newpage
+
+\subsection{Prototipo 2}
+
+\begin{itemize}
+  \item \textbf{Prototipo Realizado por María y Alejandro} \href{https://www.figma.com/design/wTqiElipCgh0twgm0EjjQp/Prototipo-2?node-id=0-1&t=Fep4MyWCCr1ApIHf-1}{Ver prototipo 2}
+\end{itemize}
+
+Las páginas principales para este prototipo son las siguientes:
+
+\begin{itemize}
+  \item \textbf{Registro e inicio de sesión: } Formularios que permiten al usuario registrarse e iniciar sesión.
+  \item \textbf{Página principal (Home):} Se compone de dos buscadores: el primero busca por la dirección que introduce el usuario y el segundo por la ubicación desde su teléfono; añadir aseos y un pequeño contenedor para anuncios de la app.
+  \item \textbf{Información de baño:} En la información de baño aparecen las siguientes características: Dirección de la ubicación del baño, calificación en estrellas, preferencias (características del baño), horarios de apertura y un botón de editar.
+  \item \textbf{Ver ruta hacia el baño en el mapa:} Vista que establece en un mapa la ruta desde la ubicación actual del usuario hasta la ubicación del aseo.
+  \item \textbf{Crear/Editar:} Para crear un baño se tienen que introducir los siguientes datos: dirección del baño, preferencias del baño y horarios (semana + hora inicio-hora-final). En los horarios se puede seleccionar que el baño esté todos los días abierto y/o todo un día abierto (24h).
+  \item \textbf{Editar perfil:} El usuario podrá editar su nombre y email. También podrá observar los baños que ha creado el usuario.
+  \item \textbf{Ajustes:} Preferencias de búsqueda. Estos ajustes están basados en unos filtros donde el usuario podrá buscar por las preferencias que desee. Por ejemplo, si el usuario necesita un baño para minusválidos, puede seleccionar dicha preferencia y la app empezará a buscar aseos con esa característica.
+\end{itemize}
+
+\newpage
+
+
+\section{Uso de la IA}
+
+Destacar que las fechas de uso de la IA son variadas, ya que se ha ido usando a lo largo de todo el período de realización del trabajo. Se ha empleado únicamente ChatGPT.
+
+\subsection{Puntos en los que ha intervenido la IA}
+
+En este documento, ChatGPT ha intervenido en los  siguientes puntos:
+
+\begin{enumerate}
+  \item \textbf{Análisis de la competencia:} se le ha preguntado a la IA por aplicaciones existentes, para simplificar la búsqueda. Una vez conocíamos las aplicaciones, hemos investigado un poco de estas en la Play Store y hemos seleccionado las que más nos aportan.
+  \item \textbf{Fórmulas de los ROI:} en algunos casos teníamos dudas de cómo sería la fórmula para calcular el ROI y hemos recurrido a la IA.
+  \item \textbf{Definición de grupos de usuarios:} una vez tenemos definidos los grupos principales, le hemos preguntado a la IA por los grupos que tendría en cuenta para este tipo de app. La IA nos ha dado la idea de implementar los grupos de transportistas y asistentes a eventos especiales.
+  \item \textbf{Definición de una persona:} el perfil de Ana lo ha creado ChatGPT, le hemos preguntado por el perfil de una persona y hemos adaptado su respuesta para añadirla al documento.
+  \item \textbf{Escenarios de uso:} en este caso no se nos ocurrían ideas y hemos recurrido a la IA.
+  \item \textbf{Journey map:} aquí no teníamos claro cómo crear el mapa y la IA nos dio la idea de cómo crear la tabla.
+\end{enumerate}
+
+\subsection{Prompts utilizados}
+
+Los prompts utilizados han sido los siguientes:
+
+\begin{enumerate}
+  \item “¿Conoces alguna aplicación o página web que me ayude a encontrar el aseo disponible más cercano a mi posición actual?”  
+        En este caso hemos descartado varias de las aplicaciones que nos ha recomendado, ya que no disponían de mucha información relevante o eran muy similares a otras que sí hemos añadido.
+  \item “¿Sabrías decirme como puedo convertir KI a medidas ROI?”  
+        En este caso, ChatGPT ha creado varios ejemplos que nos han servido para contrastar con lo que ya teníamos, mientras que le pedimos más ejemplos con el prompt “¿Puedes añadir algún ejemplo más?”.
+  \item “¿Podrías ayudarme a definir los posibles grupos de usuarios? Añade una breve descripción a cada grupo.”  
+        De aquí sacamos las ideas mencionadas anteriormente, mientras que descartamos otros grupos como oficinistas, usuarios de transporte público o estudiantes.
+  \item “Ayúdame a definir una persona que resuma la información de los tres perfiles de la aplicación.”  
+        De aquí sacamos a Ana, para la que hemos adaptado el perfil que nos ha dado ChatGPT, ya que nos daba un perfil mucho más detallado de los que hemos añadido al documento.
+  \item “¿Qué escenarios de uso le ves a la aplicación? Evita el login”  
+        De aquí hemos descartado ideas como “Buscar un aseo sin conexión a Internet”.
+  \item “¿Cómo harías un journey map para la aplicación?”
+\end{enumerate}
+
+
+
+\appendix
+\chapter{Bibliografía}\label{enlaces}
+
+Destacar que para la realización de este trabajo se ha empleado únicamente como referencia el material proporcionado  en la asignatura de Gestion de Calidad Software, así como el uso de la IA ya mencionado. 
+
+A continuación, se adjuntan los enlaces de descarga de las aplicaciones mencionadas en el apartado de 'Análisis de competencia':
+
+\begin{itemize}
+
+\item Descarga de la aplicación 'Flush - Public Toliet Finder': \url{https://play.google.com/store/apps/details?id=toilet.samruston.com.toilet}
+
+\item Descarga de la aplicación 'OstomiAseo': \url{https://play.google.com/store/apps/details?id=com.viacoreit.ostomiaseo}
+
+\item Descarga de la aplicación 'Toilet Finder': \url{https://play.google.com/store/apps/details?id=com.bto.toilet}
+
+\end{itemize}
+
+\end{document}
