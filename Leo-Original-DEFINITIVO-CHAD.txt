@@ -1,9 +1,5 @@
 \documentclass[a4paper,openany,oneside,12pt]{book}
-\usepackage[left=3cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
-\usepackage{setspace}
-\onehalfspacing
 \usepackage[spanish]{babel}
-\usepackage{mathpazo}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc} % Para poner acentos y eñes directamente.
 \usepackage{pdfpages}
@@ -11,44 +7,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{algorithm2e}
-\usepackage{float} 
 
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}  % Limpia encabezado y pie
-
-% Redefinir la marca de capítulo: se guarda el título del capítulo en \leftmark y además se asigna a \rightmark.
-\renewcommand{\chaptermark}[1]{%
-  \markboth{\thechapter.\ #1}{}%
-  \markright{\thechapter.\ #1}%
-}
-
-% Redefinir la marca de sección: actualiza \rightmark con el número y título de la sección.
-\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
-
-% Configurar el encabezado:
-\fancyhead[L]{\nouppercase{\textit{\rightmark}}}
-\fancyhead[R]{\thepage}
-
-
-
-\usepackage{titlesec}
-\titleformat{\chapter}[display]
-  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}{}
-  {0pt}{\Huge}
-\titleformat{\section}
-  {\normalfont\fontfamily{phv}\selectfont\Large\bfseries}{\thesection}{1em}{}
-
-\usepackage{courier} % Esto configura \ttfamily a Courier
-\lstset{basicstyle=\fontfamily{pcr}\selectfont}
-
-\SetAlFnt{\fontfamily{pcr}\selectfont\footnotesize}
-
-
-
-
-\renewcommand{\textsharp}{$\sharp$}
+\newcommand{\textsharp}{$\sharp$}
 
 \begin{document}
 
@@ -74,10 +34,7 @@
 
 
 \chapter*{Agradecimientos}
-\pagenumbering{arabic}
-\setcounter{page}{1}
-\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
-\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 
 \addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
@@ -145,6 +102,7 @@ Solventados los problemas durante el desarrollo incremental de este proyecto, lo
 
 
 \chapter{Introducción}
+\pagenumbering{arabic} % para empezar la numeración con números
 Con el avance del procesamiento de la información, han surgido herramientas para músicos que ayudan a realizar tareas tanto a nivel de tratamiento del sonido, edición y síntesis como a nivel de aprendizaje musical y rítmico, abarcando tanto a músicos aficionados o profesionales como a ingenieros de diversas ramas. Una de las vías que mantiene unidos a los músicos profesionales y los ingenieros es la música por ordenador (o la representación musical), donde los grupos que tratan esta materia investigan y desarrollan estructuras, lenguajes y paradigmas adaptados a la música.
 
 Las áreas que más se tratan en estos grupos actualmente son la clasificación de música, análisis y composición automática (siendo esta la que más tiempo se lleva investigando y desarrollando). Todas estas áreas de la música conllevan el conocimiento de técnicas como el reconocimiento de patrones (\emph{pattern recognition}) o el aprendizaje máquina (\emph{machine learning}). Desarrollaremos en este trabajo la asistencia para la composición de obras dodecafónicas por ordenador, aún no desarrollada en el ámbito de la composición automática.
@@ -317,26 +275,19 @@ Parámetros de la partitura:
 
 Una vez introducidos los parámetros deseados, se clica sobre el botón ``Get Parameters'' para exportarlos al fichero que leerá OpenMusic.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{img/backtracking.png}
-\caption{Esquema recursivo del backtracking, apuntes de la asignatura Análisis y Diseño de Algoritmos} \label{fig:backtracking}
-\end{figure}
-
-
-
-\newpage
-
 \subsection{Generador de series}
 Una vez hemos obtenido los parámetros del compositor, se cargan con el método de lectura de ficheros de OpenMusic y se convierten con un método de Lisp llamado \emph{read-from-string}. El método encargado de la generación de la serie basándose en las restricciones de mínimo y máximo salto de semitonos y en la serie semilla (introducidos por la interfaz) es el método escrito en Common Lisp \emph{seriesGenerator} (empaquetado en forma de librería para hacerlo más accesible y reutilizable en otros proyectos).
-
-
-
 
 Este código ha sido diseñado para obtener una solución siempre que sea posible dadas las restricciones utilizando backtracking en una implementación recursiva.
 
 Backtracking es una estrategia para encontrar soluciones a problemas que satisfacen restricciones. En su forma básica, la idea de backtracking se asemeja a un recorrido en profundidad dentro de un grafo dirigido (que suele ser un árbol). El recorrido tiene éxito si se puede definir por completo una solución. En este caso el algoritmo puede, o bien detenerse (si lo único que se necesita es una solución del problema, que es el caso del método generador de series) o bien seguir buscando soluciones alternativas (si deseamos examinarlas todas). \cite{wiki:backtracking}
 
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{img/backtracking.png}
+\caption{Esquema recursivo del backtracking, apuntes de la asignatura Análisis y Diseño de Algoritmos} \label{fig:backtracking}
+\end{figure}
 
 El esquema del algoritmo diseñado (algoritmo \ref{esquemalisp}) se basa en el esquema recursivo del backtracking (figura \ref{fig:backtracking}).
 
@@ -477,7 +428,7 @@ De cualquier manera, tanto el desarrollo de esta aplicación como de la propia b
 \nocite{*}
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Bibliografía}
-\bibliographystyle{apalike}
+\bibliographystyle{ieeetr}
 \bibliography{bibliography}
 
 \appendix
