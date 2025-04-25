@@ -159,7 +159,7 @@ Este enfoque –recomendado por AWS para clientes que requieren un control granu
 
 
 
-\chapter{Metodologías a emplear}
+\chapter{Metodologías empleadas}
 \section{Importancia de aplicar metodologías}. En el desarrollo de proyectos tecnológicos es fundamental apoyarse en metodologías de trabajo establecidas. La adopción de metodologías de desarrollo de software se ha convertido en una base esencial para llevar a cabo proyectos de forma \textbf{productiva y eficaz}. De hecho, aplicar enfoques estructurados es \textbf{imprescindible} para organizar el trabajo y lograr \textbf{resultados de alta calidad} en los productos de software. Trabajar con una metodología adecuada permite reducir la dificultad del proyecto, organizar las tareas, agilizar el proceso y mejorar el resultado final de las aplicaciones desarrolladas. En el contexto de un Trabajo de Fin de Grado (TFG) como \textbf{VitalSanity}, seguir metodologías rigurosas no solo asegura un desarrollo más ordenado, sino que también aporta formalidad académica al proyecto.
 
 
