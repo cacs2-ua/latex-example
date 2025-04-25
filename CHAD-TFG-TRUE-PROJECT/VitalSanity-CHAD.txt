@@ -59,18 +59,55 @@
 
 \begin{document}
 
-\includepdf[pages={1}]{img/C.A.G.A Portada.pdf}
+\includepdf[pages={1}]{portadas/VitalSanity-Portada.pdf}
 
 \thispagestyle{empty} % para que no se numere esta pagina
 
+\null
+\newpage
 
+
+\includepdf[pages={1}]{portadas/VitalSanity-Second-Portada.pdf}
+
+\thispagestyle{empty} % para que no se numere esta pagina
+
+\null
+\newpage
+
+\chapter*{Agradecimientos}
+
+\pagenumbering{arabic}    % ← usa números “normales”
+\setcounter{page}{1}      % ← (opcional) empieza en la 1
+
+\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+\thispagestyle{empty} % para que no se numere esta pagina
+
+Agradecer este trabajo a mi familia por la ayuda y el apoyo que me han dado para llegar a crear este documento que mezcla dos mundos muchas veces duros de conllevar.
+
+A mi tutor, Carlos, por orientar de una manera sencilla el proyecto y ser honesto con los objetivos propuestos.
+
+A mis compañeros y profesores del grado, con los que he compartido muy buenos momentos y mucha experiencia profesional.
+
+\clearpage                % cierra Agradecimientos
+\thispagestyle{empty}     % la página que viene irá SIN cabecera ni pie
+\null
+\clearpage                % pasa a la siguiente página «normal»
 
 
 \chapter*{}
 \begin{flushright}
-\textit{Dedicado a Cristina Cachero \\
-y a su pasión por el aprendizaje (y la oratoria)}
+  \textit{Cuando cambias la solución, es evolución. \\
+          Cuando cambias la pregunta, es revolución.}
+  \\[\baselineskip]
+  --- Jorge Wagensberg
 \end{flushright}
+
+
+\clearpage                
+\thispagestyle{empty}    
+\null
+\clearpage                
 
 
 \tableofcontents % indice de contenidos
@@ -80,6 +117,10 @@ y a su pasión por el aprendizaje (y la oratoria)}
 \listoffigures % indice de figuras
 
 
+\clearpage                
+\thispagestyle{empty}    
+\null
+\clearpage  
 
 
 
