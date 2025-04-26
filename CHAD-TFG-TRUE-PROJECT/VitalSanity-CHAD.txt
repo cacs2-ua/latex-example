@@ -301,14 +301,83 @@ La agenda de reuniones periódicas ha tenido como objetivo el de garantizar un \
 
 
 
+\chapter{Detalles de Implementación}
+
+En este apartado se describirán los detalles más significativos e importantes a nivel de código que presenta la aplicación desarrollada
 
 
 
+\section{Modelo Vista Controlador}
+
+Se ha empleado una arquitectura \textbf{MVC} para desarrollar VitalSanity. En Springboot, esta arquitectura se materializa de la siguiente manera:
 
 
+\begin{enumerate}
+    \item \textbf{Modelo}
+    \begin{itemize}
+        \item Representa la \textbf{lógica de negocio} y los \textbf{datos} de la aplicación: entidades JPA, DTOs, servicios, repositorios. 
+        \item Encapsula el acceso a la base de datos y las reglas de negocio, aislando el estado de la aplicación de la presentación. 
+    \end{itemize}
 
 
+    \item \textbf{Vista}
+    \begin{itemize}
+        \item Define la \textbf{interfaz de usuario}, en este caso, plantillas Thymeleaf.
+        \item Se encarga únicamente de mostrar los datos que recibe del controlador y de capturar la interacción del usuario. 
+    \end{itemize}
 
+
+    \item \textbf{Controlador}
+    \begin{itemize}
+        \item Gestiona las \textbf{peticiones HTTP} entrantes (\verb|@Controller| / \verb|@RestController|). 
+        \item Invoca los servicios del modelo para procesar datos, y devuelve la vista adecuada junto con el \textbf{modelo de datos} (un \verb|Model| o un objeto JSON). 
+    \end{itemize}
+\end{enumerate}
+
+
+Las principales ventajas de aplicar el patrón \textbf{MVC} son la \textbf{reutilización, la testeabilidad, la escalabilidad y el cumplimiento del principio de Separación de responsabilidades} (Cada capa del sistema presenta una única función bien definida, de forma que nunca se mezclan la lógica de negocio, la lógica de acceso a datos y la lógica de presentación).
+
+
+\section{Autenticación con certificado digital}
+
+\subsection{Configuración del conector extra HTTPS  }
+
+\begin{itemize}
+\item La clase \verb|config/AdditionalHttpsConnectorConfig|, anotada con \\\verb|@Configuration|, se encarga de añadir un conector HTTPS adicional al servidor embebido de Tomcat en Spring Boot, configurando tanto el almacén de claves del servidor (keystore) como el almacén de confianza (truststore, el cual contiene los certificados de autoridad) para habilitar  TLS mutuo con verificación obligatoria del certificado de cliente. 
+\item En primer lugar, se inyectan mediante \verb|@Value| las propiedades relativas al almacén de claves del servidor (ruta, contraseña, tipo y alias) y al almacén de confianza para validar certificados de cliente. A través del método \\\verb|servletContainer()| se crea un \verb|TomcatServletWebServerFactory| al que se agrega un conector personalizado definido en \verb|createSslConnector()|. Este conector escucha en el puerto 8059, fuerza el esquema \verb|https| y activa SSL en el protocolo \verb|Http11NioProtocol|. 
+\item A continuación, se construye un \verb|SSLHostConfig| que impone la verificación de certificado de cliente (\verb|required|),  incorpora una lista de revocación de certificados (CRL), y se asocia el truststore para validar las cadenas de certificado entrantes. 
+\item Despúes, se crea un \verb|SSLHostConfigCertificate| de tipo RSA, que carga el keystore del servidor con sus credenciales y alias, y se añade a la configuración SSL del conector. De este modo, la aplicación autentica de forma mutua tanto al cliente como al servidor antes de procesar cualquier petición relacionada con la autenticación por certificado digital. 
+\end{itemize}
+
+\subsection{Filtro de preautenticación X.509}
+
+\begin{itemize}
+    \item La clase \verb|SecurityConfig| configura, con la máxima prioridad, una cadena de filtros dedicada exclusivamente a la autenticación mediante certificado digital en el endpoint \verb|/login/certificate|. 
+    \item En su método \verb|certificateFilterChain|, se crea un extractor de sujeto X.509 (\verb|SubjectDnX509PrincipalExtractor|) que extrae el NIF del DN del certificado mediante una expresión regular, y se instancia un \\\verb|X509AuthenticationFilter| al que se le asigna dicho extractor, un manejador de éxito (\verb|CertificateAuthenticationSuccessHandler|) y se indica que, si la autenticación por certificado falla, continúe la cadena de filtros sin interrumpir la petición. 
+    \item Para validar las credenciales preautenticadas del certificado se utiliza un \\\verb|PreAuthenticatedAuthenticationProvider| conectado a un \\\verb|UserDetailsService| personalizado (CertificateUserDetailsService), envolviéndolo en un \verb|ProviderManager| que actúa como \\\verb|AuthenticationManager| del filtro. 
+    \item Finalmente, el filtro se añade al \verb|HttpSecurity| limitado únicamente al patrón \verb|/login/certificate|, se establece una política de creación de sesión “si es necesario” y, dado que en entorno de desarrollo he empleado un certificado SSL autogenerado (el cual impide al navegador abrir el selector de certificados bajo protección CSRF), se deshabilita la protección CSRF para este único endpoint, permitiendo así la extracción y validación del certificado sin conflictos, mientras que todas las peticiones quedan autorizadas tras este filtro.
+    \item Cabe destacar que en producción no sería necesario desactivar la protección CSRF para ese endpoint puesto que en producción se estaría utilizando un certificado SSL de confianza.
+
+\end{itemize}
+
+\subsection{Servicio de detalles de usuario  }
+
+\begin{itemize}
+    \item La clase \verb|UserDetailsService | se encarga de buscar en la base de datos un usuario cuyo NIF/NIE coincida con el extraído del certificado digital correspondiente. En el caso de que dicho usuario exista, crea un \verb|UserDetails| con rol \verb|ROLE_USER|; en caso contrario, se lanza la excepción \\\verb|UsernameNotFoundException|.
+    \item El \verb|UserDetails| es necesario para que \verb|Spring Security| pueda completar el paso de pre-autenticación X.509 y poblar el principal de la sesión de seguridad.
+\end{itemize}
+
+\subsection{Manejador de éxito de autenticación  }
+
+\begin{itemize}
+    \item La clase \verb|config/CertificateAuthenticationSuccessHandler| se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \verb|/login?error=usuario_no_encontrado|. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
+\end{itemize}
+
+\subsection{Fortalezas y consideraciones de seguridad }
+
+\begin{itemize}
+    \item Cabe destacar la \textbf{máxima confianza}, gracias a que la validación a nivel TLS impide el paso de clientes no autorizados. Asimismo, el filtro X.509 y el handler separan claramente la extracción de identidad, la validación en base de datos y la navegación posterior. 
+\end{itemize}
 
 \chapter{Consideraciones legales}
 
