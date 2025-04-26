@@ -369,15 +369,48 @@ Las principales ventajas de aplicar el patrón \textbf{MVC} son la \textbf{reuti
 
 \subsection{Manejador de éxito de autenticación  }
 
-\begin{itemize}
-    \item La clase \verb|config/CertificateAuthenticationSuccessHandler| se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \verb|/login?error=usuario_no_encontrado|. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
-\end{itemize}
+La clase \verb|config/CertificateAuthenticationSuccessHandler| se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \verb|/login?error=usuario_no_encontrado|. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
 
 \subsection{Consideraciones de seguridad}
 
+Esta implementación permite: \textbf{máxima confianza}, puesto que la validación a nivel TLS impide el paso de clientes no autorizados; \textbf{Integridad del flujo }, puesto que el filtro X.509 y el handler separan claramente la extracción de identidad, la validación en base de datos y la navegación posterior; \textbf{extensibilidad}, gracias a que en \textbf{Spring Security} es sencillo añadir nuevos roles, reglas de autorización o múltiples esquemas de autenticación.
+
+\newpage
+
+\section{Firma y cofirma de los documentos PDF}
+
+\subsection{Generación del PDF a partir de iText}
+La clase \verb|service/autofirma/GenerarPdf.java| se encarga de generar el PDF que debe ser firmado o cofirmado a partir de los datos recopilados de un formulario. Los datos del formularios son recogidos y se crea un PDF con un formato acorde y atractivo y en el que incluye toda la información relevante en materia de protección de datos, aludiendo en todo momento tanto a la \textbf{LOPDGDD } y al \textbf{RGPD}.
+
+\subsection{autoscript.js}
+El fichero \verb|autoscript.js| representa la “biblioteca de despliegue” del Cliente @firma: al cargarlo dentro del \verb|<head>| de un HTML, se logra aportar un objeto global AutoScript que expone toda la API JavaScript necesaria para invocar todas operaciones de firma disponibles(firma simple, cofirma, contrafirma, firma de lotes, selección de certificado, etc.), encapsulando de este modo los detalles de comunicación con la aplicación nativa.
+
+\subsection{signer-invoke.js}
+El fichero \verb|signer-invoke.js| orquesta de manera genérica el flujo de firma y co-firma de documentos en la interfaz web. 
+
+Al pulsar sobre el botón correspondiente a “Firmar”, se recogen los datos del formulario, se llama al método de controlador correspondiente para que se devuelva un PDF en Base64 y se invoca a \verb|AutoScript.sign(...)| para que se abra AutoFirma (o su versión para móvil), se abra el selector de certificados y el usuario pueda firmar el fichero correspondiente. 
+
+Tras recibir la firma en Base64, se envía de nuevo al servidor el documento firmado: Por una parte, en la base de datos se almacenan los siguientes metadatos asociados al documento: nombre, uuid (aleatorio), s3Key (aws), el tipo dearchivo, el tamaño y la fecha de creación.
+Por otra parte, el documento completo se sube a aws a partir de la S3 key correspondiente. Se utiliza el uuid para nombrar al documento dentro del bucket para así evitar que se revele metainforación asociada al nombre real del documento.  
+
+Una vez que se ha almacenado los metadatos del fichero y se ha subido a aws, se le muestra al usuario un enlace para poder descargar el PDF recién firmado. Dicho enlace contiene una URL prefirmada para acceder de forma privada al contenido del bucket (todo lo asociado a AWS se explica más adelante con más detalle).
+
+El proceso de cofirma es análogo al proceso ya descito de firma normal. Lo único que cambia es la llamada al fichero AutoScript.js, que ahora pasa a ser \\\verb|AutoScript.cosign(...)|  (se cambia la función \textbf{sign(...)} por \textbf{cosign(...)}).
+
+Este flujo descrito de \textbf{AutoFirma} se repite de forma análoga para las siguientes funcionalidades:
+
 \begin{itemize}
-    \item Esta implementación permite: \textbf{máxima confianza}, puesto que la validación a nivel TLS impide el paso de clientes no autorizados; \textbf{Integridad del flujo }, puesto que el filtro X.509 y el handler separan claramente la extracción de identidad, la validación en base de datos y la navegación posterior; \textbf{extensibilidad}, gracias a que en \textbf{Spring Security} es sencillo añadir nuevos roles, reglas de autorización o múltiples esquemas de autenticación.
+    \item Firma de la autorización de acceso por parte del profesional médico.
+    \item Cofirma de la autorización de acceso por parte del paciente.
+    \item     Firma de un nuevo informe subido por un profesional médico.
+    \item Firma de un nuevo informe editado por un profesional médico
 \end{itemize}
+Cabe destacar que cualquiera de estas acciones puede ser realizada tanto con \textbf{AutoFirma} como con \textbf{Cliente móvil @firma }.
+
+Por último, cabe destacar que cada vez que se inicia AutoFirma (o su versión para móvil) en el navegador del usuario, en ese preciso instante se muestra un \textbf{overlay} el cual simula una pantalla de carga con el mensaje \textbf{Procesando, por favor espere...}. Este \textbf{overlay} desaparece cuando se ha completado el proceso de firma/cofirma. Gracias a este overlay, se le indica de forma clara al usuario que la aplicación queda en espera durante un corto periodo de tiempo.
+
+De igual modo, cuando el paciente cofirma, recupera del servidor el PDF ya firmado, invoca \verb|AutoScript.cosign(...)| para añadir su firma, y sube el resultado para su descarga. 
+
 \chapter{Consideraciones legales}
 
 \textbf{
