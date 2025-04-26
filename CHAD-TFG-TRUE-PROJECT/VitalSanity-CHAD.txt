@@ -373,12 +373,11 @@ Las principales ventajas de aplicar el patrón \textbf{MVC} son la \textbf{reuti
     \item La clase \verb|config/CertificateAuthenticationSuccessHandler| se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \verb|/login?error=usuario_no_encontrado|. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
 \end{itemize}
 
-\subsection{Fortalezas y consideraciones de seguridad }
+\subsection{Consideraciones de seguridad}
 
 \begin{itemize}
-    \item Cabe destacar la \textbf{máxima confianza}, gracias a que la validación a nivel TLS impide el paso de clientes no autorizados. Asimismo, el filtro X.509 y el handler separan claramente la extracción de identidad, la validación en base de datos y la navegación posterior. 
+    \item Esta implementación permite: \textbf{máxima confianza}, puesto que la validación a nivel TLS impide el paso de clientes no autorizados; \textbf{Integridad del flujo }, puesto que el filtro X.509 y el handler separan claramente la extracción de identidad, la validación en base de datos y la navegación posterior; \textbf{extensibilidad}, gracias a que en \textbf{Spring Security} es sencillo añadir nuevos roles, reglas de autorización o múltiples esquemas de autenticación.
 \end{itemize}
-
 \chapter{Consideraciones legales}
 
 \textbf{
