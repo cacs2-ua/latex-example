@@ -455,7 +455,7 @@ Habiendo explicado todo lo anterior, para conseguir establecer el mecanismo de \
 
 \begin{figure}[H]
 \centering
-\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/autofirma-movil.jpg}}
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/autofirma-movil.jpg}}
 \caption{Se fuerza el uso del modo "servidor intermedio" para móviles} \label{fig:autofirma-movil}
 \end{figure}
 
@@ -466,6 +466,117 @@ Habiendo explicado todo lo anterior, para conseguir establecer el mecanismo de \
 \end{itemize}
 
 Con todo esto, se consigue que en la aplicación se pueda firmar y cofirmar documentos tanto desde un ordenador (utilizando \textbf{AutoFirma}) como desde un dispositivo móvil (utilizando \textbf{\textbf{Cliente móvil @firma }}).
+
+
+\section{Configuración de AWS}
+
+\subsection{Dependencias agregadas}
+
+Se ha agregado en el \textbf{POM} la dependencia \textit{software.amazon.awssdk:s3 } la cual habilita todo el sistema de gestión de archivos en la nube mediante Amazon S3. 
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/aws-dependencia-pom.jpg}}
+\caption{Dependencia de AWS para Spring Boot} \label{fig:aws-dependencia-pom}
+\end{figure}
+
+\subsection{Gestión de credenciales AWS }
+
+Para gestionar las credenciales de AWS de forma segura, se ha ejecutado el comando \textbf{aws configure} (la aplicación se ha desarrollado en Windows). Este comando crea un directorio oculto \textbf{.aws} en el perfil de usuario con dos archivos principales:
+
+\begin{itemize}
+    \item \textbf{credentials}: almacena el par \textbf{Access Key ID} y \textbf{Secret Access Key}.
+    \item \textbf{config}: define la región por defecto (region = \textbf{eu-south-2}) y formato de salida.
+\end{itemize}
+
+Gracias a esto, no se incrustan las credenciales en el código fuente ni en los ficheros de configuración de la aplicación, reduciendo el riesgo de exposición. 
+
+
+En el código, el SDK de AWS emplea el proveedor por defecto (\textit{DefaultCredentialsProvider}), que busca automáticamente las credenciales en este archivo oculto, o en variables de entorno.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/aws-default-credential-providers.jpg}}
+\caption{Proveedor de credenciales en el código} \label{fig:aws-default-credential-providers}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.65\paperwidth]{img/vv.png}}
+\caption{Proveedor de credenciales en el código} \label{fig:vv}
+\end{figure}
+
+Cabe destacar que, como VitalSanity es una aplicación dentro del ámbito nacional español, se ha cambiado manualmente la región por defecto del bucket de AWS de forma que ahora la región correspondiente sea \textbf{eu-south-2} (Madrid, España). 
+
+Este cambio de la región por defecto es beneficioso porque garantiza que los datos personales almacenados permanezcan físicamente dentro del territorio español, facilitando así el cumplimiento del \textbf{RGPD} y de la \textbf{LOPDGDD}  al evitar transferencias internacionales de datos que exigirían requisitos legales adicionales. Además, mejora la latencia para usuarios nacionales y refuerza la confianza en la gestión segura de información sensible. 
+
+\subsection{Subida de archivos}
+
+Se utilizan dos métodos principales de la clase \textit{S3VitalSanityService} para la subida de archivos: uno sube un archivo de tipo \textbf{MultipartFile } y otro que sube un archivo de tipo \textit{byte[]}.
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/aws-subirFicheroo-multipaart.jpg}}
+\caption{Subir fichero de tipo MultipartFile} \label{aws-subirFicheroo-multipaart:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/aws-subirFichero-Bytes.jpg}}
+\caption{Subir fichero de tipo byte[]} \label{aws-subirFichero-Bytes.jpg:vv}
+\end{figure}
+
+Los ficheros en el bucket no se almacenan con su nombre real, sino que se almacenan con un UUID aleatorio para así ocultar cualquier posible metainformación existente en el nombre real que pudiese revlar cualquier información (aunque sea mínima) a un atacante.
+
+ Se especifica \textit{ServerSideEncryption.AWS-KMS}, delegando la gestión de claves al bucket (SSE-KMS) mediante una clave \textbf{CMK} personalizada (esto se explica más adelante con más detalle)
+
+ \subsection{Generación de URLs pre-firmadas}
+
+ Cada vez que se trata de descargar cualquier docuemtno subido al bucket de aws, se genera una URL prefirmada. Esto permite descargar objetos de S3 sin exponer públicamente el bucket ni requerir credenciales \textbf{AWS}. De esta manera, la URL pública de cualquier objeto dentro del bucket permanece privada, de forma que incluso si un atacante lograse acceso a una de estas URLs y la copiase en el navegador, aún así no podría descargar el documento asociado ya que estaría protegido. Únicamente se puede acceder a los objetos del bucket  a partir de las \textbf{URLs prefirmadas}.
+
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/aws-url-prefirmadas.jpg}}
+\caption{Método para generar una URL prefirmadas} \label{aws-url-prefirmadas:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/ejemplo-bucket-inaccesible.jpg}}
+\caption{Error cuando se trata de acceder directamente a la URL pública de un documento dentro del bucket de aws} \label{ejemplo-bucket-inaccesible:vv}
+\end{figure}
+
+\newpage
+
+Por otra parte, este otro método se utiliza para obtener los bytes de un fichero a partir de su S3Key. Este método es empelado para recuperar la autorización firmada de aws en forma de array de bytes para que el paciente pueda cofirmar dicha autorización.
+ \begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625\paperwidth]{img/obtener-bytes-fichero.jpg}}
+\caption{Método usado para obtener los bytes de un fichero a partir de su S3Key} \label{obtener-bytes-fichero:vv}
+\end{figure}
+
+
+\newpage
+
+\subsection{Subida de múltiples ficheros a AWS}
+
+
+
+Para la subida de múltiples ficheros en AWS se emplea un método de controlador el cual recibe un array de \textbf{MultipartFile}. Por cada fichero se obtiene su nombre, tipo y tamaño, crea en la base de datos un registro (DocumentoData) asociado al informe; se extrae la clave S3 generada (\textbf{s3Key}) y, mediante los métodos que ya hemos visto del servicio \textbf{s3VitalSanityService}, se sube el archivo al bucket de AWS.
+
+Para que todo esto funcione correctamente, en el HTML se agrega un formulario con \textit{enctype="multipart/form-data"} el cual permite el envío de varios ficheros.
+Asimismo, se agrega un atributo \textit{accept} para restringir los tipos de los documentos que se pueden subir a \textbf{pdf, jpg, jpeg y png} .
+
+Este método se utiliza para la subida de documentos asociados a un informe médico.
+
+ \begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.625 \paperwidth]{img/aws-subir-multiples-documentos.jpg}}
+\caption{Método usado para subir múltiples ficheros a ws} \label{aws-subir-multiples-documentos:vv}
+\end{figure}
+
+
 \chapter{Consideraciones legales}
 
 \textbf{
