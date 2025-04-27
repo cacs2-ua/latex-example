@@ -470,6 +470,15 @@ Con todo esto, se consigue que en la aplicación se pueda firmar y cofirmar docu
 
 \section{Configuración de AWS}
 
+\subsection{Objetos que se almacenan en el bucket}
+En el bucket de AWS asociado a \textbf{VitalSanity} se almacenan los siguientes documentos asociados con el flujo principal de la aplicación:
+\begin{itemize}
+    \item Autorizaciones firmadas (en \textit{autorizaciones/firmadas})
+    \item     Autorizaciones cofirmadas (en \textit{autorizaciones/cofirmadas})
+    \item Informes firmados (en \textit{informes/firmados})
+    \item Documentos médicos asociados a los informes (en \textit{informes/documentos})
+\end{itemize}
+
 \subsection{Dependencias agregadas}
 
 Se ha agregado en el \textbf{POM} la dependencia \textit{software.amazon.awssdk:s3 } la cual habilita todo el sistema de gestión de archivos en la nube mediante Amazon S3. 
@@ -547,7 +556,6 @@ Los ficheros en el bucket no se almacenan con su nombre real, sino que se almace
 \caption{Error cuando se trata de acceder directamente a la URL pública de un documento dentro del bucket de aws} \label{ejemplo-bucket-inaccesible:vv}
 \end{figure}
 
-\newpage
 
 Por otra parte, este otro método se utiliza para obtener los bytes de un fichero a partir de su S3Key. Este método es empelado para recuperar la autorización firmada de aws en forma de array de bytes para que el paciente pueda cofirmar dicha autorización.
  \begin{figure}[H]
@@ -573,9 +581,104 @@ Este método se utiliza para la subida de documentos asociados a un informe méd
  \begin{figure}[H]
 \centering
 \noindent\makebox[\textwidth]{\includegraphics[width=0.625 \paperwidth]{img/aws-subir-multiples-documentos.jpg}}
-\caption{Método usado para subir múltiples ficheros a ws} \label{aws-subir-multiples-documentos:vv}
+\caption{Método usado para subir múltiples ficheros a AWS} \label{aws-subir-multiples-documentos:vv}
 \end{figure}
 
+\newpage
+
+
+\section{Configuración específica de AWS}
+
+\subsection{Principio de Mínimos Privilegios}
+
+Uno de los principales objetivos de la configuración del \textbf{bucket} de \textbf{AWS} ha sido el de cumplir con el \textbf{Principio de Mínimos Privilegios} (Conocido en inglés como \textbf{\textit{the principle of least privilege }} o \textbf{\textit{PoLP}}).
+
+Este principio consiste en otorgar a cada identidad (usuario, rol o servicio) únicamente los permisos estrictamente necesarios para realizar sus tareas, reduciendo así el riesgo de acceso no autorizado .
+
+\subsection{Privacidad del bucket}
+Otro de los principales objetivos ha sido el de proteger las URLs públicas de cada uno de los objetos del bucket de forma que dichos objetos sean accesibles mediante la generación de \textbf{URLs prefirmadas con tiempos cortos de expiración} (procedimiento ya descrito en la sección de implementación).
+
+Para ello, se ha activado dentro del bucket la opción de \textbf{\textit{Bloquear \textit{todo} el acceso público} }. De esta forma, nadie podrá acceder directamente a un objeto del bucket a través de su \textbf{URL pública}. Para acceder a estos objetos se requiere siempre de una \textbf{URL prefirmada}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/bucket-privado.jpg}
+\caption{Bloquear todo el acceso público al bucket}
+\label{bucket-privado:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/ejemplo-bucket-inaccesible.jpg}
+\caption{Error cuando se trata de acceder directamente a la URL pública de un documento dentro del bucket de aws}
+\label{ejemplo-bucket-inaccesible.jpg:vv}
+\end{figure}
+
+
+\subsection{IAM}
+
+\textbf{IAM} \textbf{(Identity and Access Management) }es el servicio de \textbf{AWS} que  permite gestionar de forma segura el acceso a los recursos de una cuenta de \textbf{AWS}. En el caso de \textbf{VitalSanity}, \textbf{IAM} se ha utilizado para configurar el acceso a los documentos del bucket. 
+
+ \begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=5cm,height=3cm,keepaspectratio]{img/IAM-logo.jpg}}
+\caption{Icono de AWS IAM} \label{IAM-logo:vv}
+\end{figure}
+
+\begin{itemize}
+    \item Por un lado, se ha creado un grupo de usuarios IAM. En AWS, un \textbf{grupo} es una colección de usuarios IAM; permite asignar permisos de forma centralizada a todos sus miembros en lugar de hacerlo usuario por usuario.\\Para la aplicación se ha creado un grupo de usuarios denominado \textbf{Desarrolladores} con permisos de lectura/escritura en buckets de desarrollo y otro grupo denominado \textbf{Administradores} el cual tendría acceso a los buckets en producción. \\Los grupos de usuarios permiten aplicar el \textbf{principio de mínimos privilegios} y segregar accesos para que los desarrolladores solo manejen entornos de pruebas mientras los administradores gestionan producción, reduciendo así riesgos y simplificando la administración de permisos y la futura puesta en producción.
+    \item Por otra parte, se ha creado un usuario IAM dentro de cada uno de los dos grupos de usuario anteriormente mencionados. Los usuarios IAM representan a entidades a las que se les conceden permisos específicos para poder ejecutar determonadas acciones.
+    \item Por último a cada uno de estos usuarios se les ha asignado políticas especifícas para concederles permisos concretos. Las políticas son documentos \textbf{JSON} de permisos incrustados directamente en la definición de un usuario concreto. Las políticas no son reutilizables por otras entidades. A cada uno de los usuarios se les ha asignado una política creada manualmente asegurando en todo momento que se cumpliese el \textbf{Principio de Mínimos Privilegios}.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/aws-politica-personalizada.jpg}
+\caption{Política Personalizada de AWS}
+\label{aws-politica-personalizada:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/aws-json-politica-personalizada.jpg}
+\caption{JSON de Política Personalizada de AWS}
+\label{aws-json-politica-personalizada:vv}
+\end{figure}
+\newpage
+
+\subsection{Claves personalizadas CMKs}
+Las claves \textbf{CMKs} (Customer-Managed Keys) son claves maestras creadas y administradas por el propietario del bucket. Estas claves permiten una gran personalización gracias a su manejo en AWS Key Management Service: permiten cifrar y descifrar datos con control detallado sobre rotación, acceso y auditoría. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.25\textwidth, height=0.25\textheight, keepaspectratio]{img/AWS-KMS-Logo.jpg}
+\caption{Icono de AWS KMS}
+\label{AWS-KMS-Logo.jpg:vv}
+\end{figure}
+Al establecer en el bucket estas claves personalizadas \textbf{CMK}, se logra conseguir un mayor control y personalización tanto de las autorizaciones como de los documentos e informes médicos, lo que permite obtener una seguridad mucho más robusta.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/clave-cmk-personalizada.jpg}
+\caption{Clave CMK personalizada}
+\label{clave-cmk-personalizada:vv}
+\end{figure}
+
+\newpage
+
+\subsection{Región del bucket}
+Como ya se ha mencionado con anterioridad, se ha cambiado la región por defecto del bucket para que la región del bucket sea \textbf{eu-south-2 } (Madrid, España, dado que la VitalSanity se sitúa dentro del ámbito nacional español). 
+
+Como ya se había comentado, con esto se consigue garantizar que los datos personales almacenados permanezcan físicamente dentro del territorio español, facilitando así el cumplimiento del \textbf{RGPD} y de la \textbf{LOPDGDD}  al evitar transferencias internacionales de datos que exigirían requisitos legales adicionales. Además, también se mejora la latencia para usuarios nacionales a la par que se refuerza la confianza en la gestión segura de información sensible. 
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/aws-region-y-arn-bucket.jpg}
+\caption{Región y ARN del bucket}
+\label{aws-region-y-arn-bucket:vv}
+\end{figure}
 
 \chapter{Consideraciones legales}
 
@@ -603,6 +706,8 @@ En línea con este mandato, VitalSanity debe asegurarse de obtener un consentimi
 Este consentimiento puede materializarse de forma digital: la aplicación debería integrar mecanismos de firma electrónica para que el paciente firme los documentos de consentimiento de manera \textbf{segura y legalmente válida}. En particular, el uso de la herramienta oficial \textbf{AutoFirma} (y su cliente móvil @firma) permitiría recabar la firma electrónica avanzada o cualificada del paciente, de conformidad con el Reglamento eIDAS, otorgándole a ese consentimiento digital la misma validez jurídica que tendría en papel.
 
 De esta forma, se garantiza la autenticidad del consentimiento y se respeta plenamente la autonomía del paciente, dado que ningún profesional ajeno a su atención podrá acceder a sus datos de salud sin la debida autorización del propio paciente.
+
+
 
 \textbf{
 \section{Historia clínica (gestión, acceso y custodia)}
