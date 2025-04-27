@@ -13,6 +13,8 @@
 \usepackage[spanish]{babel}
 \usepackage{mathpazo}
 \usepackage{graphicx}
+\usepackage{caption}
+\captionsetup[figure]{skip=10pt, labelfont=bf}
 \usepackage[utf8]{inputenc} % Para poner acentos y eñes directamente.
 \usepackage{pdfpages}
 \usepackage{listings}
@@ -411,6 +413,59 @@ Por último, cabe destacar que cada vez que se inicia AutoFirma (o su versión p
 
 De igual modo, cuando el paciente cofirma, recupera del servidor el PDF ya firmado, invoca \verb|AutoScript.cosign(...)| para añadir su firma, y sube el resultado para su descarga. 
 
+\newpage
+
+\subsection{\textbf{Cliente móvil @firma } }
+
+
+Para conseguir que las funcionalidades de firma y cofirma sigan funcionando en dispositivos móviles, ha sido necesario realizar una serie de cambios \textbf{importantes} y \textbf{no triviales}.
+
+En primer lugar, se ha sustituido el canal de comunicación por sockets (el modo por defecto de AutoFirma) por el mecanismo de "servidor intermedio".
+
+Como se explica en el \textbf{Manual Integrador de AutoFirma}, en un ordenador el JavaScript \textit{autoscript.js} puede abrir un \textit{socket} local  y comunicarse directamente con la aplicación nativa \textbf{AutoFirma} que está escuchando en ese puerto. Este canal bidireccional es rápido y no atraviesa la red, por lo que en en un ordenador resulta la opción más conveniente. 
+
+No obstante, en dispositivos móviles, esta técnica deja de funcionar debido a dos motivos principales:
+
+\begin{itemize}
+    \item \textbf{Restricciones de los navegadores y del propio sistema operativo:} Ni Android ni iOS permiten que una página web abra un puerto de escucha local ni que una app nativa exponga un \textit{socket} accesible desde el navegador. El único puente soportado es lanzar la app nativa mediante un esquema de URL (\verb|afirma://…|) y, después, volver al navegador a través de una navegación HTTP/S. 
+    \item \textbf{Carencia de la JVM y de la librería de sockets en las versiones móviles del cliente :} Los clientes móviles de @firma no incluyen un servicio que permanezca escuchando; se abren “puntualmente” cuando el navegador invoca el esquema \textit{afirma://}. 
+\end{itemize}
+
+Por todo esto, cuando el usuario firma desde \textbf{Android} o \textbf{iOS}, el flujo debe cambiar al mecanismo llamado “\textbf{servidor intermedio}”: 
+
+
+\begin{itemize}
+    \item El JavaScript envía los datos a firmar al \textbf{StorageService} del servidor.
+    \item La app móvil recupera esos datos, genera la firma y sube el resultado al mismo servidor.
+    \item Finalmente, la página web los recoge a través del \textbf{RetrieveService}.
+\end{itemize}
+
+
+El propio \textbf{manual integrador} lo resume de esta manera en la \textbf{sección 5.3.1}:
+
+“\textit{Los servicios de almacenamiento y recuperación en servidor son necesarios … Cuando el usuario utilice un dispositivo móvil y los clientes móviles Android o iOS}.” 
+
+
+Habiendo explicado todo lo anterior, para conseguir establecer el mecanismo de \textbf{servidor intermedio} para las operaciones de firma cuando se esté empleando un dispositivo móvil, hay que realizar los siguientes cambios:
+
+\begin{itemize}
+    \item Se agrega en \textit{signer-invoke.js} el siguiente fragmento de código encargado de forzar a utilizar el modo de \textbf{servidor intermedio} cuando se está utilizando un dispositivo móvil. Además, este fragmento de código también se encarga de configurar las URLs de los servicios necesarios: \textbf{StorageService} para almacenar los datos que se van a firmar y \textbf{RetrieveService } para recuperar los datos una vez firmados.
+\end{itemize}
+
+
+\begin{figure}[H]
+\centering
+\noindent\makebox[\textwidth]{\includegraphics[width=0.75\paperwidth]{img/autofirma-movil.jpg}}
+\caption{Se fuerza el uso del modo "servidor intermedio" para móviles} \label{fig:autofirma-movil}
+\end{figure}
+
+\begin{itemize}
+    \item Se despliega un Tomcat externo protegido con TLS el cual se encarga de desplegar los \textbf{WAR} \textit{afirma-signature-storage.war } y \textit{afirma-signature-retriever.war } que implementan los servlets \textit{StorageService} y \textit{RetrieveService} responsables de almacenar y devolver temporalmente los datos firmado.
+    \item Para garantizar que las peticiones se cursen siempre dentro del mismo dominio de la aplicación \textbf{VitalSanity} –condición necesaria para evitar bloqueos de tipo XSS/CORS– se ha colocado por delante un \textit{\textbf{Nginx}} para actuar como un \textit{\textbf{proxy inverso}} que expone el puerto 443 y redirige selectivamente las rutas \textit{/vital-sanity/afirma-signature-storage/}, \textit{/…-retriever/} y \textit{/…-triphase-signer/} hacia \textbf{Tomcat}, reenviando el resto del tráfico de la aplicación Spring Boot al puerto 8058; 
+    \item Este \textit{\textbf{reverse proxy}} unifica URL y política de seguridad, y añade la directiva CSP que permite el esquema \textbf{\textit{afirma://*}}, requisito necesario de los \textbf{navegadores móviles }.
+\end{itemize}
+
+Con todo esto, se consigue que en la aplicación se pueda firmar y cofirmar documentos tanto desde un ordenador (utilizando \textbf{AutoFirma}) como desde un dispositivo móvil (utilizando \textbf{\textbf{Cliente móvil @firma }}).
 \chapter{Consideraciones legales}
 
 \textbf{
