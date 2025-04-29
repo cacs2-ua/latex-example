@@ -851,20 +851,91 @@ Mediante CMD \textit{["java", "-jar", "app.jar", "--spring.profiles.active=docke
 
  Sin duda, \textbf{Docker Compose} es una de las herramientas que más dolores de cabeza nos ahorra a cualquier desarrollador.
 
- \begin{figure}[H]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/application-docker-properties.png}
 \caption{Archivo de configuración \textit{application-docker.properties}}
 \label{application-docker-properties.png:vv}
 \end{figure}
 
+\newpage
+
+\section{Mailtrap}
+
+Dentro del desarrollo de \textbf{VitalSanity}, se ha empelado el “\textbf{sandbox}” de \textbf{Mailtrap} como servidor \textbf{SMTP} de pruebas, lo cual permite interceptar y visualizar de forma segura los correos generados por la aplicación sin enviarlos a destinatarios reales. 
+
+Para ello, en el fichero de configuración \textit{application.properties} se definen las propiedades específicas de \textbf{Mailtrap}: \\\textit{spring.mail.host=sandbox.smtp.mailtrap.io}, \textit{spring.mail.port=2525}, \textit{spring.mail.username} y \textit{spring.mail.password} con las credenciales proporcionadas por \textbf{Mailtrap}, además de habilitar el protocolo \textbf{SMTP} y \textbf{STARTTLS} \\(\textit{spring.mail.properties.mail.smtp.auth=true} y \textit{\\spring.mail.properties.mail.smtp.starttls.enable=true}) para garantizar una comunicación cifrada.
+
+
+
+En el \textbf{pom.xml} se incluye la dependencia \textit{spring-boot-starter-mail}, que integra automáticamente el bean \textbf{JavaMailSender} y el soporte para \textbf{SimpleMailMessage}, lo que permite construir y enviar mensajes sencillos de \textbf{manera programática}.
+
+En la clase de servicio \textbf{EmailService}, se inyecta \textbf{JavaMailSender} mediante \textbf{@Autowired} y se implementa un método unificado \textit{send(String to, String subject, String text) }que crea un objeto \textbf{SimpleMailMessage}, establece el remitente fijo \\\textbf{(“vital@sanity.es”)}, el destinatario, el asunto y el contenido del mensaje, y lo envía invocando \textit{mailSender.send(message)}.
+
+Asimismo, para evitar bloqueos en el hilo principal de la aplicación, la invocación a \textit{emailService.send(...)} se realiza dentro de un \textbf{nuevo hilo} \textit{(new Thread(() -> { ... }).start();)}, asegurando así operaciones de envío \textbf{no bloqueantes}. Este aspecto es de \textbf{vital importancia}, puesto que aumenta el rendimiento de forma muy significativa en funcionalidades \textbf{críticas} tales como el \textbf{registro de profesionales médicos} a partir de un \textbf{fichero CSV} o todas aquellas operaciones que involucran \textbf{el flujo de firma} mediante \textbf{AutoFirma} o \textbf{Cliente móvil @firma}.
+
+\textbf{Mailtrap} ha representado un bloque funcional \textbf{muy importante} ya que es ampliamente utilizado en un gran número de funcionalidades de la aplicación, en particular se usa para:
+
+\begin{itemize}
+    \item Enviar correo de información al paciente cuando un profesional médico le ha solicitado autorización de acceso a su historial.
+    \item Enviar correo de información al profesional médico cuando un paciente ha aceptado la solicitud de autorización.
+    \item Enviar correo de información al profesional médico cuando un paciente ha denegado la solicitud de autorización.
+    \item Enviar correo de información al profesional médico cuando un paciente ha desautorizado el acceso a su historial médico.
+    \item Enviar correo con la clave de acceso cuando un administrador registra a un centro médico.
+    \item Cuando un centro médico registra a profesionales médicos a partir de un fichero \textbf{CSV}, enviar correos con las claves de acceso a cada uno de los profesionales médicos registrados.
+    \item Cuando un paciente se registra, enviarle correo con el código de confirmación.
+\end{itemize}
+Por último, cabe destacar que aunque \textbf{Mailtrap} es una opción \textbf{excelente} y muy \textbf{intuitiva} de utilizar en \textbf{desarrollo}, para\textbf{ entornos de producción} resultaría más conveniente utilizar algún \textbf{proveedor de correo transacciona}l con características y garantías específicas como por ejemplo \textbf{Amazon SES}, \textbf{SendGrid}, \textbf{Mailgun}, \textbf{SparkPost}, \textbf{Postmark}, entre otros.
+
+
+Para la utilización de \textbf{Mailtrap} en el proyecto se ha incluido la siguiente dependencia en el \textbf{pom.xml}:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/mailtrap-pom-dependency.png}
+\caption{Archivo de configuración \textit{Dependencia de Mailtrap en el pom.xml}}
+\label{mailtrap-pom-dependency:vv}
+\end{figure}
+
+\newpage
+
+\section{Registro de usuarios}
+
+\subsection{Registro de centros médicos}
+
+Los \textbf{administradores} (los cuales ya vienen preregistrados en la aplicación) se encargan de registrar a los \textbf{centros médicos} a partir de un sencillo formulario. 
+
+Cada vez que se registra un nuevo \textbf{centro médico}, se le envía al email de dicho \textbf{centro médico} una \textbf{clave de acceso aleatoria} compuesta por doce caracteres. 
+
+Con dicha clave de acceso, el \textbf{centro médico }podrá iniciar sesión la primera vez. No obstante, la primera vez que haya iniciado sesión, se le forzará al \textbf{centro médico} a cambiar la contraseña por una propia. El \textbf{centro médico} no podrá realizar \textbf{ninguna otra acción} dentro de la aplicación hasta que no haya cambiado su contraseña. Se \textbf{obliga} que la contraseña introducida sea de al menos ocho caracteres.
+
+Con esta \textbf{medida} nos aseguramos de que no ocurra n\textbf{ingún riesgo} incluso si se \textbf{intercepta} la \textbf{primera} clave de acceso durante la \textbf{transmisión} del mail.
+
+\subsection{Registro de profesionales médicos}
+
+Los \textbf{centros médicos} son los encargados de registrar sus \textbf{profesionales médicos}. Para ello, el centro médico introduce un \textbf{fichero CSV} con todos los datos de todos los \textbf{profesionales médicos} que se quiere registrar.
+
+Para cada \textbf{profesional médico}, primero se comprueba si dicho \textbf{profesional médico} ya estaba registrado en la base de datos para así evitar problemas de \textbf{integridad referencial}. 
+
+Para todos aquellos \textbf{profesionales médicos} nuevos se les envía una clave de acceso. El funcionamiento de la lógica asociada a esta \textbf{clave de acceso} es \textbf{análogo} al \textbf{ya descrito} para el registro de centros médicos.
+
+El poder registrar los profesionales médicos \textbf{a partir de un fichero CSV} es un aspecto de \textbf{gran importancia} ya que en la vida real cada centro médico está compuesto por \textbf{varios miles de profesionales médicos},  y gracias a esta funcionalidad cada centro puede registrar este elevado número de profesionales médicos de golpe, tardando \textbf{menos de un segundo} esta operación en completarse.
+
+\subsection{Registro de pacientes}
+
+Los \textbf{pacientes} se registran directamente desde la aplicación a través de un \textbf{sencillo formulario}. Ellos mismos introducen su \textbf{propia contraseña}. Se \textbf{obliga} a \textbf{los pacientes }que la \textbf{contraseña} introducida sea de al menos ocho caracteres.
+
+Cuando un \textbf{paciente} termina de rellenar todos los datos del formulario, se le envía un \textbf{correo} con un \textbf{código de confirmación} conformado por \textbf{seis dígitos}. El \textbf{paciente} debe de introducir en la aplicación dicho \textbf{código de confirmación} para poder \textbf{finalizar} su \textbf{registro}.
+
+Una vez introducido el \textbf{código de confirmación}, se le pedirá al \textbf{paciente} que complete de forma opcional sus \textbf{datos de residencia}. De esta forma, se distribuye la \textbf{carga manual} que tiene que realizar el \textbf{paciente} para \textbf{teminar de registrarse} (esquema \textbf{lazy registration}).
 \chapter{Consideraciones legales}
 
 \textbf{
 \section{Cumplimiento de protección de datos}
 }
 
-La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la normativa de protección de datos, en especial al RGPD (Reglamento UE 2016/679) y a la LOPDGDD (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una base jurídica adecuada y garantías elevadas de seguridad. 
+La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la normativa de protección de datos, en especial al RGPD (Reglamento UE 2016/679) y a la LOPDGDD (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una base jurídica adecuada y garantías elevadas de seguridad.
+
 
 En este sentido, se debe respetar el derecho a la \textbf{confidencialidad} de la información médica de cada paciente: la Ley de Autonomía del Paciente (Ley 41/2002) establece que nadie puede acceder a datos sanitarios sin la debida legitimación o autorización previa del afectado. VitalSanity debe aplicar el principio de \textit{privacidad desde el diseño}, implementando medidas técnicas y organizativas robustas (control de accesos, cifrado, seudonimización, etc.) para asegurar la \textbf{integridad} y \textbf{confidencialidad} de la información. 
 
