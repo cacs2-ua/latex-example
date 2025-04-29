@@ -19,7 +19,12 @@
 \usepackage{pdfpages}
 \usepackage{listings}
 \usepackage[T1]{fontenc}
-\usepackage{hyperref}
+
+\usepackage[colorlinks=true,
+            linkcolor=black,
+            citecolor=black,
+            urlcolor=black]{hyperref}
+
 \usepackage{algorithm2e}
 \usepackage{float} 
 
