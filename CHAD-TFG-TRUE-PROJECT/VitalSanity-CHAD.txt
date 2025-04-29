@@ -98,6 +98,25 @@ A mis compañeros y profesores del grado, con los que he compartido muy buenos m
 \null
 \clearpage                % pasa a la siguiente página «normal»
 
+\chapter{Resumen}
+
+Este trabajo de fin grado implica el desarrollo de una aplicación web llamada \textbf{VitalSanity} cuyo principal objetivo es el de agilizar las \textbf{tramitaciones administrativas rudimentarias} que suelen existir a la hora del tratamiento de la \textbf{información médica de los pacientes} dentro del \textbf{ámbito nacional sanitario español}.
+
+Con \textbf{VitalSanity} se busca establecer un \textbf{historial médico centralizado} para cada paciente, de forma que cualquier profesional médico \textbf{autorizado} pueda acceder a cualquier información del historial, independientmente del centro médico en el que opere el profesional e independientemente de si el profesional médico trabaja en sanidad \textbf{pública} o en sanidad \textbf{privada}.
+
+Para el proceso de autorización se hará uso de la aplicación \textbf{AutoFirma} y de su versión móvil \textbf{Cliente móvil @firma}. Mediante estas herramientas, tanto el profesional médico como el paciente podrán firmar digitalmente autorizaciones con plena \textbf{validez legal} y que garanticen la \textbf{integridad}, la \textbf{autenticidad} y el \textbf{no repudio.} Del mismo modo, también se utilizarán \textbf{AutoFirma} y \textbf{Cliente móvil @firma} para firmar digitalmente los informes agregados por un profesional médico.
+
+Del mismo modo, se incluirán otras medidas como la \textbf{autenticación con certificado digital} o el uso de \textbf{buckets protegidos y privados de AWS} para almacenar todas las autorizaciones y toda la información médica cifrada de forma segura.
+
+Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{seguridad} como a nivel \textbf{legal}, el cual permita cumplir con todo lo referente en \textbf{materia de protección de datos}, tanto con lo establecido en la \textbf{Ley Orgánica de Protección de Datos (LOPDGDD)} de \textbf{España}  como con lo establecido en el \textbf{Reglamento General de Protección de Datos (RGPD)} de la \textbf{Unión Europea}.  
+
+
+
+\clearpage                % cierra Agradecimientos
+\thispagestyle{empty}     % la página que viene irá SIN cabecera ni pie
+\null
+\clearpage                % pasa a la siguiente página «normal»
+
 
 \chapter*{}
 \begin{flushright}
