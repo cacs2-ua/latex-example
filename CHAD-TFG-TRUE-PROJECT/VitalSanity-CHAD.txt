@@ -794,6 +794,70 @@ Como ya se había comentado, con esto se consigue garantizar que los datos perso
 \label{aws-region-y-arn-bucket:vv}
 \end{figure}
 
+
+\section{Base de datos dockerizada}
+
+Durante todo el desarrollo de la aplicación se ha empleado una base de datos \textbf{dockerizada} de \textbf{PostgreSQL}. Esta se articula en primer lugar mediante el despliegue de un contenedor Docker dedicado, configurado con variables de entorno \textit{(\textit{POSTGRES\_USER, POSTGRES\_PASSWORD, POSTGRES\_DB})} y mapeo de puertos \textbf{(-p 5058:5432)}, lo cual garantiza un entorno aislado, reproducible y alineado con las dependencias de producción. 
+
+Para poder utilizar esta base de datos \textbf{dockerizada}, se ha creado un perfil de Springboot denominado \textit{"postgres"}, el cual se activa mediante \\\textit{spring.profiles.active=postgres} en el fichero de configuración \textit{application.properties}.
+
+Para el manejo del perfil de \textbf{Postgres} se ha creado un fichero llamado \textit{application-postgres.properties}.
+
+Todo esto permite conmutar \textbf{dinámicamente} la configuración de la capa de \textbf{persistencia}: se redefinen \textbf{la URL de conexión}, las credenciales de acceso y el dialecto de \textbf{Hibernate} (\textbf{PostgreSQLDialect}), asegurando que el ciclo de vida de la base de datos concuerde con el esquema y las prácticas de producción.
+
+Esta separación de perfiles no solo favorece la claridad y mantenibilidad del proyecto (pues aísla la configuración de \textbf{desarrollo (H2 en memoria) de la de integración (PostgreSQL)}), sino que también refuerza la \textbf{portabilidad} y la \textbf{escalabilidad}, al permitir que equipos multidisciplinares reproduzcan con facilidad el entorno real sin \textbf{“ruido”} de \textbf{configuración local} (evitando de esta manera problemas clásicos del estilo "\textbf{en \textbf{mi ordenador} sí que funcionaba}").
+
+Asimismo, en el archivo de configuración \textit{application.properties} se establece la propiedad \textit{spring.jpa.hibernate.ddl-auto=update} , gracias a la cual se le indica a \textbf{Hibernate} que, al arrancar la aplicación, compare las \textbf{entidades JPA} con el esquema de la base de datos y aplique automáticamente las modificaciones necesarias para mantenerlos sincronizados. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/application-postgres-properties.png}
+\caption{Archivo de configuración \textit{application-postgres.properties}}
+\label{application-postgres-properties:vv}
+\end{figure}
+
+Por último, mencionar que todo esto se ha replicado de forma análoga para la ejecución de tests (se ha creado tanto un fichero \textit{application.properties.java} como un fichero \textit{application-postgres.properties.java}  independientes) para poder ejecutar los tests de forma \textbf{aislada} y sobre una \textbf{base de datos separada} de la \textbf{base de datos de desarrollo}. Mencionar que, aunque en la aplicación solo se haya incluido un único test de prueba, esta medida sería de gran utilidad si en el futuro se plantease agregar un elevado número de tests para la aplicación. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/application-postgres-tests-properties.png}
+\caption{Archivo de configuración \textit{application-postgres.properties}}
+\label{application-postgres-tests-properties:vv}
+\end{figure}
+
+
+\section{Docker Compose}
+
+\textbf{Docker Compose} actúa como un orquestador que permite levantar todo el proyecto mediante un único y sencillo comando:  \textbf{docker-compse up}. Gracias a esto se dota a la aplicación de \textbf{portabilidad} y evitan problemas de configuración \textbf{local} (evitando de esta manera problemas clásicos del estilo \textit{'en mi ordenador sí que funcionaba'}).
+
+Cuando se invoca el comando \textbf{docker-compse up}, \textbf{Compose} primero procesa el servicio \textbf{app}, el cual utiliza un \textbf{Dockerfile} de dos etapas: en la fase \textbf{builder}, un contenedor \textbf{Maven} (imagen maven:3.9.9-eclipse-temurin-21) se sitúa en \textbf{/app}, copia el \textbf{pom.xml }y \textbf{el código fuente}, y ejecuta \textbf{mvn clean package -DskipTests} para generar el \textbf{JAR final}; en la fase runtime, la imagen \textbf{eclipse-temurin:21-jdk-alpine} crea un usuario no privilegiado (\textbf{appuser}), copia el artefacto \textit{/app/target/*.jar }a \textit{/app/app.jar} y expone el puerto \textbf{8058}.
+
+Mediante CMD \textit{["java", "-jar", "app.jar", "--spring.profiles.active=docker"]}, \textbf{Compose} arranca la aplicación con el perfil “\textbf{docker}”. 
+
+ La configuración del perfil (“application-docker.properties”) inyecta variables de entorno (\texttt{POSTGRES\_HOST=db, DB\_USER=vital, DB\_PASSWD=vital})
+ que redefinen la conexión \textbf{JDBC} a PostgreSQL. A su vez, el servicio \textit{db} levanta la imagen oficial \textbf{postgres:15}, expone internamente el puerto 5432 (mapeándolo al 5058 del \textbf{host}), establece \textbf{credenciales}, y utiliza un \textbf{volumen} \textbf{Docker (db-data)} para \textbf{persistir} los datos en \textit{/var/lib/postgresql/data.}
+
+ Establecer un \textbf{volumen de docker} es de \textbf{vital importancia} ya que garantiza  la persistencia y aislamiento de los datos más allá del ciclo de vida del contenedor, facilitando además su respaldo y migración.
+
+ Por otra parte, \textbf{Compose} monta un \textbf{script de inicialización SQL} en \textit{/docker-entrypoint-initdb.d/}, lo que permite poblar \textbf{la bd con datos de desarrollo} en cuanto el contenedor arranca. Antes de ejecutar el script, \textbf{Compose} comprueba si la base de datos ya estaba poblada de antes.
+
+ Ambos servicios se unen a la red personalizada \textit{app\_network} \textbf{(driver bridge)}, garantizando \textbf{aislamiento de red} y \textbf{comunicación directa por nombre de servicio}, mientras que la directiva \textit{depends\_on} asegura el siguiente orden de arranque: \textbf{primero db, luego app}.
+
+ \newpage
+
+ Gracias al establecimiento de \textbf{Docker Compose} se logra \textbf{reproducibilidad absoluta del entorno}, \textbf{versionado de la infraestructura junto al código}, \textbf{consistencia entre equipos y entornos}, \textbf{escalabilidad}, \textbf{aislamiento de dependencias} y \textbf{reducción drástica de la complejidad en la instalación manual de bases de datos}, \textbf{variables de entorno y configuraciones específicas}.
+
+ Basta con ejecutar el comando \textbf{docker-compose down} para desmontar todo sin dejar residuos en el host, lo que facilita las pruebas, el despliegue continuo y el paso de desarrollo a producción con los mínimos cambios posibles.
+
+ Sin duda, \textbf{Docker Compose} es una de las herramientas que más dolores de cabeza nos ahorra a cualquier desarrollador.
+
+ \begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/application-docker-properties.png}
+\caption{Archivo de configuración \textit{application-docker.properties}}
+\label{application-docker-properties.png:vv}
+\end{figure}
+
 \chapter{Consideraciones legales}
 
 \textbf{
