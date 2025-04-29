@@ -88,7 +88,6 @@
 \pagenumbering{arabic}    % ← usa números “normales”
 \setcounter{page}{1}      % ← (opcional) empieza en la 1
 
-\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
 \thispagestyle{empty} % para que no se numere esta pagina
 
@@ -103,7 +102,7 @@ A mis compañeros y profesores del grado, con los que he compartido muy buenos m
 \null
 \clearpage                % pasa a la siguiente página «normal»
 
-\chapter{Resumen}
+\chapter*{Resumen}
 
 Este trabajo de fin grado implica el desarrollo de una aplicación web llamada \textbf{VitalSanity} cuyo principal objetivo es el de agilizar las \textbf{tramitaciones administrativas rudimentarias} que suelen existir a la hora del tratamiento de la \textbf{información médica de los pacientes} dentro del \textbf{ámbito nacional sanitario español}.
 
@@ -141,7 +140,6 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 \tableofcontents % indice de contenidos
 
 \cleardoublepage
-\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
 \listoffigures % indice de figuras
 
 
@@ -149,6 +147,98 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 \thispagestyle{empty}    
 \null
 \clearpage  
+
+\chapter{Introducción}
+
+\section{Contextualización}
+
+En la actualidad, existe un \textbf{elevado} número de centros médicos que siguen empleando un sistema rudimentario a la hora de tratar con los informes y documentos médicos de sus pacientes. 
+
+Por culpa de este sistema arcaico, los pacientes tienden a encontrarse con graves problemas a la hora de realizar trámites aparentemente sencillos, como lo puede ser el hecho de transmitir \textbf{información} desde un centro médico a otro, acción que esconde un sinfín de elementos burocráticos y papeleo innecesario. 
+
+Toda la complejidad de estas tramitaciones administrativas terminan por sobrepasar la paciencia de los pacientes, perjudicando gravemente a la experiencia y al grado de satisfacción de los mismos.
+
+
+\section{Justificación del proyecto}
+
+VitalSanity surge como idea innovadora para poder solucionar toda esta situación de descoordinación administrativa dentro del \textbf{ámbito nacional sanitario español.}
+
+La premisa principal es la siguiente: \textbf{ofrecer a los pacientes la posibilidad de autorizar y desautorizar el acceso a su historial clínico centralizado mediante un sistema que resulto sencillo, eficaz y confiable.} 
+
+\section{Sistema de autorización}
+Cuando un paciente \textbf{autorice} a un profesional médico, dicho profesional médico tendrá acceso a todo el historial médico del paciente, pudiendo de esta manera visualizar informes y documentos agregados por otros profesionales médicos, así como agregar nuevos informes y documentos médicos propios dentro del historial. 
+
+Con este sistema se logra otorgar una experiencia \textbf{satisfactoria} tanto a los pacientes como a los centros y profesionales médicos, experiencia que consigue agilizar de forma precisa el desorden sistémico presente en los procesos administrativos actuales dentro del ámbito sanitario español.
+
+\section{Introducción a los aspectos legales}
+
+
+Durante todo momento, la aplicación será desarrollada teniendo en mente como requisito imprescindible la \textbf{protección} y \textbf{seguridad} de todos los datos sensibles tanto de pacientes como de profesionales y centros médicos en \textbf{materia de protección de datos. }
+
+De este modo, se buscará en todo momento cumplir de forma precisa con todo lo establecido en la \textbf{Ley Orgánica de Protección de Datos (LOPDGDD}) en España y con el \textbf{Reglamento General de Protección de Datos (RGPD)}, según lo impuesto en la última actualización de dicha ley dentro del \textbf{BOE}, actualización que se realizó el 9 de mayo de 2023.
+
+
+Por todo esto, se busca una manera de implementar el sistema de autorizaciones de forma robusta al mismo tiempo que se pretende cumplir con todo lo establecido dentro de La \textbf{Ley Orgánica de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)} y con el \textbf{Reglamento General de Protección de Datos (RGPD)}. 
+
+Para ello, se integrará dentro de \textbf{VitalSanity} la aplicación de \textbf{AutoFirma} y la aplicación de \textbf{Cliente móvil @firma }(la versión \textbf{móvil} de \textbf{AutoFirma}). 
+
+\section{AutoFirma y Cliente móvil @firma}
+Tanto \textbf{AutoFirma} como \textbf{Cliente móvil @firma} son ambas aplicaciones oficiales desarrolladas por el \textbf{Gobierno de España}, específicamente por el \textbf{Ministerio para la Transformación Digital y de la Función Pública}. Su objetivo principal es facilitar la firma electrónica de documentos y la realización de trámites en línea con las \textbf{Administraciones Públicas}.
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/autofirma-logo.jpg}
+\caption{Logo oficial de AutoFirma}
+\label{autofirma-logo:vv}
+\end{figure}
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.25\textwidth, height=0.25\textheight, keepaspectratio]{img/Cliente Movil @firma-logo.jpg}
+\caption{Logo oficial de Cliente móvil @firma}
+\label{Cliente Movil @firma-logo:vv}
+\end{figure}
+
+Ambas aplicaciones cumplen de forma intrínseca con la \textbf{Ley Orgánica de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)} y con el \textbf{Reglamento General de Protección de Datos (RGPD)}. 
+
+Al tratarse de herramientas oficiales desarrolladas por el \textbf{Gobierno de España}, ambas aplicaciones están diseñadas para garantizar la seguridad y confidencialidad en el tratamiento de datos personales durante los procesos de firma electrónica. Este es el requisito fundamental y diferenciador por el cual se escoge \textbf{AutoFirma} y \textbf{Cliente móvil @firma }en lugar de implementar un sistema de firma personalizado, puesto que a dicho sistema de firma personalizado prácticamente se le imposibilitaría el cumplir de forma simultánea con la \textbf{LOPDGDD} como con la \textbf{RGPD} al no estar registrado bajo un \textbf{órgano} \textbf{oficial} del \textbf{Gobierno de España}.
+
+De esta manera, tanto \textbf{AutoFirma} como \textbf{Cliente móvil @firma }serán utilizadas para firmar digitalmente los documentos PDF representativos de las autorizaciones para el acceso al \textbf{historial clínico centralizado} del paciente. En dichas autorizaciones entrarán en juego dos firmas digitales: la firma del \textbf{profesional médico} y la firma del \textbf{paciente} (\textbf{cofirma}), de forma que al final se obtendrá un \textbf{PDF} con \textbf{dos firmas diferentes}. 
+
+Estas firmas digitales gozan plena \textbf{validez legal} y además  confieren a los \textbf{documentos firmados} un \textbf{elevado nivel de protección} puesto que aseguran en todo momento: 
+
+\begin{itemize}
+    \item \textbf{La} \textbf{integridad}, porque cualquier alteración posterior invalida la firma digital.
+    \item \textbf{La} \textbf{autenticidad}, porque se vincula \textbf{criptográficamente} la identidad de los firmantes al documento.
+    \item \textbf{El} \textbf{no repudio}, ya que los \textbf{firmantes} no pueden negar la \textbf{autoría} de la firma.
+\end{itemize}
+
+
+
+Del mismo modo, también se emplearán \textbf{AutoFirma} y \textbf{Cliente móvil @firma }para firmar digitalmente cada uno de los \textbf{informes médicos} subidos por \textbf{los profesionales sanitarios.}
+
+\newpage
+
+\section{Otros aspectos de seguridad}
+
+Por otra parte, también se hará uso de otros mecanismos diferentes para robustecer aún más la \textbf{seguridad} dentro del sistema y la \textbf{integridad} de los datos: \textbf{método de autenticación con certificado digital}, uso de buckets protegidos de \textbf{AWS} mediante \textbf{URLs} \textbf{prefirmadas} para almacenar las \textbf{autorizaciones} y \textbf{los informes médicos}; gestor de claves personalizado \textbf{KMS}, entre otros aspectos.
+
+Para desarrollar la aplicación se hará uso del \textbf{framework} de \textbf{backend} \textbf{Spring Boot}, aprovechando las \textbf{potentes} herramientas de \textbf{seguridad} que ofrece este \textbf{framework} gracias a \textbf{Spring Security} y a su integración nativa con \textbf{X.509}, estándar en base al cual se generan \textbf{todos los certificados electrónico}s en \textbf{España}.
+
+
+\section{Objetivo principal}
+
+En síntesis, el objetivo \textbf{principal} que pretende \textbf{VitalSanity} es el de desarrollar una aplicación web que permita agilizar los trámites burocráticos y rudimentarios, empleando un \textbf{sistema de autorización} de acceso al historial clíncio centralizado de los pacientes el cual haga uso de la herramienta \textbf{AutoFirma} y \textbf{Cliente móvil @firma }para garantizar la \textbf{seguridad} y la \textbf{confidencialidad} en el tratamiento de \textbf{datos personales}, cumpliendo con todo lo establecido por la \textbf{Ley Orgánica de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD) }y con el \textbf{Reglamento General de Protección de Datos (RGPD).}
+
+ Por último, cabe destacar que con el objetivo de garantizar el pleno cumplimiento tanto de la \textbf{LOPDGDD como de la RGPD }y dado a que \textbf{AutoFirma} y su versión para \textbf{móviles} son aplicaciones desarrolladas por el \textbf{Gobierno de España}, \textbf{VitalSanity} se limitará en un primer momento a ser una aplicación dentro del \textbf{ámbito nacional español}. Con esto se logra simplificar y garantizar de una forma más segura el cumplimiento de todas las \textbf{normativas legales vigentes} en la actualidad en \textbf{materia de protección de datos.}
+
+ No obstante, esto no descarta en ningún momento la posibilidad de que \textbf{VitalSanity} pueda expandirse en un futuro al \textbf{ámbito internacional.}
+
+ 
 
 \chapter{Estado del arte}
 \section{Productos similares actualmente en el mercado}
