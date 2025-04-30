@@ -310,10 +310,94 @@ Por todo lo ya mencionado, VitalSanity se alinea con la dirección en la que evo
 El éxito de VitalSanity depende de su capacidad para igualar y superar los estándares ya marcados por iniciativas públicas y privadas (en términos de seguridad jurídica, interoperabilidad y cumplimiento normativo) y a la vez innovar en ámbitos como la integración total de fuentes de datos y la experiencia de usuario. De lograr este equilibrio, VitalSanity podría aspirar (una vez puesta en producción) a posicionarse sólidamente en el panorama actual, aportando una visión unificada del historial clínico del paciente y anticipándose a las futuras tendencias, donde el paciente empoderado y el intercambio seguro de información constituyen la piedra angular de los sistemas de salud.
 
 
+\chapter{Tecnologías y herramientas utilizadas}
+
+\section{AutoFirma }
+
+\textbf{AutoFirma} es una \textbf{aplicación de escritorio} desarrollada por el \textbf{Ministerio de Hacienda} y \textbf{Administraciones Públicas de España} para la firma electrónica de documentos, basada en \textbf{software libre} y \textbf{estándares abiertos} que garantizan la \textbf{interoperabilidad} y la \textbf{seguridad} en las transacciones electrónicas.
+
+Forma parte de la suite \textbf{@firma}, un conjunto integral de servicios y herramientas para \textbf{identificación} y \textbf{firma electrónica} que pueden usarse de modo independiente o integrarse en otras aplicaciones.
+
+\textbf{AutoFirma} permite ejecutar operaciones de firma de ficheros en entornos \textbf{Windows, Linux y macOS}, ofreciendo una experiencia simple y accesible para usuarios con o sin conocimientos técnicos avanzados.
+
+La aplicación selecciona automáticamente el formato de firma más apropiado al tipo de documento (\textbf{PDF, XML}, etc.), liberando al usuario de cualquier decisión técnica y permitiendo además la visualización de las firmas y los documentos firmados.
+
+Entre sus beneficios destacan la \textbf{autonomía} del usuario (la clave privada nunca abandona su dispositivo), la \textbf{interoperabilidad} entre diferentes sistemas y el cumplimiento de la \textbf{normativa eIDAS y Ley 39/2015}, lo que asegura \textbf{pleno reconocimiento legal} en toda la \textbf{Unión Europea} y dentro de \textbf{España}.
+
+\textbf{AutoFirma} ha representado la piedra angular de las funcionalidades de \textbf{VitalSanity}, utilizándose para \textbf{firmar/cofirmar} las \textbf{autorizaciones} y para firmar los \textbf{informes médicos}.
 
 
+\section{Cliente móvil @firma}
+Constituye la versión móvil de \textbf{AutoFirma}. Se emplea para realizar operaciones de firma desde dispositivos Android e iOS.
+
+La comunicación entre la página web y \textbf{Cliente móvil @firma} se realiza mediante el uso de servidores intermedios, lo que permite al usuario firmar documentos sin que la clave privada salga de su dispositivo (este aspecto se describirá en más detalle en apartado de \textbf{'Detalles de Implementación'}.
+
+Aunque \textbf{Cliente móvil @firma} comparta muchos rasgos comunes con \textbf{AutoFirma}, a la hora de establecer la integración con una aplicación existen diferencias claves y no triviales entre ambas que deben de tenerse en cuenta.
+
+De igual forma que \textbf{AutoFirma}, \textbf{Cliente móvil @firma} representa una pieza fundamental dentro de VitalSanity. La aplicación se ha desarrollado de tal forma que todos los procesos que involucren una firma se puedan realizar de forma independiente con ambas aplicaciones. 
+
+La razón principal por la que se ha decidido integrar también \textbf{Cliente móvil @firma} ha sido porque los pacientes tenderían a usar la aplicación desde un dispositivo móvil. Por otro lado, los profesionales sanitarios, los centros médicos y los administradores tenderían a utilizar la aplicación desde el ordenador.
+
+\section{Docker}
+Docker es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
+
+Gracias a su arquitectura cliente-servidor, en la que el cliente Docker comunica con el demonio dockerd mediante una API REST, Docker simplifica la gestión del ciclo de vida de contenedores, imágenes, redes y volúmenes.
+
+Entre los principales beneficios de Docker destacan la portabilidad de las aplicaciones, la entrega continua en flujos CI/CD, la escalabilidad dinámica y un uso eficiente de los recursos al ejecutar múltiples contenedores compartiendo el kernel del sistema operativo.
+
+ Los casos de uso más comunes incluyen la adopción de arquitecturas de microservicios, la creación de entornos de prueba reproducibles, la migración de aplicaciones heredadas a entornos containerizados y la automatización de despliegues en prácticas DevOps.
+
+ Docker otorga portabilidad a cualquier aplicación, lo que permite solucionar problemas de configuración local, evitando así el clásico problema de \textbf{'en mi ordenador sí que funcionaba'}.
+
+Para el desarrollo de la aplicación se ha empleado una base de datos \textbf{Postgres dockerizada}
 
 
+\section{Docker Compose}
+
+Docker Compose es una herramienta incluida en el ecosistema Docker que permite definir y ejecutar aplicaciones compuestas por múltiples contenedores a través de un único fichero YAML (\textit{compose.yml}), desde el cual se pueden desplegar, escalar y gestionar de manera simultánea todos los servicios implicados.
+
+A diferencia de la interfaz de línea de comandos de Docker pura, Docker Compose ofrece comandos especializados (como \textit{docker compose up}, \textit{docker compose down}, \textit{docker compose build} o \textit{docker compose ps}) que facilitan la orquestación de pilas de servicios en hosts únicos, siendo especialmente valiosa para entornos de desarrollo, pruebas automatizadas en CI/CD y despliegues monohost.
+
+Entre sus beneficios destacan la rápida configuración mediante scripts YAML y variables de entorno, la portabilidad de la configuración entre equipos, la comunicación interna segura de los servicios a través de redes aisladas y la eficiencia en el uso de recursos al reutilizar contenedores y caches de configuración.
+
+\textbf{Docker Compose} es una de las herramientas más poderosas que disponemos los programadores en la actualidad puesto que permite levantar una aplicación en cualquier máquina que tenga instalada docker, lo cual evita el tener que descargar manualmente todas las dependencias en cada máquina, aspecto que sin duda ahorra una enorme cantidad de tiempo y muchos quebraderos de cabeza.
+
+Para el desarrollo de la aplicación se ha empleado \textbf{Docker Compose} para orquestar dos servicios: \textbf{app} y \textbf{db}.
+
+\section{Mailtrap}
+
+Mailtrap es una plataforma de pruebas y entrega de correo electrónico que crea un buzón virtual aislado para capturar todos los mensajes enviados desde entornos de desarrollo, evitando así el envío accidental a usuarios reales. Se utiliza principalmente para previsualizar correos en distintos dispositivos, garantizando la fidelidad del diseño antes de su despliegue en producción. 
+
+Entre sus fortalezas destacan la integración con API RESTful y SMTP para automatizar flujos de QA, la detección temprana de errores en el contenido y la posibilidad de realizar pruebas automatizadas en pipelines de CI/CD sin riesgos.
+
+Sus casos de uso más comunes incluyen la verificación de emails de registro, restablecimiento de contraseñas y notificaciones transaccionales.
+
+\textbf{Mailtrap} ha representado un bloque funcional \textbf{muy importante} ya que es ampliamente utilizado en un gran número de funcionalidades de la aplicación, en particular se usa para:
+
+\begin{itemize}
+    \item Enviar correo de información al paciente cuando un profesional médico le ha solicitado autorización de acceso a su historial.
+    \item Enviar correo de información al profesional médico cuando un paciente ha aceptado la solicitud de autorización.
+    \item Enviar correo de información al profesional médico cuando un paciente ha denegado la solicitud de autorización.
+    \item Enviar correo de información al profesional médico cuando un paciente ha desautorizado el acceso a su historial médico.
+    \item Enviar correo con la clave de acceso cuando un administrador registra a un centro médico.
+    \item Cuando un centro médico registra a profesionales médicos a partir de un fichero \textbf{CSV}, enviar correos con las claves de acceso a cada uno de los profesionales médicos registrados.
+    \item Cuando un paciente se registra, enviarle correo con el código de confirmación.
+\end{itemize}
+
+
+\section{Spring Boot }
+Spring Boot es un framework de código abierto desarrollado por Pivotal que simplifica la creación de aplicaciones Java independientes y listas para producción adoptando convenciones opinadas sobre la configuración del ecosistema Spring.
+
+Spring Boot proporciona arranques automáticos (Starters), autoconfiguración y un servidor embebido que elimina la dependencia de servidores externos.
+
+Los principales beneficios incluyen la reducción de la complejidad en la configuración inicial, la aceleración de los ciclos de desarrollo y la compatibilidad nativa con prácticas de integración y despliegue continuos (CI/CD ), permitiendo así desarrollar aplicaciones empresariales de alta disponibilidad.
+
+Puesto que la seguridad es uno de los aspectos más fundamentales que se busca perseguir con \textbf{VitalSanity}, la principal razón por la que se ha elegido Springboot como framework para desarrollar la aplicación ha sido por \textbf{Spring Security}. 
+
+Spring Security es una herramienta intregada dentro de \textbf{Spring Boot} la cual sirve para dotar a las aplicaciones de una capa muy robusta de seguridad.
+
+Asimismo, también ha sido de gran utilidad su integración nativa con \textbf{X.509}, estándar en base al cual se generan todos los certificados electrónicos oficiales y con plena validez legal en España. Gracias a esto, ha resultado más sencillo integrar AutoFirma/Cliente móvil @firma, así como implementar la autenticación con certificado digital.
+ 
 \chapter{Aspectos de seguridad}
 
 
