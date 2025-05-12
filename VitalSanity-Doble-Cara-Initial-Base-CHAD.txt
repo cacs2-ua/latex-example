@@ -92,16 +92,16 @@
 \thispagestyle{empty} % para que no se numere esta pagina
 
 
-Me gustaría comenzar agradeciendo de forma profunda a toda mi familia. Ellos han representado siempre mi pilar más fundamental para avanzar en todos los aspectos, tanto a nivel personal como a nivel profesional. Gracias a ellos he conseguido salir adelante incluso en mis momentos más oscuros. En particular, quiero dar las gracias a mis dos maravillosos abuelos y a mi queridísimo tito Paco, quienes me dan siempre momentos increíbles. Por supuesto, también le quiero agradecer por todo a mi increíble y legendaria madre, agradecerte de todo corazón por ser la persona que más ha confiado y que más luchado por mí siempre. Muchísimas gracias mama, te amo, gracias por haber sido mi luz que más brilla.
+Me gustaría comenzar agradeciendo de forma profunda a toda \textbf{mi familia}. Ellos han representado siempre mi pilar \textbf{más fundamental} para avanzar en todos los aspectos, tanto a nivel personal como a nivel profesional. Gracias a ellos he conseguido salir adelante incluso en mis momentos más oscuros. En particular, quiero dar las gracias a mis \textbf{dos maravillosos abuelos} y a mi queridísimo \textbf{tito Paco}, quienes me dan siempre \textbf{momentos increíbles}. Por supuesto, también le quiero agradecer por todo a \textbf{mi increíble y legendaria madre}, agradecerte de \textbf{todo corazón} por ser la persona que más ha confiado y que más \textbf{ha luchado} por mí siempre. Muchísimas gracias \textbf{mamá}, te amo, gracias por haber sido mi luz que más brilla.
 
-Tampoco me puedo olvidar de mis inigualables compañeros del Club de Debate. Dentro de este grupo quiero destacar a mi querida profesora Cristina Cachero por haberse apuntado al Club de Debate y por disfrutar (casi tanto como yo) el maravilloso mundo de la oratoria; a mi compañero Luis, por haber dado juntos una batalla tan intensa en el torneo interno; y también, darte las gracias a ti, Natalia, que como presidenta del Club has contado conmigo siempre para implicarme en todo tipo de actividades interesantes.
+Tampoco me puedo olvidar de mis \textbf{inigualables compañeros} del \textbf{Club de Debate}. Dentro de este grupo quiero destacar a mi querida profesora \textbf{Cristina Cachero} por haberse apuntado al \textbf{Club} y por disfrutar (casi tanto como yo) el maravilloso mundo de la oratoria; a mi compañero \textbf{Luis}, por haber dado juntos una \textbf{batalla tan intensa} en el \textbf{torneo interno}; y también, darte las gracias a ti, \textbf{Natalia}, que como presidenta del \textbf{Club} has contado conmigo siempre para implicarme en todo tipo de actividades interesantes.
 
-Y como no podía ser de otro modo, darle mi más profundo agradecimiento a Carlos, mi tutor. Agradecerte Carlos por toda tu implicación en este proyecto, por todas aquellas reuniones fructíferas y por todas las ideas que hemos sacado adelante juntos, en especial por haber descubierto juntos el legendario desafío de AutoFirma.
+Y como no podía ser de otro modo, darle mi más profundo agradecimiento a \textbf{Carlos, mi tutor}. Agradecerte Carlos por toda tu \textbf{implicación} en este proyecto, por todas aquellas \textbf{reuniones fructíferas} y por todas las ideas que hemos sacado adelante juntos, en especial por haber descubierto juntos \textbf{el legendario desafío de AutoFirma}.
 
 
-Por último, agradecerte a ti, Slow Freezzic, por haber sido mi mejor amigo y haber sido tan único y tan auténtico conmigo, sin haberte desviado lo más mínimo en los momentos más difíciles, en aquellos momentos donde se decide el verdadero valor de las personas.
+Por último, agradecerte a ti, \textbf{Slow Freezzic}, por haber sido \textbf{mi mejor amigo} y haber sido tan \textbf{único} y tan \textbf{auténtico} conmigo, sin haberte desviado lo más mínimo en los momentos \textbf{más difíciles}, en aquellos momentos donde se decide el \textbf{verdadero valor} de las personas.
 
-A todos vosotros, gracias.
+\textbf{\textit{A todos vosotros, gracias.}}
 
 
 \clearpage                % cierra Agradecimientos
@@ -581,11 +581,11 @@ La autenticación de usuarios en \textbf{VitalSanity} se realiza mediante certif
 
 Cabe destacar de que en la aplicación también se ha incluido la opción tradicional de iniciar sesión con email y contraseña. Esto se ha realizado para poder realizar las pruebas pertinentes en la aplicación durante desarrollo (debido a que se necesitaba crear múltiples usuarios y trabajar con múltiples usuarios y roles para poder probar todas las funcionalidades de la aplicación). Cabe destacar de que en producción se eliminaría esta opción de iniciar sesión con email y contraseña, imponiendo a los usuarios el autenticarse mediante un certificado digital válido para así defenderse de forma robusta frente a accesos no autorizados o suplantación de identidad, consiguiendo de esta manera una seguridad muy potente a la hora de acceder al sistema.
 
-Por otra parte, la plataforma verifica rigurosamente la validez del certificado presentado en cada inicio de sesión. Este proceso incluye la comprobación de que el certificado \textbf{no haya sido revocado} y que siga siendo \textbf{plenamente válido para identificar a su propietario}. Solo tras superar todas estas verificaciones, Spring Security \textbf{autentica al usuario} y le concede acceso a las funciones de la aplicación. Este mecanismo de autenticación basada en certificados digitales ofrece garantías de seguridad equiparables a la autenticación de múltiples factores, pues requiere algo que el usuario \textbf{posee} (su certificado y clave privada) y algo que el usuario \textbf{es} (su identidad avalada por el certificado). Gracias a ello, VitalSanity asegura que únicamente personas autorizadas puedan acceder a datos sensibles, evitando accesos indebidos incluso en entornos distribuidos o remotos.
+Por otra parte, la plataforma verifica rigurosamente la validez del certificado presentado en cada inicio de sesión. Este proceso incluye la comprobación de que el certificado \textbf{no haya sido revocado} y que siga siendo \textbf{plenamente válido para identificar a su propietario}. Solo tras superar todas estas verificaciones, Spring Security \textbf{autentica al usuario} y le concede acceso a las funciones de la aplicación. Este mecanismo de autenticación basada en certificados digitales ofrece garantías de seguridad equiparables a la autenticación de múltiples factores, pues requiere algo que el usuario \textbf{posee} (su certificado y clave privada) y algo que el usuario \textbf{es} (su identidad avalada por el certificado). Gracias a ello, VitalSanity asegura que únicamente personas autorizadas puedan acceder a datos sensibles, evitando accesos indebidos.
 
 
 \section{Seguridad en la Firma Digital de Documentos}
-VitalSanity incorpora el uso de herramientas oficiales de \textbf{firma electrónica} proporcionadas por el Gobierno de España para garantizar la autenticidad e integridad de los documentos clínicos generados en la plataforma. En particular, se utiliza la aplicación \textbf{AutoFirma}, así como su \textbf{cliente móvil @firma}, para la firma digital de autorizaciones de pacientes y de informes médicos emitidos por los profesionales sanitarios. AutoFirma, desarrollada por el Ministerio de Hacienda y Administraciones Públicas, es parte de la suite @firma y permite realizar la firma electrónica de documentos cumpliendo con estándares abiertos, \textbf{garantizando la interoperabilidad y la seguridad en las transacciones electrónicas}. De este modo, cada vez que un médico emite un informe o un paciente otorga una autorización en VitalSanity, el documento correspondiente es firmado digitalmente mediante un certificado electrónico reconocido, usando AutoFirma en entornos de escritorio o el Cliente @firma en dispositivos móviles.
+VitalSanity incorpora el uso de herramientas oficiales de \textbf{firma electrónica} proporcionadas por el Gobierno de España para garantizar la autenticidad e integridad de los documentos clínicos generados en la plataforma. En particular, se utiliza la aplicación \textbf{AutoFirma}, así como su \textbf{cliente móvil @firma}, para la firma digital de autorizaciones de pacientes y de informes médicos emitidos por los profesionales sanitarios. AutoFirma permite realizar la firma electrónica de documentos cumpliendo con estándares abiertos, \textbf{garantizando la interoperabilidad y la seguridad en las transacciones electrónicas}. De este modo, cada vez que un médico emite un informe o un paciente otorga una autorización en VitalSanity, el documento correspondiente es firmado digitalmente mediante un certificado electrónico reconocido, usando AutoFirma en entornos de escritorio o Cliente @firma en dispositivos móviles.
 
 
 El empleo de \textbf{certificados digitales reconocidos} en la firma confiere a los documentos un alto nivel de protección: \textbf{integridad}, porque cualquier alteración posterior invalida la firma digital; \textbf{autenticidad}, porque vincula criptográficamente la identidad del firmante al documento; y \textbf{no repudio}, ya que el firmante no puede negar la autoría de la firma. Estas propiedades son cruciales tratándose de autorizaciones sanitarias e informes médicos, que requieren la máxima fiabilidad y validez legal. Cabe destacar que las soluciones de la suite @firma están alineadas con la normativa española y europea de firma electrónica (eIDAS), por lo que las firmas generadas a través de AutoFirma gozan de reconocimiento legal equivalente a la firma manuscrita. VitalSanity garantiza que todos los documentos críticos se firman digitalmente de forma segura y \textbf{formalmente válida}, fortaleciendo la confianza en la documentación clínica intercambiada a través de la aplicación.
@@ -594,10 +594,11 @@ El empleo de \textbf{certificados digitales reconocidos} en la firma confiere a 
 En \textbf{VitalSanity}, los datos sensibles (historias clínicas, informes, consentimientos firmados, imágenes médicas, etc.) se almacenan de forma segura utilizando \textbf{Amazon Web Services (AWS)}, concretamente en \textbf{buckets de Amazon S3} dedicados. Estos repositorios de almacenamiento en la nube están configurados como privados y se han implementado controles estrictos para su acceso. La aplicación nunca expone directamente los contenidos almacenados; en su lugar, utiliza \textbf{URLs prefirmadas} de S3 para cualquier acceso a documentos. Una URL prefirmada es un enlace temporal generado por la aplicación que concede acceso limitado a un objeto (archivo) específico en S3, sin necesidad de revelar credenciales o permisos permanentes de AWS. Estas URLs prefirmadas incorporan \textbf{tokens de seguridad y expiración}: solo el usuario autorizado puede utilizar el enlace, y además este caduca tras un intervalo breve predefinido, impidiendo accesos posteriores no autorizados. Gracias a este mecanismo, si un tercero intenta acceder directamente a los buckets de S3 sin un enlace válido, la solicitud será denegada. En esencia, las URLs prefirmadas actúan como pases de acceso de un solo uso y con vigencia limitada, garantizando que los datos clínicos almacenados solo sean accesibles para quienes tengan derechos y solo durante el tiempo.
 
 
-Por otro lado, VitalSanity protege la \textbf{confidencialidad de los datos en reposo} mediante cifrado robusto administrado con un \textbf{gestor de claves (KMS) personalizado}. Para todos los ficheros y datos almacenados en AWS S3, se habilita el \textbf{cifrado del lado del servidor con AWS KMS} (AWS Key Management Service), utilizando una clave de cifrado \textbf{CMK} propia  de la aplicación. Esto implica que cada objeto se almacena cifrado criptográficamente; solo a través de la clave CMK correspondiente (custodiada de forma segura) puede descifrarse su contenido. VitalSanity, al hacer uso de esta \textbf{clave CMK administrada por el cliente}, esto implica que la organización mantiene control total sobre el ciclo de vida y el uso de dichas. 
+Por otro lado, VitalSanity protege la \textbf{confidencialidad de los datos en reposo} mediante cifrado robusto administrado con un \textbf{gestor de claves (KMS) personalizado a partir de una clave CMK}. Para todas las autorizaciones e informes almacenados en \textbf{AWS S3}, se habilita el \textbf{cifrado del lado del servidor con AWS}. Destacar que \textbf{AWS-KMS} es especialmente útil en entornos de producción.
 
+Asimismo, se ha asegurado en todo momento de cumplir con el \textbf{Principio de Mínimos Privilegios} , definiendo \textbf{roles IAM} con \textbf{políticas de acceso estrictas} (aspecto que será tratado con más detalle en el apartado de \textbf{Detalles de implementación)}.
 
-Este enfoque –recomendado por AWS para clientes que requieren un control granular de sus llaves criptográficas– permite definir políticas estrictas sobre quién o qué componentes de la aplicación pueden usar las claves para desencriptar información. En la práctica, incluso si alguien no autorizado consiguiera acceder al bucket de almacenamiento, los datos allí contenidos permanecerían ininteligibles gracias al cifrado. Adicionalmente, la gestión personalizada que ofrece KMS  da pie a poder utilizar rotación periódica de claves y registros de auditoría (vía AWS CloudTrail) de cada uso de las claves, añadiendo trazabilidad y cumplimiento de políticas de seguridad corporativas. Todo este conjunto de medidas asegura que la información médica en VitalSanity esté protegida tanto \textbf{en tránsito} (mediante conexiones HTTPS cifradas cuando se transfieren los datos) como \textbf{en reposo} (almacenada cifradamente en S3), alcanzando un nivel de seguridad acorde a la naturaleza crítica de dichos datos.
+Todo este conjunto de medidas asegura que toda la información médica en la aplicación quede robustamente protegida,  alcanzando un nivel de seguridad acorde a la naturaleza crítica de dichos datos.
 
 
 
@@ -609,65 +610,241 @@ Este enfoque –recomendado por AWS para clientes que requieren un control granu
 
 
 
-\section{Flujo de trabajo Gitflow (con Pull Requests)}
-Para el desarrollo de la aplicación se ha empleado el flujo de trabajo \textbf{GitFlow} para gestionar las ramas (branches) de Git, complementado con el uso de \textbf{Pull Requests} para la integración de cambios. 
+\section{Gitflow con Pull Requests}
 
-GitFlow es un modelo de ramificación ampliamente conocido que \textbf{describe el ciclo de lanzamiento del proyecto asignando roles específicos a distintas ramas} y definiendo \textbf{cuándo y cómo deben interactuar} entre sí. En este modelo se distinguen principalmente dos ramas permanentes: la rama \textbf{principal} (master o main), que almacena el historial oficial de lanzamientos estables, y la rama \textbf{de desarrollo} (develop), que es el punto de integración de las nuevas funcionalidades. 
+
+GitFlow es una metodología ampliamente conocida la cual \textbf{describe el ciclo de lanzamiento del proyecto asignando roles específicos a distintas ramas} y definiendo \textbf{cuándo y cómo deben interactuar} entre sí. En este modelo se distinguen principalmente dos ramas permanentes: la rama \textbf{principal} (main), que almacena el historial oficial de lanzamientos estables, y la rama \textbf{de desarrollo} (develop), que es el punto de integración de las nuevas funcionalidades. 
 
 A partir de ellas, GitFlow emplea ramas de soporte de vida corta para estructurar el trabajo: las ramas \textbf{de funcionalidad} (feature branches), creadas desde develop para desarrollar cada nueva característica o mejora; las ramas \textbf{de lanzamiento} (release branches), que se crean desde develop cuando se acumulan suficientes funcionalidades para preparar una versión pública, permitiendo pulir detalles finales (ej. corrección de bugs, documentación) sin detener el desarrollo de nuevas funciones; y las ramas \textbf{de corrección rápida} (hotfix branches), que se derivan directamente de master/main cuando es necesario corregir de urgencia un fallo en producción, aplicando el arreglo y luego fusionándolo tanto a master como a develop.
 
-Este esquema, propuesto originalmente por Vincent Driessen, impone una disciplina en la gestión de versiones: la rama develop siempre contiene el código en estado integrador (inestable pero con las últimas novedades), mientras que master/main solo recibe código que ha pasado por un ciclo completo de pruebas y está listo para liberación. Cada fusión significativa va acompañada de un \textbf{número de versión}. Por ejemplo, al fusionar develop en master tras completar un conjunto de funcionalidades, se etiqueta una nueva versión de lanzamiento (vX.Y.Z). Esta estrategia de ramificación organizada alrededor de las publicaciones del proyecto ayuda a mantener la estabilidad en la rama principal y a aislar el desarrollo de nuevas características hasta que estén maduras.
+Para integrar cada una de las ramas tanto en \textbf{main} como en \textbf{develop} se ha hecho uso de \textbf{Pull Requests (PR)}. Una pull request es una petición formal para incorporar los cambios de una rama en otra, usualmente acompañada de una discusión o revisión de código.
 
-El uso de \textbf{Pull Requests (PR)} en este flujo aporta un nivel adicional de control y revisión. Una pull request es una petición formal para incorporar los cambios de una rama en otra, usualmente acompañada de una discusión o revisión de código. Integrar pull requests dentro de GitFlow proporciona a los desarrolladores (en este caso, al desarrollador y su tutor) un espacio conveniente para \textbf{discutir los cambios de una rama antes de fusionarlos}.
+Cuando una rama está lista, se crea una pull request para integrar su contenido. Las pull requests actúan de este modo como \textbf{puntos de control de calidad}: permiten revisar el código, comentar sobre él, etc. 
 
-Cuando una rama está lista, se crea una pull request para que su contenido sea evaluado antes de integrarse a develop; de modo similar, se utilizan pull requests al preparar una rama de lanzamiento o al aplicar un hotfix, asegurando de esta forma que dichos cambios sean revisados y aprobados antes de incorporarlos tanto a develop como a main. Las pull requests actúan de este modo como \textbf{puntos de control de calidad}: permiten revisar el código, comentar sobre él, etc. 
+Cabe destacar que durante el desarrollo del proyecto, las Pull Requests iban asociadas a \textbf{issues} y a \textbf{milestones} específicos, otorgando así una información más detallada sobre cada una de las funcionalidades. Asimismo, se han configurado cada una de las \textbf{Pull Requests} para que cuando se completasen, se cerrase automáticamente la \textbf{issue} asociada, automatizando de esta forma parte de la gestión del proyecto. 
 
 \subsection{Importancia de Gitflow para el desarrollo de la aplicación}
-Se ha empleado GitFlow con el objetivo de \textbf{ordenar el proceso de integración de código}, evitando confusiones y manteniendo versiones estables del proyecto a lo largo del tiempo. Esta metodología ha sido de gran utilizad para asegurar que la rama principal siempre esté lista para una posible entrega o demostración, mientras el desarrollo cotidiano ocurre en ramas separadas. GitFlow facilita tener esas versiones listas sin frenar la incorporación de nuevas ideas en paralelo.
 
-El flujo GitFlow con pull requests dota a la aplicación de un \textbf{proceso de desarrollo estructurado, colaborativo y trazable}, adecuado tanto para garantizar la robustez del resultado final como para poner en evidencia el rigor en la gestión del proyecto.
+\textbf{Gitflow} ha sido de vital importancia para el desarrollo de la aplicación puesto que ha dotado en todo momento a \textbf{VitalSanity} de una gran trazabilidad, quedando reflejados en el repositorio de \textbf{GitHub} los cambios más relevantes que se han ido realizando durante el desarrollo. 
 
-\newpage
+Asimismo, esta metodología agiliza mucho el proceso de corrección de bugs, por un lado al permitir crear ramas \textbf{hotfix} y por otra parte al permitir \textbf{GitHub} revertir \textbf{Pull requests}.
 
-\section{Versionado Semántico}
-Como complementación a Gitflow, Se ha empleado \textbf{Versionado Semántico} (Semantic Versioning o \textbf{SemVer}) para asignar identificadores de versión a la aplicación. 
+Gracias a todo esto, \textbf{Gitflow} ha proporcionado al \textbf{desarrollo de VitalSanity} una gran organización y trazabilidad, realzando de esta manera el rigor establecido durante la gestión del proyecto.
+
+\subsection{Resultado de la aplicación de Gitflow}
+
+En el repositorio de \textbf{Github} se han completado un total de \textbf{veinticuatro Pull Requests}, en las que se han aplicado tanto \textbf{feature branches} como \textbf{release branches} y  \textbf{hotfix branches}.
+
+Por último, destacar que durante el desarrollo del proyecto las Pull Requests iban asociadas a \textbf{issues} y a \textbf{milestones} específicos, otorgando así una información más detallada sobre cada una de las funcionalidades. Asimismo, se han configurado cada una de las \textbf{Pull Requests} para que cuando se completasen, se cerrase automáticamente la \textbf{issue} asociada, automatizando de esta forma parte de la gestión del proyecto. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/metodologias/close-issue.png}
+\caption{Pull Request cierra la  issue}
+\label{close-issue:vv}
+\end{figure}
+
+
+
+\subsection{Versionado Semántico}
+El uso de \textbf{Gitflow} se ha complementado con el empleo del \textbf{Versionado Semántico} (\textbf{Semantic Versioning} o \textbf{SemVer}) para asignar identificadores de versión a la aplicación. 
 
 El versionado semántico es una convención ampliamente adoptada 
-que define un formato \textbf{MAJOR.MINOR.PATCH} para los números de versión, donde cada componente numérico transmite información sobre la naturaleza de los cambios realizados. En concreto, la especificación SemVer 2.0.0 establece las siguientes reglas:
+que define un formato \textbf{MAJOR.MINOR.PATCH} para los números de versión, donde cada componente numérico transmite información sobre la naturaleza de los cambios realizados. En concreto, la especificación \textbf{SemVer 2.0.0} establece las siguientes reglas:
 
 \begin{itemize}
-  \item \textbf{MAYOR (Major)}: Se incrementa la versión mayor cuando se introducen \textbf{cambios incompatibles} con versiones anteriores (por ejemplo, modificaciones que rompen la compatibilidad de la API o eliminan funcionalidad previa).
-  \item \textbf{MENOR (Minor)}: Se incrementa la versión menor cuando se añade \textbf{nueva funcionalidad de forma compatible} con la versión existente. Es decir, mejoras o características adicionales que mantienen la compatibilidad hacia atrás.
+  \item \textbf{MAYOR (Major)}: Se incrementa la versión mayor cuando se introducen \textbf{cambios incompatibles o modificaciones muy relevantes} con respecto a versiones anteriores (por ejemplo, modificaciones que rompen la compatibilidad de la API o que agregan un bloque funcional amplio commpletamente nuevo).
+  \item \textbf{MENOR (Minor)}: Se incrementa la versión menor cuando se añade \textbf{una nueva funcionalidad de forma compatible} con respecto a la versión existente. Es decir, mejoras o características adicionales que mantienen la compatibilidad hacia atrás y que no representan un cambio sustancialmente grande.
   \item \textbf{PARCHE (Patch)}: Se incrementa la versión parche cuando se realizan \textbf{correcciones de errores o cambios menores compatibles} con versiones previas. Son típicamente arreglos que no afectan la funcionalidad de forma sustancial ni rompen compatibilidad.
 \end{itemize}
 
-La esencia de esta metodología de versionado es transmitir claramente el significado y alcance de los cambios a través del número de versión. Gracias al versionado semántico también se evita el denominado \textbf{infierno de dependencia}s al establecer expectativas claras sobre la compatibilidad de la aplicación.
+La esencia del versionado semántico es transmitir claramente el significado y alcance de los cambios a través del número de versión. Gracias al versionado semántico también se evita el denominado \textbf{infierno de dependencia}s al establecer expectativas claras sobre la compatibilidad de la aplicación.
 
 \subsection{Importancia del versionado semántico para el desarrollo de la aplicación}
-La aplicación de versionado semántico en VitalSanity ha tenido como objetivo el de proporcionar un \textbf{esquema claro y consistente} para identificar cada entrega o iteración del software. Dado que el proyecto ha constado de diferentes fases, etiquetar cada liberación con un número de versión semántica contribuye a obtener una mejor comprensión de la \textbf{relevancia de cada versión}. 
+La aplicación de versionado semántico en VitalSanity ha tenido como objetivo el de proporcionar un \textbf{esquema claro y consistente} para identificar cada versión de \textbf{VitalSanity}. Dado que el proyecto ha constado de diferentes fases, etiquetar cada liberación con un número de versión semántica contribuye a obtener una mejor comprensión de la \textbf{relevancia de cada versión}. 
 
-La elección del versionado semántico como metodología se justifica por ser un \textbf{estándar ampliamente reconocido} en la industria del software (adoptado por multitud de proyectos y plataformas) y por proveer un conjunto de reglas objetivo para el versionado.  Un esquema de versionado claro facilita las discusiones sobre avances en el proyecto (por ejemplo, \textbf{en la versión 1.2.1 se incorporó la funcionalidad X}) y respalda la trazabilidad de la evolución del software. 
+La elección del versionado semántico como metodología se justifica por ser un \textbf{estándar ampliamente reconocido} y por proveer un conjunto de reglas objetivo para establecer el versionado.  Un esquema de versionado claro facilita las discusiones sobre avances en el proyecto (por ejemplo, \textbf{en la versión 1.2.1 se incorporó la funcionalidad X}) y respalda la \textbf{trazabilidad} de la evolución del software. 
 
-\newpage
+\subsection{Resultado de la aplicación del SemVer}
 
-\section{Planificación y seguimiento de tareas}
+A continuación se muestra cada una de las versiones de la aplicación:
 
-Para la \textbf{planificación y seguimiento} de las tareas del proyecto se ha empleado la metodología \textbf{Kanban}. Kanban es un marco de trabajo ágil que enfatiza la visualización continua del trabajo y la transparencia total del flujo de tareas. En Kanban, los elementos de trabajo (tareas, funcionalidades, etc.) se representan en tarjetas dispuestas en columnas que típicamente reflejan estados como Pendiente, En progreso y Terminado. Este tablero visual permite conocer de un vistazo el estado de cada tarea en cada momento. 
+\begin{itemize}
+    \item \textbf{v1.0.0:} Versión inicial de la aplicación (repositorio de \textbf{GitHub} recién creado). \textbf{Rama main}
+    \item \textbf{v1.1.0}: Comienzo del desarrollo de la funcionalidad de \textbf{\textit{Inicio de sesión}}. \textbf{Rama develop}.
+    \item \textbf{v1.1.1}: Funcionalidad de \textbf{Inicio de sesión} implementada.
+    \item \textbf{v1.1.2:}  Implementado el \textbf{\textit{inicio de sesión con certificado digital}}.
+    \item \textbf{v1.1.3:} Agregadas vistas \textbf{HTML} estáticas para la interacción entre el paciente y profesional médico.
+    \item \textbf{v1.2.0:} Release con todas las funcionalidades implementadas de la autenticación.
+    \item \textbf{v1.3.0:} Comienzo del desarrollo en \textbf{develop} del siguiente bloque funcional.
+    \item \textbf{v1.3.1:} Implementado el registro del \textbf{paciente} y agregada la configuración de \textbf{mailtrap}.
+    \item \textbf{v1.3.2:} Implementado el registro de los \textbf{centros médicos}.
+    \item  \textbf{v1.3.3:} Implementado el registro de los \textbf{profesionales médicos} a partir de un fichero \textbf{CSV}.
+    \item \textbf{v2.0.0:} Release con todos los sistemas de registro y de autenticación básica para todos los tipos de usuario junto con las vistas \textbf{HTML} estáticas de la interacción entre \textbf{paciente} y \textbf{profesional médico}.
+    \item \textbf{v2.1.0:} Comienzo del desarrollo en \textbf{develop} del siguiente bloque funcional.
+    \item \textbf{v2.1.1:}  Solicitud y \textbf{firma} por parte del \textbf{profesional médico} de la autorización al \textbf{historial médico centralizado}  de un paciente.
+    \item \textbf{v2.1.2:} El paciente \textbf{acepta} o \textbf{deniega} la \textbf{solicitud de autorización} del profesional médico. En 
+    \item \textbf{v2.1.3:} En esta versión se completaron el resto de funcionalidades asociadas a la interacción entre paciente y profesional médico.
+    \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al profesional médico completados en esta versión:}
+        \begin{itemize}
+            \item Ver pacientes que han autorizado
+            \item Ver solicitudes de autorización pendientes
+            \item Ver pacientes que han desautorizado
+            \item Volver a solicitar autorización a un paciente que ha desautorizado
+        \end{itemize}
+        \item \textbf{Bloques funcionales asociados al paciente completados en esta versión:}
+        \begin{itemize}
+            \item Ver profesionales autorizados
+            \item Desautorizar a un profesional autorizado
+        \end{itemize}
+    \end{itemize}
+    
+    
+    \item \textbf{v3.0.0:} Release con todos los nuevos bloques funcionales implementados.
+    \item \textbf{v3.1.0:} Comienzo del desarrollo del bloque funcional.
+    \item \textbf{v3.1.1:} Completar la lógica asociada a la subida y firma de informes médicos junto con sus documentos.
+    
+    \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al profesional médico completados en esta versión:}
+        \begin{itemize}
+            \item Acceder al historial médico centralizado de un paciente.
+            \item Subir y firmar un informe médico al historial médico centralizado de un paciente.
+            \item Editar y firmar un informe médico existente historial médico centralizado de un paciente.
+        \end{itemize}
+    \end{itemize}
 
-Esta funcionalidad se ha empleado tanto en un tablero Trello como en un tablero de GitHub Project asociado al repositorio de GitHub de VitalSanity.
+    \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al paciente completados en esta versión:}
+        \begin{itemize}
+            \item El paciente accede a los informes de su historial médico centralizado.
+            \item El paciente accede a los informes específicos agregados por un profesional médico.
+        \end{itemize}
 
 
-\subsection{Importancia de Kanban para el desarrollo de la aplicación} La utilización de Kanban tiene como objetivo organizar el trabajo de forma visual y eficiente, priorizando las tareas e incrementando la transparencia del estado del proyecto.  El uso de Kanban ha servido para obtener un control estructurado pero flexible de las tareas, mejorando la gestión del tiempo y la productividad durante el desarrollo.
+    \end{itemize}
 
-\newpage
+\item \textbf{v3.1.2:} Subida y gestión de documentos asociados a los informes médicos.
+   \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al profesional médico completados en esta versión:}
+        \begin{itemize}
+            \item Ver detalles de un informe médico.
+            \item Adjuntar documentos a un informe médico propio (creado por el mismo profesional médico).
+            \item Descargarse los documentos asociados a un informe médico.
+        \end{itemize}
+    \end{itemize}
+
+    \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al paciente completados en esta versión:}
+        \begin{itemize}
+            \item Ver detalles de un informe médico.
+            \item Descargarse los documentos asociados a un informe médico.
+        \end{itemize}
+    \end{itemize}
+    
+\item \textbf{v3.1.3:} Filtros de la aplicación.
+
+   \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al profesional médico completados en esta versión:}
+        \begin{itemize}
+            \item Filtrar pacientes que han autorizado el acceso a su historial.
+            \item Filtrar pacientes que han desautorizado el acceso a su historial.
+            \item Filtrar informes dentro del historial de un paciente.
+        \end{itemize}
+    \end{itemize}
+
+    \begin{itemize}
+        \item \textbf{Bloques funcionales asociados al paciente completados en esta versión:}
+        \begin{itemize}
+            \item Filtrar informes dentro del historial médico centralizado.
+        \end{itemize}
+    \end{itemize}
+
+   \item \textbf{v4.0.0:} Release con todos los nuevos bloques funcionales implementados.
+
+   \item \textbf{v4.1.0:} Comienzo del desarrollo del bloque funcional.
+
+   \item \textbf{v4.1.1:} Página Home y plantillas de error.
+
+   \item \textbf{v4.1.2:} Pulir detalles finales.
+
+\end{itemize}
+
+Cada uno de los números de versión se han establecido siguiendo las reglas del versionao semántico que se han expuesto con anterioridad. 
+
+Aquellas versiones cuyo número \textbf{menor} es par se corresponden con versiones que se publican directamente en la rama \textbf{main} (es decir, se corresponden con ramas de \textbf{release} o con ramas de \textbf{hotfix}). Por otra parte, aquellas versiones cuyo número \textbf{menor} es impar se corresponden con funcionalidades que se desarrollan desde develop (es decir, se corresponden con funcionalidades que se desarrollan en \textbf{feature branches} que provienen de develop).
+
+También notamos que cada vez que se va a desarrollar una nueva funcionalidad, se establece una versión cuyo número de parche es igual a \textbf{cero} (nuevamente, siguiendo la convención establecida del \textbf{versionado semántico}). Por ejemplo, la versión \textbf{2.1.0} contiene una copia exacta de la versión \textbf{2.0.0} de la rama \textbf{main}.
+
+El uso del versionado semántico se ha aplicado para nombrar los siguientes elementos:
+
+\begin{itemize}
+    \item Los \textbf{tags} de los commits que completaban una funcionalidad, corregían un bug o abrían una nueva release.
+    \item Los milestones.
+    \item Las diferentes imágenes subidas a \textbf{DockerHub}. Esto se ha realizado desde un primer momento para poder facilitar la futura puesta en \textbf{producción}. El disponer de múltiples imágenes de docker bajo versiones específicas es de gran utilidad puesto que se agiliza mucho el proceso de poner en producción la aplicación. De esta forma, se puede poner en producción  a partir de una de las versiones concretas almacenadas en \textbf{DockerHub}. Del mismo modo, si una de las versiones de producción falla, se podría coger una versión anterior de \textbf{DockerHub} anterior, lo que ayudaría a resolver el problema en mucho menos tiempo, dotando así a la puesta en producción de una \textbf{mayor resiliencia}. Todo esto refuerza aún más la idea \textbf{integración continua.}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/metodologias/dockerhub-imagenes.png}
+\caption{Imágenes en DockerHub con las diferentes versiones de VitalSanity}
+\label{dockerhub-imagenes:vv}
+\end{figure}
+
+Por último, destacar que, como se puede observar en las diferentes versiones de la aplicación, no se ha seguido un orden estrictamente lineal (por ejemplo, puede verse como la página \textbf{Home} se ha desarrollado prácticamente al final). Esto es así ya que desde un primer momento quise centrarme en implementar primero las funcionalidades más importantes dentro de la aplicación y aquellas que representasen un mayor cuello de botella. En línea con este aspecto se encuentra el hecho de que lo primero que hice de todo fue el establecer un proyecto mínimo base en el que funcionase bien \textbf{Autofirma}. Este proyecto se realizó antes de la creación del repositorio oficial de la aplicación. Esta mentalidad de \textbf{\textit{"hacer primero lo más difícil"}} me ha permitido tener una noción mucho más realista y precisa del tiempo y del avance verdadero del proyecto. Este proyecto mínimo base de \textbf{Autofirma} será analizado con más detalle en el apartado de \textbf{Desafíos afrontados}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/conclusiones/AutoFirma ejemplo base.png}
+\caption{Proyecto mínimo base creado para AutoFirma}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+
+\section{Kanban}
+
+ Kanban es un marco de trabajo ágil que enfatiza la visualización continua del trabajo y la transparencia total del flujo de tareas, permitiendo una planificación y seguimiento efectivos. En Kanban, los elementos de trabajo (tareas, funcionalidades, etc.) se representan en tarjetas dispuestas en columnas que típicamente reflejan estados (como \textbf{Pendiente}, \textbf{En progreso}, \textbf{Terminado}, entre otras posibles opciones. Este tablero visual permite conocer de un vistazo el estado de cada tarea en cada momento. 
+
+Esta metodología se ha empleado tanto en un tablero \textbf{Trello} como en el tablero de \textbf{GitHub} asociado al repositorio de la aplicación.
+
+
+\subsection{Importancia de Kanban para el desarrollo de la aplicación} 
+El uso de Kanban ha permitido llevar una organización mucho más efectiva del proyecto. Desde un comienzo organice y definí a nivel general cada una de las tareas principales que quería implementar en la aplicación. Gracias a esto he podido distribuirme el tiempo de un modo mucho más eficaz puesto que en todo momento \textbf{sabía} \textbf{qué} era aquello que tenía que hacer, sabía \textbf{qué} era aquello en lo que me encontraba trabajando en el presente y \textbf{qué} era aquello que aún me quedaba por hacer.
+
+
+\subsection{Resultado de la aplicación de Kanban}
+Como ya se ha mencionado, \textbf{Kanban} se ha aplicado en dos tableros diferentes: por una parte, en el \textbf{tablero de Trello} se definían las tareas a realizar de un modo más genérico, sin entrar en mucho detalle; por otra parte, en el \textbf{tablero de Github} se colocaban cada una de las issued del proyecto, donde cada tarea definida en el \textbf{tablero de Trello} se dividía en varias \textbf{issues} dentro del tablero de \textbf{Github}. De este modo, las \textbf{issues} servían para especificar en más detalle el objetivo final de cada una de las tareas existentes dentro del \textbf{tablero de Trello}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/metodologias/tablero-trello.png}
+\caption{Tablero de Trello}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/metodologias/tablero-github.png}
+\caption{Tablero de Github}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+Por último, destacar que en el tablero de Github se han definido \textbf{workflos} con el objetivo de automatizar el movimiento de las issues entre las diferentes columnas (por ejemplo, que cuando una \textbf{Pull request} cierre una issue, dicha issue se mueva automáticamente a la columna \textbf{\textit{"Done"}}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/metodologias/github-workflow.png}
+\caption{Ejemplo de workflow}
+\label{github-workflow:vv}
+\end{figure}
 
 \section{Reuniones periódicas de seguimiento}
-Es importante destacar también las \textbf{reuniones periódicas} de seguimiento y con mi tutor de TFG Carlos.
+Es importante destacar también las \textbf{reuniones periódicas} de seguimiento y con mi tutor de \textbf{TFG Carlos}.
 
-Dichas reuniones han resultado de gran utilidad para revisar el progreso, resolver dudas, recibir orientación y asegurar que el proyecto se iba encaminando al cumplimiento de sus objetivos. Asimismo, todas estas reuniones han servido para detectar riesgos o desviaciones a tiempo y proponer correcciones o mejoras en cada sesión.
+Dichas reuniones han resultado de \textbf{gran utilidad} para revisar el \textbf{progreso}, \textbf{resolver dudas}, \textbf{recibir orientación} y asegurar que el proyecto se iba encaminando hacia el cumplimiento de sus objetivos vitales. Asimismo, todas estas reuniones han servido para detectar riesgos o desviaciones a tiempo y proponer correcciones o mejoras en cada sesión.
 
 \subsection{Importancia de las reuniones periódicas para el desarrollo de la aplicación} 
-La agenda de reuniones periódicas ha tenido como objetivo el de garantizar un \textbf{seguimiento continuo} del proyecto y una alineación constante con los objetivos planteados, asegurando que el desarrollo técnico estuviese respaldado por un control académico sólido.
+La agenda de reuniones periódicas ha tenido como meta principal garantizar un \textbf{seguimiento continuo} del proyecto y una alineación constante con los objetivos planteados.
 
 
 \newpage
@@ -1375,13 +1552,11 @@ Dada la naturaleza sensible de los datos de salud, es obligatorio aplicar medida
   
 
 
-\chapter{Conclusiones y trabajo futuro}
+\chapter{Desafíos afrontados}
 
-En este apartado trataremos sobre los \textbf{diferentes desafíos} que se han tenido que afrontar durante el desarrollo de la aplicación, posibles mejoras que se puedan agregar en versiones futuras de \textbf{VitalSanity} y por último se concluirá destacando el \textbf{aprendizaje extraído} gracias a la realización de este proyecto
+En este apartado trataremos sobre los \textbf{principales desafíos} que se han tenido que afrontar durante el desarrollo de la aplicación.
 
-\section{Desafíos afrontados}
-
-\subsection{Integración con AutoFirma}
+\section{Integración con AutoFirma}
 
 Sin duda, integrar la aplicación con \textbf{AutoFirma} ha supuesto para mí el mayor desafío a la hora de desarrollar \textbf{VitalSanity}.
 
@@ -1411,7 +1586,7 @@ Este ejemplo básico me sirvió para conseguir una comprensión sólida sobre el
 
 El haber desarrollado desde un primer momento este \textbf{ejemplo básico} me ha permitido implementar las funcionalidades de \textbf{firma} y \textbf{cofirma} en la aplicación real de una forma mucho más rápida y ágil. Además, al no estar este ejemplo acoplado con más código, este ejemplo me permitía consultar de forma instantánea cualquier detalle que se me olvidase acerca de la integración.
 
-\subsection{Integración con Cliente Móvil @firma}
+\section{Integración con Cliente Móvil @firma}
 
 Otro de los desafíos más importantes ha sido el de integrar la versión \textbf{móvil} de \textbf{AutoFirma}. Como se ya se comentó en la sección de \textbf{“Detalles de implementación”}, para conseguir integrar \textbf{Cliente móvil @firma}, había que realizar una serie de cambios \textbf{no triviales}: pasar al modo de \textbf{Servidores Intermedios}, configurar un \textbf{Tomcat Externo} para desplegar los archivos \textbf{WAR} correspondientes a estos servidores intermedios y configurar un \textbf{Nginx} que actuase como \textbf{reverse proxy} para redirigir el tráfico del \textbf{Tomcat} al mismo dominio bajo el que se encuentra la aplicación VitalSanity (para así evitar problemas de \textbf{CORS}). 
 
@@ -1427,7 +1602,7 @@ Este enfoque de directorio persistente también en funcionaría en producción, 
 
 Pese a que sea una solución sencilla, lo complicado era \textbf{diagnosticar} cuál el problema en primer lugar, para lo que tuve que analizar meticulosamente los \textbf{logs} mostrados por el \textbf{Tomcat externo}, además de agregarle un toque de imaginación.
 
-\subsection{Autenticación con certificado digital}
+\section{Autenticación con certificado digital}
 
 Después de la integración con \textbf{AutoFirma} y su \textbf{versión móvil}, esta ha sido la siguiente funcionalidad más desafiante a la que me he enfrentado en este proyecto.
 
@@ -1440,7 +1615,6 @@ La razón por la cual tras cerrar sesión y volver a tratar de autenticarse con 
 De primeras, lo único que estaba haciendo en el método de \textbf{logout} era establecer el \textbf{id} del \textbf{usuario autenticado} a nulo, pero en ningún momento \textbf{anulaba} la sesión del usuario. 
 
 Por culpa de este aspecto, la sesión seguía manteniéndose activa, razón por la cual no se volvía a establecer una nueva \textbf{renegociación TLS}, razón por la cual no se abría \textbf{el selector de certificados}, y por lo tanto al no seleccionarse ningún certificado, la autenticación fallaba, dando como resultado el error \textbf{HTTP 403}. Una vez que agregue que la sesión se invalidase en el método de \textbf{cerrar sesión}, todo ya funcionó a la \textbf{perfección}.
-
 
 \begin{figure}[H]
 \centering
@@ -1459,9 +1633,103 @@ Por razones como está es por las que hoy en día sigo pensando que ninguna \tex
 
 
 
+\section{Configuración de Amazon Web Services}
+
+Otro de los desafíos a los que me he enfrentado ha sido con \textbf{Amazon Web Services}.
+
+Este proyecto ha representado la primera vez que he tocado \textbf{AWS}. No obstante, a pesar de que \textbf{AWS} ha sido algo \textbf{nuevo} para mí, debo de mencionar que no ha sido un proceso demasiado complicado, ya que la interfaz de configuración de AW\textbf{}S es muy \textbf{intuitiva}, hay una \textbf{gran cantidad }de información en \textbf{Internet} y las librerías de \textbf{Spring Boot} para \textbf{AWS} son muy \textbf{eficaces} y \textbf{directas}. 
+
+A diferencia de lo ocurrido con \textbf{AutoFirma/Cliente móvil @firma} y con la \textbf{autenticación con certificado digital}, a la hora de utilizar \textbf{AWS} para mi proyecto todo ha sido bastante directo y no me he encontrado con ningún problema que me haya resultado excesivamente complejo.
+
+En este caso, lo que más tiempo me ha llegado a quitar no ha sido a nivel de \textbf{código}, sino a nivel de \textbf{concepto}, en el sentido de pensar como configurar \textbf{AWS} para establecerlo de forma \textbf{congruente} con el nivel de \textbf{seguridad} y de \textbf{legalidad} que busco imponer en \textbf{VitalSanity}. Por este motivo, el \textbf{cuello de botella} referente al \textbf{tiempo} dedicado para \textbf{AWS} se distribuye entre los siguientes razonamientos:
+
+\begin{itemize}
+    \item Razonamiento efectuado para valorar la importancia de otorgar los \textbf{mínimos permisos} posibles para los accesos a los objetos del \textbf{bucket} (\textbf{Principio de Mínimos Privilegios}).
+    \item Razonamiento efectuado para valorar la necesidad de proteger el \textbf{acceso público} a los objetos del \textbf{bucket} (uso de \textbf{URLs prefirmadas}).
+    \item Razonamiento efectuado para valorar la importancia de emplear una clave de \textbf{cifrado personalizada (CMK}) a través del gestor de claves \textbf{AWS-KMS}.
+    \item Razonamiento efectuado para valorar la importancia de establecer la \textbf{región} del \textbf{bucket} dentro de \textbf{España} (para cumplir con la \textbf{LOPGDD} y el \textbf{RGPD}, así como para mejorar la \textbf{latencia}, todo esto justificado con el hecho de que VitalSanity está adscrita al ámbito \textbf{nacional español} y que \textbf{AutoFirma} es una aplicación desarrollada por el \textbf{Gobierno de España}).
+\end{itemize}
+
+Vuelvo a hacer énfasis en que lo que más me ha costado aquí ha sido establecer los propios razonamientos, de valorar su importancia y de comprenderlo todo bien a nivel \textbf{conceptual}. Una vez que había comprendido de forma completa el concepto, implementarlo a nivel de código o configurarlo en \textbf{AWS} era un proceso directo el cual apenas me quitaba tiempo.
+
+\section{Compatibilidad con otras asignaturas}
+
+Considero que este es uno de los aspectos comunes de todos los estudiantes que más afecta a la hora de la realización del \textbf{TFG}. El hecho de tener que realizar el \textbf{TFG} en paralelo junto con otros proyectos de bastantes asignaturas más establece una dificultad añadida: \textbf{la gestión efectiva del tiempo}. 
+
+Debido a que tienes que sacar todo adelante en conjunto, uno tiene que ser mucho más perspicaz a la hora de medir los recursos dedicados a cada proyecto. Es decir, la dificultad reside en encontrar el perfecto equilibrio para poder sacar todas las asignaturas adelante a la vez que no se descuida ninguna de ellas y al mismo tiempo que no se le dedica un tiempo excesivo extra a algún proyecto en particular. Mencionar que en este aspecto, la aplicación de la metodología \textbf{Kanban} me ha sido de gran utilidad para poder organizarme de un modo mucho más \textbf{eficaz} y \textbf{planificado}.
+
+Debo de mencionar que para mí \textbf{VitalSanity} ha sido uno de los proyectos \textbf{más importantes }que he realizado en mi vida, representando un gran valor a nivel de \textbf{superación personal}. Por esta razón, en mí caso sí que he priorizado mi \textbf{TFG} por encima de otras asignaturas. Aún así, sí que me ha afectado bastante el hecho de tener que seguir trabajando en paralelo en el resto de proyectos con el fin de poder sacarlo adelante todo, viéndome en la obligación de haber tenido que dejar algunos objetivos atrás, lo cual me causa una impotencia inmensa, en especial cuando me tocaba tener que dedicarle tiempo a asignaturas que para mí no eran de interés.
+
+Yo siempre he defendido aquella frase que versa: “\textbf{el que mucho abarca, poco aprieta}”. Sin duda, si el número de asignaturas de cuarto fuese más reducido, entonces los estudiantes tendríamos la oportunidad de llevar los TFG a niveles aún más altos.
+
+Como \textbf{opinión personal}, pienso que el TFG debería de establecerse de forma única en un año académico separado, como si fuese una \textbf{“mini-tesis”}. Con esto se lograría evitar la dispersión excesiva de conocimiento inconexo, y además se le daría la oportunidad al alumnado de mostrar de una forma mucho más infalible y congruente las habilidades que verdaderamente ha interiorizado a lo largo de todo el grado.
+
+\section{Maquetación de las vistas de la aplicación}
+Este también ha sido un aspecto que me ha supuesto \textbf{un desafío}. En mis proyectos web anteriores yo me dedicaba sobre todo de la parte más puramente relacionada con el \textbf{backend}. Por está razón, el hecho de tener que desarrollar todas las vistas por mí mismo ha sido una tarea que también me ha consumido bastante tiempo. No obstante, ha sido algo que he cogido con muchas ganas desde el principio ya que desde hace un tiempo me apetecía también probar esta cara del desarrollo web. Asimismo, esto me ha servido para afianzar de forma más robusta mis conocimientos sobre HTML y CSS y sobre todo me ha servido para aprender a realizar \textbf{diseños responsive}, algo que prácticamente no había tocado antes.
+
+\section{Resto de funcionalidades}
+
+Con respecto al resto de funcionalidades de la aplicación, mencionar que prácticamente ninguna de ellas me ha supuesto una dificultad excesiva. Ya tenía experiencia previa desarrollando aplicaciones web en Spring Boot, lo cual me ha permitido realizar las funcionalidades de carácter genérico de una forma mucho más rápida.
+
+En cuanto a \textbf{Mailtrap}, aunque ha sido la primera vez que lo he utilizado, su uso me ha resultado muy sencillo e intuitivo (lo que no me gustó de \textbf{Mailtrap} es que solo te diesen 100 emails de prueba en la versión gratuita).
+
+Dentro de las funcionalidades genéricas, también me gustaría destacar el registro de profesionales médicos a partir de un \textbf{fichero CSV}. Pese a que esta funcionalidad es sencilla por sí misma, me hizo darme cuenta de \textbf{un detalle muy importante}: los emails de \textbf{Mailtrap} deben de enviarse en \textbf{otro hilo en paralelo}, puesto que la tarea de enviar un email por Mailtrap es \textbf{una acción bloqueante} la cual tarda bastante tiempo en terminar de ejecutarse.
+
+Me di cuenta de este aspecto cuando, por ejemplo, trataba de registrar a \textbf{cuatro profesionales médicos}. Enviando los mails con la contraseña de acceso de forma \textbf{secuencial}, esta tarea tardaba unos \textbf{veinticinco segundos} en completarse, aspecto que evidentemente no es admisible, ya que en un caso de uso real se registraría un número mucho más elevado de profesionales médicos. Al haber cambiado para que se enviasen los mails en \textbf{un hilo aparte}, la reducción en el tiempo de ejecución fue más que notable: ahora el registro de \textbf{mil profesionales médicos} me tardaba a penas un segundo en completarse.
+
+Cabe destacar que he aplicado esta técnica de enviar los emails en un hilo aparte en todos los fragmentos de código en los que se utiliza Mailtrap (incluyendo en aquellos que involucran el flujo de AutoFirma/Cliente móvil @firma, reduciéndose así de forma notable el tiempo en el que obtiene el enlace de descarga del documento firmado/cofirmado).
+
+Esto me sirvió para aprender que una funcionalidad aparentemente separada del resto puede ser de gran utilidad para optimizar el funcionamiento de otras funcionalidades ya implementadas.
 
 
+\chapter{Conclusiones}
+En este último apartado se destacarán mejoras potenciales que pueden agregarse en versiones futuras de \textbf{VitalSanity} y se concluirá con una \textbf{reflexión final} en la que se destacará todo el \textbf{aprendizaje extraído} gracias a la realización de este proyecto.
 
+\section{Trabajo Futuro}
+
+Existen varios aspectos interesantes los cuales podrían desarrollarse en versiones futuras de \textbf{VitalSanity}. A continuación, destaco aquellos que he considerado más relevantes.
+
+\begin{itemize}
+    \item Uso de \textbf{firma trifásica} para acelerar el \textbf{tiempo de ejecución} del proceso de firma en \textbf{dispositivos móvile}s.
+    \item Integrar la aplicación con \textbf{FiRe} para poder realizar operaciones de \textbf{firma} de \textbf{forma remota} en la nube al mismo tiempo que se agrega una \textbf{capa extra de seguridad}.
+    \item \textbf{Internacionalizar} la aplicación. Esto implicaría reconsiderar \textbf{los aspectos legales} establecidos. Asimismo, habría que sustituir \textbf{AutoFirma} por una aplicación \textbf{análoga} pero que sea de \textbf{ámbito global}. Por otra parte, habría que implementar en la aplicación mecanismos que permitiesen intercambiar de forma \textbf{segura} información médica entre \textbf{diferentes países}.
+    \item Agregar sistemas de \textbf{auditorías} y de \textbf{backups automáticos}. Esto le agregaría una capa extra importante de seguridad a la aplicación.
+    \item Implementar un sistema de gestión de \textbf{incidencias}.
+    \item Implementar \textbf{tests automatizados}.
+\end{itemize}
+
+
+\section{Reflexión final}
+
+Este trabajo ha representado uno de mis \textbf{mayores retos} a \textbf{nivel personal}. A diferencia de una práctica convencional de cualquier otra asignatura, considero que un \textbf{buen TFG} posee un elemento \textbf{característico}, \textbf{único} e \textbf{indistinguible}: \textbf{la incertidumbre}. 
+
+Esforzarse en hacer un \textbf{buen TFG} implica explorar \textbf{nuevos horizontes} y salirse del\textbf{ esquema convencional}. Al ir un paso más allá te encuentras con \textbf{desafíos} los cuales no vas a tener la certeza de si vas a poder superarlos, empezando por el hecho de que ni siquiera sabes si aquellos objetivos que estás buscando cumplir realmente se pueden hacer en primer lugar. 
+
+Esto es precisamente lo que me ha ocurrido a mí con \textbf{AutoFirma} y \textbf{Cliente móvil @firma}. El primer día en el que yo y mi tutor Carlos tuvimos la idea de utilizar \textbf{AutoFirma} para el flujo de la aplicación, en mi mente surgió la pregunta: \textit{"¿es esto realmente posible?"}
+
+En una práctica convencional de cualquier asignatura, tú ya sabes de antemano que el enunciado planteado es algo que puedes hacer simplemente con esfuerzo, que es algo que ya tiene solución. Esto es un hecho que no sucede en un \textbf{verdadero TFG}. En mi caso con \textbf{AutoFirma}, al tratarse de un \textbf{sistema legacy} y al no existir en Internet ningún ejemplo base hecho, tuve que empezar todo desde cero sin tener la certeza de si todo el esfuerzo que iba a invertir se iba a ver recompensado. Tuve que \textbf{arriesgar} y poner \textbf{ingenio}.
+
+Estuve alrededor de tres semanas para lograr que funcionase el \textbf{proyecto mínimo base} con \textbf{AutoFirma} (proyecto anterior a la creación del repositorio de GitHub de VitalSanity). Durante esas tres semanas, hubo varios momentos en los que me plantee el abandonar la funcionalidad de \textbf{AutoFirma} y sustituirla por otra más sencilla. No obstante, yo era plenamente consciente de que si lo que quería era destacar, entonces tenía que seguir adelante. Gracias a este pensamiento constante de querer sobresalir y de querer hacer un \textbf{TFG} de calidad fue que tras un intenso periodo de dudas logré al fin cumplir el objetivo y conseguir que el proyecto base con \textbf{AutoFirma} funcionase.
+
+Ese momento fue \textbf{determinante}. Me sirvió a mí mismo para demostrarme que mis límites iban \textbf{mucho más allá} de lo que yo pensaba. A partir de este punto me llené de una \textbf{motivación indescriptible} y supe que tenía que seguir agregando funcionalidades que \textbf{rompiesen} con el esquema de lo común.
+
+Es por todo esto que la siguiente funcionalidad que implementé fue la \textbf{autenticación con certificado digital}. Nuevamente se repitió el mismo patrón de no saber si lo que yo tenía en mente era algo factible y si se podía implementar. Y de nuevo, tras aproximadamente semana y media de trabajo, logré sacar a flote también esta funcionalidad.
+
+Este esquema de \textbf{"sobresalir y vencer a la incertidumbre"} ha sido mi arma \textbf{más poderosa} durante toda la realización del proyecto y gracias a la cual he podido completar el resto de las funcionalidades de la aplicación. El no haberme conformado con lo simple y básico me ha permitido poder alcanzar niveles que para mi yo del pasado eran insospechados. 
+
+\textbf{VitalSanity} es un proyecto al cual le he invertido una \textbf{enorme} cantidad de \textbf{esfuerzo} y \textbf{cariño}, y de forma completamente \textbf{honesta} pienso que cualquier persona con la \textbf{suficiente dedicación} podría también desarrollar un \textbf{proyecto} de \textbf{gran calibre}. 
+
+Destacar que tampoco considero que \textbf{VitalSanity} sea una aplicación extremadamente compleja y cuyo nivel sea \textbf{inalcanzable}. Sencillamente, \textbf{VitalSanity} es una aplicación a la que se le ha dedicado \textbf{muchas}, \textbf{muchas horas}.
+
+En síntesis, el mayor aprendizaje que me llevo con este proyecto es la \textbf{autosuperación}, la \textbf{resiliencia} al fallo, la \textbf{constancia} y, sobre todo, \textbf{el vencimiento del miedo a lo desconocido}. 
+
+Como seres humanos estamos \textbf{programados biológicamente} para seguir la vía segura, la vía que menos riesgos presente. Por \textbf{razones evolutivas} esto se ha mantenido de esta manera ya que era lo que maximizaba las probabilidades de supervivencia en nuestro pasado \textbf{prehistórico}. Sin embargo, hace ya bastante tiempo que dejamos atrás el \textbf{mundo de las cavernas} (algo que sabía muy bien \textbf{Platón}).
+
+Es por este principio que, siempre que se quiera \textbf{destacar}, sea en el ámbito que sea, entonces uno debe de estar dispuesto a \textbf{arriesgarse}. Debemos aprender a \textbf{reprogramar nuestra mente} para \textbf{disfrutar de lo desconocido}. 
+
+Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \textbf{exploración} y a la \textbf{autosuperación}. Para triunfar, debemos de aniquilar por completo el conformismo, y es por todo esto que…
+
+\textit{\textbf{La única forma de romper con el esquema de lo común es abrazar a la incertidumbre, asumir nuevos riesgos, aprender y disfrutar de cada fracaso y, sobre todo, aventurarse en el eterno mundo de lo desconocido.}}
 
 
 
