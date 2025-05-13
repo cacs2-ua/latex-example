@@ -604,6 +604,87 @@ Todo este conjunto de medidas asegura que toda la información médica en la apl
 
 
 
+\chapter{Consideraciones legales}
+
+
+
+\textbf{
+\section{Cumplimiento de protección de datos}
+}
+
+La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la normativa de protección de datos, en especial al RGPD (Reglamento UE 2016/679) y a la LOPDGDD (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una base jurídica adecuada y garantías elevadas de seguridad.
+
+
+En este sentido, se debe respetar el derecho a la \textbf{confidencialidad} de la información médica de cada paciente: la Ley de Autonomía del Paciente (Ley 41/2002) establece que nadie puede acceder a datos sanitarios sin la debida legitimación o autorización previa del afectado. VitalSanity debe aplicar el principio de \textit{privacidad desde el diseño}, implementando medidas técnicas y organizativas robustas (control de accesos, cifrado, seudonimización, etc.) para asegurar la \textbf{integridad} y \textbf{confidencialidad} de la información. 
+
+Igualmente, se tiene que facilitar que los pacientes ejerzan sus derechos ARSOP (acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad) sobre sus datos personales. En concordancia con el principio de responsabilidad proactiva del RGPD, será necesario llevar un registro de actividades de tratamiento, realizar evaluaciones de riesgo y notificar a la autoridad de protección de datos cualquier brecha de seguridad relevante. 
+
+Por último, si la escala o naturaleza del tratamiento lo requiere (p. ej., tratamiento masivo de datos de salud), se deberá designar un \textbf{Delegado de Protección de Datos (DPO)} para supervisar el cumplimiento normativo.
+
+ \textbf{Posibilidad de revocación: }Asimismo, destacar que el consentimiento informado \textbf{no es irrevocable}; el paciente tiene derecho a retirarlo en cualquier momento. En consecuencia, \textit{VitalSanity} debe habilitar la revocación ágil de permisos previamente concedidos. Si un paciente decide denegar acceso a cierto profesional, la aplicación debe hacer efectiva esa revocación inmediatamente, notificando al sistema para que el profesional ya no pueda consultar la historia clínica. Este mecanismo de revocación es parte integral del respeto a la autonomía del paciente y debe ser tan sencillo como lo fue otorgar el permiso.
+
+\section{  Consentimiento informado del paciente
+}
+
+Todo acceso o uso de información clínica a través de VitalSanity debe estar amparado por el \textbf{consentimiento informado} del paciente. La Ley 41/2002 reconoce el derecho del paciente a ser plenamente informado de cualquier actuación médica y a decidir libremente sobre la misma, exigiendo que su aceptación conste por escrito mediante un consentimiento expreso.
+
+En línea con este mandato, VitalSanity debe asegurarse de obtener un consentimiento específico, libre e informado del paciente antes de acceder a su historial clínico o compartir sus datos, una vez que el paciente haya sido adecuadamente informado sobre las finalidades y el alcance de dicho acceso. 
+
+Este consentimiento puede materializarse de forma digital: la aplicación debería integrar mecanismos de firma electrónica para que el paciente firme los documentos de consentimiento de manera \textbf{segura y legalmente válida}. En particular, el uso de la herramienta oficial \textbf{AutoFirma} (y su cliente móvil @firma) permitiría recabar la firma electrónica avanzada o cualificada del paciente, de conformidad con el Reglamento eIDAS, otorgándole a ese consentimiento digital la misma validez jurídica que tendría en papel.
+
+De esta forma, se garantiza la autenticidad del consentimiento y se respeta plenamente la autonomía del paciente, dado que ningún profesional ajeno a su atención podrá acceder a sus datos de salud sin la debida autorización del propio paciente.
+
+
+
+\textbf{
+\section{Historia clínica (gestión, acceso y custodia)}
+}
+
+VitalSanity debe gestionar la \textbf{historia clínica digital} de cada paciente cumpliendo con los requisitos legales en materia de documentación sanitaria. La historia clínica es el conjunto de documentos e información relativa a la salud de un paciente, y tiene carácter \textbf{confidencial}. Solo el personal sanitario directamente implicado en la asistencia tiene permiso para acceder a ella, tal como señala la Ley 41/2002.
+
+En consecuencia, la aplicación debe garantizar que únicamente los profesionales autorizados puedan consultar o modificar el historial clínico, implementando controles de acceso estrictos y registrando toda actividad (accesos, incorporaciones de datos, etc.) para mantener trazabilidad y detectar accesos indebidos. 
+
+Además, VitalSanity debe preservar la \textbf{integridad} y \textbf{autenticidad} de la información clínica: cualquier dato incorporado al historial debe permanecer completo, fidedigno y asociado al profesional que lo aportó, igual que ocurriría en un expediente médico tradicional.
+
+Por otro lado, la \textbf{custodia} legal de la historia clínica recae en el proveedor sanitario (hospital, clínica o profesional) que genera la documentación. VitalSanity, como herramienta, debe facilitar el cumplimiento de dichas obligaciones de custodia sin suplantarlas. 
+
+Los centros sanitarios tienen el deber de archivar y conservar la documentación clínica en condiciones adecuadas de seguridad, al menos durante \textbf{cinco años} desde la fecha de alta de cada proceso asistencial (o plazos mayores según normativas autonómicas o del tipo de documento). La aplicación deberá apoyar esta conservación segura de los datos en formato electrónico, garantizando su disponibilidad cuando se requiera para la asistencia y su protección frente a pérdidas o alteraciones. 
+
+Asimismo, debe respetarse el criterio de \textbf{unidad de la historia clínica}: cada paciente ha de tener un registro unificado por centro sanitario, que incorpore todos sus episodios asistenciales relevantes. VitalSanity debe por tanto integrarse con los sistemas de información sanitarios existentes para evitar la fragmentación de la información, asegurando que el historial clínico digital que maneja sea completo y esté sincronizado con la historia oficial del centro. 
+
+Finalmente, se debe recordar que el paciente tiene derecho a acceder a la información de su propia historia clínica (salvo excepciones legales puntuales); la aplicación podría facilitar este derecho, por ejemplo, mediante módulos de portal del paciente, siempre cumpliendo con las garantías de seguridad y confidencialidad previstas.
+
+\section{Interoperabilidad entre sistemas sanitarios}
+
+La legislación sanitaria española promueve la \textbf{interoperabilidad} de los sistemas clínicos, con el fin de garantizar la continuidad asistencial del paciente a través de distintos niveles y centros de atención. La propia Ley 41/2002, en una disposición adicional, instó a desarrollar sistemas compatibles que permitieran el uso compartido de la historia clínica del paciente entre distintos establecimientos sanitarios, evitando duplicidades diagnósticas o pruebas innecesarias. 
+
+Más adelante, la Ley 16/2003 de Cohesión y Calidad del SNS, en su artículo 56, encomendó al Ministerio de Sanidad coordinar con las Comunidades Autónomas los mecanismos de intercambio electrónico de información de salud, de forma que tanto los profesionales sanitarios que atienden al paciente como el propio paciente puedan acceder a los datos clínicos precisos para su asistencia, garantizando en todo caso la confidencialidad e integridad de la información.
+
+En aplicación de este marco, se aprobó el \textbf{Real Decreto 1093/2010}, que establece el conjunto mínimo de datos comunes que deben contener ciertos informes clínicos (informes de alta, historias resumidas, etc.) en todo el Sistema Nacional de Salud.
+
+Dicho estándar unifica el formato básico de la información para facilitar su intercambio entre los distintos servicios de salud autonómicos. 
+
+En este contexto, VitalSanity debe ser capaz de integrarse e \textbf{interoperar} con otros sistemas sanitarios, tanto públicos como privados. Por un lado, la aplicación ha de adoptar los estándares nacionales mencionados (estructuras de datos, terminologías clínicas, formatos de intercambio como HL7/FHIR, etc.) para comunicarse eficazmente con la historia clínica digital de los servicios de salud. 
+
+De esta forma, VitalSanity debe de cumplir con el hecho de que en España \textbf{no existen impedimentos legales} para el intercambio de información clínica entre el sector público y el privado. Para ello siempre debe de mediar el consentimiento previo del paciente. 
+
+Esto implica que VitalSanity puede, con la autorización explícita del paciente, acceder a datos provenientes de diferentes fuentes (por ejemplo, historiales de un hospital público y de una clínica privada) y presentarlos de forma unificada al profesional o al propio paciente. La aplicación debe, por tanto, estar preparada para \textbf{respetar los protocolos de interoperabilidad} vigentes (p. ej. servicios web del Nodo de Intercambio del SNS) y a la vez \textbf{garantizar la seguridad} en esas transferencias de datos (cifrado de las comunicaciones, autenticación de los sistemas que intercambian información, etc.), de acuerdo con las exigencias legales y de las políticas de cada institución involucrada.
+
+
+
+
+{
+\section{Esquema Nacional de Seguridad (ENS):}
+} 
+Dada la naturaleza sensible de los datos de salud, es obligatorio aplicar medidas de seguridad de nivel elevado según el ENS cuando la aplicación se integra en el sector público o maneja información de pacientes de servicios públicos. El ENS, establecido por el RD 3/2010 (actualizado por RD 311/2022), proporciona un marco de buenas prácticas de seguridad orientado a proteger la información en las administraciones públicas y sus sistemas asociados\href{https://quodem.com/blog/el-papel-del-ens-en-el-sector-de-la-salud/\#:~:text=Con\%20el\%20objetivo\%20de\%20garantizar,la\%20correcta\%20gesti\%C3\%B3n\%20de\%20estos}{quodem.com}. VitalSanity debe alinearse con estas exigencias, implementando controles como autenticación robusta (ej. \textbf{autenticación con certificado digital}), gestión estricta de permisos de usuario, cifrado de las comunicaciones, registro y monitorización de accesos, planes de respuesta ante incidentes, copias de seguridad, entre otras medidas. Cumplir con el ENS garantiza un nivel de protección acorde al exigido en el ámbito sanitario público y refuerza la confianza en la aplicación.
+
+\section{Reglamento eIDAS y firma electrónica}
+ El Reglamento (UE) n.º 910/2014 \textbf{eIDAS} sobre identificación electrónica y servicios de confianza, junto con la Ley 59/2003 española de firma electrónica, establecen las condiciones bajo las cuales una \textbf{firma electrónica avanzada o cualificada} tiene el mismo valor legal que la firma manuscrita en documentos oficiales. En el contexto de VitalSanity, esto implica que los consentimientos informados y demás documentos clínicos firmados digitalmente a través de la aplicación (por ejemplo, utilizando certificados digitales reconocidos mediante AutoFirma) gozarán de plena validez jurídica. La plataforma debe, por tanto, utilizar certificados y métodos de firma electrónica que cumplan estos estándares, garantizando la \textbf{autenticidad}, \textbf{integridad} y el \textbf{no repudio} de los documentos firmados. De esta forma, tanto pacientes como profesionales pueden firmar electrónicamente consentimientos, informes o autorizaciones con la certeza de que dichos actos tienen eficacia legal y probatoria equivalente a los tradicionales en papel.
+ 
+ 
+\section{Consideraciones éticas}
+ Más allá del cumplimiento legal, la gestión de datos de salud conlleva importantes responsabilidades éticas. VitalSanity debe adherirse a los \textbf{principios éticos} que rigen la relación sanitario-paciente y el uso de información sensible. Esto incluye el respeto estricto del \textbf{secreto profesional} y la privacidad del paciente: toda persona que acceda a datos mediante la aplicación debe estar sujeta a deberes de confidencialidad profesionales. Igualmente, el principio de \textbf{autonomía del paciente} exige que las decisiones sobre el uso de sus datos estén centradas en su consentimiento y preferencias, evitando cualquier forma de coerción o uso indebido de la información. La \textbf{beneficencia} y la \textbf{no maleficencia} han de guiar el diseño de la herramienta: sus funcionalidades (por ejemplo, algoritmos de ayuda a la decisión clínica) deben buscar mejorar la calidad de la atención sin causar perjuicios ni discriminar pacientes. Es aconsejable que VitalSanity se desarrolle bajo un enfoque de \textit{ética de datos}, asegurando transparencia en cómo se usan los datos, minimizando la recopilación a lo necesario y garantizando un uso justo y responsable de la información (por ejemplo, si se utilizan datos anónimos para investigación, hacerlo con las debidas autorizaciones de comité ético). 
+
 
 
 \chapter{Metodologías empleadas}
@@ -1470,86 +1551,288 @@ Los \textbf{pacientes} se registran directamente desde la aplicación a través 
 Cuando un \textbf{paciente} termina de rellenar todos los datos del formulario, se le envía un \textbf{correo} con un \textbf{código de confirmación} conformado por \textbf{seis dígitos}. El \textbf{paciente} debe de introducir en la aplicación dicho \textbf{código de confirmación} para poder \textbf{finalizar} su \textbf{registro}.
 
 Una vez introducido el \textbf{código de confirmación}, se le pedirá al \textbf{paciente} que complete de forma opcional sus \textbf{datos de residencia}. De esta forma, se distribuye la \textbf{carga manual} que tiene que realizar el \textbf{paciente} para \textbf{teminar de registrarse} (esquema \textbf{lazy registration}).
-\chapter{Consideraciones legales}
-
-\textbf{
-\section{Cumplimiento de protección de datos}
-}
-
-La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la normativa de protección de datos, en especial al RGPD (Reglamento UE 2016/679) y a la LOPDGDD (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una base jurídica adecuada y garantías elevadas de seguridad.
 
 
-En este sentido, se debe respetar el derecho a la \textbf{confidencialidad} de la información médica de cada paciente: la Ley de Autonomía del Paciente (Ley 41/2002) establece que nadie puede acceder a datos sanitarios sin la debida legitimación o autorización previa del afectado. VitalSanity debe aplicar el principio de \textit{privacidad desde el diseño}, implementando medidas técnicas y organizativas robustas (control de accesos, cifrado, seudonimización, etc.) para asegurar la \textbf{integridad} y \textbf{confidencialidad} de la información. 
+\chapter{Versión final de la aplicación}
 
-Igualmente, se tiene que facilitar que los pacientes ejerzan sus derechos ARSOP (acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad) sobre sus datos personales. En concordancia con el principio de responsabilidad proactiva del RGPD, será necesario llevar un registro de actividades de tratamiento, realizar evaluaciones de riesgo y notificar a la autoridad de protección de datos cualquier brecha de seguridad relevante. 
+En este capítulo se mostrará como ha quedado la versión definitiva de la VitalSanity. Para ello, se adjuntarán imágenes de cada una de las vistas de la aplicación, tanto de la versión para ordenador como de la versión para móvil.
 
-Por último, si la escala o naturaleza del tratamiento lo requiere (p. ej., tratamiento masivo de datos de salud), se deberá designar un \textbf{Delegado de Protección de Datos (DPO)} para supervisar el cumplimiento normativo.
+\section{Versión de ordenador de VitalSanity}
 
- \textbf{Posibilidad de revocación: }Asimismo, destacar que el consentimiento informado \textbf{no es irrevocable}; el paciente tiene derecho a retirarlo en cualquier momento. En consecuencia, \textit{VitalSanity} debe habilitar la revocación ágil de permisos previamente concedidos. Si un paciente decide denegar acceso a cierto profesional, la aplicación debe hacer efectiva esa revocación inmediatamente, notificando al sistema para que el profesional ya no pueda consultar la historia clínica. Este mecanismo de revocación es parte integral del respeto a la autonomía del paciente y debe ser tan sencillo como lo fue otorgar el permiso.
+\subsection{Página home}
 
-\section{  \textbf{Consentimiento informado del paciente}
-}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home1.png}
+\caption{Página home: introducción}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
 
-Todo acceso o uso de información clínica a través de VitalSanity debe estar amparado por el \textbf{consentimiento informado} del paciente. La Ley 41/2002 reconoce el derecho del paciente a ser plenamente informado de cualquier actuación médica y a decidir libremente sobre la misma, exigiendo que su aceptación conste por escrito mediante un consentimiento expreso.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home2.png}
+\caption{Página home: beneficios}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
 
-En línea con este mandato, VitalSanity debe asegurarse de obtener un consentimiento específico, libre e informado del paciente antes de acceder a su historial clínico o compartir sus datos, una vez que el paciente haya sido adecuadamente informado sobre las finalidades y el alcance de dicho acceso. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home3.png}
+\caption{Página home: funcionamiento de VitalSanity}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
 
-Este consentimiento puede materializarse de forma digital: la aplicación debería integrar mecanismos de firma electrónica para que el paciente firme los documentos de consentimiento de manera \textbf{segura y legalmente válida}. En particular, el uso de la herramienta oficial \textbf{AutoFirma} (y su cliente móvil @firma) permitiría recabar la firma electrónica avanzada o cualificada del paciente, de conformidad con el Reglamento eIDAS, otorgándole a ese consentimiento digital la misma validez jurídica que tendría en papel.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home4.png}
+\caption{Página home: reseñas de usuarios}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
 
-De esta forma, se garantiza la autenticidad del consentimiento y se respeta plenamente la autonomía del paciente, dado que ningún profesional ajeno a su atención podrá acceder a sus datos de salud sin la debida autorización del propio paciente.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home5.png}
+\caption{Página home: formulario de contacto}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home6.png}
+\caption{Página home: footer}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
 
-
-\textbf{
-\section{Historia clínica (gestión, acceso y custodia)}
-}
-
-VitalSanity debe gestionar la \textbf{historia clínica digital} de cada paciente cumpliendo con los requisitos legales en materia de documentación sanitaria. La historia clínica es el conjunto de documentos e información relativa a la salud de un paciente, y tiene carácter \textbf{confidencial}. Solo el personal sanitario directamente implicado en la asistencia tiene permiso para acceder a ella, tal como señala la Ley 41/2002.
-
-En consecuencia, la aplicación debe garantizar que únicamente los profesionales autorizados puedan consultar o modificar el historial clínico, implementando controles de acceso estrictos y registrando toda actividad (accesos, incorporaciones de datos, etc.) para mantener trazabilidad y detectar accesos indebidos. 
-
-Además, VitalSanity debe preservar la \textbf{integridad} y \textbf{autenticidad} de la información clínica: cualquier dato incorporado al historial debe permanecer completo, fidedigno y asociado al profesional que lo aportó, igual que ocurriría en un expediente médico tradicional.
-
-Por otro lado, la \textbf{custodia} legal de la historia clínica recae en el proveedor sanitario (hospital, clínica o profesional) que genera la documentación. VitalSanity, como herramienta, debe facilitar el cumplimiento de dichas obligaciones de custodia sin suplantarlas. 
-
-Los centros sanitarios tienen el deber de archivar y conservar la documentación clínica en condiciones adecuadas de seguridad, al menos durante \textbf{cinco años} desde la fecha de alta de cada proceso asistencial (o plazos mayores según normativas autonómicas o del tipo de documento). La aplicación deberá apoyar esta conservación segura de los datos en formato electrónico, garantizando su disponibilidad cuando se requiera para la asistencia y su protección frente a pérdidas o alteraciones. 
-
-Asimismo, debe respetarse el criterio de \textbf{unidad de la historia clínica}: cada paciente ha de tener un registro unificado por centro sanitario, que incorpore todos sus episodios asistenciales relevantes. VitalSanity debe por tanto integrarse con los sistemas de información sanitarios existentes para evitar la fragmentación de la información, asegurando que el historial clínico digital que maneja sea completo y esté sincronizado con la historia oficial del centro. 
-
-Finalmente, se debe recordar que el paciente tiene derecho a acceder a la información de su propia historia clínica (salvo excepciones legales puntuales); la aplicación podría facilitar este derecho, por ejemplo, mediante módulos de portal del paciente, siempre cumpliendo con las garantías de seguridad y confidencialidad previstas.
-
-\section{\textbf{Interoperabilidad entre sistemas sanitarios}}
-
-La legislación sanitaria española promueve la \textbf{interoperabilidad} de los sistemas clínicos, con el fin de garantizar la continuidad asistencial del paciente a través de distintos niveles y centros de atención. La propia Ley 41/2002, en una disposición adicional, instó a desarrollar sistemas compatibles que permitieran el uso compartido de la historia clínica del paciente entre distintos establecimientos sanitarios, evitando duplicidades diagnósticas o pruebas innecesarias. 
-
-Más adelante, la Ley 16/2003 de Cohesión y Calidad del SNS, en su artículo 56, encomendó al Ministerio de Sanidad coordinar con las Comunidades Autónomas los mecanismos de intercambio electrónico de información de salud, de forma que tanto los profesionales sanitarios que atienden al paciente como el propio paciente puedan acceder a los datos clínicos precisos para su asistencia, garantizando en todo caso la confidencialidad e integridad de la información.
-
-En aplicación de este marco, se aprobó el \textbf{Real Decreto 1093/2010}, que establece el conjunto mínimo de datos comunes que deben contener ciertos informes clínicos (informes de alta, historias resumidas, etc.) en todo el Sistema Nacional de Salud.
-
-Dicho estándar unifica el formato básico de la información para facilitar su intercambio entre los distintos servicios de salud autonómicos. 
-
-En este contexto, VitalSanity debe ser capaz de integrarse e \textbf{interoperar} con otros sistemas sanitarios, tanto públicos como privados. Por un lado, la aplicación ha de adoptar los estándares nacionales mencionados (estructuras de datos, terminologías clínicas, formatos de intercambio como HL7/FHIR, etc.) para comunicarse eficazmente con la historia clínica digital de los servicios de salud. 
-
-De esta forma, VitalSanity debe de cumplir con el hecho de que en España \textbf{no existen impedimentos legales} para el intercambio de información clínica entre el sector público y el privado. Para ello siempre debe de mediar el consentimiento previo del paciente. 
-
-Esto implica que VitalSanity puede, con la autorización explícita del paciente, acceder a datos provenientes de diferentes fuentes (por ejemplo, historiales de un hospital público y de una clínica privada) y presentarlos de forma unificada al profesional o al propio paciente. La aplicación debe, por tanto, estar preparada para \textbf{respetar los protocolos de interoperabilidad} vigentes (p. ej. servicios web del Nodo de Intercambio del SNS) y a la vez \textbf{garantizar la seguridad} en esas transferencias de datos (cifrado de las comunicaciones, autenticación de los sistemas que intercambian información, etc.), de acuerdo con las exigencias legales y de las políticas de cada institución involucrada.
+Cabe destacar que tanto la \textbf{navbar} como el \textbf{footer} aparecen en \textbf{todas} las vistas de la aplicación.
 
 
+\subsection{Vistas del Guest User}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.5\textheight, keepaspectratio]{img/version-final-ordenador/login-form.png}
+\caption{Formulario de inicio de sesión}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/register-form.png}
+\caption{Formulario de registro como paciente}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/guest-user/login-errors.png}
+\caption{Formulario de login mostrando un error}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/guest-user/x509-login.png}
+\caption{Inicio de sesión con certificado digital}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+\newpage
+
+dsfdsf
+
+\subsection{Gestión del acceso al historial médico centralizado por parte del profesional}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/profesional-solicita-acceso.png}
+\caption{Profesional médico busca a un paciente}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/profesional-solicita-acceso-ya-existe.png}
+\caption{Paciente que ya tiene una solicitud de autorizacion}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/solicitud-autorizacion.png}
+\caption{Formulario para la solicitud de autorizacion}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/solicitud-autorizacion-v2.png}
+\caption{Instrucciones para realizar la firma}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+Estas instrucciones aparecen cuando se ha rellenado el formulario de solicitud de la autorización y cuando se pulsa sobre "Aceptar". En estas instrucciones se incluye además \textbf{información básica sobre protección de datos}, así como el enlace a la \textbf{política de privacidad} de la aplicación.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/pop-up-autofirma.png}
+\caption{Pop up de AutoFirma}
+\label{Pop up de AutoFirma:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/selector-certificados-autofirma.png}
+\caption{Selector de certificados de AutoFirma}
+\label{Pop up de AutoFirma:vv}
+\end{figure}
+
+Tras haber elegido el certificado con el que se quiere firmar la autorización, se muestra un \textbf{overlay} por pantalla mientras se completa el proceso de firma.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/overlay-autofirma.png}
+\caption{Selector de certificados de AutoFirma}
+\label{Pop up de AutoFirma:vv}
+\end{figure}
+
+Tras haberse completado el proceso de firma, se le muestra al profesional médico un mensaje de confirmación y se le permite descargarse el \textbf{PDF} firmado con la autorización recién realizada.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/ok-firma.png}
+\caption{Firma de la autorización realizada correctamente}
+\label{Firma realizada correctamente:vv}
+\end{figure}
+
+Al abrir el \textbf{PDF} desde \textbf{Adobe Acrobat Reader} se puede verificar como en efecto se ha firmado correctamente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/pdf-firmado.png}
+\caption{PDF de la autorización firmado correctamente}
+\label{PDF de la autorización firmado correctamente:vv}
+\end{figure}
+
+El profesional médico puede acceder al listado de los pacientes que han autorizado. Para cada uno de los pacientes puede acceder a su historial médico centralizado.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/ver-pacientes-que-han-autorizado.png}
+\caption{Listado de pacientes que han autorizado el acceso}
+\label{PDF de la autorización firmado correctamente:vv}
+\end{figure}
+
+El profesional médico también puede ver el listado de solicitudes de autorización que tiene \textbf{pendientes de confirmación}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/solicitudes-de-autorizacion-pendientes.png}
+\caption{Solicitudes de autorización pendientes de confirmación}
+\label{PDF de la autorización firmado correctamente:vv}
+\end{figure}
+
+Asimismo, el profesional también puede ver aquellos pacientes que han desautorizado el acceso al historial médico centralizado. Para cada uno de estos pacientes, el profesional médico puede o bien volver a solicitar acceso o bien acceder a los informes que \textbf{ese mismo} profesional médico agregó en el pasado al historial del paciente (es decir, tras una \textbf{desautorización}, el profesional médico pierde acceso a los informes de otros profesionales médicos pero no pierde el acceso a los informes \textbf{propios}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/ver-pacientes-que-han-desautorizado.png}
+\caption{Ver pacientes que han desautorizado}
+\label{Ver pacientes que han desautorizado:vv}
+\end{figure}
+
+\subsection{Gestión del acceso al historial médico centralizado por parte del paciente}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/solicitudes-autorizacion.png}
+\caption{Solicitudes de autorización del paciente}
+\label{Solicitudes de autorización del paciente:vv}
+\end{figure}
+
+Cuando un paciente le da a \textbf{\textit{Aceptar}} a una solicitud de autorización, entonces se le muestran el recuadro con las instrucciones de la firma, con la información sobre protección de datos y el enlace con la política de privacidad (de forma análoga a como se le mostraba al profesional médico). En este caso, toda esta información se muestra en forma de \textbf{pop up}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/pop-up-cofirma-autorizacion-paciente.png}
+\caption{Instrucciones de la firma en forma de pop up}
+\label{Instrucciones de la firma en forma de pop up:vv}
+\end{figure}
+
+Cuando el paciennte firma, se muestra el \textbf{pop up de AutoFirma}, el \textbf{selector de certificados}  y el \textbf{overlay de espera}, todo de forma análoga a como se mostraba al profesional médico.
 
 
-{
-\section{Esquema Nacional de Seguridad (ENS):}
-} 
-Dada la naturaleza sensible de los datos de salud, es obligatorio aplicar medidas de seguridad de nivel elevado según el ENS cuando la aplicación se integra en el sector público o maneja información de pacientes de servicios públicos. El ENS, establecido por el RD 3/2010 (actualizado por RD 311/2022), proporciona un marco de buenas prácticas de seguridad orientado a proteger la información en las administraciones públicas y sus sistemas asociados\href{https://quodem.com/blog/el-papel-del-ens-en-el-sector-de-la-salud/\#:~:text=Con\%20el\%20objetivo\%20de\%20garantizar,la\%20correcta\%20gesti\%C3\%B3n\%20de\%20estos}{quodem.com}. VitalSanity debe alinearse con estas exigencias, implementando controles como autenticación robusta (ej. \textbf{autenticación con certificado digital}), gestión estricta de permisos de usuario, cifrado de las comunicaciones, registro y monitorización de accesos, planes de respuesta ante incidentes, copias de seguridad, entre otras medidas. Cumplir con el ENS garantiza un nivel de protección acorde al exigido en el ámbito sanitario público y refuerza la confianza en la aplicación.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/pop-up-autofirma.png}
+\caption{Pop up de AutoFirma}
+\label{Pop up de AutoFirma:vv}
+\end{figure}
 
-\section{Reglamento eIDAS y firma electrónica}
- El Reglamento (UE) n.º 910/2014 \textbf{eIDAS} sobre identificación electrónica y servicios de confianza, junto con la Ley 59/2003 española de firma electrónica, establecen las condiciones bajo las cuales una \textbf{firma electrónica avanzada o cualificada} tiene el mismo valor legal que la firma manuscrita en documentos oficiales. En el contexto de VitalSanity, esto implica que los consentimientos informados y demás documentos clínicos firmados digitalmente a través de la aplicación (por ejemplo, utilizando certificados digitales reconocidos mediante AutoFirma) gozarán de plena validez jurídica. La plataforma debe, por tanto, utilizar certificados y métodos de firma electrónica que cumplan estos estándares, garantizando la \textbf{autenticidad}, \textbf{integridad} y el \textbf{no repudio} de los documentos firmados. De esta forma, tanto pacientes como profesionales pueden firmar electrónicamente consentimientos, informes o autorizaciones con la certeza de que dichos actos tienen eficacia legal y probatoria equivalente a los tradicionales en papel.
- 
- 
-\section{Consideraciones éticas}
- Más allá del cumplimiento legal, la gestión de datos de salud conlleva importantes responsabilidades éticas. VitalSanity debe adherirse a los \textbf{principios éticos} que rigen la relación sanitario-paciente y el uso de información sensible. Esto incluye el respeto estricto del \textbf{secreto profesional} y la privacidad del paciente: toda persona que acceda a datos mediante la aplicación debe estar sujeta a deberes de confidencialidad profesionales. Igualmente, el principio de \textbf{autonomía del paciente} exige que las decisiones sobre el uso de sus datos estén centradas en su consentimiento y preferencias, evitando cualquier forma de coerción o uso indebido de la información. La \textbf{beneficencia} y la \textbf{no maleficencia} han de guiar el diseño de la herramienta: sus funcionalidades (por ejemplo, algoritmos de ayuda a la decisión clínica) deben buscar mejorar la calidad de la atención sin causar perjuicios ni discriminar pacientes. Es aconsejable que VitalSanity se desarrolle bajo un enfoque de \textit{ética de datos}, asegurando transparencia en cómo se usan los datos, minimizando la recopilación a lo necesario y garantizando un uso justo y responsable de la información (por ejemplo, si se utilizan datos anónimos para investigación, hacerlo con las debidas autorizaciones de comité ético). 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/selector-certificados.png}
+\caption{Selector de certificados de AutoFirma}
+\label{selector-certificado:vv}
+\end{figure}
 
-  
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/overlay-de-espera.png}
+\caption{Overlay de espera}
+\label{Overlay de espera:vv}
+\end{figure}
+
+
+Cuando se completa el proceso de firma, se le muestra el mensaje de confirmación al paciente con el enlace de descarga de la autorización \textbf{cofirmada} (dicha autorización cofirmada también se sube a \textbf{AWS})
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/autorizacion-cofirmada-con-exito.png}
+\caption{Cofirma realizada correctamente}
+\label{Cofirma realizada correctamente:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/pdf-cofirmado-ok.png}
+\caption{PDF cofirmado (con dos firmas)}
+\label{Cofirma realizada correctamente:vv}
+\end{figure}
+
+Por otra parte, el paciente también puede \textbf{denegar} denegar solicitudes de autorización:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/denegar-solicitud-autorizacion.png}
+\caption{Pop up para denegar una solicitud de autorización}
+\label{Pop up para denegar una solicitud de autorización:vv}
+\end{figure}
+
+El paciente puede acceder al listado de profesionales médicos que ha autorizado y desde ahí puede o bien acceder a los informes agregados por un profesional médico o bien puede deseautorizar a un profesional médico.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/ver-profesionales-autorizados.png}
+\caption{Listado de profesionales médicos autorizados del paciente}
+\label{Listado de profesionales médicos autorizados del paciente:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/desautorizar-profesional-medico.png}
+\caption{Pop up para desautorizar a un profesional médico}
+\label{Pop up para desautorizar a un profesional médico:vv}
+\end{figure}
+
+\subsection{Profesional médico: lógica asociada a los informes y documentos médicos dentro del historial}
+
+El profesional médico puede acceder al historial completo de informes y documentos médicos de aquellos pacientes que hayan autorizado el acceso. Esto incluye el acceso a todos los informes y documentos médicos, con independencia del profesional médico que los haya creado y con independencia del centro médico en el que trabaje dicho profesional. Asimismo, el profesional médico podrá agregar nuevos informes al historial del paciente que ha autorizado.
+
+
+
+
+
+
+
 
 
 \chapter{Desafíos afrontados}
