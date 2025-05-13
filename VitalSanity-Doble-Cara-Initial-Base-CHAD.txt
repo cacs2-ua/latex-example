@@ -1555,7 +1555,7 @@ Una vez introducido el \textbf{código de confirmación}, se le pedirá al \text
 
 \chapter{Versión final de la aplicación}
 
-En este capítulo se mostrará como ha quedado la versión definitiva de la VitalSanity. Para ello, se adjuntarán imágenes de cada una de las vistas de la aplicación, tanto de la versión para ordenador como de la versión para móvil.
+En este capítulo se mostrará como ha quedado la versión definitiva de la \textbf{VitalSanity}. Para ello, se adjuntarán imágenes de cada una de las vistas de la aplicación, tanto de la versión para \textbf{ordenador} como de la versión para \textbf{móvil}.
 
 \section{Versión de ordenador de VitalSanity}
 
@@ -1598,8 +1598,15 @@ En este capítulo se mostrará como ha quedado la versión definitiva de la Vita
 
 \begin{figure}[H]
 \centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/navbar.png}
+\caption{Navbar de la aplicación (profesional médico logeado)}
+\label{Navbar de la aplicación:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
 \includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/home6.png}
-\caption{Página home: footer}
+\caption{Footer de la aplicación}
 \label{AutoFirma ejemplo base:vv}
 \end{figure}
 
@@ -1637,8 +1644,6 @@ Cabe destacar que tanto la \textbf{navbar} como el \textbf{footer} aparecen en \
 \end{figure}
 \newpage
 
-dsfdsf
-
 \subsection{Gestión del acceso al historial médico centralizado por parte del profesional}
 
 \begin{figure}[H]
@@ -1669,7 +1674,18 @@ dsfdsf
 \label{AutoFirma ejemplo base:vv}
 \end{figure}
 
-Estas instrucciones aparecen cuando se ha rellenado el formulario de solicitud de la autorización y cuando se pulsa sobre "Aceptar". En estas instrucciones se incluye además \textbf{información básica sobre protección de datos}, así como el enlace a la \textbf{política de privacidad} de la aplicación.
+Estas instrucciones aparecen cuando se ha rellenado el formulario de solicitud de la autorización y cuando se pulsa sobre \textbf{\textit{Aceptar}}. En estas instrucciones se incluye además \textbf{información básica sobre protección de datos}, así como el enlace a la \textbf{política de privacidad} de la aplicación.
+
+Si se presiona el botón de \textbf{\textit{Firmar y enviar}} sin haber marcado la casilla de \textbf{protección de datos}, entonces el navegador mostrará un aviso.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/aviso-no-haber-pulsado-casilla.png}
+\caption{Aviso por no haber marcado la casilla de protección de datos}
+\label{Aviso por no haber marcado la casilla de protección de datos:vv}
+\end{figure}
+
+Tras haber marcado la casilla de protección de datos y pulsado el botón, es justo ahí cuando entra en juego \textbf{AutoFirma}.
 
 \begin{figure}[H]
 \centering
@@ -1678,10 +1694,12 @@ Estas instrucciones aparecen cuando se ha rellenado el formulario de solicitud d
 \label{Pop up de AutoFirma:vv}
 \end{figure}
 
+Tras abrirse, \textbf{AutoFirma} muestra el selector de certificados.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/selector-certificados-autofirma.png}
-\caption{Selector de certificados de AutoFirma}
+\caption{Selector de certificados}
 \label{Pop up de AutoFirma:vv}
 \end{figure}
 
@@ -1694,7 +1712,7 @@ Tras haber elegido el certificado con el que se quiere firmar la autorización, 
 \label{Pop up de AutoFirma:vv}
 \end{figure}
 
-Tras haberse completado el proceso de firma, se le muestra al profesional médico un mensaje de confirmación y se le permite descargarse el \textbf{PDF} firmado con la autorización recién realizada.
+Tras haberse completado el proceso de firma, se le muestra al profesional médico un mensaje de confirmación y se le permite descargarse el \textbf{PDF} firmado con la autorización recién firmada. Asimismo, el \textbf{paciente} recibe un \textbf{email} indicándole que ha recibido una nueva solicitud de autorización de acceso a su historial.
 
 \begin{figure}[H]
 \centering
@@ -1712,7 +1730,7 @@ Al abrir el \textbf{PDF} desde \textbf{Adobe Acrobat Reader} se puede verificar 
 \label{PDF de la autorización firmado correctamente:vv}
 \end{figure}
 
-El profesional médico puede acceder al listado de los pacientes que han autorizado. Para cada uno de los pacientes puede acceder a su historial médico centralizado.
+El \textbf{profesional médico} puede acceder al listado de los \textbf{pacientes que han autorizado}. Para cada uno de los \textbf{pacientes}, \textbf{el profesional médico} puede acceder a su \textbf{historial médico centralizado}.
 
 \begin{figure}[H]
 \centering
@@ -1721,7 +1739,7 @@ El profesional médico puede acceder al listado de los pacientes que han autoriz
 \label{PDF de la autorización firmado correctamente:vv}
 \end{figure}
 
-El profesional médico también puede ver el listado de solicitudes de autorización que tiene \textbf{pendientes de confirmación}.
+El \textbf{profesional médico} también puede ver el listado de solicitudes de autorización que tiene \textbf{pendientes de confirmación}.
 
 \begin{figure}[H]
 \centering
@@ -1730,7 +1748,7 @@ El profesional médico también puede ver el listado de solicitudes de autorizac
 \label{PDF de la autorización firmado correctamente:vv}
 \end{figure}
 
-Asimismo, el profesional también puede ver aquellos pacientes que han desautorizado el acceso al historial médico centralizado. Para cada uno de estos pacientes, el profesional médico puede o bien volver a solicitar acceso o bien acceder a los informes que \textbf{ese mismo} profesional médico agregó en el pasado al historial del paciente (es decir, tras una \textbf{desautorización}, el profesional médico pierde acceso a los informes de otros profesionales médicos pero no pierde el acceso a los informes \textbf{propios}).
+Asimismo, el \textbf{profesional} también puede ver aquellos \textbf{pacientes} que han desautorizado el acceso al \textbf{historial médico centralizado}. Para cada uno de estos \textbf{pacientes}, el \textbf{profesional médico} puede o bien volver a solicitar acceso o bien acceder a los informes que \textbf{ese mismo} \textbf{profesional médico} agregó en el pasado al historial del \textbf{paciente} (es decir, tras una \textbf{desautorización}, el profesional médico pierde acceso a los informes de otros profesionales médicos pero no pierde el acceso a los informes \textbf{propios}).
 
 \begin{figure}[H]
 \centering
@@ -1748,7 +1766,7 @@ Asimismo, el profesional también puede ver aquellos pacientes que han desautori
 \label{Solicitudes de autorización del paciente:vv}
 \end{figure}
 
-Cuando un paciente le da a \textbf{\textit{Aceptar}} a una solicitud de autorización, entonces se le muestran el recuadro con las instrucciones de la firma, con la información sobre protección de datos y el enlace con la política de privacidad (de forma análoga a como se le mostraba al profesional médico). En este caso, toda esta información se muestra en forma de \textbf{pop up}
+Cuando un paciente le da al botón de  \textbf{\textit{Autorizar}}, entonces se le muestra el recuadro con \textbf{las instrucciones de la firma}, con \textbf{la información sobre protección de datos} y el enlace con \textbf{la política de privacidad} (de forma análoga a como se le mostraba al profesional médico). En este caso, toda esta información se muestra en forma de \textbf{pop up}.
 
 \begin{figure}[H]
 \centering
@@ -1757,7 +1775,7 @@ Cuando un paciente le da a \textbf{\textit{Aceptar}} a una solicitud de autoriza
 \label{Instrucciones de la firma en forma de pop up:vv}
 \end{figure}
 
-Cuando el paciennte firma, se muestra el \textbf{pop up de AutoFirma}, el \textbf{selector de certificados}  y el \textbf{overlay de espera}, todo de forma análoga a como se mostraba al profesional médico.
+Cuando el paciente firma, se muestra el \textbf{pop up de AutoFirma}, el \textbf{selector de certificados}  y el \textbf{overlay de espera}, todo de forma análoga a como se mostraba al \textbf{profesional médico}.
 
 
 \begin{figure}[H]
@@ -1770,7 +1788,7 @@ Cuando el paciennte firma, se muestra el \textbf{pop up de AutoFirma}, el \textb
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/selector-certificados.png}
-\caption{Selector de certificados de AutoFirma}
+\caption{Selector de certificados}
 \label{selector-certificado:vv}
 \end{figure}
 
@@ -1782,7 +1800,7 @@ Cuando el paciennte firma, se muestra el \textbf{pop up de AutoFirma}, el \textb
 \end{figure}
 
 
-Cuando se completa el proceso de firma, se le muestra el mensaje de confirmación al paciente con el enlace de descarga de la autorización \textbf{cofirmada} (dicha autorización cofirmada también se sube a \textbf{AWS})
+Cuando se completa el proceso de firma, se le muestra el mensaje de confirmación al paciente con el enlace de descarga de la autorización \textbf{cofirmada} (dicha autorización \textbf{cofirmada} también se sube a \textbf{AWS}). Tras haberse cofirmado la autorización, el profesional médico recibe un email indicándole que ya tiene acceso al historial médico del paciente.
 
 \begin{figure}[H]
 \centering
@@ -1798,7 +1816,7 @@ Cuando se completa el proceso de firma, se le muestra el mensaje de confirmació
 \label{Cofirma realizada correctamente:vv}
 \end{figure}
 
-Por otra parte, el paciente también puede \textbf{denegar} denegar solicitudes de autorización:
+Por otra parte, el paciente también puede \textbf{denegar} solicitudes de autorización:
 
 \begin{figure}[H]
 \centering
@@ -1807,7 +1825,7 @@ Por otra parte, el paciente también puede \textbf{denegar} denegar solicitudes 
 \label{Pop up para denegar una solicitud de autorización:vv}
 \end{figure}
 
-El paciente puede acceder al listado de profesionales médicos que ha autorizado y desde ahí puede o bien acceder a los informes agregados por un profesional médico o bien puede deseautorizar a un profesional médico.
+El paciente puede acceder al listado de \textbf{profesionales médicos} que ha autorizado y desde ahí puede o bien acceder a los informes agregados por un profesional médico o bien puede \textbf{desautorizar} a un profesional médico.
 
 \begin{figure}[H]
 \centering
@@ -1825,7 +1843,7 @@ El paciente puede acceder al listado de profesionales médicos que ha autorizado
 
 \subsection{Profesional médico: lógica asociada a los informes y documentos médicos dentro del historial}
 
-El profesional médico puede acceder al historial completo de informes y documentos médicos de aquellos pacientes que hayan autorizado el acceso. Esto incluye el acceso a todos los informes y documentos médicos, con independencia del profesional médico que los haya creado y con independencia del centro médico en el que trabaje dicho profesional. Asimismo, el profesional médico podrá agregar nuevos informes al historial del paciente que ha autorizado.
+El profesional médico puede acceder al \textbf{historial completo} de informes y \textbf{documentos médicos} de aquellos \textbf{pacientes} que hayan \textbf{autorizado} el acceso. Esto incluye el acceso a todos los informes y documentos médicos, con independencia del profesional médico que los haya creado y con independencia del centro médico en el que trabaje dicho profesional. Asimismo, el profesional médico podrá agregar nuevos informes al historial del paciente que ha autorizado.
 
 
 
@@ -1854,7 +1872,7 @@ Dentro de los detalles de un informe médico, el profesional puede descargarse y
 \label{Ver documentos de un informe:vv}
 \end{figure}
 
-Asimismo (como aparece en la imagen de arriba), si el profesional médico en cuestión ha sido el creador de dicho informe,entonces dicho profesional médico podrá agregar unos documentos asociados en dicho informe. Los documentos pueden estar en formato \textbf{PDF}, \textbf{JPG}, \textbf{PNG} o \textbf{JPEG}. Todos estos documentos se almacenan de forma segura en el \textbf{bucket} de \textbf{AWS}.
+Asimismo (como aparece en la imagen de arriba), si el profesional médico en cuestión ha sido el creador de dicho informe, entonces dicho profesional médico podrá agregar unos documentos asociados en dicho informe. Los documentos pueden estar en formato \textbf{PDF}, \textbf{JPG}, \textbf{PNG} o \textbf{JPEG}. Todos estos documentos se almacenan de forma segura en el \textbf{bucket} de \textbf{AWS}.
 
 En el caso de que el profesional médico no haya sido el creador de dicho informe, entonces no podrá adjuntar documentos nuevos. 
 
@@ -1891,9 +1909,9 @@ En cuanto a la creación y a la edición de informes, el procedimiento es análo
 \label{Instrucciones para la creación del inform:vv}
 \end{figure}
 
-Cuando se acepta la casilla de \textbf{protección de datos} y se le da a \textbf{\textit{Firmar y Enviar}}, se sigue el mismo flujo ya descrito con anterioridad: se muestra el pop up de \textbf{AutoFirma}, se muestra el \textbf{selector de certificados} y aparece el \textbf{overlay} de espera hasta que se completa el proceso de firma (no vuelvo a poner las imágenes para evitar redundancia).
+Cuando se acepta la casilla de \textbf{protección de datos} y se le da a \textbf{\textit{Firmar y Enviar}}, se sigue el mismo flujo ya descrito con anterioridad: se muestra el pop up de \textbf{AutoFirma}, se muestra el \textbf{selector de certificados} y aparece el \textbf{overlay} de espera hasta que se completa el proceso de firma (no se vuelven a poner las imágenes para evitar redundancia).
 
-Cuando se completa el proceso de firma, se le muestra al profesional médico el mensaje de confirmación y el enlace para poder descargarse el \textbf{PDF} firmado asociado a la información introducida del informe.
+Cuando se completa el proceso de firma, se le muestra al profesional médico el mensaje de confirmación y el enlace para poder descargarse el \textbf{PDF} firmado asociado a la información introducida del informe. Asimismo, el profesional médico recibe un email de confirmación de que se ha subido su nuevo informe con éxito al historial del paciente.
 
 \begin{figure}[H]
 \centering
@@ -1914,7 +1932,7 @@ La edición del informe sigue exactamente el mismo funcionamiento. Cuando se le 
 
 \subsection{Paciente: lógica asociada a los informes y documentos médicos dentro del historial}
 
-El paciente puede visualizar todos los informes que se han agregado a su \textbf{historial médico centralizado}, tanto de profesionales \textbf{autorizado} como de los profesionales que \textbf{ha desautorizado}.
+El paciente puede visualizar todos los informes que se han agregado a su \textbf{historial médico centralizado}, tanto de profesionales \textbf{autorizados} como de los profesionales que \textbf{ha desautorizado}.
 
 \begin{figure}[H]
 \centering
@@ -1959,7 +1977,7 @@ Los usuarios administradores son los encargados de registrar a los centros médi
 \label{Confirmación del registro:vv}
 \end{figure}
 
-Al registrar el centro médico, se le envía un email con una contraseña de acceso. Dicha contraseña le permite al centro médico inicar sesión por primera vez. Cuando el centro médico se autentique por primera vez, entonces se le fuerza a cambiar la contraseña por una que el propio centro médico elija (debe de elegir una contraseña de al menos 8 caractres)
+Al registrar el \textbf{centro médico}, se le envía un \textbf{email} con una contraseña de acceso. Dicha contraseña le permite al centro médico \textbf{inicar sesión} por primera vez. Cuando el centro médico se autentique por primera vez, entonces se le fuerza a cambiar la contraseña por una que el propio centro médico elija (debe de elegir una contraseña de al menos 8 caractres)
 
 \begin{figure}[H]
 \centering
@@ -1970,7 +1988,7 @@ Al registrar el centro médico, se le envía un email con una contraseña de acc
 
 \subsection{Registro de profesionales médicos}
 
-Cada centro médico es el responsable de registrar a sus profesionales médicos. Esta acción se realiza a partir de un \textbf{fichero CSV}. Como ya se ha comentado en el apartado de \textbf{\textit{Detalles de implementación}}, esta funcionalidad tiene en cuenta aquellos profesionales médicos del fichero \textbf{CSV} que ya estuviesen registrados previamente en la base de datos.
+Cada centro médico es el responsable de registrar a sus profesionales médicos. Esta acción se realiza a partir de un \textbf{fichero CSV} con los datos de todos los profesionales médicos que se quiere registrar. Como ya se ha comentado en el apartado de \textbf{\textit{Detalles de implementación}}, esta funcionalidad tiene en cuenta aquellos profesionales médicos del fichero \textbf{CSV} que ya estuviesen registrados previamente en la \textbf{base de datos}.
 
 \begin{figure}[H]
 \centering
@@ -1979,7 +1997,7 @@ Cada centro médico es el responsable de registrar a sus profesionales médicos.
 \label{Registro de profesionales médicos:vv}
 \end{figure}
 
-De igual forma a como ocurría con los \textbf{centros médicos}, a los profesionales médicos recién registrados se les envía por \textbf{email} una contraseña de acceso la cual posteriormente tienen que cambiar por una propia que ellos mismos elijan. 
+De igual forma a como ocurría con los \textbf{centros médicos}, a los \textbf{profesionales médicos} recién registrados se les envía por \textbf{email} una contraseña de acceso la cual posteriormente tienen que cambiar por una propia que ellos mismos elijan. 
 
 
 
@@ -1988,6 +2006,10 @@ De igual forma a como ocurría con los \textbf{centros médicos}, a los profesio
 
 Ya se ha mostrado con anterioridad el formulario de registro de los pacientes. Los pacientes se registran ellos mismos en la aplicación.
 
+\subsection{Página home}
+
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/register-form.png}
@@ -1995,7 +2017,7 @@ Ya se ha mostrado con anterioridad el formulario de registro de los pacientes. L
 \label{AutoFirma ejemplo base:vv}
 \end{figure}
 
-Cuando un paciente se registra, se le envía por correo un código de confirmación compuesto por seis dígitos. Se debe de introducir correctamente dicho código para poder completar el registro.
+Cuando un paciente se registra, se le envía por correo un \textbf{código de confirmación} compuesto por seis dígitos. Se debe de introducir correctamente dicho código para poder completar el registro.
 
 
 
@@ -2015,12 +2037,156 @@ Cuando el paciente introduce correctamente el código, se le pide que ingrese lo
 \label{Formulario para completar los datos de residencia:vv}
 \end{figure}
 
+\subsection{Plantillas de error}
+
+Cuando aparece un error \textbf{HTTP}, en lugar de mostrar el mensaje de error en \textbf{bruto}, se ha configurado la aplicación para que se carguen automáticamente \textbf{plantillas de error personalizadas}. \textbf{Spring boot} permite realizar esta acción de una forma muy sencila: nombrar a la plantilla de error que se quiera utilizar para el \textbf{ERROR HTTP 404} como \textbf{404.html} (y lo mismo para el resto de errores).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/errores/404.png}
+\caption{Plantilla personalizada para el error HTTP 404}
+\label{Formulario para completar los datos de residencia:vv}
+\end{figure}
+
+Para el resto de errores típicos (\textbf{400}, \textbf{403}, \textbf{500},...) se han configurado plantillas de error análogas a la ya mostrada.
 
 
 
+\section{Versión móvil de VitalSanity}
+
+En este apartado se mostrará la versión móvil de la aplicación. Destacar que, con el objetivo de evitar redundancia, únicamente se mostrarán aquellas vistas que supongan cambios significativos con respecto a su versión de escritorio (por ejemplo, no se volverán a mostrar las vistas correspondientes a los formularios puesto que el aspecto se mantiene prácticamente igual en ambas versiones).
+
+\subsection{Página home}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home1.png}
+\caption{Página home responsive: introducción}
+\label{Página home: introducción:vv}
+\end{figure}
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home2.png}
+\caption{Página home responsive: beneficios}
+\label{Página home: beneficios:vv}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home3.png}
+\caption{Página home responsive: funcionamiento de VitalSanity}
+\label{Página home: beneficios:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home4.png}
+\caption{Página home responsive: funcionamiento de VitalSanity}
+\label{Página home: beneficios:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home5.png}
+\caption{Página home responsive: reseñas de usuarios}
+\label{Página home: reseñas de usuarios:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home6.png}
+\caption{Página home responsive: información de contacto}
+\label{Página home: información de contacto:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/home7.png}
+\caption{Página home responsive: formulario de contacto}
+\label{Página home: formulario de contacto:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/footer.png}
+\caption{Página home responsive: footer}
+\label{Página home: footer:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-movil/footer2.png}
+\caption{Página home responsive: footer}
+\label{Página home: footer:vv}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/navbar1.png}
+\caption{Navbar responsive}
+\label{Página home: footer:vv}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/buscar-paciente.png}
+\caption{Buscar paciente responsive}
+\label{Página home: footer:vv}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.4\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/selector-certificados-movil.png}
+\caption{Selector de certificados en el móvil}
+\label{Selector de certificados de Cliente móvil @firma:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/listado-de-pacientes.png}
+\caption{Información de pacientes responsive}
+\label{Información de pacientes versión responsive:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/filtros.png}
+\caption{Filtros responsive}
+\label{Filtros versión responsivee:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/desautorizados-responsive.png}
+\caption{Lista de profesionales médicos autorizados responsive}
+\label{Profesionales médicos desautorizados versión responsive:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/listado-informes.png}
+\caption{Listado de informes responsive}
+\label{Listado de informes versión responsive:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/detalles-informe.png}
+\caption{Detalles de informe responsive}
+\label{Detalles de informe versión responsive:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/documentos-del-informe.png}
+\caption{Documentos del informe responsive}
+\label{Documentos del informe versión responsive:vv}
+\end{figure}
 
 \chapter{Desafíos afrontados}
 
