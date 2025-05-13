@@ -1829,6 +1829,193 @@ El profesional médico puede acceder al historial completo de informes y documen
 
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/informes-de-un-paciente.png}
+\caption{Ver informes de un paciente}
+\label{Ver informes de un paciente:vv}
+\end{figure}
+
+Para cada uno de los informes, el profesional médico puede acceder a los detalles completos de dicho informe.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/ver-detalles-de-un-informe.png}
+\caption{Ver detalles de un informe}
+\label{Ver detalles de un informe:vv}
+\end{figure}
+
+Dentro de los detalles de un informe médico, el profesional puede descargarse y visualizar los documentos médicos de dicho informe.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/ver-documentos-de-un-informe.png}
+\caption{Ver documentos de un informe}
+\label{Ver documentos de un informe:vv}
+\end{figure}
+
+Asimismo (como aparece en la imagen de arriba), si el profesional médico en cuestión ha sido el creador de dicho informe,entonces dicho profesional médico podrá agregar unos documentos asociados en dicho informe. Los documentos pueden estar en formato \textbf{PDF}, \textbf{JPG}, \textbf{PNG} o \textbf{JPEG}. Todos estos documentos se almacenan de forma segura en el \textbf{bucket} de \textbf{AWS}.
+
+En el caso de que el profesional médico no haya sido el creador de dicho informe, entonces no podrá adjuntar documentos nuevos. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/no-aparece-adjuntar.png}
+\caption{El botón de Adjuntar no aparece si el informe no es propio}
+\label{El botón de Adjuntar no aparece si el infore no es propio:vv}
+\end{figure}
+
+De forma parecida, el profesional médico podrá editar todos aquellos informes que hayan sidos creados por él mismo. En aquellos informes pertenecientes a otros profesionales médicos no se mostrará el botón de \textbf{\textit{Editar}}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/no-aparece-editar.png}
+\caption{El botón de Editar no aparece si el informe no es propio}
+\label{El botón de Editar no aparece si el informe no es propio:vv}
+\end{figure}
+
+
+En cuanto a la creación y a la edición de informes, el procedimiento es análogo al ya descrito para el proceso de autorización de acceso al historial (salvo que en este caso no hay \textbf{cofirma} puesto que los informes son únicamente firmados por el profesional médico).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/creacion de un nuevo informe.png}
+\caption{Formulario para la creación de un nuevo informe}
+\label{Formulario para la creación de un nuevo informe:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/instrucciones-de-la-firma.png}
+\caption{Instrucciones para la creación del informe}
+\label{Instrucciones para la creación del inform:vv}
+\end{figure}
+
+Cuando se acepta la casilla de \textbf{protección de datos} y se le da a \textbf{\textit{Firmar y Enviar}}, se sigue el mismo flujo ya descrito con anterioridad: se muestra el pop up de \textbf{AutoFirma}, se muestra el \textbf{selector de certificados} y aparece el \textbf{overlay} de espera hasta que se completa el proceso de firma (no vuelvo a poner las imágenes para evitar redundancia).
+
+Cuando se completa el proceso de firma, se le muestra al profesional médico el mensaje de confirmación y el enlace para poder descargarse el \textbf{PDF} firmado asociado a la información introducida del informe.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/pdf-informe-firmado.png}
+\caption{PDF firmado del informe}
+\label{PDF firmado del informe:vv}
+\end{figure}
+
+La edición del informe sigue exactamente el mismo funcionamiento. Cuando se le da al botón de \textbf{\textit{Editar}}, aparece el formulario con los datos precargados del informe que se quiere editar.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/profesional-medico/informes-historial-medico/editar-informe.png}
+\caption{Editar un informe}
+\label{Editar un informe:vv}
+\end{figure}
+
+
+\subsection{Paciente: lógica asociada a los informes y documentos médicos dentro del historial}
+
+El paciente puede visualizar todos los informes que se han agregado a su \textbf{historial médico centralizado}, tanto de profesionales \textbf{autorizado} como de los profesionales que \textbf{ha desautorizado}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/historial-medico-centralizado/ver-mis-informes.png}
+\caption{Lista de informes del historial del paciente}
+\label{Lista de informes del historial del paciente:vv}
+\end{figure}
+
+El paciente puede acceder a los detalles de cada uno de los informes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/historial-medico-centralizado/ver-detalles-informe.png}
+\caption{Ver detalles de un informe}
+\label{Ver detalles de un informe:vv}
+\end{figure}
+
+Dentro de los detalles de cada informe el paciente puede descargarse y visualizar cada uno de los documentos adjuntados a dicho informe.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/paciente/historial-medico-centralizado/ver-documentos-informes.png}
+\caption{Ver documentos de un informe}
+\label{Ver documentos de un informe:vv}
+\end{figure}
+
+\subsection{Registro de centros médicos}
+
+Los usuarios administradores son los encargados de registrar a los centros médicos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.4\textheight, keepaspectratio]{img/version-final-ordenador/registro-centros-medicos/form-registro-centro-medico.png}
+\caption{Formulario para registrar un centro médico}
+\label{Formulario para registrar un centro médico:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.3\textheight, keepaspectratio]{img/version-final-ordenador/registro-centros-medicos/confirmacion-registro-ok.png}
+\caption{Confirmación del registro}
+\label{Confirmación del registro:vv}
+\end{figure}
+
+Al registrar el centro médico, se le envía un email con una contraseña de acceso. Dicha contraseña le permite al centro médico inicar sesión por primera vez. Cuando el centro médico se autentique por primera vez, entonces se le fuerza a cambiar la contraseña por una que el propio centro médico elija (debe de elegir una contraseña de al menos 8 caractres)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.4\textheight, keepaspectratio]{img/version-final-ordenador/registro-centros-medicos/contraseña-acceso-actualizar.png}
+\caption{Cambiar la contraseña del centro médico}
+\label{Cambiar la contraseña del centro médico:vv}
+\end{figure}
+
+\subsection{Registro de profesionales médicos}
+
+Cada centro médico es el responsable de registrar a sus profesionales médicos. Esta acción se realiza a partir de un \textbf{fichero CSV}. Como ya se ha comentado en el apartado de \textbf{\textit{Detalles de implementación}}, esta funcionalidad tiene en cuenta aquellos profesionales médicos del fichero \textbf{CSV} que ya estuviesen registrados previamente en la base de datos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.4\textheight, keepaspectratio]{img/version-final-ordenador/registro-profesionales-medicos/registro-profesionales-medicos.png}
+\caption{Registro de profesionales médicos}
+\label{Registro de profesionales médicos:vv}
+\end{figure}
+
+De igual forma a como ocurría con los \textbf{centros médicos}, a los profesionales médicos recién registrados se les envía por \textbf{email} una contraseña de acceso la cual posteriormente tienen que cambiar por una propia que ellos mismos elijan. 
+
+
+
+
+\subsection{Registro de pacientes}
+
+Ya se ha mostrado con anterioridad el formulario de registro de los pacientes. Los pacientes se registran ellos mismos en la aplicación.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/register-form.png}
+\caption{Formulario de registro como paciente}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+Cuando un paciente se registra, se le envía por correo un código de confirmación compuesto por seis dígitos. Se debe de introducir correctamente dicho código para poder completar el registro.
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/registro-pacientes/codigo-confirmacion.png}
+\caption{Código de confirmación del registro del paciente}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+Cuando el paciente introduce correctamente el código, se le pide que ingrese los datos de residencia (esquema \textbf{lazy-registration})
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, height=0.7\textheight, keepaspectratio]{img/version-final-ordenador/registro-pacientes/completar-datos-residencia.png}
+\caption{Formulario para completar los datos de residencia}
+\label{Formulario para completar los datos de residencia:vv}
+\end{figure}
+
+
 
 
 
