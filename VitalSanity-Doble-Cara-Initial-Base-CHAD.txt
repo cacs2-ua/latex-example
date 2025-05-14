@@ -14,11 +14,15 @@
 \usepackage{mathpazo}
 \usepackage{graphicx}
 \usepackage{caption}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
 \captionsetup[figure]{skip=10pt, labelfont=bf}
+\captionsetup[table]{skip=10pt, labelfont=bf}
 \usepackage[utf8]{inputenc} % Para poner acentos y eñes directamente.
 \usepackage{pdfpages}
 \usepackage{listings}
 \usepackage[T1]{fontenc}
+
+\usepackage{array} %para anchos de columna fijos en las tablas
 
 \usepackage[colorlinks=true,
             linkcolor=black,
@@ -932,8 +936,171 @@ La agenda de reuniones periódicas ha tenido como meta principal garantizar un \
 
 
 
+\chapter{Diseño}
 
-\chapter{Detalles de Implementación}
+\section{Diagrama EER}
+
+Para la representación del modelo de datos de la aplicación se ha realizado un diagrama \textbf{entidad-relación}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/diseño/diagrama-EER/eer1-tipos -usuario.png}
+\caption{Modelado de los tipos de usuario de la aplicación}
+\label{Modelado de los tipos de usuario de la aplicación:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/diseño/diagrama-EER/eer2-modelado-autorizacion.png}
+\caption{Modelado del proceso de autorización al historial médico centralizado}
+\label{Modelado del proceso de autorización del historial del paciente:vv}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=0.45\textheight, keepaspectratio]{img/diseño/diagrama-EER/eer3-informes.png}
+\caption{Modelado de los informes del historial médico centralizado}
+\label{AutoFirma ejemplo base:vv}
+\end{figure}
+
+En términos específicos se puede destacar lo siguiente:
+\begin{itemize}
+    \item Todas las entidades principales (\textbf{Usuario}, \textbf{Solicitud Autorización}, \textbf{Informe} y \textbf{Documento}) tienen un campo \textbf{uuid} como \textbf{clave alternativa}. El \textbf{uuid} permite identificar a todas estas entidades de forma \textbf{inequívoca} y sin exponer datos relevantes o sensibles de las mismas. Por esta razón, en los parámetros de las \textbf{URL} de la aplicación siempre se ha hecho uso de los \textbf{uuid} en lugar de los \textbf{id} autogenerados.
+    \item  Las dos relaciones de \textbf{autorización} y \textbf{desautorización} entre \textbf{Paciente} y \textbf{Profesional} son \textbf{exluyentes} entre sí. A nivel de base de datos se ha implementado de tal forma que cuando un paciente \textbf{autoriza} a un profesional médico, dicho profesional médico se mueve desde la lista de \textbf{profesionales desautorizados} (si estuviese previamente desautorizado) a la lista de \textbf{profesionales autorizados del paciente} (y lo mismo cuando un paciente \textbf{autoriza} a un \textbf{profesional médico}). Destacar que las relaciones de \textbf{muchos a muchos} se establecen en \textbf{JPA} mediante una \textbf{join table}.
+    \item Destacar también que en un diagrama \textbf{EER} no siempre aparecen las \textbf{claves} \textbf{primarias} y las \textbf{claves alternativas} destacadas con su abreviatura entre paréntesis. Aquí he decidio hacerlo de este modo para que el diagrama pueda entenderse mejor y para que pueda ser visto con mayor claridad en el PDF.
+\end{itemize}
+
+\section{Prototipado}
+Antes de comenzar con la implementación del proyecto, se realizó un prototipo de la aplicación haciendo uso de la herramienta \textbf{Figma}. Como ya se comentó en el apartado de \textbf{Tecnologías utilizadas}, el haber realizado los \textbf{mock ups} ha permitido durante el \textbf{desarrollo} de \textbf{VitalSanity} el tener una idea mucho más clara en todo momento acerca de a qué se tenía que aproximar la versión \textbf{final} de la aplicación.
+
+Asimismo, destacar que los \textbf{mock ups} se han diseñado siguiendo un enfoque \textbf{mobile first}.
+
+
+\subsection{Análisis de requisitos}
+
+En este apartado se va a efectuar una \textbf{Especificación de Requisitos Software (ERS)}. Para ello, se va a considerar como referencia el estándar \textbf{\textit{IEEE Práctica Recomendada para Especificaciones de Requisitos Software ANSI/IEEE 830, 1998}}.
+
+Dicho estándar fue utilizado para las prácticas de la asignatura de \textbf{Análisis y Especificaciones de Sistemas Software}. No obstante, no se sigue la estructura original de dicho estándar de forma absoluta. La razón de esto es para poder evitar redundancias con la información ya expuesta en otros apartados del \textbf{TFG}. De este modo, se pretende que el \textbf{análisis de requisitos} aporte en su mayoría información \textbf{nueva} y \textbf{relevante} para este documento, siendo su principal objetivo el de poder comprender con un mayor detalle y precisión los aspectos principales que componen a \textbf{VitalSanity} como \textbf{aplicación} \textbf{software}.
+
+
+\subsection{Requisitos funcionales}
+
+Los \textbf{requisitos funcionales} son aquellos que describen manera precisa las capacidades, comportamientos y servicios que un producto software debe ofrecer para satisfacer las necesidades del usuario. 
+
+Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario general, guest user, profesional médico, paciente, centro médico, administrador}.
+
+Cada uno de los requisitos funcionales se rpesenta en forma de tabla. En cada una de las tablas aparecen los siguientes elementos:
+
+\begin{itemize}
+    \item \textbf{Número - nombre :} elementos identificativos del requisito.
+    \item \textbf{Prioridad del requisito:} importancia de la realización del requisito.
+    \item  \textbf{Fundamento:} justificación principal del requisito y breve resumen de en qué consiste.
+    \item \textbf{Precondiciones}: Son las condiciones o estados que deben cumplirse o existir antes de que pueda ejecutarse la funcionalidad asociada al requisito. 
+    \item \textbf{Datos de entrada:} Datos que deben de introducirse para que pueda tener lugar la funcionalidad asociada al requisito. No todos los requisitos necesitan de datos de entrada.
+    \item \textbf{Descripción:} descripción detallada del requisito.
+    \item \textbf{Pruebas de aceptación:} Conjunto de criterios y casos de prueba diseñados para verificar que la implementación cumple satisfactoriamente con lo especificado en el requisito. 
+    \item \textbf{Postcondiciones:} Condiciones o resultados que deben alcanzarse y mantenerse una vez completada la ejecución de la funcionalidad definida por el requisito. 
+    \item \textbf{Restricciones:} limitaciones que deben de cumplirse para que pueda tener lugar la funcionalidad asociada al requisito.
+\end{itemize}
+
+
+
+\subsubsection{Requisitos funcionales comunes a todos los usuarios}
+
+Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario general, guest user, profesional médico, paciente, centro médico, administrador}.
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.65cm}|p{9.3cm}|}
+\hline
+\textbf{Número - nombre} & RFUG1 - Iniciar sesión con email y contraseña.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe de poder permitir a los usuarios el autenticarse en la aplicación con email y contraseña\\
+\hline
+\textbf{Precondiciones} & El usuario debe de tener una cuenta en VitalSanity y debe de conocer sus credenciales de acceso.\\
+\hline
+\textbf{Datos de entrada} & Correo electrónico del usuario y contraseña de usuario\\
+\hline
+\textbf{Descripción} & El usuario completa el formulario de inicio de sesión introduciendo su email y contraseña.\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que una persona con usuario registrado pueda autenticarse en VitalSanity\\
+\hline
+\textbf{Postcondiciones} & Se crea una sesión en el servidor\\
+\hline
+\textbf{Restricciones} & Únicamente pueden iniciar sesión aquellos usuarios con cuenta registrada.\\
+\hline
+\end{tabular}
+\caption{Tabla del requisito funcional: 'Iniciar sesión con credenciales de acceso'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.65cm}|p{9.3cm}|}
+\hline
+\textbf{Número - nombre} & RFUG2 - Iniciar sesión con certificado digital.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe de poder permitir a los usuarios el autenticarse mediante un certificado digital emitido por una autoridad certificadora \textbf{(CA)} oficial. \\
+\hline
+\textbf{Precondiciones} & El usuario debe de tener una cuenta registrada en la aplicación. El usuario debe de disponer de un certificado digital emitido por una autoridad certificadora oficial. \\
+\hline
+\textbf{Datos de entrada} & El certificado seleccionado para la autenticación\\
+\hline
+\textbf{Descripción} & El usuario pulsa sobre el botón de \textbf{'Acceder con certificado digital'}. El usuario selecciona el certificado con el que quiere autenticarse\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que una persona con usuario registrado  y con un certificado dígital válido pueda autenticarse en VitalSanity. \\
+\hline
+\textbf{Postcondiciones} & Se crea una sesión en el servidor para el usuario autenticado. \\
+\hline
+\textbf{Restricciones} & Únicamente pueden iniciar sesión aquellos usuarios con cuenta registrada y que dispongan de un certificado digital válido emitido por una autoridad certificadora oficial.\\
+\hline
+\end{tabular}
+\caption{Tabla del requisito funcional: 'Iniciar sesión con certificado digital'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.65cm}|p{9.3cm}|}
+\hline
+\textbf{Número - nombre} & RFUG2 - Iniciar sesión con certificado digital.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe de poder permitir a los usuarios el autenticarse mediante un certificado digital emitido por una autoridad certificadora \textbf{(CA)} oficial. \\
+\hline
+\textbf{Precondiciones} & El usuario debe de tener una cuenta registrada en la aplicación. El usuario debe de disponer de un certificado digital emitido por una autoridad certificadora oficial. \\
+\hline
+\textbf{Datos de entrada} & El certificado seleccionado para la autenticación\\
+\hline
+\textbf{Descripción} & El usuario pulsa sobre el botón de \textbf{'Acceder con certificado digital'}. El usuario selecciona el certificado con el que quiere autenticarse\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que una persona con usuario registrado  y con un certificado dígital válido pueda autenticarse en VitalSanity. \\
+\hline
+\textbf{Postcondiciones} & Se crea una sesión en el servidor para el usuario autenticado. \\
+\hline
+\textbf{Restricciones} & Únicamente pueden iniciar sesión aquellos usuarios con cuenta registrada y que dispongan de un certificado digital válido emitido por una autoridad certificadora oficial.\\
+\hline
+\end{tabular}
+\caption{Tabla del requisito funcional: 'Acceder a la página home'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+\chapter{Implementación}
 
 En este apartado se describirán los detalles más significativos e importantes a nivel de código que presenta la aplicación desarrollada
 
@@ -2201,6 +2368,8 @@ El primer problema que afronté fue la poca información que existía en Interne
 Aún así he de decir que, pese a la poca información que había en \textbf{Internet}, el \textbf{Manual Integrador} poseía explicaciones muy claras y detalladas y asimismo ofrecía ejemplos de fragmentos de código, los cuales, aunque eran independientes entre sí (no había ningún ejemplo que sirviese por sí mismo para ejecutarlo directamente), estos ejemplos esclarecían bastante bien todos los conceptos detrás de los diferentes mecanismos de firma que se describían dentro del manual.
 
 En resumidas cuentas, mi \textbf{mayor desafío} a la hora de integrar \textbf{AutoFirma} fue el de obtener un \textbf{ejemplo mínimo} que se pudiese ejecutar y que sirviese como base para poder hacer todo lo demás. Es por esta razón que lo primero que desarrollé a nivel de código, antes incluso de haber creado el repositorio de \textbf{GitHub} de la aplicación, fue precisamente el desarrollar este \textbf{ejemplo mínimo base}. 
+
+
 
 Este \textbf{ejemplo base} consistía en un simple formulario con tres campos y un botón de firmar.
 
