@@ -966,7 +966,7 @@ Para la representación del modelo de datos de la aplicación se ha realizado un
 
 En términos específicos se puede destacar lo siguiente:
 \begin{itemize}
-    \item Todas las entidades principales (\textbf{Usuario}, \textbf{Solicitud Autorización}, \textbf{Informe} y \textbf{Documento}) tienen un campo \textbf{uuid} como \textbf{clave alternativa}. El \textbf{uuid} permite identificar a todas estas entidades de forma \textbf{inequívoca} y sin exponer datos relevantes o sensibles de las mismas. Por esta razón, en los parámetros de las \textbf{URL} de la aplicación siempre se ha hecho uso de los \textbf{uuid} en lugar de los \textbf{id} autogenerados.
+    \item Todas las entidades principales (\textbf{Usuario}, \textbf{Solicitud Autorización}, \textbf{Informe} y \textbf{Documento}) tienen un campo \textbf{uuid} como \textbf{clave alternativa}. El \textbf{uuid} permite identificar a todas estas entidades de forma \textbf{inequívoca} y sin exponer datos relevantes o sensibles de las mismas. Por esta razón, en los parámetros de las \textbf{URL} de la aplicación siempre se ha hecho uso de los \textbf{uuid} en lugar de los \textbf{id} autogenerados. Asimismo, también se usan \textbf{uuid} para nombrar a los archivos correspondientes a las autorizaciones e informes firmados.
     \item  Las dos relaciones de \textbf{autorización} y \textbf{desautorización} entre \textbf{Paciente} y \textbf{Profesional} son \textbf{exluyentes} entre sí. A nivel de base de datos se ha implementado de tal forma que cuando un paciente \textbf{autoriza} a un profesional médico, dicho profesional médico se mueve desde la lista de \textbf{profesionales desautorizados} (si estuviese previamente desautorizado) a la lista de \textbf{profesionales autorizados del paciente} (y lo mismo cuando un paciente \textbf{autoriza} a un \textbf{profesional médico}). Destacar que las relaciones de \textbf{muchos a muchos} se establecen en \textbf{JPA} mediante una \textbf{join table}.
     \item Destacar también que en un diagrama \textbf{EER} no siempre aparecen las \textbf{claves} \textbf{primarias} y las \textbf{claves alternativas} destacadas con su abreviatura entre paréntesis. Aquí he decidio hacerlo de este modo para que el diagrama pueda entenderse mejor y para que pueda ser visto con mayor claridad en el PDF.
 \end{itemize}
@@ -977,12 +977,42 @@ Antes de comenzar con la implementación del proyecto, se realizó un prototipo 
 Asimismo, destacar que los \textbf{mock ups} se han diseñado siguiendo un enfoque \textbf{mobile first}.
 
 
-\subsection{Análisis de requisitos}
+\section{Análisis de requisitos}
 
-En este apartado se va a efectuar una \textbf{Especificación de Requisitos Software (ERS)}. Para ello, se va a considerar como referencia el estándar \textbf{\textit{IEEE Práctica Recomendada para Especificaciones de Requisitos Software ANSI/IEEE 830, 1998}}.
+En este apartado se va a efectuar una \textbf{Especificación de Requisitos Software (ERS)}. Para ello, se ha considerado como referencia el estándar \textbf{\textit{IEEE Práctica Recomendada para Especificaciones de Requisitos Software ANSI/IEEE 830, 1998}}.
 
-Dicho estándar fue utilizado para las prácticas de la asignatura de \textbf{Análisis y Especificaciones de Sistemas Software}. No obstante, no se sigue la estructura original de dicho estándar de forma absoluta. La razón de esto es para poder evitar redundancias con la información ya expuesta en otros apartados del \textbf{TFG}. De este modo, se pretende que el \textbf{análisis de requisitos} aporte en su mayoría información \textbf{nueva} y \textbf{relevante} para este documento, siendo su principal objetivo el de poder comprender con un mayor detalle y precisión los aspectos principales que componen a \textbf{VitalSanity} como \textbf{aplicación} \textbf{software}.
+Mencionar que el apartado de \textbf{Perspectiva del producto} ya ha sido tratado con detalle en la \textbf{Introducción}, razón por la cual no se incluirá dentro del análisis de requisitos para así evitar redundancia de información.
 
+\subsection{Requisitos del hardware}
+
+La aplicación se desarrolla para poder ser ejecutada tanto desde un ordenador como desde un dispositivo móvil.
+
+Por otra parte, destacar que el servidor debe alojarse en máquinas que tengan la capacidad de manejar un
+gran número de solicitudes de forma simultánea.
+
+\subsection{Requisitos del software}
+
+Estos requisitos hacen referencia los requerimientos a nivel de software de la aplicación.
+
+La mayoría de estos requisitos ya han sido mencionados en el apartado de \textbf{Teconlogías y herramientas utilizadas}. Para no repetir la misma información ya expuesta en ese apartado, simplemente se mencionará a continuación algunos detalles extras:
+
+\begin{itemize}
+    \item La aplicación ha sido desarrollada utilizando \textbf{Java 21}, \textbf{maven 3.9.9} y \textbf{Spring boot 3.4.0}. La base de datos ha sido dockerizada usando una imagen de \textbf{Postgres}.
+    \item  El correcto funcionmiento de la aplicación (incluyendo aquellas funcionalidades críticas como \textbf{AutoFirma}) ha sido probado en los siguientes \textbf{sistemas operativos}: \textbf{Windows, Linux y MacOS}.
+\end{itemize}
+
+\subsection{Requisitos a nivel de interfaz de aplización}
+
+Para todas las vistas de la aplicación se establece un estilo \textbf{atractivo} y \textbf{minimalista}. Al tratarse de una aplicación médica, la información debe de mostrarse de forma \textbf{sencilla} y \textbf{efectiva} para asegurar de este modo la correcta comprensión por parte del usuario.
+
+Las principales características identificativas a nivel de interfaz de \textbf{VitalSanity} son las siguientes: 
+
+\begin{itemize}
+    \item El color y las tonalidades \textbf{púrpuras}.
+    \item El uso de \textbf{tarjetas} para mostrar la información.
+    \item El uso de \textbf{bordes redondeados} para la mayoría de elementos visuales (formularios, botones, tarjetas,...)
+    \item El color \textbf{carmesí} para los mensajes de error.
+\end{itemize}
 
 \subsection{Requisitos funcionales}
 
@@ -993,34 +1023,34 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 Cada uno de los requisitos funcionales se rpesenta en forma de tabla. En cada una de las tablas aparecen los siguientes elementos:
 
 \begin{itemize}
-    \item \textbf{Número - nombre :} elementos identificativos del requisito.
+    \item \textbf{Identificador - nombre :} elementos identificativos del requisito.
     \item \textbf{Prioridad del requisito:} importancia de la realización del requisito.
-    \item  \textbf{Fundamento:} justificación principal del requisito y breve resumen de en qué consiste.
-    \item \textbf{Precondiciones}: Son las condiciones o estados que deben cumplirse o existir antes de que pueda ejecutarse la funcionalidad asociada al requisito. 
-    \item \textbf{Datos de entrada:} Datos que deben de introducirse para que pueda tener lugar la funcionalidad asociada al requisito. No todos los requisitos necesitan de datos de entrada.
+    \item  \textbf{Justificación:} justificación principal del requisito y breve resumen de en qué consiste.
+    \item \textbf{Precondiciones}: son las condiciones o estados que deben cumplirse o existir antes de que pueda ejecutarse la funcionalidad asociada al requisito. Se han establecido cuatro niveles: \textit{\textbf{'Muy alta', 'Alta', 'Media' y 'Baja'}}.
+    \item \textbf{Datos de entrada:} datos que deben de introducirse para que pueda tener lugar la funcionalidad asociada al requisito. No todos los requisitos necesitan de datos de entrada.
     \item \textbf{Descripción:} descripción detallada del requisito.
-    \item \textbf{Pruebas de aceptación:} Conjunto de criterios y casos de prueba diseñados para verificar que la implementación cumple satisfactoriamente con lo especificado en el requisito. 
-    \item \textbf{Postcondiciones:} Condiciones o resultados que deben alcanzarse y mantenerse una vez completada la ejecución de la funcionalidad definida por el requisito. 
+    \item \textbf{Pruebas de aceptación:} conjunto de criterios y casos de prueba diseñados para verificar que la implementación cumple satisfactoriamente con lo especificado en el requisito. 
+    \item \textbf{Postcondiciones:} condiciones o resultados que deben alcanzarse y mantenerse una vez completada la ejecución de la funcionalidad definida por el requisito. 
     \item \textbf{Restricciones:} limitaciones que deben de cumplirse para que pueda tener lugar la funcionalidad asociada al requisito.
 \end{itemize}
 
+Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario genérico, profesional médico, paciente, centro médico, administrador}.
 
+Se han identificado un total de \textbf{31} requisitos funcionales.
 
-\subsubsection{Requisitos funcionales comunes a todos los usuarios}
+\subsubsection{Requisitos funcionales comunes para todos los usuarios}
 
-Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario general, guest user, profesional médico, paciente, centro médico, administrador}.
-
-
+\textbf{\textit{'RFUG'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario genérico'}}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{4.65cm}|p{9.3cm}|}
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
 \hline
-\textbf{Número - nombre} & RFUG1 - Iniciar sesión con email y contraseña.\\
+\textbf{Identificador - nombre} & RFUG1 - Iniciar sesión con email y contraseña.\\
 \hline
 \textbf{Prioridad} & Alta.\\
 \hline
-\textbf{Justificación} & Se debe de poder permitir a los usuarios el autenticarse en la aplicación con email y contraseña\\
+\textbf{Justificación} & Se debe permitir a los usuarios el autenticarse en la aplicación con email y contraseña\\
 \hline
 \textbf{Precondiciones} & El usuario debe de tener una cuenta en VitalSanity y debe de conocer sus credenciales de acceso.\\
 \hline
@@ -1035,20 +1065,20 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 \textbf{Restricciones} & Únicamente pueden iniciar sesión aquellos usuarios con cuenta registrada.\\
 \hline
 \end{tabular}
-\caption{Tabla del requisito funcional: 'Iniciar sesión con credenciales de acceso'}
+\caption{Requisito funcional ’RFUG1’ : 'Iniciar sesión con credenciales de acceso'}
 \label{tab:requisitos-pacientes}
 \end{table}
 
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{4.65cm}|p{9.3cm}|}
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
 \hline
-\textbf{Número - nombre} & RFUG2 - Iniciar sesión con certificado digital.\\
+\textbf{Identificador - nombre}& RFUG2 - Iniciar sesión con certificado digital.\\
 \hline
-\textbf{Prioridad} & Alta.\\
+\textbf{Prioridad} & Muy alta.\\
 \hline
-\textbf{Justificación} & Se debe de poder permitir a los usuarios el autenticarse mediante un certificado digital emitido por una autoridad certificadora \textbf{(CA)} oficial. \\
+\textbf{Justificación} & Se debe permitir a los usuarios el autenticarse mediante un certificado digital emitido por una autoridad certificadora \textbf{(CA)} oficial. \\
 \hline
 \textbf{Precondiciones} & El usuario debe de tener una cuenta registrada en la aplicación. El usuario debe de disponer de un certificado digital emitido por una autoridad certificadora oficial. \\
 \hline
@@ -1063,7 +1093,671 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 \textbf{Restricciones} & Únicamente pueden iniciar sesión aquellos usuarios con cuenta registrada y que dispongan de un certificado digital válido emitido por una autoridad certificadora oficial.\\
 \hline
 \end{tabular}
-\caption{Tabla del requisito funcional: 'Iniciar sesión con certificado digital'}
+\caption{Requisito funcional ’RFUG2’ : 'Iniciar sesión con certificado digital'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre}& RFUG3 - Registrarse como paciente.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier persona que use la aplicación el poder registrarse como paciente. \\
+\hline
+\textbf{Precondiciones} & No hay. \\
+\hline
+\textbf{Datos de entrada} & Nombre completo, fecha de nacimiento, género, Nº del documento de identidad, Nº de teléfono, país, email, contraseña.\\
+\hline
+\textbf{Descripción} & El usuarió pulsa sobre \textbf{\textit{'Registrarse'}} en la \textbf{navbar} para acceder al formulario de registro como paciente. Tras haber completado el formulario, se le envía al usuario un código de confirmación de seis dígitos a su email. A continuación se le pide al usuario que introduzca dicho código. Tras haberlo introducido, si el código es correcto entonces se completa el registro del usuario y se hace un \textbf{login automático}. Tras el \textbf{login automático}, se le pide al usuario que introduzca sus datos completos de residencia de forma opcional (provincia, localidad y dirección).\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que tras haber completado el formulario de registro se almacena en la base de datos toda la información del nuevo usuario paciente de forma correcta y que se gestionan sus credenciales de forma segura. \\
+\hline
+\textbf{Postcondiciones} & Un nuevo usuario paciente registrado en la base de datos. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional ’RFUG3’ : 'Registrarse como paciente'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUG4 - Cerrar sesión.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a los usuarios cerrar sesión una vez se hayan autenticado.\\
+\hline
+\textbf{Precondiciones} & El usuario debe de tener una cuenta en VitalSanity y debe de conocer sus credenciales de acceso. El usuario debe de haber iniciado sesión. \\
+\hline
+\textbf{Datos de entrada} & No hay.\\
+\hline
+\textbf{Descripción} & El usuario ha iniciado sesión previamente. El usuario pulsa sobre \textbf{\textit{'Cerrar sesión'}} en la \textbf{navbar}. \\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que se invalida y se elimina por completo la sesión del usuario.\\
+\hline
+\textbf{Postcondiciones} & La sesión del usuario queda invalidada y eliminada.\\
+\hline
+\textbf{Restricciones} & Únicamente pueden cerrar sesión aquellos usuarios con cuenta registrada y que hayan iniciado sesión en primer lugar.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUG4': 'Cerrar sesión'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre}& RFUG5 - Acceder a la página \textbf{home}.\\
+\hline
+\textbf{Prioridad} & Media.\\
+\hline
+\textbf{Justificación} & Se debe de poder permitir a cualquier usuario el poder acceder a la página \textbf{home} de la aplicación. \\
+\hline
+\textbf{Precondiciones} & No hay \\
+\hline
+\textbf{Datos de entrada} & No hay\\
+\hline
+\textbf{Descripción} & El usuarió pulsa sobre \textbf{\textit{'VitalSanity'}} en la \textbf{navbar} para acceder a la página \textbf{home}.\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que se muestra la página \textbf{home} de forma correcta para cualquier usuario de la aplicación. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional ’RFUG5’ : 'Acceder a la página home'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUG6 - Cambiar la contraseña de acceso.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a los centros médicos y profesionales recién registrados cambiar la contraseña al iniciar sesión por primera vez. \\
+\hline
+\textbf{Precondiciones} & El usuario debe de tener una cuenta registrada en el sistema. Debe de ser la primera vez que dicho usuario inicia sesión en la aplicación. \\
+\hline
+\textbf{Datos de entrada} & Nueva contraseña, confirmar contraseña. \\
+\hline
+\textbf{Descripción} & El introduce la nueva contraseña tanto en el campo de \textbf{\textit{Contraseña}} como en el campo de \textbf{\textit{Confirmar contraseña}}. Si la contraseña en ambos campos no coincide o si la contraseña introducida tiene menos de 8 caracteres, entonces se muestra un mensaje de error. \\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el usuario puede iniciar sesión con la nueva contraseña. \\
+\hline
+\textbf{Postcondiciones} & Contraseña del usuario cambiada en la base de datos.\\
+\hline
+\textbf{Restricciones} & La contraseña introducida debe de tener al menos 8 caracteres.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional ’RFUG6’ : 'Cambiar la contraseña de acceso'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\subsubsection{Requisitos funcionales de los profesionales médicos}
+
+\textbf{\textit{'RFUPFM'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que sea profesional médico'}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre}& RFUPFM1 - Buscar paciente para solicitar acceso a su historia.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier profesional médico el buscar a un paciente para solicitarle acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Nº del documento de identidad del \textbf{paciente}\\
+\hline
+\textbf{Descripción} & El profesional médico introduce el Nº del documento de identidad del paciente. Si no se encuentra el paciente con ese Nº de documento de identidad entonces se muestra un mensaje informando de ello. Si se encuentra el paciente entonces se muestran sus datos. Los datos que se muestran del paciente son el \textbf{Nº del documento de identidad}, el \textbf{género} y la \textbf{edad}. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el profesional médico puede ver los datos de un paciente existente en la base de datos. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & Los usuarios pacientes no pueden buscar los datos de otros pacientes.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM1': 'Buscar paciente'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM2 - Rellenar formulario de solicitud de acceso al historial de un paciente \textbf{paciente}.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier profesional médico tener la posibilidad de solicitar acceso al historial de los pacientes. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Nº del documento de identidad del \textbf{paciente}, motivo de la solicitud y descripción de la solicitud.\\
+\hline
+\textbf{Descripción} & El profesional médico introduce el Nº del documento de identidad del paciente. Si no se encuentra el paciente con ese Nº de documento de identidad entonces se muestra un mensaje informando de ello. Si se encuentra el paciente pero dicho paciente ya tiene asignada una solicitud de autorización válida, entonces se muestran los datos del paciente pero no el profesional no puede volver a solicitarle acceso. Si se encuentra el paciente y no tiene ninguna solicitud de autorización válida, entonces el profesional médico sí tiene la opción de solicitarle acceso a su historial. Los datos que se muestran del paciente son el \textbf{Nº del documento de identidad}, el \textbf{género} y la \textbf{edad}. El profesional médico pulsa el botón de \textbf{\textit{'Solicitar acceso'}}. Tras pulsar dicho botón, se le muestra al profesional médico el formulario de la solicitud. En dicho formulario, el profesional debe de introducir el \textbf{motivo} y la \textbf{descripción} de la solicitud de autorización.  \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el profesional médico puede ver los datos de un paciente existente en la base de datos. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & Solo los profesionale médicos pueden solicitar acceso al historial médico centralizado de los pacientes.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM2': 'Rellenar formulario de solicitud de acceso al historial de un paciente'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM3 - Firmar y enviar solicitud de acceso al historial de un \textbf{paciente}.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} tener la posibilidad de solicitar acceso al historial de los pacientes. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema, debe tener instalado \textbf{AutoFirma} o su versión para \textbf{móvil} y debe de tener un certificado digital válido \\
+\hline
+\textbf{Datos de entrada} & Por un lado, la información de la solicitud de autorización: motivo y descripción de la solicitud, la información del \textbf{profesional médico} (nombre, NIF/NIE, y especialidad); información del \textbf{centro médico} en el que trabaja el profesional (NIF, nombre, provincia, municipio, dirección); información del \textbf{paciente} (nombre, NIF/NIE). Por otro, el certificado digital elegido por el profesional.  \\
+\hline
+\textbf{Descripción} & El profesional médico busca al paciente y le da a \textbf{\textit{Solicitar acceso}}. Allí, introduce el \textbf{motivo} y la \textbf{descripción} Después de pulsar sobre\textbf{\textit{'Aceptar'}}, haber leido las instrucciones de firma, haber marcado la casilla de protección de datos, y haberle dado a firmar, entonces se abre \textbf{AutoFirma}. El profesional elige el certificado y espera a que se complete el proceso de firma. Cuando el proceso se ha completado, se le muestra al profesional un mensaje de confirmación y se le muestra un enlace para descargarse el \textbf{PDF} firmado asociado a la autorización. Asimismo, se le envía al paciente un email informándole de que ha recibido una nueva \textbf{solicitud de autorización} de acceso a su \textbf{historial}    \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la solicitud de autorizacion se registra bien en \textbf{BD} y que el documento se sube bien a \textbf{AWS}. \\
+\hline
+\textbf{Postcondiciones} & Una nueva solicitud de autorización registrada. \\
+\hline
+\textbf{Restricciones} & Solo los profesionales médicos pueden solicitar acceso al historial médico centralizado de los pacientes.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM3': 'Firmar y enviar solicitud de acceso al historial del paciente'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM4 - Ver pacientes que han autorizado el acceso a su historial.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder ver el listado de pacientes que han autorizado el acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} pulsa sobre \textbf{\textit{'Pacientes que han autorizado'}} en la \textbf{navbar}. Tras esa acción, se le muestra al profesional el listado de pacientes que le han autorizado el acceso al historial médico centralizado. Si no tiene ningún paciente autorizado, entonces se le muestra un mensaje informando de ello. Para cada uno de los pacientes que han autorizado el acceso a su historial se muestran los siguientes datos: \textbf{Nº del documento de identidad}, \textbf{género} y \textbf{edad}. Asimismo, dentro de la \textbf{card} con la información del paciente aparecer un botoón \textbf{\textit{'Acceder al historial'}} \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la lista de pacientes que han autorizado cambia cuando nuevos pacientes autorizan o desautorizan el acceso a su historial \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM4': 'Ver pacientes que han autorizado el acceso a su historial'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM5 - Ver solicitudes de autorización pendientes.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder ver las solicitudes de autorización pendientes de confirmar. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} pulsa sobre \textbf{\textit{'Solicitudes de autorización pendientes'}} en la \textbf{navbar}. Tras esa acción, se le muestra al profesional sus solicitudes de autorización pendientes de confirmar. Si no tiene ninguna solicitud pendiente, entonces se le muestra un mensaje informándole de ello. Para cada una de las solicitudes pendientes se muestran los siguientes datos: \textbf{Nº del documento de identidad del paciente}, \textbf{edad del paciente}, \textbf{motivo de la solicitud}, \textbf{descripción de la solicitud}, \textbf{fecha de creación de la solicitud}.   \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que una solicitud de autorización deja de aparecer en pendientes cuando el \textbf{paciente} da su respuesta. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM5': 'Ver solicitudes de autorización pendientes'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM6 - Ver pacientes que han desautorizado el acceso a su historial.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder ver el listado de pacientes que han desautorizado el acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} pulsa sobre \textbf{\textit{'Pacientes que han desautorizado'}} en la \textbf{navbar}. Tras esa acción, se le muestra al profesional el listado de pacientes que le han desautorizado el acceso al historial médico centralizado. Si no tiene ningún paciente que haya desautorizado, entonces se le muestra un mensaje informando de ello. Para cada uno de los pacientes que han desautorizado el acceso a su historial se muestran los siguientes datos: \textbf{Nº del documento de identidad}, \textbf{género} y \textbf{edad}. Asimismo, dentro de la \textbf{card} con la información del paciente aparece un botón de \textbf{\textit{Volver a solicitar acceso}} y otro botón de \textbf{\textit{Ver informes propios}}. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la lista de pacientes que han desautorizado cambia cuando nuevos pacientes autorizan o desautorizan el acceso a su historial \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM6': 'Ver pacientes que han desautorizado el acceso a su historial'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM7 - Filtrar listado de pacientes que han autorizado.\\
+\hline
+\textbf{Prioridad} & Media.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder filtrar el listado de pacientes que han autorizado el acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Los siguientes datos asociados paciente: \textbf{nombre, NIF/NIE, Edad mínima, Edad máxima}.  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} accede al listado de \textbf{pacientes} que han autorizado acceso a su historial. Desde ahí puede aplicar los filtros. El profesional médico puede filtrar el listado de \textbf{pacientes} por \textbf{nombre} (se filtra por el comienzo de la string), por \textbf{NIF/NIE} (case insensitive) y por rango de edades (edad mínima y edad máxima). Todos estos filtros son compatibles entre sí y pueden ser aplicados de forma simultánea. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el filtro se aplica correctamente sobre la lista de pacientes mostrados. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM7': 'Filtrar listado de pacientes que han autorizado el acceso a su historial'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM8 - Filtrar listado de pacientes que han desautorizado el acceso a su historial.\\
+\hline
+\textbf{Prioridad} & Media.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder filtrar el listado de pacientes que han desautorizado el acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Los siguientes datos asociados paciente: \textbf{nombre, NIF/NIE, Edad mínima, Edad máxima}.  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} accede al listado de \textbf{pacientes} que han desautorizado acceso a su historial. Desde ahí puede aplicar los filtros. El profesional médico puede filtrar el listado de \textbf{pacientes} por \textbf{nombre} (se filtra por el comienzo de la string), por \textbf{NIF/NIE} (case insensitive) y por rango de edades (edad mínima y edad máxima). Todos estos filtros son compatibles entre sí y pueden ser aplicados de forma simultánea. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el filtro se aplica correctamente sobre la lista de pacientes mostrados. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM8': 'Filtrar listado de pacientes que han desautorizado'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM9 - Ver informes del historial médico centralizado de un paciente.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder acceder a los informes de aquellos pacientes que le hayan autorizado el acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} accede al listado de \textbf{pacientes} que han autorizado el acceso a su historial. Desde ahí, elige el paciene en concreto y pulssa el botón \textbf{\textit{'Acceder al historial'}}. Tras esta acción, se le mostrarán al profesional médico todos los informes existentes dentro del historial del paciente. Se le muestra todos los informes de todos los profesionales médicos dentro del historial del paciente, con independencia del centro médico en el que operen dichos profesionales.  \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la lista de informes que aparece se corresponde con los informes agregados para ese paciente en concreto. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & Únicamente los profesionales médicos autorizados podrán acceder al historial médico centralizado de un paciente. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM9': 'Ver informes del historial médico centralizado de un paciente'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM10 - Filtrar listado de informes del historial del paciente.\\
+\hline
+\textbf{Prioridad} & Media.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder filtrar el listado de informes de aquellos pacientes que hayan autorizado su acceso al historial. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Identificador público del informe, Nombre del centro médico, nombre del profesional médico, especialidad, fecha inicio, fecha fin, informes propios (booleano).  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} accede al listado de \textbf{pacientes} que han autorizado el acceso a su historial. Desde ahí, selecciona los filtros que desea efectuar y presiona el botón de \textbf{\textit{'Aplicar filtros'}}. Tras esta acción, el filtrado se habrá realizado con éxito. En caso de que no haya ninguna coincidencia que satisfaga el filtro aplicado, se mostrará un mensaje informando de ello. Se puede filtrar por Identificador público del informe, por el nombre del centro médico, por el nombre del profesional médico que ha creado el informe (para estos tres primeros se comprueba que coincida el comienzo de la string introducida), por especialidad, por rango de fechas de creación (\textbf{Fecha desde} y \textbf{Fecha hasta}) y por los informes propios (creados por el profesional médico que está visualizando los informes).  Todos estos filtros son compatibles entre sí y pueden
+ser aplicados de forma simultánea \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la lista de informes que aparece se corresponde con los filtros aplicados. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & Únicamente los profesionales médicos autorizados podrán acceder y filtrar los informes del historial de un paciente. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM10': 'Filtrar listado de informes del historial del paciente'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM11 - Firmar y registrar un informe en el historial de un \textbf{paciente}.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} tener la posibilidad de registrar y firmar informes dentro del historial de los pacientes. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema, debe tener instalado \textbf{AutoFirma} o su versión para \textbf{móvil} y debe de tener un certificado digital válido \\
+\hline
+\textbf{Datos de entrada} & Por un lado, la información del informe (título, descripción y observaciones); la información del \textbf{profesional médico} (nombre, NIF/NIE, y especialidad); información del \textbf{centro médico} en el que trabaja el profesional (NIF, nombre, provincia, municipio, dirección); información del \textbf{paciente} (nombre, NIF/NIE). Por otro, el certificado digital elegido por el profesional.  \\
+\hline
+\textbf{Descripción} & El profesional accede al historial del \textbf{paciente} y pulsa sobre \textbf{\textit{Crear nuevo informe}}. Se muestra el formulario y el profesional introduce el \textbf{título}, la \textbf{descripción} y las \textbf{observaciones} del informe. Despúes de pulsar sobre \textbf{\textit{'Aceptar'}}, haber leido las instrucciones de firma, haber marcado la casilla de protección de datos, y haberle dado a firmar, entonces se abre \textbf{AutoFirma}. El profesional elige el certificado y espera a que se complete el proceso de firma. Cuando el proceso se ha completado, se le muestra al profesional un mensaje de confirmación y se le muestra un enlace para descargarse el \textbf{PDF} firmado asociado al informe. Asimismo, se le envía al paciente un email al paciente informándole de que se le ha agregado un nuevo \textbf{informe} a su historial médico. El PDF firmado se sube a \textbf{AWS}    \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el informe se registra bien en \textbf{BD} y que el documento se sube bien a \textbf{AWS}. \\
+\hline
+\textbf{Postcondiciones} & Un nuevo informe dentro del historial del paciente. \\
+\hline
+\textbf{Restricciones} & Solo los profesionales médicos autorizados pueden subir informes dentro del historial del paciente.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM11': 'Firmar y registrar un informe en el historial de un paciente'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM12 - Editar un informe del historial de un \textbf{paciente}.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} tener la posibilidad de editar informes propios dentro del historial de los pacientes. \\
+\hline
+\textbf{Precondiciones} & El profesional médico debe de tener una cuenta registrada en el sistema, debe tener instalado \textbf{AutoFirma} o su versión para \textbf{móvil} y debe de tener un certificado digital válido. \\
+\hline
+\textbf{Datos de entrada} & Por un lado, la información del informe (título, descripción y observaciones); la información del \textbf{profesional médico} (nombre, NIF/NIE, y especialidad); información del \textbf{centro médico} en el que trabaja el profesional (NIF, nombre, provincia, municipio, dirección); información del \textbf{paciente} (nombre, NIF/NIE). Por otro, el certificado digital elegido.  \\
+\hline
+\textbf{Descripción} & El profesional accede al historial del \textbf{paciente} y pulsa sobre \textbf{\textit{Editar informe}}. Se muestra el formulario y el profesional introduce el \textbf{título}, la \textbf{descripción} y las \textbf{observaciones} del informe a editar. Despúes de pulsar sobre \textbf{\textit{'Aceptar'}}, haber leido las instrucciones de firma, haber marcado la casilla de protección de datos, y haberle dado a firmar, entonces se abre \textbf{AutoFirma}. El profesional elige el certificado y espera a que se complete el proceso de firma. Cuando el proceso se ha completado, se le muestra al profesional un mensaje de confirmación y se le muestra un enlace para descargarse el \textbf{PDF} firmado asociado al informe editado. Asimismo, se le envía al paciente un email al paciente informándole de que se ha editado un informe \textbf{informe} de su historial médico. El PDF firmado se sube a \textbf{AWS}    \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el informe se actualiza bien en \textbf{BD} y que el documento se sube bien a \textbf{AWS}. \\
+\hline
+\textbf{Postcondiciones} & Un informe editado dentro del historial del paciente. \\
+\hline
+\textbf{Restricciones} & Solo los profesionales médicos autorizados pueden editar informes \textbf{propios} dentro del historial.\\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM12': 'Editar un informe del historial de un \textbf{paciente}'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM13 - Ver los detalles de un informe.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder acceder a los detalles de un informe perteneciente a un paciente que haya autorizado el acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El \textbf{profesional médico} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} accede al listado de \textbf{pacientes} que han autorizado el acceso a su historial. Desde ahí, elige el paciente en concreto y pulsa el botón \textbf{\textit{'Ver detalles'}}. Tras esta acción, se le mostrarán al profesional médico toda la información correspondiente a dicho informe: \textbf{Identificador público del informe, título, descripcón, observaciones, fecha de creación, nombre del paciente, edad del paciente, NIF/NIE del paciente, nombre del profesional médico, especialidad médica, NIF/NIE del profesional médico, NIF del centro médico, provincia del centro médico, municipio del centro médico, dirección del centro médico}. Asimismo, se muestran los documentos adjuntados a dicho informe, los cuales pueden descargarse (a partir de \textbf{URL} prefirmadas de \textbf{S3}). Además, si el informe ha sido creado por el \textbf{profesional médico} en cuestión, entonces dicho profesional también podrá adjuntar desde esta vista nuevos documentos al informe.  \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que los detalles del informe se corresponden con la información que hay almacenada en la \textbf{BD} asociada a dicho informe. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & Únicamente los profesionales médicos autorizados podrán acceder a los detalles de los informes del paciente. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM13': 'Ver los detalles de un informe'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPFM14 - Adjuntar docmumentos a un informe.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{profesional médico} el poder adjuntar documentos médicos a los informes que dicho profesional haya creado. \\
+\hline
+\textbf{Precondiciones} & El \textbf{profesional médico} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{profesional} accede a los detalles del informe al cual quiere adjuntar documentos. El profesional baja hasta abajo y pulsa sobre el botón de \textbf{\textit{'Adjuntar'}}. El profesional médico elige los ficheros que desea adjuntar, los cuales pueden estar en formato \textbf{PDF, JPG, JPEG o PNG}. Cuando el profesional médico ha elegido los documentos, dichos archivos se agregan al informe del paciente. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que los nuevos documentos se agregan correctamente al \textbf{bucket de AWS} y verificar que son accesibles tanto por el paciente como por el resto de profesionales médicos \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & Únicamente los profesionales médicos autorizados podrán adjuntar documentos y únicamente a aquellos \textbf{informes} creados por él mismo. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPFM14': 'Ver los detalles de un informe'}
+\label{tab:requisitos-profesionales-medicos}
+\end{table}
+
+
+\subsubsection{Requisitos funcionales de los pacientes}
+
+\textbf{\textit{'RFUPA'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que sea paciente'}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA1 - Ver solicitudes de autorización.\\
+\hline
+\textbf{Prioridad} & Muy Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} el poder visualizar las solicitudes de autorización a su historial médico centralizado. \\
+\hline
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{paciente} pulsa sobre \textbf{\textit{'Solicitudes de autorización'}} en la \textbf{navbar}. Tras dicha acción, se le muestra al paciente todas sus \textbf{solicitudes de autorización} de acceso a su \textbf{historial médico centralizado}. Dentro de cada solicitud de autorización se muestra los siguientes datos: \textbf{especialidad del profesional médico}, \textbf{NIF/NIE} \textbf{del profesional médico}, \textbf{motivo de la solicitud}, \textbf{descripción de la solicitud}, \textbf{fecha de creación de la solicitud}, \textbf{nombre del centro médico}, \textbf{NIF del centro médico}, \textbf{provincia del centro médico}, \textbf{municipio del centro médico}, \textbf{dirección del centro médico}. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que cualquier paciente puede visualizar de forma satisfactoria el listado de sus solicitudes de autorización. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA1': 'Ver solicitudes de autorización.'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA2 - Aceptar solicitud de autorización y cofirmar la autorización.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier paciente el aceptar y cofirmar cualquier \textbf{solicitud de autorización} a su \textbf{historial médico centralizado}. \\
+\hline
+\textbf{Precondiciones} & El paciente debe de tener una cuenta registrada en el sistema, debe tener instalado \textbf{AutoFirma} o su versión para \textbf{móvil} y debe de tener un certificado válido. \\
+\hline
+\textbf{Datos de entrada} & Por un lado, la información de la solicitud de autorización: motivo y descripción de la solicitud, la información del \textbf{profesional médico} (nombre, NIF/NIE, y especialidad); información del \textbf{centro médico} en el que trabaja el profesional (NIF, nombre, provincia, municipio, dirección); información del \textbf{paciente} (nombre, NIF/NIE). Por otra parte, el certificado digital elegido por el paciente.  \\
+\hline
+\textbf{Descripción} & El paciente accede al listado de solicitudes y pulsa sobre \textbf{\textit{'Aceptar'}} en la solicitud correspondiente. Después de pulsar sobre \textbf{\textit{'Aceptar'}}, de haber leido las instrucciones de firma (en forma de pop up), haber marcado la casilla de protección de datos, y haberle dado a firmar, entonces se abre \textbf{AutoFirma} o su versión para \textbf{móvil}. El paciente elige el certificado y espera a que se complete el proceso de firma. Cuando el proceso se ha completado, se le muestra al paciente un mensaje de confirmación y se le muestra un enlace para descargarse el \textbf{PDF} cofirmado asociado a la autorización. Asimismo, se le envía al profesional médico un email informándole de el paciente ha autorizado su acceso  \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la solicitud de autorizacion \textbf{cofirmada} se registra bien en \textbf{BD} y que el documento se sube bien a \textbf{AWS}. \\
+\hline
+\textbf{Postcondiciones} & Una nueva solicitud de autorización \textbf{cofirmada} registrada corretamente. Un nuevo profesional médico con acceso autorizado al historial del paciente. \\
+\hline
+\textbf{Restricciones} & Solo se puede firmar con un certificado emitido por una \textbf{CA} válida. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA2': 'Aceptar solicitud de autorización y cofirmar la autorización'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA3 - Denegar solicitud de autorización.\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier paciente el poder denegar cualquier solicitud de autorización de acceso a su historial. \\
+\hline
+\textbf{Precondiciones} & El paciente debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & La información de la solicitud de autorización: motivo y descripción de la solicitud, la información del \textbf{profesional médico} (nombre, NIF/NIE, y especialidad); información del \textbf{centro médico} en el que trabaja el profesional (NIF, nombre, provincia, municipio, dirección); información del \textbf{paciente} (nombre, NIF/NIE).  \\
+\hline
+\textbf{Descripción} & El paciente accede al listado de solicitudes y pulsa sobre \textbf{\textit{'Denegar'}} en la solicitud correspondiente. Tras esa acción, se le muestra al paciente un \textbf{pop up} para confirmar la denegación. El paciente pulsa sobre \textbf{confirmar y denegar autorización}. Tras esa acción, la solicitud de acceso queda denegada y el \textbf{profesional médico} no adquiere acesso al historial del paciente. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el profesional médico se agrega a la lista de \textbf{profesionales desautorizados del paciente}. Verificar que el profesional médico no tiene acceso al historial del paciente. \\
+\hline
+\textbf{Postcondiciones} & La solicitud de autorización se marca como \textbf{denegada} en la \textbf{base de datos}. El \textbf{profesional médico} se agrega a la lista de \textbf{profesionales desautorizados} del paciente \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA3': 'Denegar solicitud de autorización'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA4 - Ver informes médicos del historial.\\
+\hline
+\textbf{Prioridad} & Muy Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} el poder visualizar los informes médicos existentes dentro de su hisorial. \\
+\hline
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{paciente} pulsa sobre \textbf{\textit{'Mis informes'}} en la \textbf{navbar}. Tras dicha acción, se le muestra al paciente todos los informes que posee dentro de su \textbf{historial médico centralidado}. El paciente puede ver los informes tanto de los \textbf{profesionales médicos que ha autorizado} como de los \textbf{profesionales médicos que ha desautorizado} pero que en el pasado agregaron algún informe dentro de su historial.\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que cualquier paciente puede visualizar de forma satisfactoria la lista de informes de su historial médico centralizado. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA4': 'Ver informes médicos del historial.'}
 \label{tab:requisitos-pacientes}
 \end{table}
 
@@ -1073,30 +1767,235 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{4.65cm}|p{9.3cm}|}
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
 \hline
-\textbf{Número - nombre} & RFUG2 - Iniciar sesión con certificado digital.\\
+\textbf{Identificador - nombre} & RFUPA5 - Filtrar listado de informes del historial del paciente.\\
+\hline
+\textbf{Prioridad} & Media.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} el poder filtrar el listado de informes existentes dentro de su historial médico centralizado. \\
+\hline
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & \textbf{Identificador público del informe, Nombre del centro médico, nombre del profesional médico, especialidad, fecha inicio, fecha fin. } \\
+\hline
+\textbf{Descripción} & El \textbf{paciente} accede al listado de los informes de su historial. Desde ahí, selecciona los filtros que desea efectuar y presiona el botón de \textbf{\textit{'Aplicar filtros'}}. Tras esta acción, el filtrado se habrá realizado con éxito. En caso de que no haya ninguna coincidencia que satisfaga el filtro aplicado, se mostrará el mensaje \textbf{\textit{'No existe ningún informe que cumpla con los criterios establecidos'}}. Se puede filtrar por \textbf{Identificador público del informe, por el nombre del centro médico, por el nombre del profesional médico que ha creado el informe (para estos tres primeros se comprueba que coincida el comienzo de la string introducida), por especialidad, por rango de fechas de creación }(\textbf{Fecha desde} y \textbf{Fecha hasta}).  Todos estos filtros son \textbf{compatibles} entre sí y pueden
+ser aplicados de \textbf{forma simultánea}. \\
+
+\hline
+\textbf{Pruebas de aceptación} & Verificar que la lista de informes que aparece se corresponde con los filtros aplicados. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA5': 'Filtrar listado de informes del historial del paciente'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA6 - Ver detalles de un informe médico.\\
 \hline
 \textbf{Prioridad} & Alta.\\
 \hline
-\textbf{Justificación} & Se debe de poder permitir a los usuarios el autenticarse mediante un certificado digital emitido por una autoridad certificadora \textbf{(CA)} oficial. \\
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} el poder visualizar los detalles completos de cualquier informe dentro de su historial. \\
 \hline
-\textbf{Precondiciones} & El usuario debe de tener una cuenta registrada en la aplicación. El usuario debe de disponer de un certificado digital emitido por una autoridad certificadora oficial. \\
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. El \textbf{paciente} debe de tener algún informe agregado dentro de su historial. \\
 \hline
-\textbf{Datos de entrada} & El certificado seleccionado para la autenticación\\
+\textbf{Datos de entrada} & No hay.  \\
 \hline
-\textbf{Descripción} & El usuario pulsa sobre el botón de \textbf{'Acceder con certificado digital'}. El usuario selecciona el certificado con el que quiere autenticarse\\
+\textbf{Descripción} & El \textbf{paciente} accede al listado de los informes de su historial. Tras dicha acción, se le muestra al paciente toda la información asociada a dicho informe: \textbf{Identificador público del informe, título, descripcón, observaciones, fecha de creación, nombre del paciente, edad del paciente, NIF/NIE del paciente, nombre del profesional médico, especialidad médica, NIF/NIE del profesional médico, NIF del centro médico, provincia del centro médico, municipio del centro médico, dirección del centro médico}. Asimismo, se muestran los documentos adjuntados a dicho informe, los cuales pueden descargarse (a partir de URL prefirmadas de \textbf{S3} de \textbf{AWS}). \\
 \hline
-\textbf{Pruebas de aceptación} & Verificar que una persona con usuario registrado  y con un certificado dígital válido pueda autenticarse en VitalSanity. \\
+\textbf{Pruebas de aceptación} & Verificar que los detalles del informe se corresponden con la información que hay almacenada en la BD asociada a dicho informe. \\
 \hline
-\textbf{Postcondiciones} & Se crea una sesión en el servidor para el usuario autenticado. \\
+\textbf{Postcondiciones} & No hay. \\
 \hline
-\textbf{Restricciones} & Únicamente pueden iniciar sesión aquellos usuarios con cuenta registrada y que dispongan de un certificado digital válido emitido por una autoridad certificadora oficial.\\
+\textbf{Restricciones} & No hay. \\
 \hline
 \end{tabular}
-\caption{Tabla del requisito funcional: 'Acceder a la página home'}
+\caption{Requisito funcional 'RFUPA6': 'Ver informes médicos del historial.'}
 \label{tab:requisitos-pacientes}
 \end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA7 - Ver profesionales médicos autorizados.\\
+\hline
+\textbf{Prioridad} & Alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} el poder visualizar el listado de profesionales médicos con acceso autorizado a su historial. \\
+\hline
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{paciente} pulsa sobre \textbf{\textit{'Profesionales autorizados'}} en la navbar. Tras dicha acción, se muestra el listado de los \textbf{profesionales médicos autorizados}. Para cada uno de los profesionales se muestran los siguientes datos: \textbf{Nombre, especialidad, NIF/NIE, nombre del centro médico, NIF del centro médico, provincia del centro médico, municipio del centro médico, dirección del centro médico.} Dentro de esta vista, el \textbf{paciente} también podrá \textbf{desautorizar} a un profesional o \textbf{ver los informes} agregados por dicho profesional. \\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que se muestra la información correcta de los profesionales médicos \textbf{autorizados}. \\
+\hline
+\textbf{Postcondiciones} & No hay. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA7': 'Ver profesionales médicos autorizados.'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA8 - Desautorizar a un profesional médico\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} el poder desautorizar en cualquier momento a un profesional médico. \\
+\hline
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & No hay.  \\
+\hline
+\textbf{Descripción} & El \textbf{paciente} accede al listado de \textbf{profesionales médicos autorizados}. Desde ahí pulsa sobre el botón de \textbf{\textit{'Desautorizar'}} para el profesional en concreto. Tras pulsar dicho botón, se muestra un \textbf{pop up} de confirmación de la acción. El paciente lee el mensaje del \textbf{pop up} y pulsa sobre el botón de \textbf{'Sí, desautorizar'}. Tras esto, el profesional médico queda desautorizado. El profesional médico pierde el acceso a los informes de otros profesionales médicos y ya no puede ni agregar nuevos informes ni editar informes propios. No obstante, el profesional seguirá teniendo acceso a los informes propios que el mismo agregó en el pasado al historial del \textbf{paciente}.\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el profesional médico se agrega a la lista de \textbf{profesionales desautorizados} del paciente. Verificar que el \textbf{profesional médico sigue teniendo acceso} a los informes que el mismo agregó en el pasado dentro del historial del paciente. Verificar que el \textbf{profesional} ha perdido el resto de privilegios sobre el historial del paciente. \\
+\hline
+\textbf{Postcondiciones} & Un profesional médico agregado a la lista de profesionales desautorizados del paciente. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA8': 'Desautorizar a un profesional médico'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUPA9 - Introducir datos de residencia\\
+\hline
+\textbf{Prioridad} & Baja.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{paciente} introducir sus datos de residencia tras haber iniciado sesión. \\
+\hline
+\textbf{Precondiciones} & El \textbf{paciente} debe de tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Provincia, municipio, código postal  \\
+\hline
+\textbf{Descripción} & Cada vez que el paciente inicia sesión, se le pide de forma opcional y si aún no lo ha hecho el completar sus datos de residencia.\\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que los datos de la residencia del paciente se actualizan correctamente y que no se le vuelven a solicitar la próxima vez que inicie sesión.  \\
+\hline
+\textbf{Postcondiciones} & Datos de residencia actualizados con éxito. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUPA9': 'Introducir datos de residencia'}
+\label{tab:requisitos-pacientes}
+\end{table}
+
+
+\subsubsection{Requisitos funcionales de los administradores}
+
+\textbf{\textit{'RFUA'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que sea administrador'}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUA1 - Registrar un centro médico\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{administrador} el registrar a un nuevo \textbf{centro médico} dentro de la aplicación. \\
+\hline
+\textbf{Precondiciones} & El \textbf{administrador} debe tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & La siguiente información asociada al centro médico: \textbf{Nombre del centro médico, NIF, Nº de telefóno, provincia, municipio, código postal, IBAN, código de cuenta de cotización (ccc), dirección, email. } \\
+\hline
+\textbf{Descripción} & El \textbf{administrador} inicia sesión y pulsa sobre \textbf{\textit{'Registrar Centro Médico'}} en la navbar. Introduce todos los datos del formulario y pulsa sobre \textbf{\textit{'Registrar'}}. Si falta algún dato obligatorio o si algún dato introducido ha sido incorrecto entonces se muestrta un error por pantalla. Si todos los datos introducidos son correctos, entonces el centro médico queda registrado correctamente. Se le envía al email del \textbf{centro médico} una contraseña de acceso, la cual deberá de cambiar la primera vez que inicie sesión. \\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que el \textbf{centro médico} puede iniciar sesión con su email y la \textbf{contraseña de acceso} que se le ha enviado a su email. \\
+\hline
+\textbf{Postcondiciones} & Un nuevo centro médico registrado en la \textbf{base de datos}. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUA1': 'Registrar un centro médico'}
+\label{tab:requisitos-administradores}
+\end{table}
+
+\subsubsection{Requisitos funcionales de los centros médicos}
+
+\textbf{\textit{'RFUCM'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que se corresponda con un centro médico'}}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.35cm}|p{10cm}|}
+\hline
+\textbf{Identificador - nombre} & RFUCM1 - Registrar profesionales médicos\\
+\hline
+\textbf{Prioridad} & Muy alta.\\
+\hline
+\textbf{Justificación} & Se debe permitir a cualquier \textbf{centro médico} registrar a \textbf{sus profesionales médicos}. \\
+\hline
+\textbf{Precondiciones} & El \textbf{centro médico} debe tener una cuenta registrada en el sistema. \\
+\hline
+\textbf{Datos de entrada} & Fichero \textbf{CSV} con la información de todos los profesionales médicos que se desean registrar. Para cada profesional médico se incluyen los siguientes datos: \textbf{email, naf, nombre completo, especialidad médica, género, NIF/NIE, Nº de teléfono, IBAN, pais, provincia municipio, código postal} \\
+\hline
+\textbf{Descripción} & El \textbf{centro médico} inicia sesión y pulsa sobre \textbf{\textit{'Registrar Profesionales médicos'}} en la navbar. Adjunta el fichero \textbf{CSV} y pulsa sobre \textbf{\textit{'Registrar'}}. Si el fichero adjuntado no es un fichero \textbf{CSV} entonces se muestra el mensaje \textbf{\textit{'Debes de adjuntar un fichero CSV'}}. Si el fichero adjuntado es correcto, entonces se procede a registrar todos los profesionales médicos. Aquellos profesionales médicos que ya estuviesen registrados simplemente se ignoran. Tras haberse procesado todo el fichero \textbf{CSV}, se muestra un recuadro en pantalla indicando cuantos profesionales médicos fueron registrados. A todos los profesionales médicos registrados se les envía por email una contraseña de acceso (la cual dberán de cambiar cuando inicien sesión por primera vez).     \\
+\hline
+\textbf{Pruebas de aceptación} & Verificar que todos los profesionales registrados pueden iniciar sesión correctamente. \\
+\hline
+\textbf{Postcondiciones} & Nueos profesionales médicos registrados en la \textbf{base de datos}. \\
+\hline
+\textbf{Restricciones} & No hay. \\
+\hline
+\end{tabular}
+\caption{Requisito funcional 'RFUA1': 'Registrar un centro médico'}
+\label{tab:requisitos-administradores}
+\end{table}
+
+
+
+\subsection{Requisitos no funcionales}
+
+Los requisitos no funcinales son propiedades globales de la aplicación los cuales determinan la calidad con la que deben ejecutarse las funciones, sin definir a nivel específico qué hace el sistema.
+
+Se debe de tener en cuenta que estos requisitos cobrarían especial importancia una vez que la aplicación se pusiese en \textbf{producción} y saliese de forma oficial al mercado. 
+
+Los principales requisitos no funcionales a considerar son los siguientes:
+
+\begin{itemize}
+    \item \textbf{Seguridad:} La aplicación debe de garantizar una seguridad muy robusta para así asegurar el correcto tratamiento de todos los datos sensibles de los usuarios de \textbf{VitalSanity}, así como el sistema de autorizaciones y el manejo de los datos médicos.
+    \item \textbf{Rendimiento:} La aplicaicón debe de ser capaz de manejar un número muy elevado de solicitudes de forma paralela.
+    \item \textbf{Fiabilidad:} La versión oficial de \textbf{VitalSanity} debe de incorporar la suficiente \textbf{resiliencia} para poder recuperarse de forma rápida y eficaz ante la presencia de fallos y errores.
+    \item \textbf{Disponibilidad:} El sistema deberá de estar disponible las \textbf{veinticuatro horas} durante \textbf{los siete días de la semana}.
+    \item \textbf{Mantenibilidad:} \textbf{VitalSanity} debe de contar con un equipo de desarrolladores los cuales aseguren un mantenimeinto efectivo de la aplicación, realizando cuando sea conveniente actualizaciones y parches de errores sobre el sistema.
+    \item \textbf{Portabilidad: } \textbf{VitalSanity} será configurada para ser levantada mediante \textbf{Docker Compose}, lo cual facilita de forma evidente las tareas de \textbf{mantenimiento} de los desarrolladores al poder ejecutar la aplicación desde cualquier sistema.
+\end{itemize}
+
+
 
 
 
