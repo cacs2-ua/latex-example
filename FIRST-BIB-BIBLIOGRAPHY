@@ -1,0 +1,116 @@
+@Misc{palisca,
+author = {J. Peter Burkholder and Donald J. Grout and Claude V. Palisca},
+title = {Historia de la m\'usica occidental},
+publisher = {Alicanza M\'usica},
+note = {(Accedido el 01 de Noviembre de 2024, [En línea])},
+url = "http://en.wikipedia.org/w/index.php?title=Twelve-tone_technique&oldid=599359589",
+}
+
+
+@book{dodecaphonicknots,
+author    = {Franck Jedrzejewski},
+title     = {Dodecaphonic Knots and Topology of Words},
+howpublished = {Online, printed for students},
+year      = {2008},
+note      = {University of Pisa. PDF at IRCAM},
+publisher = {University of California Press},
+isbn      = {0520052943},
+url       = {http://en.wikipedia.org/w/index.php?title=Twelve-tone_technique&oldid=599359589},
+month     = {October},
+volume    = {1},
+edition   = {2},
+}
+
+
+
+
+@Misc{historiadelamusica,
+author = {Carmen Bl\'azquez Izquierdo},
+title = {Historia de la M\'usica del siglo XX},
+howpublished = {Online, printed for students},
+year = {2012},
+note = {http://www.scribd.com/doc/142409764/Historia-de-la-musica-s-XX-4o-LOGSE-2012-13-pdf},
+}
+
+
+@book{styleandidea,
+  author    = {Arnold Schoenberg}, 
+  title     = {Style and Idea},
+  publisher = {University of California Press},
+  year      = {1984},
+  url      = {http://books.google.es/books?id=jbXtxJezk5cC}
+}
+
+@misc{ wiki:twelvetonetechnique,
+   author = "Wikipedia",
+   title = "Twelve-tone technique --- Wikipedia{,} The Free Encyclopedia",
+   year = "2014",
+   url = "http://en.wikipedia.org/w/index.php?title=Twelve-tone_technique&oldid=599359589",
+   note = "[Online; accessed 10-June-2014]"
+ }
+ 
+
+
+@Misc{musictheory,  
+  author = "Wikipedia",
+  title        = {Advanced Music Theory Lesson 7- Atonality and Serialism},
+  howpublished = {Website},
+  note         = {(s.f.) [Online; accessed Abril 2024]},
+  url          = {http://blog.indabamusic.com/2010/04/8160-advanced-music-theory-lesson-7-atonality-and-serialism/},
+}
+ 
+@misc{ openmusic,
+   author = "IRCAM",
+   title = "OpenMusic",
+   year = "2014",
+   url = "http://repmus.ircam.fr/openmusic/home"
+ }
+ 
+ @misc{ wiki:lisp,
+   author = "Wikipedia",
+   title = "Lisp (programming language) --- Wikipedia{,} The Free Encyclopedia",
+   year = "2014",
+   url = "http://en.wikipedia.org/w/index.php?title=Lisp_(programming_language)&oldid=612490109",
+   note = "[Online; accessed 12-June-2014]"
+ }
+ 
+ @misc{ wiki:commonlisp,
+   author = "Wikipedia",
+   title = "Common Lisp --- Wikipedia{,} The Free Encyclopedia",
+   year = "2014",
+   url = "http://en.wikipedia.org/w/index.php?title=Common_Lisp&oldid=612606564",
+   note = "[Online; accessed 12-June-2014]"
+ }
+ 
+@Book{tratadodearmonia,
+author = {Arnold Schoenberg},
+title = {Harmonielehre (Tratado de armonía)},
+publisher = {Real Musical},
+year = {1974},
+note = {Copyright 1922 Universal Edition},
+}
+
+@misc{ wiki:backtracking,
+   author = "Wikipedia",
+   title = "Backtracking --- Wikipedia{,} The Free Encyclopedia",
+   year = "2014",
+   url = "http://en.wikipedia.org/w/index.php?title=Backtracking&oldid=608599591",
+   note = "[Online; accessed 15-June-2014]"
+ }
+ 
+@Misc{stackoverflow,
+title = {Stack Overflow},
+note = "http://stackoverflow.com/"
+}
+
+@Misc{openmusicdoc,
+author = {IRCAM - Centre Pompidou},
+title = {OpenMusic Documentation},
+note = "http://support.ircam.fr/docs/om/om6-manual/co/OM-Documentation.html",
+}
+@Misc{quickreference,
+author = {Dan Román},
+title = {Twelve-Tone Technique: A Quick Reference},
+howpublished = {PDF},
+url = {http://musike.cmpr.edu/v001/roman-eng.pdf}
+}

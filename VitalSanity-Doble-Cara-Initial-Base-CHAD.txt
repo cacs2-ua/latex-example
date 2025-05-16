@@ -32,6 +32,22 @@
 \usepackage{algorithm2e}
 \usepackage{float} 
 
+\usepackage{xurl}
+
+
+\usepackage[backend=biber,style=numeric,sorting=none,url=true]{biblatex}
+\addbibresource{bibliography.bib}
+
+
+\setlength{\bibhang}{1.5em}
+
+% permite quiebres más laxos de línea (evita desbordes)
+\renewcommand*{\biburlsetup}{\sloppy}   
+
+% opcional: envuelve toda la biblio en \sloppy
+\AtBeginBibliography{\sloppy}
+
+
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
@@ -365,11 +381,16 @@ La razón principal por la que se ha decidido integrar también \textbf{Cliente 
 \label{aws-logo:vv}
 \end{figure}
 
-\textbf{Amazon Web Services} (AWS) es una plataforma de servicios en la nube que proporciona recursos como almacenamiento, bases de datos, redes y potencia de cómputo bajo demanda.
+\textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} 
+
+\textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} 
+
+
+es una plataforma de servicios en la nube que proporciona recursos como almacenamiento, bases de datos, redes y potencia de cómputo bajo demanda.
 
 Permite desplegar aplicaciones de cualquier escala sin preocuparse por la infraestructura física. 
 
-Sus principales ventajas son la escalabilidad automática, el soporte, el pago por uso y un amplio catálogo de servicios que cubren desde hosting web hasta inteligencia artificial.
+Sus principales ventajas son la escalabilidad automática, el soporte, el pago por uso y un amplio catálogo de servicios que cubren desde hosting web hasta inteligencia artificial.  
 
 \textbf{AWS} ha representado otro de los grandes pilares de la aplicación. Se ha empleado para el almacenamiento seguro de las \textbf{autorizaciones} y de los \textbf{informes médicos} (mediante buckets de \textbf{S3}). Asimismo, se han empleado otros servicios de \textbf{AWS} como \textbf{KMS} para el empleo de claves \textbf{CMK} personalizadas, \textbf{IAM},... (todo esto se explica con más detalle en el apartado de \textbf{detalles de implementación}).
 
@@ -3422,22 +3443,12 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 \textit{\textbf{La única forma de romper con el esquema de lo común es abrazar a la incertidumbre, asumir nuevos riesgos, aprender y disfrutar de cada fracaso y, sobre todo, aventurarse en el eterno mundo de lo desconocido.}}
 
 
-
 \appendix
-\chapter{Bibliografía}\label{enlaces}
 
-Destacar que para la realización de este trabajo se ha empleado únicamente como referencia el material proporcionado  en la asignatura de Gestion de Calidad Software, así como el uso de la IA ya mencionado. 
-
-A continuación, se adjuntan los enlaces de descarga de las aplicaciones mencionadas en el apartado de 'Análisis de competencia':
-
-\begin{itemize}
-
-\item Descarga de la aplicación 'Flush - Public Toliet Finder': \url{https://play.google.com/store/apps/details?id=toilet.samruston.com.toilet}
-
-\item Descarga de la aplicación 'OstomiAseo': \url{https://play.google.com/store/apps/details?id=com.viacoreit.ostomiaseo}
-
-\item Descarga de la aplicación 'Toilet Finder': \url{https://play.google.com/store/apps/details?id=com.bto.toilet}
-
-\end{itemize}
+\nocite{*} % Incluye todas las entradas del archivo .bib
+\renewcommand*{\bibfont}{\fontfamily{phv}\selectfont}
+\printbibliography[heading=bibintoc,title={Bibliografía}]
 
 \end{document}
+
+
