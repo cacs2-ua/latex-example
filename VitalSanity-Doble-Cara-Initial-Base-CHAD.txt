@@ -252,73 +252,64 @@ Por ello, el objetivo \textbf{principal} que pretende \textbf{VitalSanity} es el
  
 
 \chapter{Estado del arte}
-\section{Productos similares actualmente en el mercado}
+\section{Aplicaciones similares}
 \subsection{HCDSNS - España} 
-En España, el Ministerio de Sanidad ha impulsado la HCDSNS (Historia Clínica Digital del Sistema Nacional de Salud) como un repositorio electrónico unificado de información sanitaria esencial, accesible tanto para profesionales autorizados como para los propios ciudadanos.
+En España, el \textbf{Ministerio de Sanidad} ha impulsado la \textbf{HCDSNS} (Historia Clínica Digital del Sistema Nacional de Salud) como un repositorio electrónico unificado de información sanitaria esencial, accesible tanto para profesionales autorizados como para los propios ciudadanos.
 
-Esta plataforma nacional permite que un médico en cualquier comunidad autónoma consulte informes clínicos generados en otra región, facilitando la continuidad asistencial en todo el país y evitando pruebas duplicadas. La HCDSNS opera bajo estrictos criterios de seguridad: el acceso requiere autenticación robusta (DNIe, certificados electrónicos o sistema Cl@ve) y queda limitado a fines asistenciales. 
+Esta plataforma nacional permite que un médico en cualquier comunidad autónoma consulte informes clínicos generados en otra región, facilitando la continuidad asistencial en todo el país y evitando pruebas duplicadas. La \textbf{HCDSNS} opera bajo estrictos criterios de seguridad: el acceso requiere \textbf{autenticación robusta} (\textbf{DNIe, certificados electrónicos o sistema Cl@ve}) y queda limitado a fines asistenciales. 
 
 
 \subsection{Proyecto de Historia Clínica Interoperable - España}
-El sector sanitario privado español, aglutinado en la Fundación IDIS, ha desarrollado una plataforma pionera de historia clínica compartida de ámbito nacional para sus pacientes: El Proyecto de Historia Clínica Interoperable en la Sanidad Privada. A finales de 2023 ya contaba con unos\textbf{ 57.000} \textbf{usuarios conectados} y la participación de al menos 15 entidades sanitarias privadas relevantes (grupos hospitalarios y aseguradoras médicas). 
+El sector sanitario privado español, aglutinado en la \textbf{Fundación IDIS}, ha desarrollado una plataforma pionera de historia clínica compartida de ámbito nacional para sus pacientes: \textbf{El Proyecto de Historia Clínica Interoperable en la Sanidad Privada}. A finales de \textbf{2023} ya contaba con unos\textbf{ 57.000} \textbf{usuarios conectados} y la participación de al menos 15 entidades sanitarias privadas relevantes (grupos hospitalarios y aseguradoras médicas). 
 
-Esta iniciativa permite que un paciente de la sanidad privada \textbf{acceda a su historial clínico unificado} a través de un portal web o aplicación y pueda \textbf{compartir dicha información –totalmente o por informes seleccionados– con el profesional sanitario que él elija}, independientemente del centro u hospital al que pertenezca dicho profesional. 
+Esta iniciativa permite que un paciente de la \textbf{sanidad privada} \textbf{acceda a su historial clínico unificado} a través de un portal web o aplicación y pueda \textbf{compartir dicha información –totalmente o por informes seleccionados– con el profesional sanitario que él elija}, independientemente del centro u hospital al que pertenezca dicho profesional. 
 
-En cuanto a \textbf{seguridad} de esta aplicación, la directriz es equiparable al sistema público: solo profesionales autorizados pueden acceder, mediante credenciales seguras, y se incorporan mecanismos de alerta ante cualquier intento de acceso no autorizado a datos privados. “Nos tenemos que sentir seguros, confiados”, destacó la Dirección de IDIS al subrayar que se está diseñando un sistema con alertas que saltan si alguien intenta \textbf{invadir un dato privado}, garantizando así la privacidad del paciente. 
+En cuanto a la \textbf{seguridad} de esta aplicación, la directriz es equiparable al \textbf{sistema público}: solo los \textbf{profesionales médicos autorizados} pueden acceder, mediante credenciales seguras, y se incorporan \textbf{mecanismos de alerta} ante cualquier intento de acceso no autorizado a datos privados.
 
 
 \subsection{Epic MyChart - Internacional}
-MyChart es la plataforma de portal de pacientes de Epic, que permite consultar medicaciones, resultados de pruebas, citas, facturación y presupuestos de forma centralizada para más de 190 millones de pacientes en múltiples organizaciones sanitarias. Además, incorpora comunicaciones seguras entre paciente y profesional y videovisitas integradas.
+\textbf{MyChart} es la plataforma de portal de pacientes de \textbf{Epic}, que permite consultar medicaciones, resultados de pruebas, citas, facturación y presupuestos de forma centralizada para más de 190 millones de pacientes en múltiples organizaciones sanitarias. Además, incorpora comunicaciones seguras entre paciente y profesional y videovisitas integradas.
 
 \subsection{Cerner Patient Portal - Estados Unidos}
-Ofrece acceso al Registro Médico Electrónico (EMR) mantenido por el proveedor, con vistas seguras a informes clínicos y comunicación bidireccional entre paciente y profesional. Dispone de funcionalidades para descargar y compartir registros con otros profesionales.
+Ofrece acceso al \textbf{Registro Médico Electrónico (EMR)} mantenido por el proveedor, con vistas \textbf{seguras} a informes clínicos y comunicación bidireccional entre \textbf{paciente} y \textbf{profesional}. Dispone de funcionalidades para descargar y compartir registros con otros profesionales.
 
 \subsection{Carpeta Personal de Salud (CPS) AppSalut - Cataluña}
-Iniciativa pública que facilita la prescripción e integración de apps sanitarias acreditadas, mostrando gráficos de evolución de datos y permitiendo a profesionales seleccionar información para integrar en la historia clínica. Asimismo, ofrece al ciudadano visualización de datos generados en el sistema público catalán y filtros avanzados.
+Iniciativa pública que facilita la \textbf{prescripción} e \textbf{integración} de apps \textbf{sanitarias acreditadas}, mostrando gráficos de evolución de datos y permitiendo a profesionales seleccionar información para integrar en la historia clínica. Asimismo, ofrece al ciudadano visualización de datos generados en el \textbf{sistema público catalán} y \textbf{filtros avanzados}.
 
 
 \subsection{Dossier Médical Partagé (DMP) – Francia}
-A nivel europeo, Francia ha implementado desde 2018 el Dossier Médical Partagé, un expediente médico electrónico \textbf{personal y seguro} para cada ciudadano francés. Su objetivo es servir como \textbf{historia clínica digital unificada}: almacena informes médicos, resultados de pruebas, antecedentes de salud, alergias, informes de hospitalización e incluso las voluntades anticipadas del paciente. 
+A nivel europeo, \textbf{Francia} ha implementado desde 2018 el \textbf{Dossier Médical Partagé}, un expediente médico electrónico \textbf{personal y seguro} para cada ciudadano francés. Su objetivo es servir como \textbf{historia clínica digital unificada}: almacena informes médicos, resultados de pruebas, antecedentes de salud, alergias, informes de hospitalización e incluso las voluntades anticipadas del paciente. 
 
-El DMP busca \textbf{mejorar la coordinación y continuidad asistencial }centralizando los datos médicos en un “carné de salud” electrónico accesible en línea. Cada ciudadano puede crear gratuitamente su DMP y gestionar quién tiene acceso: \textbf{el paciente mantiene siempre el control sobre quién consulta su expediente}, pudiendo añadir información personal relevante u \textbf{ocultar determinados documentos} para que no sean visibles a profesionales, según su preferencia. De hecho, el sistema envía notificaciones (por correo electrónico) cada vez que se añade un nuevo documento al expediente, reforzando la transparencia hacia el titular de los datos. 
+El \textbf{DMP} busca \textbf{mejorar la coordinación y continuidad asistencial }centralizando los datos médicos en un “carné de salud” electrónico accesible en línea. Cada ciudadano puede crear gratuitamente su DMP y gestionar quién tiene acceso: \textbf{el paciente mantiene siempre el control sobre quién consulta su expediente}, pudiendo añadir información personal relevante u \textbf{ocultar determinados documentos} para que no sean visibles a profesionales, según su preferencia. De hecho, el sistema envía notificaciones (por correo electrónico) cada vez que se añade un nuevo documento al expediente, reforzando la transparencia hacia el titular de los datos. 
 
 
 \subsection{Elektronische Patientenakte (ePA) - Alemania}
 
-En \textbf{Alemania}, se ha introducido la Elektronische Patientenakte, un expediente electrónico del paciente promovido por las aseguradoras públicas, donde el ciudadano puede gestionar sus registros médicos digitales a través de aplicaciones móviles y controlar el acceso de médicos a dichos datos mediante consentimientos específicos. 
+En \textbf{Alemania}, se ha introducido la \textbf{Elektronische Patientenakte}, un expediente electrónico del paciente promovido por las aseguradoras públicas, donde el ciudadano puede gestionar sus registros médicos digitales a través de aplicaciones móviles y controlar el acceso de \textbf{médicos} a dichos datos mediante consentimientos específicos. 
 
 \subsection{Expedientes médicos centralizados en Estonia}
-En \textbf{Estonia}, todo ciudadano posee un expediente médico digital centralizado: los profesionales sanitarios acceden a la información con autorización, y el paciente puede revisar en un portal quién ha consultado su historial, pudiendo bloquear el acceso a determinados datos si así lo desea (salvo en emergencias).
+En \textbf{Estonia}, todo ciudadano posee un \textbf{expediente médico digital centralizado}: los profesionales sanitarios acceden a la información con \textbf{autorización}, y el paciente puede revisar en un portal \textbf{quién} ha consultado su historial, pudiendo \textbf{bloquear} el acceso a determinados datos si así lo desea (salvo en emergencias).
 
 \section{Objetivos comunes en este tipo de soluciones}
-Los ejemplos anteriores, tanto públicos como privados, evidencian una serie de \textbf{objetivos comunes} en las soluciones de historial clínico centralizado y acceso compartido:
+Los ejemplos anteriores, tanto \textbf{públicos} como \textbf{privados}, evidencian una serie de \textbf{objetivos comunes} en las soluciones de \textbf{historial clínico centralizado} y \textbf{acceso compartido}:
 
 \begin{itemize}
 
-\item \textbf{Continuidad asistencial y disponibilidad universal de datos}: Unificar la información médica del paciente para que esté disponible desde \textbf{cualquier centro o región}, evitando fragmentación de datos. Esto permite a cada profesional sanitario autorizado consultar antecedentes relevantes (alergias, medicación, diagnósticos previos) aunque sea la primera vez que atiende al paciente. El acceso unificado reduce la repetición de pruebas diagnósticas innecesarias y mejora la coordinación entre niveles asistenciales, brindando una atención más eficiente y segura.
+\item \textbf{Continuidad asistencial y disponibilidad universal de datos}: Unificar la información médica del paciente para que esté disponible desde \textbf{cualquier centro o región}, evitando fragmentación de datos. Esto permite a cada \textbf{profesional sanitario} autorizado consultar antecedentes relevantes (alergias, medicación, diagnósticos previos) aunque sea la primera vez que atiende al paciente. El acceso unificado reduce la repetición de pruebas diagnósticas innecesarias y mejora la coordinación entre niveles asistenciales, brindando una atención más \textbf{eficiente} y \textbf{segura}.
 \item \textbf{Empoderamiento del paciente y control sobre la privacidad: } Poner al paciente en el centro, otorgándole acceso directo a su historia clínica y la capacidad de decidir quién más puede verla. Todas las plataformas coinciden en \textbf{requerir el consentimiento del paciente} para compartir sus datos con terceros, en línea con la normativa de autonomía del paciente.
-\item \textbf{Seguridad de la información y cumplimiento legal: } Dada la naturaleza altamente sensible de los datos de salud, estas soluciones comparten el objetivo de garantizar \textbf{la confidencialidad, integridad y disponibilidad} de la información clínica. Implementan autenticación fuerte (certificados digitales, identidades electrónicas verificadas) para el acceso tanto de profesionales como de pacientes, utilizan conexiones cifradas y centros de datos seguros, y se ajustan a las exigencias legales (GDPR en Europa, Ley Orgánica de Protección de Datos y Garantía de Derechos Digitales en España, etc.). La \textbf{trazabilidad} de cada acción (quién accede, cuándo y qué consulta) y la generación de \textbf{alertas ante accesos no autorizados} constituyen prácticas habituales para proteger los datos. Igualmente, se fomenta el almacenamiento seguro de la información, con copias de respaldo y planes de contingencia, para garantizar que el historial clínico centralizado esté disponible incluso ante fallos técnicos o desastres.
-\item \textbf{Mejora de la eficiencia y reducción del papel: } Estas aplicaciones digitalizan la documentación clínica redunda en una gestión más ágil y sin papel de los procesos sanitarios. Un objetivo común es eliminar trámites físicos engorrosos: por ejemplo, sustituyendo los consentimientos informados y otros formularios en papel por \textbf{documentos electrónicos firmados digitalmente}. La firma electrónica integrada en estas plataformas permite que pacientes y profesionales firmen autorizaciones, consentimientos o informes de alta de forma \textbf{remota o presencial}, con plena validez legal, quedando el documento almacenado de forma segura en el sistema. 
+\item \textbf{Seguridad de la información y cumplimiento legal: } Dada la naturaleza altamente sensible de los datos de salud, estas soluciones comparten el objetivo de garantizar \textbf{la confidencialidad, integridad y disponibilidad} de la información clínica. Implementan \textbf{autenticación fuerte} (\textbf{certificados digitales}, \textbf{identidades electrónicas verificadas}) para el acceso tanto de profesionales como de pacientes, utilizan \textbf{conexiones cifradas} y \textbf{centros de datos seguros}, y se ajustan a las exigencias legales (\textbf{RGPD} en Europa, \textbf{LOPDGDD} en España, etc.). La \textbf{trazabilidad} de cada acción (\textbf{quién} accede, \textbf{cuándo} y \textbf{qué} consulta) y la generación de \textbf{alertas ante accesos no autorizados} constituyen prácticas habituales para proteger los datos. Igualmente, se fomenta el \textbf{almacenamiento seguro} de la información, con \textbf{copias de respaldo} y \textbf{planes de contingencia} para garantizar que el \textbf{historial clínico centralizado} esté disponible incluso ante\textbf{ fallos técnicos} o \textbf{desastres}.
+\item \textbf{Mejora de la eficiencia y reducción del papel: } Estas aplicaciones digitalizan la documentación clínica redunda en una gestión más \textbf{ágil} y \textbf{sin papel} de los procesos sanitarios. Un objetivo común es eliminar trámites físicos engorrosos: por ejemplo, sustituyendo los consentimientos informados y otros formularios en papel por \textbf{documentos electrónicos firmados digitalmente}. La firma electrónica integrada en estas plataformas permite que \textbf{pacientes} y \textbf{profesionales} \textbf{firmen} autorizaciones, consentimientos o informes de alta de forma \textbf{remota o presencial}, con \textbf{plena validez legal}, quedando el documento almacenado de forma segura en el sistema. 
 
 \end{itemize}
 
 
-\section{Similitudes con VitalSanity}
-Con todo esto, la propuesta de VitalSanity se inscribe en una tendencia clara de digitalización sanitaria centrada en el paciente, compartiendo muchos de los pilares funcionales con las soluciones actuales del mercado. Al igual que las plataformas públicas nacionales (HCDSNS en España, DMP en Francia) y los portales integrados privados, VitalSanity busca ofrecer una historia clínica electrónica centralizada donde el paciente pueda reunir todo su historial médico y ejercer un control activo sobre él. 
-
-Se puede observar de forma evidente que las similitudes son notables: VitalSanity pone énfasis en la autorización por parte del paciente para cualquier acceso a datos (siguiendo el principio de consentimiento informado y gestión granular de la privacidad, como ya implementan HCDSNS o DMP) y promete un almacenamiento seguro de la información sensible, alineado con las mejores prácticas de seguridad y la normativa europea de protección de datos. 
-
-Asimismo, VitalSanity incorpora la firma electrónica de documentos médicos como parte integral de sus funcionalidades, permitiendo digitalizar procesos que en muchos entornos aún se realizan en papel (por ejemplo, la firma de consentimientos informados o la compartición de informes entre profesionales). Este enfoque multidisciplinar –que combina expediente clínico interoperable, portal del paciente y firma digital avanzada– coincide con el objetivo general del sector de lograr una sanidad sin barreras físicas ni administrativas, donde el flujo de información médica sea instantáneo pero siempre bajo el control del titular de los datos.
-
-Ahora bien, no nos podemos olvidar de que VitalSanity también enfrenta el desafío de diferenciarse y aportar valor añadido en un panorama donde ya existen iniciativas consolidadas. Una diferencia potencial radica en el alcance y la integración: mientras las soluciones públicas suelen limitarse al ámbito del sistema regional de salud, y las privadas tienden a circunscribirse a las redes de determinados grupos hospitalarios o aseguradoras, VitalSanity se presenta como una plataforma agnóstica al proveedor, capaz de agregar información de múltiples fuentes (públicas y privadas) en un único expediente longitudinal del paciente. 
-
-Esto supone un nivel extra de interoperabilidad, sirviendo de puente entre silos de información que hoy permanecen parcialmente desconectados. De esta forma, un usuario de VitalSanity puede visualizar en su cuenta tanto los informes de una intervención quirúrgica realizada en un hospital público, como los resultados de unas pruebas diagnósticas efectuadas en una clínica privada, y compartir ambos con su médico de cabecera de forma sencilla.
+\section{Influencia para VitalSanity}
+Con todo esto, la propuesta de \textbf{VitalSanity} se inscribe en una tendencia clara de\textbf{ digitalización sanitaria} centrada en el paciente, compartiendo muchos de los pilares funcionales con las soluciones actuales del mercado. Al igual que las plataformas \textbf{públicas nacionales} (HCDSNS en España, DMP en Francia) y los \textbf{portales integrados privados}, \textbf{VitalSanity} busca ofrecer una historia clínica electrónica centralizada donde el paciente pueda reunir todo su historial médico y ejercer un \textbf{control activo} sobre él. 
 
 
+VitalSanity debe de alinearse con la dirección en la que evoluciona la \textbf{sanidad digital}, proporcionando funcionalidades que son hoy por hoy \textbf{indispensables} –centralización del historial, acceso multidisciplinar con permiso del paciente, \textbf{firma electrónica} y alta seguridad– y debe competir en \textbf{confiabilidad}, \textbf{alcance} y \textbf{facilidad} de uso con soluciones ya operativas (con medidas que aportan valor diferenciador como gestionar un historial clínico centralizado del paciente que permita incluir información tanto de sanidad \textbf{pública} como de sanidad \textbf{privada}. 
 
-Por todo lo ya mencionado, VitalSanity se alinea con la dirección en la que evoluciona la sanidad digital, proporcionando funcionalidades que son hoy por hoy indispensables –centralización del historial, acceso multidisciplinar con permiso del paciente, firma electrónica y alta seguridad– y debe competir en confiabilidad, alcance y facilidad de uso con soluciones ya operativas. 
-
-El éxito de VitalSanity depende de su capacidad para igualar y superar los estándares ya marcados por iniciativas públicas y privadas (en términos de seguridad jurídica, interoperabilidad y cumplimiento normativo) y a la vez innovar en ámbitos como la integración total de fuentes de datos y la experiencia de usuario. De lograr este equilibrio, VitalSanity podría aspirar (una vez puesta en producción) a posicionarse sólidamente en el panorama actual, aportando una visión unificada del historial clínico del paciente y anticipándose a las futuras tendencias, donde el paciente empoderado y el intercambio seguro de información constituyen la piedra angular de los sistemas de salud.
+El éxito de \textbf{VitalSanity} dependerá de su capacidad para \textbf{alcanzar} y \textbf{superar} los estándares ya marcados por iniciativas \textbf{públicas} y \textbf{privadas} (en términos de \textbf{seguridad jurídica}, \textbf{interoperabilidad} y \textbf{cumplimiento normativo}) y a la vez innovar en ámbitos como la \textbf{integración} total de fuentes de datos y la \textbf{experiencia de usuario}. De lograr este \textbf{equilibrio}, \textbf{VitalSanity} podría aspirar a posicionarse \textbf{sólidamente} en el \textbf{panorama actual}, aportando una visión \textbf{unificada} del \textbf{historial clínico centralizado} del \textbf{paciente} y \textbf{anticipándose} a las futuras tendencias, donde el \textbf{paciente empoderado} y el \textbf{intercambio seguro} de información constituyen la \textbf{piedra angular} de \textbf{los sistemas de salud}.
 
 
 \chapter{Tecnologías y herramientas utilizadas}
@@ -570,124 +561,6 @@ Se ha empleado para desarrollar la \textbf{homepage} de la aplicación.
 Figma es una plataforma de diseño colaborativo en la nube que permite crear, prototipar y compartir interfaces de usuario de forma simultánea y en tiempo real.
 
 Se ha empleado \textbf{Figma} para desarrollar los \textbf{mockups} de la aplicación. El desarrollar en primer lugar los \textbf{mockups} ha facilitado mucho la posterior implementación de cada una de las vistas de la aplicación. Además, me ha sido de gran utilidad puesto que, gracias a los \textbf{mockups}, tenía en mi mente en todo momento la imagen de una aproximación de como quería que se viese la aplicación.
-
-
-
-
-
- 
-\chapter{Aspectos de seguridad}
-
-
-\section{Seguridad en la Firma Digital de Documentos}
-La autenticación de usuarios en \textbf{VitalSanity} se realiza mediante certificados digitales \textbf{X.509}, integrados en la plataforma a través de \textbf{Spring Security} y aprovechando la integración \textbf{nativa} de Spring Security con el protocolo \textbf{X.509}. Cada usuario  debe \textbf{identificarse con un certificado digital reconocido} y su correspondiente clave privada, lo que proporciona un nivel alto de seguridad en la verificación de la identidad. En la práctica, esto implica que el sistema solo permite el acceso a quienes posean un certificado válido emitido por una Autoridad de Certificación de confianza (por ejemplo, el DNIe o certificados de la FNMT), aumentando significativamente la protección frente a accesos no autorizados o suplantación de identidad.
-
-
-Cabe destacar de que en la aplicación también se ha incluido la opción tradicional de iniciar sesión con email y contraseña. Esto se ha realizado para poder realizar las pruebas pertinentes en la aplicación durante desarrollo (debido a que se necesitaba crear múltiples usuarios y trabajar con múltiples usuarios y roles para poder probar todas las funcionalidades de la aplicación). Cabe destacar de que en producción se eliminaría esta opción de iniciar sesión con email y contraseña, imponiendo a los usuarios el autenticarse mediante un certificado digital válido para así defenderse de forma robusta frente a accesos no autorizados o suplantación de identidad, consiguiendo de esta manera una seguridad muy potente a la hora de acceder al sistema.
-
-Por otra parte, la plataforma verifica rigurosamente la validez del certificado presentado en cada inicio de sesión. Este proceso incluye la comprobación de que el certificado \textbf{no haya sido revocado} y que siga siendo \textbf{plenamente válido para identificar a su propietario}. Solo tras superar todas estas verificaciones, Spring Security \textbf{autentica al usuario} y le concede acceso a las funciones de la aplicación. Este mecanismo de autenticación basada en certificados digitales ofrece garantías de seguridad equiparables a la autenticación de múltiples factores, pues requiere algo que el usuario \textbf{posee} (su certificado y clave privada) y algo que el usuario \textbf{es} (su identidad avalada por el certificado). Gracias a ello, VitalSanity asegura que únicamente personas autorizadas puedan acceder a datos sensibles, evitando accesos indebidos.
-
-
-\section{Seguridad en la Firma Digital de Documentos}
-VitalSanity incorpora el uso de herramientas oficiales de \textbf{firma electrónica} proporcionadas por el Gobierno de España para garantizar la autenticidad e integridad de los documentos clínicos generados en la plataforma. En particular, se utiliza la aplicación \textbf{AutoFirma}, así como su \textbf{cliente móvil @firma}, para la firma digital de autorizaciones de pacientes y de informes médicos emitidos por los profesionales sanitarios. AutoFirma permite realizar la firma electrónica de documentos cumpliendo con estándares abiertos, \textbf{garantizando la interoperabilidad y la seguridad en las transacciones electrónicas}. De este modo, cada vez que un médico emite un informe o un paciente otorga una autorización en VitalSanity, el documento correspondiente es firmado digitalmente mediante un certificado electrónico reconocido, usando AutoFirma en entornos de escritorio o Cliente @firma en dispositivos móviles.
-
-
-El empleo de \textbf{certificados digitales reconocidos} en la firma confiere a los documentos un alto nivel de protección: \textbf{integridad}, porque cualquier alteración posterior invalida la firma digital; \textbf{autenticidad}, porque vincula criptográficamente la identidad del firmante al documento; y \textbf{no repudio}, ya que el firmante no puede negar la autoría de la firma. Estas propiedades son cruciales tratándose de autorizaciones sanitarias e informes médicos, que requieren la máxima fiabilidad y validez legal. Cabe destacar que las soluciones de la suite @firma están alineadas con la normativa española y europea de firma electrónica (eIDAS), por lo que las firmas generadas a través de AutoFirma gozan de reconocimiento legal equivalente a la firma manuscrita. VitalSanity garantiza que todos los documentos críticos se firman digitalmente de forma segura y \textbf{formalmente válida}, fortaleciendo la confianza en la documentación clínica intercambiada a través de la aplicación.
-
-\section{Protección de los Datos en el Almacenamiento}
-En \textbf{VitalSanity}, los datos sensibles (historias clínicas, informes, consentimientos firmados, imágenes médicas, etc.) se almacenan de forma segura utilizando \textbf{Amazon Web Services (AWS)}, concretamente en \textbf{buckets de Amazon S3} dedicados. Estos repositorios de almacenamiento en la nube están configurados como privados y se han implementado controles estrictos para su acceso. La aplicación nunca expone directamente los contenidos almacenados; en su lugar, utiliza \textbf{URLs prefirmadas} de S3 para cualquier acceso a documentos. Una URL prefirmada es un enlace temporal generado por la aplicación que concede acceso limitado a un objeto (archivo) específico en S3, sin necesidad de revelar credenciales o permisos permanentes de AWS. Estas URLs prefirmadas incorporan \textbf{tokens de seguridad y expiración}: solo el usuario autorizado puede utilizar el enlace, y además este caduca tras un intervalo breve predefinido, impidiendo accesos posteriores no autorizados. Gracias a este mecanismo, si un tercero intenta acceder directamente a los buckets de S3 sin un enlace válido, la solicitud será denegada. En esencia, las URLs prefirmadas actúan como pases de acceso de un solo uso y con vigencia limitada, garantizando que los datos clínicos almacenados solo sean accesibles para quienes tengan derechos y solo durante el tiempo.
-
-
-Por otro lado, VitalSanity protege la \textbf{confidencialidad de los datos en reposo} mediante cifrado robusto administrado con un \textbf{gestor de claves (KMS) personalizado a partir de una clave CMK}. Para todas las autorizaciones e informes almacenados en \textbf{AWS S3}, se habilita el \textbf{cifrado del lado del servidor con AWS}. Destacar que \textbf{AWS-KMS} es especialmente útil en entornos de producción.
-
-Asimismo, se ha asegurado en todo momento de cumplir con el \textbf{Principio de Mínimos Privilegios} , definiendo \textbf{roles IAM} con \textbf{políticas de acceso estrictas} (aspecto que será tratado con más detalle en el apartado de \textbf{Detalles de implementación)}.
-
-Todo este conjunto de medidas asegura que toda la información médica en la aplicación quede robustamente protegida,  alcanzando un nivel de seguridad acorde a la naturaleza crítica de dichos datos.
-
-
-
-
-
-\chapter{Consideraciones legales}
-
-
-
-\textbf{
-\section{Cumplimiento de protección de datos}
-}
-
-La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la normativa de protección de datos, en especial al RGPD (Reglamento UE 2016/679) y a la LOPDGDD (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una base jurídica adecuada y garantías elevadas de seguridad.
-
-
-En este sentido, se debe respetar el derecho a la \textbf{confidencialidad} de la información médica de cada paciente: la Ley de Autonomía del Paciente (Ley 41/2002) establece que nadie puede acceder a datos sanitarios sin la debida legitimación o autorización previa del afectado. VitalSanity debe aplicar el principio de \textit{privacidad desde el diseño}, implementando medidas técnicas y organizativas robustas (control de accesos, cifrado, seudonimización, etc.) para asegurar la \textbf{integridad} y \textbf{confidencialidad} de la información. 
-
-Igualmente, se tiene que facilitar que los pacientes ejerzan sus derechos ARSOP (acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad) sobre sus datos personales. En concordancia con el principio de responsabilidad proactiva del RGPD, será necesario llevar un registro de actividades de tratamiento, realizar evaluaciones de riesgo y notificar a la autoridad de protección de datos cualquier brecha de seguridad relevante. 
-
-Por último, si la escala o naturaleza del tratamiento lo requiere (p. ej., tratamiento masivo de datos de salud), se deberá designar un \textbf{Delegado de Protección de Datos (DPO)} para supervisar el cumplimiento normativo.
-
- \textbf{Posibilidad de revocación: }Asimismo, destacar que el consentimiento informado \textbf{no es irrevocable}; el paciente tiene derecho a retirarlo en cualquier momento. En consecuencia, \textit{VitalSanity} debe habilitar la revocación ágil de permisos previamente concedidos. Si un paciente decide denegar acceso a cierto profesional, la aplicación debe hacer efectiva esa revocación inmediatamente, notificando al sistema para que el profesional ya no pueda consultar la historia clínica. Este mecanismo de revocación es parte integral del respeto a la autonomía del paciente y debe ser tan sencillo como lo fue otorgar el permiso.
-
-\section{  Consentimiento informado del paciente
-}
-
-Todo acceso o uso de información clínica a través de VitalSanity debe estar amparado por el \textbf{consentimiento informado} del paciente. La Ley 41/2002 reconoce el derecho del paciente a ser plenamente informado de cualquier actuación médica y a decidir libremente sobre la misma, exigiendo que su aceptación conste por escrito mediante un consentimiento expreso.
-
-En línea con este mandato, VitalSanity debe asegurarse de obtener un consentimiento específico, libre e informado del paciente antes de acceder a su historial clínico o compartir sus datos, una vez que el paciente haya sido adecuadamente informado sobre las finalidades y el alcance de dicho acceso. 
-
-Este consentimiento puede materializarse de forma digital: la aplicación debería integrar mecanismos de firma electrónica para que el paciente firme los documentos de consentimiento de manera \textbf{segura y legalmente válida}. En particular, el uso de la herramienta oficial \textbf{AutoFirma} (y su cliente móvil @firma) permitiría recabar la firma electrónica avanzada o cualificada del paciente, de conformidad con el Reglamento eIDAS, otorgándole a ese consentimiento digital la misma validez jurídica que tendría en papel.
-
-De esta forma, se garantiza la autenticidad del consentimiento y se respeta plenamente la autonomía del paciente, dado que ningún profesional ajeno a su atención podrá acceder a sus datos de salud sin la debida autorización del propio paciente.
-
-
-
-\textbf{
-\section{Historia clínica (gestión, acceso y custodia)}
-}
-
-VitalSanity debe gestionar la \textbf{historia clínica digital} de cada paciente cumpliendo con los requisitos legales en materia de documentación sanitaria. La historia clínica es el conjunto de documentos e información relativa a la salud de un paciente, y tiene carácter \textbf{confidencial}. Solo el personal sanitario directamente implicado en la asistencia tiene permiso para acceder a ella, tal como señala la Ley 41/2002.
-
-En consecuencia, la aplicación debe garantizar que únicamente los profesionales autorizados puedan consultar o modificar el historial clínico, implementando controles de acceso estrictos y registrando toda actividad (accesos, incorporaciones de datos, etc.) para mantener trazabilidad y detectar accesos indebidos. 
-
-Además, VitalSanity debe preservar la \textbf{integridad} y \textbf{autenticidad} de la información clínica: cualquier dato incorporado al historial debe permanecer completo, fidedigno y asociado al profesional que lo aportó, igual que ocurriría en un expediente médico tradicional.
-
-Por otro lado, la \textbf{custodia} legal de la historia clínica recae en el proveedor sanitario (hospital, clínica o profesional) que genera la documentación. VitalSanity, como herramienta, debe facilitar el cumplimiento de dichas obligaciones de custodia sin suplantarlas. 
-
-Los centros sanitarios tienen el deber de archivar y conservar la documentación clínica en condiciones adecuadas de seguridad, al menos durante \textbf{cinco años} desde la fecha de alta de cada proceso asistencial (o plazos mayores según normativas autonómicas o del tipo de documento). La aplicación deberá apoyar esta conservación segura de los datos en formato electrónico, garantizando su disponibilidad cuando se requiera para la asistencia y su protección frente a pérdidas o alteraciones. 
-
-Asimismo, debe respetarse el criterio de \textbf{unidad de la historia clínica}: cada paciente ha de tener un registro unificado por centro sanitario, que incorpore todos sus episodios asistenciales relevantes. VitalSanity debe por tanto integrarse con los sistemas de información sanitarios existentes para evitar la fragmentación de la información, asegurando que el historial clínico digital que maneja sea completo y esté sincronizado con la historia oficial del centro. 
-
-Finalmente, se debe recordar que el paciente tiene derecho a acceder a la información de su propia historia clínica (salvo excepciones legales puntuales); la aplicación podría facilitar este derecho, por ejemplo, mediante módulos de portal del paciente, siempre cumpliendo con las garantías de seguridad y confidencialidad previstas.
-
-\section{Interoperabilidad entre sistemas sanitarios}
-
-La legislación sanitaria española promueve la \textbf{interoperabilidad} de los sistemas clínicos, con el fin de garantizar la continuidad asistencial del paciente a través de distintos niveles y centros de atención. La propia Ley 41/2002, en una disposición adicional, instó a desarrollar sistemas compatibles que permitieran el uso compartido de la historia clínica del paciente entre distintos establecimientos sanitarios, evitando duplicidades diagnósticas o pruebas innecesarias. 
-
-Más adelante, la Ley 16/2003 de Cohesión y Calidad del SNS, en su artículo 56, encomendó al Ministerio de Sanidad coordinar con las Comunidades Autónomas los mecanismos de intercambio electrónico de información de salud, de forma que tanto los profesionales sanitarios que atienden al paciente como el propio paciente puedan acceder a los datos clínicos precisos para su asistencia, garantizando en todo caso la confidencialidad e integridad de la información.
-
-En aplicación de este marco, se aprobó el \textbf{Real Decreto 1093/2010}, que establece el conjunto mínimo de datos comunes que deben contener ciertos informes clínicos (informes de alta, historias resumidas, etc.) en todo el Sistema Nacional de Salud.
-
-Dicho estándar unifica el formato básico de la información para facilitar su intercambio entre los distintos servicios de salud autonómicos. 
-
-En este contexto, VitalSanity debe ser capaz de integrarse e \textbf{interoperar} con otros sistemas sanitarios, tanto públicos como privados. Por un lado, la aplicación ha de adoptar los estándares nacionales mencionados (estructuras de datos, terminologías clínicas, formatos de intercambio como HL7/FHIR, etc.) para comunicarse eficazmente con la historia clínica digital de los servicios de salud. 
-
-De esta forma, VitalSanity debe de cumplir con el hecho de que en España \textbf{no existen impedimentos legales} para el intercambio de información clínica entre el sector público y el privado. Para ello siempre debe de mediar el consentimiento previo del paciente. 
-
-Esto implica que VitalSanity puede, con la autorización explícita del paciente, acceder a datos provenientes de diferentes fuentes (por ejemplo, historiales de un hospital público y de una clínica privada) y presentarlos de forma unificada al profesional o al propio paciente. La aplicación debe, por tanto, estar preparada para \textbf{respetar los protocolos de interoperabilidad} vigentes (p. ej. servicios web del Nodo de Intercambio del SNS) y a la vez \textbf{garantizar la seguridad} en esas transferencias de datos (cifrado de las comunicaciones, autenticación de los sistemas que intercambian información, etc.), de acuerdo con las exigencias legales y de las políticas de cada institución involucrada.
-
-
-
-
-{
-\section{Esquema Nacional de Seguridad (ENS):}
-} 
-Dada la naturaleza sensible de los datos de salud, es obligatorio aplicar medidas de seguridad de nivel elevado según el ENS cuando la aplicación se integra en el sector público o maneja información de pacientes de servicios públicos. El ENS, establecido por el RD 3/2010 (actualizado por RD 311/2022), proporciona un marco de buenas prácticas de seguridad orientado a proteger la información en las administraciones públicas y sus sistemas asociados\href{https://quodem.com/blog/el-papel-del-ens-en-el-sector-de-la-salud/\#:~:text=Con\%20el\%20objetivo\%20de\%20garantizar,la\%20correcta\%20gesti\%C3\%B3n\%20de\%20estos}{quodem.com}. VitalSanity debe alinearse con estas exigencias, implementando controles como autenticación robusta (ej. \textbf{autenticación con certificado digital}), gestión estricta de permisos de usuario, cifrado de las comunicaciones, registro y monitorización de accesos, planes de respuesta ante incidentes, copias de seguridad, entre otras medidas. Cumplir con el ENS garantiza un nivel de protección acorde al exigido en el ámbito sanitario público y refuerza la confianza en la aplicación.
-
-\section{Reglamento eIDAS y firma electrónica}
- El Reglamento (UE) n.º 910/2014 \textbf{eIDAS} sobre identificación electrónica y servicios de confianza, junto con la Ley 59/2003 española de firma electrónica, establecen las condiciones bajo las cuales una \textbf{firma electrónica avanzada o cualificada} tiene el mismo valor legal que la firma manuscrita en documentos oficiales. En el contexto de VitalSanity, esto implica que los consentimientos informados y demás documentos clínicos firmados digitalmente a través de la aplicación (por ejemplo, utilizando certificados digitales reconocidos mediante AutoFirma) gozarán de plena validez jurídica. La plataforma debe, por tanto, utilizar certificados y métodos de firma electrónica que cumplan estos estándares, garantizando la \textbf{autenticidad}, \textbf{integridad} y el \textbf{no repudio} de los documentos firmados. De esta forma, tanto pacientes como profesionales pueden firmar electrónicamente consentimientos, informes o autorizaciones con la certeza de que dichos actos tienen eficacia legal y probatoria equivalente a los tradicionales en papel.
- 
- 
-\section{Consideraciones éticas}
- Más allá del cumplimiento legal, la gestión de datos de salud conlleva importantes responsabilidades éticas. VitalSanity debe adherirse a los \textbf{principios éticos} que rigen la relación sanitario-paciente y el uso de información sensible. Esto incluye el respeto estricto del \textbf{secreto profesional} y la privacidad del paciente: toda persona que acceda a datos mediante la aplicación debe estar sujeta a deberes de confidencialidad profesionales. Igualmente, el principio de \textbf{autonomía del paciente} exige que las decisiones sobre el uso de sus datos estén centradas en su consentimiento y preferencias, evitando cualquier forma de coerción o uso indebido de la información. La \textbf{beneficencia} y la \textbf{no maleficencia} han de guiar el diseño de la herramienta: sus funcionalidades (por ejemplo, algoritmos de ayuda a la decisión clínica) deben buscar mejorar la calidad de la atención sin causar perjuicios ni discriminar pacientes. Es aconsejable que VitalSanity se desarrolle bajo un enfoque de \textit{ética de datos}, asegurando transparencia en cómo se usan los datos, minimizando la recopilación a lo necesario y garantizando un uso justo y responsable de la información (por ejemplo, si se utilizan datos anónimos para investigación, hacerlo con las debidas autorizaciones de comité ético). 
 
 
 
@@ -977,20 +850,20 @@ Antes de comenzar con la implementación del proyecto, se realizó un prototipo 
 Asimismo, destacar que los \textbf{mock ups} se han diseñado siguiendo un enfoque \textbf{mobile first}.
 
 
-\section{Análisis de requisitos}
+\chapter{Análisis de requisitos}
 
-En este apartado se va a efectuar una \textbf{Especificación de Requisitos Software (ERS)}. Para ello, se ha considerado como referencia el estándar \textbf{\textit{IEEE Práctica Recomendada para Especificaciones de Requisitos Software ANSI/IEEE 830, 1998}}.
+En este capítulo se va a efectuar una \textbf{Especificación de Requisitos Software (ERS)}. Para ello, se ha considerado como referencia el estándar \textbf{\textit{IEEE Práctica Recomendada para Especificaciones de Requisitos Software ANSI/IEEE 830, 1998}}.
 
 Mencionar que el apartado de \textbf{Perspectiva del producto} ya ha sido tratado con detalle en la \textbf{Introducción}, razón por la cual no se incluirá dentro del análisis de requisitos para así evitar redundancia de información.
 
-\subsection{Requisitos del hardware}
+\section{Requisitos de hardware}
 
 La aplicación se desarrolla para poder ser ejecutada tanto desde un ordenador como desde un dispositivo móvil.
 
 Por otra parte, destacar que el servidor debe alojarse en máquinas que tengan la capacidad de manejar un
 gran número de solicitudes de forma simultánea.
 
-\subsection{Requisitos del software}
+\section{Requisitos de software}
 
 Estos requisitos hacen referencia los requerimientos a nivel de software de la aplicación.
 
@@ -1001,7 +874,7 @@ La mayoría de estos requisitos ya han sido mencionados en el apartado de \textb
     \item  El correcto funcionmiento de la aplicación (incluyendo aquellas funcionalidades críticas como \textbf{AutoFirma}) ha sido probado en los siguientes \textbf{sistemas operativos}: \textbf{Windows, Linux y MacOS}.
 \end{itemize}
 
-\subsection{Requisitos a nivel de interfaz de aplización}
+\section{Requisitos a nivel de interfaz de aplización}
 
 Para todas las vistas de la aplicación se establece un estilo \textbf{atractivo} y \textbf{minimalista}. Al tratarse de una aplicación médica, la información debe de mostrarse de forma \textbf{sencilla} y \textbf{efectiva} para asegurar de este modo la correcta comprensión por parte del usuario.
 
@@ -1014,7 +887,7 @@ Las principales características identificativas a nivel de interfaz de \textbf{
     \item El color \textbf{carmesí} para los mensajes de error.
 \end{itemize}
 
-\subsection{Requisitos funcionales}
+\section{Requisitos funcionales}
 
 Los \textbf{requisitos funcionales} son aquellos que describen manera precisa las capacidades, comportamientos y servicios que un producto software debe ofrecer para satisfacer las necesidades del usuario. 
 
@@ -1038,7 +911,7 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 
 Se han identificado un total de \textbf{31} requisitos funcionales.
 
-\subsubsection{Requisitos funcionales comunes para todos los usuarios}
+\subsection{Requisitos funcionales comunes}
 
 \textbf{\textit{'RFUG'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario genérico'}}
 
@@ -1212,7 +1085,7 @@ Se han identificado un total de \textbf{31} requisitos funcionales.
 \end{table}
 
 
-\subsubsection{Requisitos funcionales de los profesionales médicos}
+\subsection{Requisitos funcionales de los profesionales médicos}
 
 \textbf{\textit{'RFUPFM'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que sea profesional médico'}}
 
@@ -1638,7 +1511,7 @@ ser aplicados de forma simultánea \\
 \end{table}
 
 
-\subsubsection{Requisitos funcionales de los pacientes}
+\subsection{Requisitos funcionales de los pacientes}
 
 \textbf{\textit{'RFUPA'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que sea paciente'}}
 
@@ -1914,7 +1787,7 @@ ser aplicados de \textbf{forma simultánea}. \\
 \end{table}
 
 
-\subsubsection{Requisitos funcionales de los administradores}
+\subsection{Requisitos funcionales de los administradores}
 
 \textbf{\textit{'RFUA'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que sea administrador'}}
 
@@ -1945,7 +1818,7 @@ ser aplicados de \textbf{forma simultánea}. \\
 \label{tab:requisitos-administradores}
 \end{table}
 
-\subsubsection{Requisitos funcionales de los centros médicos}
+\subsection{Requisitos funcionales de los centros médicos}
 
 \textbf{\textit{'RFUCM'}} hace referencia a \textbf{\textit{'Requisitos funcionales para un usuario que se corresponda con un centro médico'}}
 
@@ -1978,7 +1851,7 @@ ser aplicados de \textbf{forma simultánea}. \\
 
 
 
-\subsection{Requisitos no funcionales}
+\section{Requisitos no funcionales}
 
 Los requisitos no funcinales son propiedades globales de la aplicación los cuales determinan la calidad con la que deben ejecutarse las funciones, sin definir a nivel específico qué hace el sistema.
 
@@ -1994,6 +1867,122 @@ Los principales requisitos no funcionales a considerar son los siguientes:
     \item \textbf{Mantenibilidad:} \textbf{VitalSanity} debe de contar con un equipo de desarrolladores los cuales aseguren un mantenimeinto efectivo de la aplicación, realizando cuando sea conveniente actualizaciones y parches de errores sobre el sistema.
     \item \textbf{Portabilidad: } \textbf{VitalSanity} será configurada para ser levantada mediante \textbf{Docker Compose}, lo cual facilita de forma evidente las tareas de \textbf{mantenimiento} de los desarrolladores al poder ejecutar la aplicación desde cualquier sistema.
 \end{itemize}
+
+Mencionar que dentro de los requisitos no funcionales también se incluyen los \textbf{requisitos legales}, los cuales se mencionan en el capítulo siguiente. Del mismo modo, los requisitos de \textbf{seguridad} se explican con mayor detalle en el capítulo que viene a continuación de los \textbf{requisitos legales}. Los aspectos de seguridad vienen explicados desde una perspectiva más orientada a la \textbf{implementación final} de la aplicación (se explican los aspectos de seguridad que se han implementado en la última versión de \textbf{VitalSanity}). El enorme peso tanto de los requisitos \textbf{legales} como de los aspectos de \textbf{seguridad} dentro de la aplicación ha hecho que ambos aspectos sean desarrollados en capítulos aparte.
+
+
+
+
+\chapter{Requisitos legales}
+
+
+
+\textbf{
+\section{Cumplimiento de protección de datos}
+}
+
+La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la \textbf{normativa de protección de datos}, en especial al \textbf{RGPD} (Reglamento UE 2016/679) y a la \textbf{LOPDGDD} (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una \textbf{base jurídica} adecuada y garantías elevadas de \textbf{seguridad}.
+
+
+En este sentido, se debe respetar el derecho a la \textbf{confidencialidad} de la información médica de cada paciente: la \textbf{Ley de Autonomía del Paciente} (\textbf{Ley 41/2002}) establece que nadie puede acceder a datos sanitarios sin la debida \textbf{legitimación} o \textbf{autorización} previa del afectado. \textbf{VitalSanity} debe aplicar el principio de \textbf{\textit{privacidad desde el diseño},} implementando medidas \textbf{técnicas} y \textbf{organizativas} robustas (\textbf{control de accesos, cifrado, seudonimización}, etc.) para asegurar la \textbf{integridad} y \textbf{confidencialidad} de la información. 
+
+Igualmente, se tiene que facilitar que los pacientes ejerzan sus derechos \textbf{ARSOP} (\textbf{acceso}, \textbf{rectificación}, \textbf{supresión}, \textbf{oposición}, \textbf{limitación del tratamiento }y \textbf{portabilidad}) sobre sus datos personales. En concordancia con el \textbf{principio de responsabilidad proactiva del RGPD}, será necesario llevar un \textbf{registro} de actividades de tratamiento, realizar \textbf{evaluaciones} de riesgo y \textbf{notificar} a la \textbf{autoridad de protección} de datos \textbf{cualquier brecha de seguridad} relevante. 
+
+Por último, si la escala o naturaleza del tratamiento lo requiere (p. ej., tratamiento masivo de datos de salud), se deberá designar un \textbf{Delegado de Protección de Datos (DPO)} para supervisar el cumplimiento normativo.
+
+ \textbf{Posibilidad de revocación: }Asimismo, destacar que el consentimiento informado \textbf{no es irrevocable}; el paciente tiene derecho a retirarlo en cualquier momento. En consecuencia, \textit{\textbf{VitalSanity}} debe habilitar la \textbf{revocación ágil} de permisos previamente concedidos. Si un paciente decide \textbf{desautorizal el acceso} a cierto profesional, la aplicación debe hacer \textbf{efectiva} esa revocación inmediatamente, notificando al sistema para que el \textbf{profesional} ya no pueda consultar la historia clínica. Este mecanismo de revocación es parte \textbf{integral} del \textbf{respeto} a la \textbf{autonomía del paciente} y debe ser tan \textbf{sencillo} como lo fue otorgar el permiso.
+
+\section{  Consentimiento informado del paciente
+}
+
+Todo acceso o uso de información clínica a través de \textbf{VitalSanity} debe estar amparado por el \textbf{consentimiento informado} del paciente. La \textbf{Ley 41/2002} reconoce el derecho del paciente a ser plenamente informado de cualquier actuación médica y a decidir libremente sobre la misma, exigiendo que su aceptación conste por escrito mediante un consentimiento expreso.
+
+En línea con este mandato, \textbf{VitalSanity} debe asegurarse de obtener un \textbf{consentimiento específico}, libre e informado del paciente antes de acceder a su historial clínico o compartir sus datos, una vez que el \textbf{paciente} haya sido adecuadamente informado sobre las finalidades y el alcance de dicho acceso. 
+
+Este consentimiento se materializará de forma digital: la aplicación deberá integrar mecanismos de \textbf{firma electrónica} para que el paciente firme los documentos de consentimiento de manera \textbf{segura y legalmente válida}. En particular, el uso de la herramienta oficial \textbf{AutoFirma} y de  \textbf{Cliente móvil @firma} permitirá recabar la \textbf{firma electrónica avanzada o cualificada} del \textbf{paciente}, de conformidad con el \textbf{Reglamento eIDAS}, otorgándole a ese consentimiento digital la misma \textbf{validez jurídica} que tendría en papel.
+
+De esta forma, se garantiza \textbf{la autenticidad del consentimiento} y se respeta plenamente \textbf{la autonomía del paciente}, dado que ningún profesional ajeno a su atención podrá acceder a sus datos de salud sin la debida autorización del propio paciente.
+
+
+
+\textbf{
+\section{Historia clínica (gestión, acceso y custodia)}
+}
+
+\textbf{VitalSanity} debe gestionar la \textbf{historia clínica digital} de cada paciente cumpliendo con los requisitos legales en materia de \textbf{documentación sanitaria}. La historia clínica es el conjunto de documentos e información relativa a la salud de un paciente, y tiene carácter \textbf{confidencial}. Solo el personal sanitario directamente implicado en la asistencia tiene permiso para acceder a ella, tal como señala la \textbf{Ley 41/2002}.
+
+En consecuencia, la aplicación debe garantizar que únicamente los \textbf{profesionales autorizados} puedan \textbf{consultar} o \textbf{modificar} el historial clínico, implementando \textbf{controles de acceso estrictos} y \textbf{registrando} toda actividad (accesos, incorporaciones de datos, etc.) para mantener \textbf{trazabilidad} y detectar \textbf{accesos indebidos}. 
+
+Además, \textbf{VitalSanity} debe preservar la \textbf{integridad} y \textbf{autenticidad} de la información clínica: cualquier dato incorporado al historial debe permanecer \textbf{completo}, \textbf{fidedigno} y \textbf{asociado} al profesional que lo aportó, igual que ocurriría en un \textbf{expediente médico tradicional}.
+
+Por otro lado, la \textbf{custodia} legal de la\textbf{ historia clínica} recae en el proveedor sanitario (hospital, clínica o profesional) que genera la documentación. \textbf{VitalSanity}, como herramienta, debe facilitar el cumplimiento de dichas obligaciones de custodia sin suplantarlas. 
+
+Los \textbf{centros sanitarios} tienen el deber de \textbf{archivar} y \textbf{conservar} la documentación clínica en condiciones adecuadas de \textbf{seguridad}, al menos durante \textbf{cinco años} desde la fecha de alta de cada proceso asistencial (o plazos mayores según normativas autonómicas o del tipo de documento). La aplicación deberá apoyar esta conservación segura de los datos en \textbf{formato electrónico}, garantizando su disponibilidad cuando se requiera para la \textbf{asistencia} y su \textbf{protección} frente a \textbf{pérdidas} o \textbf{alteraciones}. 
+
+Asimismo, debe respetarse el criterio de \textbf{unidad de la historia clínica}: cada paciente ha de tener un \textbf{registro unificado} por \textbf{centro sanitario} o por \textbf{profesional médico}, que incorpore todos sus episodios asistenciales relevantes. \textbf{VitalSanity} debe por tanto \textbf{integrarse} con los sistemas de información sanitarios existentes para \textbf{evitar la fragmentación} de la información, asegurando que el historial clínico digital que maneja sea \textbf{completo} y esté \textbf{sincronizado} con la \textbf{historia oficial} del centro. 
+
+Finalmente, se debe recordar que el \textbf{paciente} tiene \textbf{derecho} a acceder a la información de su \textbf{propia historia clínic}a (salvo excepciones legales puntuales); la aplicación debe facilitar este derecho, cumpliendo en todo momento con las garantías de \textbf{seguridad} y \textbf{confidencialidad} previstas.
+
+\section{Interoperabilidad entre sistemas sanitarios}
+
+La legislación sanitaria española promueve la \textbf{interoperabilidad} de los sistemas clínicos, con el fin de garantizar la continuidad asistencial del paciente a través de \textbf{distintos niveles} y \textbf{centros de atención}. La propia \textbf{Ley 41/2002}, en una disposición adicional, instó a desarrollar \textbf{sistemas compatibles} que permitieran el \textbf{uso compartido} de la \textbf{historia clínica} del \textbf{paciente} entre distintos establecimientos sanitarios, evitando duplicidades diagnósticas o pruebas innecesarias. 
+
+Más adelante, la \textbf{Ley 16/2003 de Cohesión y Calidad del SNS}, en su \textbf{artículo 56}, encomendó al \textbf{Ministerio de Sanidad} coordinar con las \textbf{Comunidades Autónomas} los mecanismos de intercambio electrónico de información de salud, de forma que tanto los \textbf{profesionales sanitarios} que atienden al \textbf{paciente} como el propio \textbf{paciente} puedan acceder a los datos clínicos precisos para su asistencia, garantizando en todo caso la \textbf{confidencialidad} e \textbf{integridad} de la información.
+
+En aplicación de este marco, se aprobó el \textbf{Real Decreto 1093/2010}, que establece el conjunto mínimo de datos comunes que deben contener ciertos informes clínicos (informes de alta, historias resumidas, etc.) en todo el \textbf{Sistema Nacional de Salud}.
+
+Dicho estándar unifica el formato básico de la información para facilitar su intercambio entre los distintos servicios de \textbf{salud autonómicos}. 
+
+En este contexto, \textbf{VitalSanity} debe ser capaz de \textbf{integrarse} e \textbf{interoperar} con otros sistemas sanitarios, tanto \textbf{públicos} como \textbf{privados}. Por un lado, la aplicación ha de adoptar los \textbf{estándares nacionales} mencionados (\textbf{estructuras de datos}, \textbf{terminologías clínicas}, \textbf{formatos de intercambio como HL7/FHIR}, etc.) para comunicarse eficazmente con la historia clínica digital de los servicios de salud. 
+
+De esta forma, \textbf{VitalSanity} debe de cumplir con el hecho de que en \textbf{España} \textbf{no existen impedimentos legales} para el intercambio de información clínica entre el sector \textbf{público} y el \textbf{privado}. Para ello siempre debe de mediar el \textbf{consentimiento previo del paciente}. 
+
+Esto implica que \textbf{VitalSanity} puede, con la \textbf{autorización} explícita del paciente, acceder a datos provenientes de diferentes fuentes (por ejemplo, historiales de un hospital \textbf{público} y de una clínica \textbf{privada}) y presentarlos de forma \textbf{unificada} al \textbf{profesional} o al propio \textbf{paciente}. La aplicación debe, por tanto, estar preparada para \textbf{respetar los protocolos de interoperabilidad} vigentes (p. ej. servicios web del Nodo de Intercambio del \textbf{SNS}) y a la vez \textbf{garantizar la seguridad} en esas transferencias de datos (\textbf{cifrado de las comunicaciones}, \textbf{autenticación de los sistemas que intercambian información}, etc.), de acuerdo con las \textbf{exigencias legales} y de las \textbf{políticas} de cada institución involucrada.
+
+
+
+
+{
+\section{Esquema Nacional de Seguridad (ENS):}
+} 
+Dada la naturaleza sensible de los datos de salud, es obligatorio aplicar medidas de seguridad de nivel elevado según el \textbf{ENS} cuando la aplicación se integra en el \textbf{sector público} o maneja información de \textbf{pacientes} de \textbf{servicios públicos}. El \textbf{ENS}, establecido por el \textbf{RD 3/2010 (actualizado por RD 311/2022)}, proporciona un marco de buenas prácticas de seguridad orientado a proteger la información en las administraciones públicas y sus sistemas asociados. \textbf{VitalSanity} debe alinearse con estas exigencias, implementando controles como \textbf{autenticación robusta} (ej. \textbf{autenticación con certificado digital}), \textbf{gestión estricta} \textbf{de} \textbf{permisos de usuario}, \textbf{cifrado de las comunicaciones}, \textbf{registro y monitorización de accesos}, \textbf{planes de respuesta ante incidentes}, \textbf{copias de seguridad}, entre otras medidas. Cumplir con el \textbf{ENS} garantiza un \textbf{nivel de protección} acorde al exigido en el \textbf{ámbito sanitario público} y refuerza la \textbf{confianza} en la aplicación.
+
+\section{Reglamento eIDAS y firma electrónica}
+ El \textbf{Reglamento (UE) n.º 910/2014 \textbf{eIDAS} sobre identificación electrónica y servicios de confianza}, junto con la \textbf{Ley 59/2003} española de firma electrónica, establecen las condiciones bajo las cuales una \textbf{firma electrónica avanzada o cualificada} tiene el mismo valor legal que la \textbf{firma manuscrit}a en documentos oficiales. En el contexto de \textbf{VitalSanity}, esto implica que los \textbf{consentimientos informados} y demás documentos clínicos \textbf{firmados digitalmente} a través de la aplicación (por ejemplo, utilizando certificados digitales reconocidos mediante \textbf{AutoFirma}) gozarán de \textbf{plena validez jurídica}. La plataforma debe, por tanto, utilizar \textbf{certificados} y \textbf{métodos de firma electrónica} que cumplan estos estándares, garantizando la \textbf{autenticidad}, \textbf{integridad} y el \textbf{no repudio} de los documentos firmados. De esta forma, tanto pacientes como profesionales pueden firmar electrónicamente \textbf{consentimientoso o autorizaciones}, y los profesionales médicos pueden firmar \textbf{informes}, todo con la certeza de que dichos actos tienen \textbf{eficacia legal y probatoria} equivalente a los tradicionales en papel.
+ 
+ 
+\section{Consideraciones éticas}
+ Más allá del cumplimiento legal, la gestión de datos de salud conlleva \textbf{importantes responsabilidades éticas}. \textbf{VitalSanity} debe adherirse a los \textbf{principios éticos} que rigen la relación \textbf{profesional-paciente} y el uso de información sensible. Esto incluye el respeto estricto del \textbf{secreto profesional} y la \textbf{privacidad} del \textbf{paciente}: toda persona que acceda a datos mediante la aplicación debe estar sujeta a \textbf{deberes de confidencialidad profesionales}. Igualmente, el principio de \textbf{autonomía del paciente} exige que las decisiones sobre el uso de sus datos estén centradas en su \textbf{consentimiento} y \textbf{preferencias}, evitando cualquier forma de \textbf{coerción} o\textbf{ uso indebido} de la información. La \textbf{beneficencia} y la \textbf{no maleficencia} han de guiar el diseño de la herramienta: todas las funcionalidades de \textbf{VitalSanity}  deben buscar \textbf{mejorar} la calidad de la atención sin causar perjuicios ni discriminar pacientes. Es altamente aconsejable que \textbf{VitalSanity} se desarrolle bajo un enfoque puro de\textbf{ \textit{ética de datos}}, asegurando \textbf{transparencia} en cómo se usan los datos, \textbf{minimizando la recopilación} a solo lo necesario y garantizando un uso \textbf{justo} y \textbf{responsable} de la información. 
+
+
+
+\chapter{Aspectos de seguridad}
+
+
+\section{Seguridad en la Firma Digital de Documentos}
+La autenticación de usuarios en \textbf{VitalSanity} se realiza mediante certificados digitales \textbf{X.509}, integrados en la plataforma a través de \textbf{Spring Security} y aprovechando la integración \textbf{nativa} de Spring Security con el protocolo \textbf{X.509}. Cada usuario  debe \textbf{identificarse con un certificado digital reconocido} y su correspondiente clave privada, lo que proporciona un nivel alto de seguridad en la verificación de la identidad. En la práctica, esto implica que el sistema solo permite el acceso a quienes posean un certificado válido emitido por una Autoridad de Certificación de confianza (por ejemplo, el DNIe o certificados de la FNMT), aumentando significativamente la protección frente a accesos no autorizados o suplantación de identidad.
+
+
+Cabe destacar de que en la aplicación también se ha incluido la opción tradicional de iniciar sesión con email y contraseña. Esto se ha realizado para poder realizar las pruebas pertinentes en la aplicación durante desarrollo (debido a que se necesitaba crear múltiples usuarios y trabajar con múltiples usuarios y roles para poder probar todas las funcionalidades de la aplicación). Cabe destacar de que en producción se eliminaría esta opción de iniciar sesión con email y contraseña, imponiendo a los usuarios el autenticarse mediante un certificado digital válido para así defenderse de forma robusta frente a accesos no autorizados o suplantación de identidad, consiguiendo de esta manera una seguridad muy potente a la hora de acceder al sistema.
+
+Por otra parte, la plataforma verifica rigurosamente la validez del certificado presentado en cada inicio de sesión. Este proceso incluye la comprobación de que el certificado \textbf{no haya sido revocado} y que siga siendo \textbf{plenamente válido para identificar a su propietario}. Solo tras superar todas estas verificaciones, Spring Security \textbf{autentica al usuario} y le concede acceso a las funciones de la aplicación. Este mecanismo de autenticación basada en certificados digitales ofrece garantías de seguridad equiparables a la autenticación de múltiples factores, pues requiere algo que el usuario \textbf{posee} (su certificado y clave privada) y algo que el usuario \textbf{es} (su identidad avalada por el certificado). Gracias a ello, VitalSanity asegura que únicamente personas autorizadas puedan acceder a datos sensibles, evitando accesos indebidos.
+
+
+\section{Seguridad en la Firma Digital de Documentos}
+VitalSanity incorpora el uso de herramientas oficiales de \textbf{firma electrónica} proporcionadas por el Gobierno de España para garantizar la autenticidad e integridad de los documentos clínicos generados en la plataforma. En particular, se utiliza la aplicación \textbf{AutoFirma}, así como su \textbf{cliente móvil @firma}, para la firma digital de autorizaciones de pacientes y de informes médicos emitidos por los profesionales sanitarios. AutoFirma permite realizar la firma electrónica de documentos cumpliendo con estándares abiertos, \textbf{garantizando la interoperabilidad y la seguridad en las transacciones electrónicas}. De este modo, cada vez que un médico emite un informe o un paciente otorga una autorización en VitalSanity, el documento correspondiente es firmado digitalmente mediante un certificado electrónico reconocido, usando AutoFirma en entornos de escritorio o Cliente @firma en dispositivos móviles.
+
+
+El empleo de \textbf{certificados digitales reconocidos} en la firma confiere a los documentos un alto nivel de protección: \textbf{integridad}, porque cualquier alteración posterior invalida la firma digital; \textbf{autenticidad}, porque vincula criptográficamente la identidad del firmante al documento; y \textbf{no repudio}, ya que el firmante no puede negar la autoría de la firma. Estas propiedades son cruciales tratándose de autorizaciones sanitarias e informes médicos, que requieren la máxima fiabilidad y validez legal. Cabe destacar que las soluciones de la suite @firma están alineadas con la normativa española y europea de firma electrónica (eIDAS), por lo que las firmas generadas a través de AutoFirma gozan de reconocimiento legal equivalente a la firma manuscrita. VitalSanity garantiza que todos los documentos críticos se firman digitalmente de forma segura y \textbf{formalmente válida}, fortaleciendo la confianza en la documentación clínica intercambiada a través de la aplicación.
+
+\section{Protección de los Datos en el Almacenamiento}
+En \textbf{VitalSanity}, los datos sensibles (historias clínicas, informes, consentimientos firmados, imágenes médicas, etc.) se almacenan de forma segura utilizando \textbf{Amazon Web Services (AWS)}, concretamente en \textbf{buckets de Amazon S3} dedicados. Estos repositorios de almacenamiento en la nube están configurados como privados y se han implementado controles estrictos para su acceso. La aplicación nunca expone directamente los contenidos almacenados; en su lugar, utiliza \textbf{URLs prefirmadas} de S3 para cualquier acceso a documentos. Una URL prefirmada es un enlace temporal generado por la aplicación que concede acceso limitado a un objeto (archivo) específico en S3, sin necesidad de revelar credenciales o permisos permanentes de AWS. Estas URLs prefirmadas incorporan \textbf{tokens de seguridad y expiración}: solo el usuario autorizado puede utilizar el enlace, y además este caduca tras un intervalo breve predefinido, impidiendo accesos posteriores no autorizados. Gracias a este mecanismo, si un tercero intenta acceder directamente a los buckets de S3 sin un enlace válido, la solicitud será denegada. En esencia, las URLs prefirmadas actúan como pases de acceso de un solo uso y con vigencia limitada, garantizando que los datos clínicos almacenados solo sean accesibles para quienes tengan derechos y solo durante el tiempo.
+
+
+Por otro lado, VitalSanity protege la \textbf{confidencialidad de los datos en reposo} mediante cifrado robusto administrado con un \textbf{gestor de claves (KMS) personalizado a partir de una clave CMK}. Para todas las autorizaciones e informes almacenados en \textbf{AWS S3}, se habilita el \textbf{cifrado del lado del servidor con AWS}. Destacar que \textbf{AWS-KMS} es especialmente útil en entornos de producción.
+
+Asimismo, se ha asegurado en todo momento de cumplir con el \textbf{Principio de Mínimos Privilegios} , definiendo \textbf{roles IAM} con \textbf{políticas de acceso estrictas} (aspecto que será tratado con más detalle en el apartado de \textbf{Detalles de implementación)}.
+
+Todo este conjunto de medidas asegura que toda la información médica en la aplicación quede robustamente protegida,  alcanzando un nivel de seguridad acorde a la naturaleza crítica de dichos datos.
 
 
 
@@ -2027,8 +2016,8 @@ Se ha empleado una arquitectura \textbf{MVC} para desarrollar VitalSanity. En Sp
 
     \item \textbf{Controlador}
     \begin{itemize}
-        \item Gestiona las \textbf{peticiones HTTP} entrantes (\verb|@Controller| / \verb|@RestController|). 
-        \item Invoca los servicios del modelo para procesar datos, y devuelve la vista adecuada junto con el \textbf{modelo de datos} (un \verb|Model| o un objeto JSON). 
+        \item Gestiona las \textbf{peticiones HTTP} entrantes (\textit{@Controller} / \textit{@RestController}). 
+        \item Invoca los servicios del modelo para procesar datos, y devuelve la vista adecuada junto con el \textbf{modelo de datos} (un \textit{Model} o un objeto JSON). 
     \end{itemize}
 \end{enumerate}
 
@@ -2041,19 +2030,19 @@ Las principales ventajas de aplicar el patrón \textbf{MVC} son la \textbf{reuti
 \subsection{Configuración del conector extra HTTPS  }
 
 \begin{itemize}
-\item La clase \verb|config/AdditionalHttpsConnectorConfig|, anotada con \\\verb|@Configuration|, se encarga de añadir un conector HTTPS adicional al servidor embebido de Tomcat en Spring Boot, configurando tanto el almacén de claves del servidor (keystore) como el almacén de confianza (truststore, el cual contiene los certificados de autoridad) para habilitar  TLS mutuo con verificación obligatoria del certificado de cliente. 
-\item En primer lugar, se inyectan mediante \verb|@Value| las propiedades relativas al almacén de claves del servidor (ruta, contraseña, tipo y alias) y al almacén de confianza para validar certificados de cliente. A través del método \\\verb|servletContainer()| se crea un \verb|TomcatServletWebServerFactory| al que se agrega un conector personalizado definido en \verb|createSslConnector()|. Este conector escucha en el puerto 8059, fuerza el esquema \verb|https| y activa SSL en el protocolo \verb|Http11NioProtocol|. 
-\item A continuación, se construye un \verb|SSLHostConfig| que impone la verificación de certificado de cliente (\verb|required|),  incorpora una lista de revocación de certificados (CRL), y se asocia el truststore para validar las cadenas de certificado entrantes. 
-\item Despúes, se crea un \verb|SSLHostConfigCertificate| de tipo RSA, que carga el keystore del servidor con sus credenciales y alias, y se añade a la configuración SSL del conector. De este modo, la aplicación autentica de forma mutua tanto al cliente como al servidor antes de procesar cualquier petición relacionada con la autenticación por certificado digital. 
+\item La clase \textit{\textbf{config/AdditionalHttpsConnectorConfig}}, anotada con \textit{\textbf{@Configuration}}, se encarga de añadir un conector HTTPS adicional al servidor embebido de Tomcat en Spring Boot, configurando tanto el almacén de claves del servidor (keystore) como el almacén de confianza (truststore, el cual contiene los certificados de autoridad) para habilitar  TLS mutuo con verificación obligatoria del certificado de cliente. 
+\item En primer lugar, se inyectan mediante \textbf{\textit{@Value}} las propiedades relativas al almacén de claves del servidor (ruta, contraseña, tipo y alias) y al almacén de confianza para validar certificados de cliente. A través del método \textit{\textbf{servletContainer(}}) se crea un \textbf{\textit{TomcatServletWebServerFactory}} al que se agrega un conector personalizado definido en \textbf{\textit{createSslConnector()}}. Este conector escucha en el puerto 8059, fuerza el esquema \textbf{\textit{https}} y activa SSL en el protocolo \textbf{\textit{Http11NioProtocol}}. 
+\item A continuación, se construye un \textbf{\textit{SSLHostConfig}} que impone la verificación de certificado de cliente (\textbf{\textit{required}}),  incorpora una lista de revocación de certificados (CRL), y se asocia el truststore para validar las cadenas de certificado entrantes. 
+\item Despúes, se crea un \textbf{\textit{SSLHostConfigCertificate}} de tipo RSA, que carga el keystore del servidor con sus credenciales y alias, y se añade a la configuración SSL del conector. De este modo, la aplicación autentica de forma mutua tanto al cliente como al servidor antes de procesar cualquier petición relacionada con la autenticación por certificado digital. 
 \end{itemize}
 
 \subsection{Filtro de preautenticación X.509}
 
 \begin{itemize}
-    \item La clase \verb|SecurityConfig| configura, con la máxima prioridad, una cadena de filtros dedicada exclusivamente a la autenticación mediante certificado digital en el endpoint \verb|/login/certificate|. 
-    \item En su método \verb|certificateFilterChain|, se crea un extractor de sujeto X.509 (\verb|SubjectDnX509PrincipalExtractor|) que extrae el NIF del DN del certificado mediante una expresión regular, y se instancia un \\\verb|X509AuthenticationFilter| al que se le asigna dicho extractor, un manejador de éxito (\verb|CertificateAuthenticationSuccessHandler|) y se indica que, si la autenticación por certificado falla, continúe la cadena de filtros sin interrumpir la petición. 
-    \item Para validar las credenciales preautenticadas del certificado se utiliza un \\\verb|PreAuthenticatedAuthenticationProvider| conectado a un \\\verb|UserDetailsService| personalizado (CertificateUserDetailsService), envolviéndolo en un \verb|ProviderManager| que actúa como \\\verb|AuthenticationManager| del filtro. 
-    \item Finalmente, el filtro se añade al \verb|HttpSecurity| limitado únicamente al patrón \verb|/login/certificate|, se establece una política de creación de sesión “si es necesario” y, dado que en entorno de desarrollo he empleado un certificado SSL autogenerado (el cual impide al navegador abrir el selector de certificados bajo protección CSRF), se deshabilita la protección CSRF para este único endpoint, permitiendo así la extracción y validación del certificado sin conflictos, mientras que todas las peticiones quedan autorizadas tras este filtro.
+    \item La clase \textbf{\textit{SecurityConfig}} configura, con la máxima prioridad, una cadena de filtros dedicada exclusivamente a la autenticación mediante certificado digital en el endpoint \textbf{\textit{/login/certificate}}. 
+    \item En su método \textbf{\textit{certificateFilterChain}}, se crea un extractor de sujeto X.509 \\(\textbf{\textit{SubjectDnX509PrincipalExtractor}}) que extrae el NIF del DN del certificado mediante una expresión regular, y se instancia un \textbf{\textit{X509AuthenticationFilter}} al que se le asigna dicho extractor, un manejador de éxito \\(\textbf{\textit{CertificateAuthenticationSuccessHandler}}) y se indica que, si la autenticación por certificado falla, continúe la cadena de filtros sin interrumpir la petición. 
+    \item Para validar las credenciales preautenticadas del certificado se utiliza un \textbf{\textit{PreAuthenticatedAuthenticationProvider}} conectado a un \textbf{\textit{UserDetailsService}} personalizado (CertificateUserDetailsService), envolviéndolo en un \textbf{\textit{ProviderManager}} que actúa como \textbf{\textit{AuthenticationManager}} del filtro. 
+    \item Finalmente, el filtro se añade al \textbf{\textit{HttpSecurity}} limitado únicamente al patrón \textbf{\textit{/login/certificate}}, se establece una política de creación de sesión “si es necesario” y, dado que en entorno de desarrollo he empleado un certificado SSL autogenerado (el cual impide al navegador abrir el selector de certificados bajo protección CSRF), se deshabilita la protección CSRF para este único endpoint, permitiendo así la extracción y validación del certificado sin conflictos, mientras que todas las peticiones quedan autorizadas tras este filtro.
     \item Cabe destacar que en producción no sería necesario desactivar la protección CSRF para ese endpoint puesto que en producción se estaría utilizando un certificado SSL de confianza.
 
 \end{itemize}
@@ -2061,33 +2050,31 @@ Las principales ventajas de aplicar el patrón \textbf{MVC} son la \textbf{reuti
 \subsection{Servicio de detalles de usuario  }
 
 \begin{itemize}
-    \item La clase \verb|UserDetailsService | se encarga de buscar en la base de datos un usuario cuyo NIF/NIE coincida con el extraído del certificado digital correspondiente. En el caso de que dicho usuario exista, crea un \verb|UserDetails| con rol \verb|ROLE_USER|; en caso contrario, se lanza la excepción \\\verb|UsernameNotFoundException|.
-    \item El \verb|UserDetails| es necesario para que \verb|Spring Security| pueda completar el paso de pre-autenticación X.509 y poblar el principal de la sesión de seguridad.
+    \item La clase \textbf{\textit{UserDetailsService}} se encarga de buscar en la base de datos un usuario cuyo NIF/NIE coincida con el extraído del certificado digital correspondiente. En el caso de que dicho usuario exista, crea un UserDetails con rol \textbf{\textit{ROLE\_USER}}; en caso contrario, se lanza la excepción \textbf{\textit{UsernameNotFoundException}}.
+    \item El \textbf{\textit{UserDetails}} es necesario para que \textbf{\textit{Spring Security}} pueda completar el paso de pre-autenticación X.509 y poblar el principal de la sesión de seguridad.
 \end{itemize}
 
 \subsection{Manejador de éxito de autenticación  }
 
-La clase \verb|config/CertificateAuthenticationSuccessHandler| se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \verb|/login?error=usuario_no_encontrado|. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
+La clase \textbf{\textit{config/CertificateAuthenticationSuccessHandler}} se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \textbf{\textit{/login?error=usuario\_no\_encontrado}}. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
 
-\subsection{Consideraciones de seguridad}
 
-Esta implementación permite: \textbf{máxima confianza}, puesto que la validación a nivel TLS impide el paso de clientes no autorizados; \textbf{Integridad del flujo }, puesto que el filtro X.509 y el handler separan claramente la extracción de identidad, la validación en base de datos y la navegación posterior; \textbf{extensibilidad}, gracias a que en \textbf{Spring Security} es sencillo añadir nuevos roles, reglas de autorización o múltiples esquemas de autenticación.
 
 \newpage
 
 \section{Firma y cofirma de los documentos PDF}
 
 \subsection{Generación del PDF a partir de iText}
-La clase \verb|service/autofirma/GenerarPdf.java| se encarga de generar el PDF que debe ser \textbf{firmado} o \textbf{cofirmado} a partir de los datos recopilados de un formulario. Los datos del formularios son recogidos y se crea un \textbf{PDF} con un formato acorde y atractivo y en el que incluye toda la información relevante en materia de protección de datos, aludiendo en todo momento tanto a la \textbf{LOPDGDD } y al \textbf{RGPD}.
+La clase \textbf{\textit{service/autofirma/GenerarPdf.java}} se encarga de generar el PDF que debe ser \textbf{firmado} o \textbf{cofirmado} a partir de los datos recopilados de un formulario. Los datos del formularios son recogidos y se crea un \textbf{PDF} con un formato acorde y atractivo y en el que incluye toda la información relevante en materia de protección de datos, aludiendo en todo momento tanto a la \textbf{LOPDGDD } y al \textbf{RGPD}.
 
 \subsection{autoscript.js}
-El fichero \verb|autoscript.js| representa la “biblioteca de despliegue” del Cliente @firma: al cargarlo dentro del \verb|<head>| de un HTML, se logra aportar un objeto global AutoScript que expone toda la API JavaScript necesaria para invocar todas operaciones de firma disponibles(firma simple, cofirma, contrafirma, firma de lotes, selección de certificado, etc.), encapsulando de este modo los detalles de comunicación con la aplicación nativa. Este fichero forma parte de la API oficial de @firma y puede obtenerse directamente en el repositorio de GitHub de @firma
+El fichero \textbf{\textit{autoscript.js}} representa la “biblioteca de despliegue” del Cliente @firma: al cargarlo dentro del \textbf{\textit{<head>}} de un HTML, se logra aportar un objeto global AutoScript que expone toda la API JavaScript necesaria para invocar todas operaciones de firma disponibles(firma simple, cofirma, contrafirma, firma de lotes, selección de certificado, etc.), encapsulando de este modo los detalles de comunicación con la aplicación nativa. Este fichero forma parte de la API oficial de @firma y puede obtenerse directamente en el repositorio de GitHub de @firma
 
 
 \newpage
 
 \subsection{signer-invoke.js}
-El fichero \verb|signer-invoke.js| orquesta de manera genérica el flujo de firma y co-firma de documentos en la interfaz web. 
+El fichero \textbf{\textit{signer-invoke.js}} orquesta de manera genérica el flujo de firma y co-firma de documentos en la interfaz web. 
 
 \begin{figure}[H]
 \centering
@@ -2104,7 +2091,7 @@ El fichero \verb|signer-invoke.js| orquesta de manera genérica el flujo de firm
 \end{figure}
 
 
-Al pulsar sobre el botón correspondiente a “Firmar”, se recogen los datos del formulario, se llama al método de controlador correspondiente para que se devuelva un PDF en Base64 y se invoca a \verb|AutoScript.sign(...)| para que se abra AutoFirma (o su versión para móvil), se abra el selector de certificados y el usuario pueda firmar el fichero correspondiente. 
+Al pulsar sobre el botón correspondiente a “Firmar”, se recogen los datos del formulario, se llama al método de controlador correspondiente para que se devuelva un PDF en Base64 y se invoca a \textbf{\textit{AutoScript.sign(...)}} para que se abra AutoFirma (o su versión para móvil), se abra el selector de certificados y el usuario pueda firmar el fichero correspondiente. 
 
 \newpage
 
@@ -2175,11 +2162,11 @@ Se puede verificar que la firma del PDF es válida abriendo el propio PDF con \t
 
 \newpage
 
-El proceso de cofirma es análogo al proceso ya descito de firma normal. Lo único que cambia es la llamada al fichero AutoScript.js, que ahora pasa a ser \\\verb|AutoScript.cosign(...)|  (se cambia la función \textbf{sign(...)} por \textbf{cosign(...)}).
+El proceso de cofirma es análogo al proceso ya descito de firma normal. Lo único que cambia es la llamada al fichero AutoScript.js, que ahora pasa a ser \textbf{\textit{AutoScript.cosign(...)}}  (se cambia la función \textbf{sign(...)} por \textbf{cosign(...)}).
 
 
 
-De igual modo, cuando el paciente cofirma, se recupera del servidor el PDF ya firmado, se invoca a \verb|AutoScript.cosign(...)| para añadir la firma sin sobreescribir la firma ya establecida del profesional médico y sube el resultado para posteriormente mostrar el enlace de descarga del \textbf{PDF cofirmado} . 
+De igual modo, cuando el paciente cofirma, se recupera del servidor el PDF ya firmado, se invoca a \textbf{\textit{AutoScript.cosign(...) }}para añadir la firma sin sobreescribir la firma ya establecida del profesional médico y sube el resultado para posteriormente mostrar el enlace de descarga del \textbf{PDF cofirmado} . 
 
 \begin{figure}[H]
 \centering
@@ -2208,7 +2195,7 @@ Cabe destacar que cualquiera de estas acciones puede ser realizada tanto con \te
 
 \newpage
 
-\subsection{\textbf{Cliente móvil @firma } }
+\subsection{Cliente móvil @firma}
 
 
 Para conseguir que las funcionalidades de firma y cofirma sigan funcionando en dispositivos móviles, ha sido necesario realizar una serie de cambios \textbf{importantes} y \textbf{no triviales}.
@@ -2220,7 +2207,7 @@ Como se explica en el \textbf{Manual Integrador de AutoFirma}, en un ordenador e
 No obstante, en dispositivos móviles, esta técnica deja de funcionar debido a dos motivos principales:
 
 \begin{itemize}
-    \item \textbf{Restricciones de los navegadores y del propio sistema operativo:} Ni Android ni iOS permiten que una página web abra un puerto de escucha local ni que una app nativa exponga un \textit{socket} accesible desde el navegador. El único puente soportado es lanzar la app nativa mediante un esquema de URL (\verb|afirma://…|) y, después, volver al navegador a través de una navegación HTTP/S. 
+    \item \textbf{Restricciones de los navegadores y del propio sistema operativo:} Ni \textbf{Android} ni \textbf{iOS} permiten que una página web abra un puerto de escucha local ni que una app nativa exponga un \textit{socket} accesible desde el navegador. El único puente soportado es lanzar la app nativa mediante un esquema de URL \textit{}\textbf{\textit{afirma://…}} y, después, volver al navegador a través de una navegación HTTP/S. 
     \item \textbf{Carencia de la JVM y de la librería de sockets en las versiones móviles del cliente :} Los clientes móviles de @firma no incluyen un servicio que permanezca escuchando; se abren “puntualmente” cuando el navegador invoca el esquema \textit{afirma://}. 
 \end{itemize}
 
@@ -3122,7 +3109,6 @@ Para el resto de errores típicos (\textbf{400}, \textbf{403}, \textbf{500},...)
 
 En este apartado se mostrará la versión móvil de la aplicación. Destacar que, con el objetivo de evitar redundancia, únicamente se mostrarán aquellas vistas que supongan cambios significativos con respecto a su versión de escritorio (por ejemplo, no se volverán a mostrar las vistas correspondientes a los formularios puesto que el aspecto se mantiene prácticamente igual en ambas versiones).
 
-\subsection{Página home}
 
 \begin{figure}[H]
 \centering
