@@ -66,6 +66,22 @@
 \SetAlFnt{\fontfamily{pcr}\selectfont\footnotesize}
 
 
+\usepackage[
+  style=verbose-note,
+  backend=biber,
+  sorting=nyt,
+  language=spanish
+]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+\renewcommand*{\bibfont}{\sffamily}
+\setlength{\bibitemsep}{\baselineskip}
+
+
+
+\addbibresource{bibliography.bib}  
+
+
 
 
 \renewcommand{\textsharp}{$\sharp$}
@@ -371,7 +387,8 @@ Permite desplegar aplicaciones de cualquier escala sin preocuparse por la infrae
 
 Sus principales ventajas son la escalabilidad automática, el soporte, el pago por uso y un amplio catálogo de servicios que cubren desde hosting web hasta inteligencia artificial.
 
-\textbf{AWS} ha representado otro de los grandes pilares de la aplicación. Se ha empleado para el almacenamiento seguro de las \textbf{autorizaciones} y de los \textbf{informes médicos} (mediante buckets de \textbf{S3}). Asimismo, se han empleado otros servicios de \textbf{AWS} como \textbf{KMS} para el empleo de claves \textbf{CMK} personalizadas, \textbf{IAM},... (todo esto se explica con más detalle en el apartado de \textbf{detalles de implementación}).
+\textbf{AWS}\footcite{aws}
+ ha representado otro de los grandes pilares de la aplicación. Se ha empleado para el almacenamiento seguro de las \textbf{autorizaciones} y de los \textbf{informes médicos} (mediante buckets de \textbf{S3}). Asimismo, se han empleado otros servicios de \textbf{AWS} como \textbf{KMS} para el empleo de claves \textbf{CMK} personalizadas, \textbf{IAM},... (todo esto se explica con más detalle en el apartado de \textbf{detalles de implementación}).
 
 \section{Docker}
 
@@ -3422,22 +3439,10 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 \textit{\textbf{La única forma de romper con el esquema de lo común es abrazar a la incertidumbre, asumir nuevos riesgos, aprender y disfrutar de cada fracaso y, sobre todo, aventurarse en el eterno mundo de lo desconocido.}}
 
 
-
 \appendix
-\chapter{Bibliografía}\label{enlaces}
 
-Destacar que para la realización de este trabajo se ha empleado únicamente como referencia el material proporcionado  en la asignatura de Gestion de Calidad Software, así como el uso de la IA ya mencionado. 
-
-A continuación, se adjuntan los enlaces de descarga de las aplicaciones mencionadas en el apartado de 'Análisis de competencia':
-
-\begin{itemize}
-
-\item Descarga de la aplicación 'Flush - Public Toliet Finder': \url{https://play.google.com/store/apps/details?id=toilet.samruston.com.toilet}
-
-\item Descarga de la aplicación 'OstomiAseo': \url{https://play.google.com/store/apps/details?id=com.viacoreit.ostomiaseo}
-
-\item Descarga de la aplicación 'Toilet Finder': \url{https://play.google.com/store/apps/details?id=com.bto.toilet}
-
-\end{itemize}
+% Imprime el capítulo y lo mete en el TOC automáticamente
+\printbibliography[heading=bibintoc,title={Bibliografía}]
 
 \end{document}
+
