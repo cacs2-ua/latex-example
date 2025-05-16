@@ -66,6 +66,15 @@
 \SetAlFnt{\fontfamily{pcr}\selectfont\footnotesize}
 
 
+
+
+
+
+
+
+
+
+
 \usepackage[
   style=verbose-note,
   backend=biber,
@@ -74,12 +83,32 @@
 ]{biblatex}
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
+
+\renewbibmacro*{url+urldate}{%
+  \iffieldundef{url}
+    {}
+    {\printtext{%
+       \mkbibparens{%
+         Accedido el \printurldate. %
+         [En línea]. Disponible en: \url{\thefield{url}}%
+       }%
+    }}}
+
+
+
 \renewcommand*{\bibfont}{\sffamily}
 \setlength{\bibitemsep}{\baselineskip}
 
-
-
 \addbibresource{bibliography.bib}  
+
+
+\usepackage{url}
+
+\newcommand{\webcite}[2]{%
+  \footnote{#1 \citetitle{#2} en \citeurl{#2}.}%
+}
+
+
 
 
 
@@ -385,7 +414,13 @@ La razón principal por la que se ha decidido integrar también \textbf{Cliente 
 
 Permite desplegar aplicaciones de cualquier escala sin preocuparse por la infraestructura física. 
 
-Sus principales ventajas son la escalabilidad automática, el soporte, el pago por uso y un amplio catálogo de servicios que cubren desde hosting web hasta inteligencia artificial.
+Sus principales ventajas son la escalabilidad automática, el soporte, el pago por uso y un amplio catálogo de servicios que cubren desde hosting web hasta inteligencia artificial.  
+
+
+Según lo comenta Bootstrap\ \webcite{Visita la página oficial de}{bootstrap5} Bootstrap\ \webcite{Visita la página oficial de}{bootstrap5} Bootstrap\ \webcite{Visita la página oficial de}{bootstrap5} Bootstrap\ \webcite{Visita la página oficial de}{bootstrap5} Bootstrap\ \webcite{Visita la página oficial de}{bootstrap5} Bootstrap\ \webcite{Visita la página oficial de}{bootstrap5}
+
+
+
 
 \textbf{AWS}\footcite{aws}
  ha representado otro de los grandes pilares de la aplicación. Se ha empleado para el almacenamiento seguro de las \textbf{autorizaciones} y de los \textbf{informes médicos} (mediante buckets de \textbf{S3}). Asimismo, se han empleado otros servicios de \textbf{AWS} como \textbf{KMS} para el empleo de claves \textbf{CMK} personalizadas, \textbf{IAM},... (todo esto se explica con más detalle en el apartado de \textbf{detalles de implementación}).
