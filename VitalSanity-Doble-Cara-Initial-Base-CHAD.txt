@@ -3,7 +3,9 @@
   inner=3cm,      % margen de encuadernación
   outer=2.5cm,    % margen exterior
   top=2.5cm,
-  bottom=2.5cm
+  bottom=2.5cm,
+  includehead,   
+  includefoot 
 ]{geometry}
 \usepackage{setspace}
 \onehalfspacing
@@ -11,6 +13,7 @@
 \setlength{\parindent}{20pt}             % ← conserva la sangría habitual
 \raggedbottom 
 \usepackage[spanish]{babel}
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
 \usepackage{mathpazo}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -71,10 +74,14 @@
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
-  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}{}
-  {0pt}{\Huge}
+  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}   % formato
+  {\chaptername~\thechapter}                              % etiqueta: "Capítulo <n>"
+  {20pt}                                                  % separación etiqueta–título
+  {\Huge}                                                 % formato del título
+
 \titleformat{\section}
   {\normalfont\fontfamily{phv}\selectfont\Large\bfseries}{\thesection}{1em}{}
+
 
 \usepackage{courier} % Esto configura \ttfamily a Courier
 \lstset{basicstyle=\fontfamily{pcr}\selectfont}
@@ -93,7 +100,7 @@
 \thispagestyle{empty} % para que no se numere esta pagina
 
 \null
-\newpage
+
 
 
 \includepdf[pages={1}]{portadas/VitalSanity-Second-Portada.pdf}
@@ -101,7 +108,7 @@
 \thispagestyle{empty} % para que no se numere esta pagina
 
 \null
-\newpage
+
 
 \chapter*{Agradecimientos}
 
@@ -119,7 +126,7 @@ Tampoco me puedo olvidar de mis \textbf{inigualables compañeros} del \textbf{Cl
 Y como no podía ser de otro modo, darle mi más profundo agradecimiento a \textbf{Carlos, mi tutor}. Agradecerte Carlos por toda tu \textbf{implicación} en este proyecto, por todas aquellas \textbf{reuniones fructíferas} y por todas las ideas que hemos sacado adelante juntos, en especial por haber descubierto juntos \textbf{el legendario desafío de AutoFirma}.
 
 
-Por último, agradecerte a ti, \textbf{Slow Freezzic}, por haber sido \textbf{mi mejor amigo} y haber sido tan \textbf{único} y tan \textbf{auténtico} conmigo, sin haberte desviado lo más mínimo en los momentos \textbf{más difíciles}, en aquellos momentos donde se decide el \textbf{verdadero valor} de las personas.
+Por último, agradecerte a ti, \textbf{Slow Freezzic}, por haber sido \textbf{mi mejor amigo}.
 
 \textbf{\textit{A todos vosotros, gracias.}}
 
@@ -168,6 +175,7 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 
 \cleardoublepage
 \listoffigures % indice de figuras
+\listoftables % indice de tablas
 
 
 \clearpage                
@@ -175,7 +183,7 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 \null
 \clearpage  
 
-\chapter{Introducción}
+\chapter{Introducción y objetivos}
 
 \section{Contextualización}
 
@@ -248,7 +256,6 @@ Estas firmas digitales gozan plena \textbf{validez legal} y además  confieren a
 
 Del mismo modo, también se emplearán \textbf{AutoFirma} y \textbf{Cliente móvil @firma }para firmar digitalmente cada uno de los \textbf{informes médicos} subidos por \textbf{los profesionales sanitarios.}
 
-\newpage
 
 \section{Otros aspectos de seguridad}
 
@@ -381,12 +388,7 @@ La razón principal por la que se ha decidido integrar también \textbf{Cliente 
 \label{aws-logo:vv}
 \end{figure}
 
-\textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} 
-
-\textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} \textbf{Amazon Web Services}\footnote{Hola buenas tardes, descargar aquí: \textbf{\textit{https://us-east-1.credentials.signin.aws/security}}} 
-
-
-es una plataforma de servicios en la nube que proporciona recursos como almacenamiento, bases de datos, redes y potencia de cómputo bajo demanda.
+\textbf{Amazon Web Services} es una plataforma de servicios en la nube que proporciona recursos como almacenamiento, bases de datos, redes y potencia de cómputo bajo demanda.
 
 Permite desplegar aplicaciones de cualquier escala sin preocuparse por la infraestructura física. 
 
@@ -403,7 +405,7 @@ Sus principales ventajas son la escalabilidad automática, el soporte, el pago p
 \label{docker-logo:vv}
 \end{figure}
 
-Docker es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
+Docker\footnote{Enlace de la página oficial de docker: \textbf{\textit{http://docker.com}}} es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
 
 Gracias a su arquitectura cliente-servidor, en la que el cliente Docker comunica con el demonio dockerd mediante una API REST, Docker simplifica la gestión del ciclo de vida de contenedores, imágenes, redes y volúmenes.
 
@@ -448,7 +450,6 @@ PostgreSQL es un sistema de gestión de bases de datos relacional de código abi
 
 Para la base de datos dockerizada se ha empleado una imagen de \textbf{Postgres}.
 
-\newpage
 
 \section{Mailtrap}
 
@@ -826,7 +827,6 @@ Dichas reuniones han resultado de \textbf{gran utilidad} para revisar el \textbf
 La agenda de reuniones periódicas ha tenido como meta principal garantizar un \textbf{seguimiento continuo} del proyecto y una alineación constante con los objetivos planteados.
 
 
-\newpage
 
 
 
@@ -2080,9 +2080,6 @@ Las principales ventajas de aplicar el patrón \textbf{MVC} son la \textbf{reuti
 La clase \textbf{\textit{config/CertificateAuthenticationSuccessHandler}} se encarga de obtener el NIF/NIE extraído y de consultar el repositorio de usuarios. Si no hay coincidencias, redirige a \textbf{\textit{/login?error=usuario\_no\_encontrado}}. Si hay coincidencia, entonces se termina de autenticar al usuario y se completa de forma exitosa el proceso de autenticación.
 
 
-
-\newpage
-
 \section{Firma y cofirma de los documentos PDF}
 
 \subsection{Generación del PDF a partir de iText}
@@ -2091,8 +2088,6 @@ La clase \textbf{\textit{service/autofirma/GenerarPdf.java}} se encarga de gener
 \subsection{autoscript.js}
 El fichero \textbf{\textit{autoscript.js}} representa la “biblioteca de despliegue” del Cliente @firma: al cargarlo dentro del \textbf{\textit{<head>}} de un HTML, se logra aportar un objeto global AutoScript que expone toda la API JavaScript necesaria para invocar todas operaciones de firma disponibles(firma simple, cofirma, contrafirma, firma de lotes, selección de certificado, etc.), encapsulando de este modo los detalles de comunicación con la aplicación nativa. Este fichero forma parte de la API oficial de @firma y puede obtenerse directamente en el repositorio de GitHub de @firma
 
-
-\newpage
 
 \subsection{signer-invoke.js}
 El fichero \textbf{\textit{signer-invoke.js}} orquesta de manera genérica el flujo de firma y co-firma de documentos en la interfaz web. 
@@ -2114,7 +2109,6 @@ El fichero \textbf{\textit{signer-invoke.js}} orquesta de manera genérica el fl
 
 Al pulsar sobre el botón correspondiente a “Firmar”, se recogen los datos del formulario, se llama al método de controlador correspondiente para que se devuelva un PDF en Base64 y se invoca a \textbf{\textit{AutoScript.sign(...)}} para que se abra AutoFirma (o su versión para móvil), se abra el selector de certificados y el usuario pueda firmar el fichero correspondiente. 
 
-\newpage
 
 El método \textit{AutoScript.sign()} recibe los siguientes parámetros en el siguiente orden:
 
@@ -2157,7 +2151,6 @@ Durante el tiempo en el que se está completando  la firma se muestra por pantal
 Tras recibir la firma en Base64, se envía de nuevo al servidor el documento firmado: Por una parte, en la base de datos se almacenan los siguientes metadatos asociados al documento: nombre, uuid (aleatorio), s3Key (aws), el tipo dearchivo, el tamaño y la fecha de creación.
 Por otra parte, el documento completo se sube a aws a partir de la S3 key correspondiente. Se utiliza el uuid para nombrar al documento dentro del bucket para así evitar que se revele metainforación asociada al nombre real del documento.  
 
-\newpage
 
 Una vez que se ha almacenado los metadatos del fichero y se ha subido a aws, se le muestra al usuario un enlace para poder descargar el PDF recién firmado. Dicho enlace contiene una URL prefirmada para acceder de forma privada al contenido del bucket (todo lo asociado a AWS se explica más adelante con más detalle).
 
@@ -2181,7 +2174,6 @@ Se puede verificar que la firma del PDF es válida abriendo el propio PDF con \t
 \label{mensaje-descarga-firma:vv}
 \end{figure}
 
-\newpage
 
 El proceso de cofirma es análogo al proceso ya descito de firma normal. Lo único que cambia es la llamada al fichero AutoScript.js, que ahora pasa a ser \textbf{\textit{AutoScript.cosign(...)}}  (se cambia la función \textbf{sign(...)} por \textbf{cosign(...)}).
 
@@ -2213,8 +2205,6 @@ Este flujo descrito de \textbf{AutoFirma} se repite de forma análoga para todas
 \end{itemize}
 Cabe destacar que cualquiera de estas acciones puede ser realizada tanto con \textbf{AutoFirma} como con \textbf{Cliente móvil @firma }.
 
-
-\newpage
 
 \subsection{Cliente móvil @firma}
 
@@ -2277,7 +2267,6 @@ Con todo esto, se consigue que en la aplicación se pueda firmar y cofirmar docu
 \label{selector-certificados-movil:vv}
 \end{figure}
 
-\newpage
 
 \section{Configuración de AWS}
 
@@ -2376,8 +2365,6 @@ Por otra parte, este otro método se utiliza para obtener los bytes de un ficher
 \end{figure}
 
 
-\newpage
-
 \subsection{Subida de múltiples ficheros a AWS}
 
 
@@ -2395,7 +2382,6 @@ Este método se utiliza para la subida de documentos asociados a un informe méd
 \caption{Método usado para subir múltiples ficheros a AWS} \label{aws-subir-multiples-documentos:vv}
 \end{figure}
 
-\newpage
 
 
 \section{Configuración específica de AWS}
@@ -2455,7 +2441,6 @@ Para ello, se ha activado dentro del bucket la opción de \textbf{\textit{Bloque
 \caption{JSON de Política Personalizada de AWS}
 \label{aws-json-politica-personalizada:vv}
 \end{figure}
-\newpage
 
 \subsection{Claves personalizadas CMKs}
 Las claves \textbf{CMKs} (Customer-Managed Keys) son claves maestras creadas y administradas por el propietario del bucket. Estas claves permiten una gran personalización gracias a su manejo en AWS Key Management Service: permiten cifrar y descifrar datos con control detallado sobre rotación, acceso y auditoría. 
@@ -2475,7 +2460,6 @@ Al establecer en el bucket estas claves personalizadas \textbf{CMK}, se logra co
 \label{clave-cmk-personalizada:vv}
 \end{figure}
 
-\newpage
 
 \subsection{Región del bucket}
 Como ya se ha mencionado con anterioridad, se ha cambiado la región por defecto del bucket para que la región del bucket sea \textbf{eu-south-2 } (Madrid, España, dado que la VitalSanity se sitúa dentro del ámbito nacional español). 
@@ -2540,8 +2524,6 @@ Mediante CMD \textit{["java", "-jar", "app.jar", "--spring.profiles.active=docke
 
  Ambos servicios se unen a la red personalizada \textit{app\_network} \textbf{(driver bridge)}, garantizando \textbf{aislamiento de red} y \textbf{comunicación directa por nombre de servicio}, mientras que la directiva \textit{depends\_on} asegura el siguiente orden de arranque: \textbf{primero db, luego app}.
 
- \newpage
-
  Gracias al establecimiento de \textbf{Docker Compose} se logra \textbf{reproducibilidad absoluta del entorno}, \textbf{versionado de la infraestructura junto al código}, \textbf{consistencia entre equipos y entornos}, \textbf{escalabilidad}, \textbf{aislamiento de dependencias} y \textbf{reducción drástica de la complejidad en la instalación manual de bases de datos}, \textbf{variables de entorno y configuraciones específicas}.
 
  Basta con ejecutar el comando \textbf{docker-compose down} para desmontar todo sin dejar residuos en el host, lo que facilita las pruebas, el despliegue continuo y el paso de desarrollo a producción con los mínimos cambios posibles.
@@ -2555,7 +2537,6 @@ Mediante CMD \textit{["java", "-jar", "app.jar", "--spring.profiles.active=docke
 \label{application-docker-properties.png:vv}
 \end{figure}
 
-\newpage
 
 \section{Mailtrap}
 
@@ -2594,7 +2575,6 @@ Para la utilización de \textbf{Mailtrap} en el proyecto se ha incluido la sigui
 \label{mailtrap-pom-dependency:vv}
 \end{figure}
 
-\newpage
 
 \section{Registro de usuarios}
 
@@ -2716,7 +2696,6 @@ Cabe destacar que tanto la \textbf{navbar} como el \textbf{footer} aparecen en \
 \caption{Inicio de sesión con certificado digital}
 \label{AutoFirma ejemplo base:vv}
 \end{figure}
-\newpage
 
 \subsection{Gestión del acceso al historial médico centralizado por parte del profesional}
 
