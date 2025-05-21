@@ -3458,6 +3458,8 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 % ahora vendrán tus secciones A.1, A.2, etc.,
 % p.ej.:
 \section{Tablas de requisitos funcionales}
+\subsection{sa}
+\subsubsection{ss}
 \section{Rutas de la aplicación web}
 % …y así sucesivamente…
 
