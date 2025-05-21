@@ -1,4 +1,4 @@
-\documentclass[a4paper,twoside,openright,12pt]{book}
+\documentclass[a4paper,twoside,openright,11pt]{book}
 \usepackage[
   inner=3cm,      % margen de encuadernación
   outer=2.5cm,    % margen exterior
@@ -14,16 +14,23 @@
 \raggedbottom 
 \usepackage[spanish]{babel}
 \addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
-\usepackage{mathpazo}
 \usepackage{graphicx}
 \usepackage{caption}
 \addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
 \captionsetup[figure]{skip=10pt, labelfont=bf}
 \captionsetup[table]{skip=10pt, labelfont=bf}
+
+% Ajuste del ancho de los numerales en la lista de figuras:
+\usepackage{tocloft}
+\setlength{\cftfignumwidth}{3.5em}
+
 \usepackage[utf8]{inputenc} % Para poner acentos y eñes directamente.
 \usepackage{pdfpages}
 \usepackage{listings}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
 
 \usepackage{array} %para anchos de columna fijos en las tablas
 
@@ -3194,7 +3201,7 @@ En este apartado se mostrará la versión móvil de la aplicación. Destacar que
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.975\textwidth, height=0.4\textheight, keepaspectratio]{img/version-final-movil/resto-de-imagenes/selector-certificados-movil.png}
-\caption{Selector de certificados en el móvil}
+\caption{ Selector de certificados en el móvil}
 \label{Selector de certificados de Cliente móvil @firma:vv}
 \end{figure}
 
