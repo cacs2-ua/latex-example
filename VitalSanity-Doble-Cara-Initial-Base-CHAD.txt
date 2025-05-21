@@ -125,6 +125,11 @@
 \addto\captionsspanish{\renewcommand{\refname}{Bibliografía}}
 
 
+\setlength{\skip\footins}{37pt} % espacio antes de la regla de notas al pie
+
+\setlength{\footnotesep}{9pt} % espacio entre notas sucesivas
+
+
 \begin{document}
 
 \includepdf[pages={1}]{portadas/VitalSanity-Portada.pdf}
@@ -158,7 +163,10 @@ Tampoco me puedo olvidar de mis \textbf{inigualables compañeros} del \textbf{Cl
 Y como no podía ser de otro modo, darle mi más profundo agradecimiento a \textbf{Carlos, mi tutor}. Agradecerte Carlos por toda tu \textbf{implicación} en este proyecto, por todas aquellas \textbf{reuniones fructíferas} y por todas las ideas que hemos sacado adelante juntos, en especial por haber descubierto juntos \textbf{el legendario desafío de AutoFirma}.
 
 
-Por último, agradecerte a ti, \textbf{Slow Freezzic}, por haber sido \textbf{mi mejor amigo}.
+También, agradecer profundamente a mis compañeros de la \textbf{Universidad} por haber sido capaces de sacar juntos a flote trabajos tan desafiantes. En especial a ti, \textbf{Dani}.
+
+Por último, agradecerte a ti, \textbf{Slow Freezzic}, por haber sido mi mejor amigo y haber sido tan único y tan auténtico conmigo, sin haberte desviado lo más mínimo en los momentos más difíciles, en aquellos momentos donde se decide el \textbf{verdadero valor} de las personas.
+
 
 \textbf{\textit{A todos vosotros, gracias.}}
 
@@ -252,24 +260,6 @@ Para ello, se integrará dentro de \textbf{VitalSanity} la aplicación de \textb
 \section{AutoFirma y Cliente móvil @firma}
 Tanto \textbf{AutoFirma} como \textbf{Cliente móvil @firma} son ambas aplicaciones oficiales desarrolladas por el \textbf{Gobierno de España}, específicamente por el \textbf{Ministerio para la Transformación Digital y de la Función Pública}. Su objetivo principal es facilitar la firma electrónica de documentos y la realización de trámites en línea con las \textbf{Administraciones Públicas}.
 
-\vspace{1em}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.885\textwidth, height=1\textheight, keepaspectratio]{img/autofirma-logo.jpg}
-\caption{Logo oficial de AutoFirma}
-\label{autofirma-logo:vv}
-\end{figure}
-
-\vspace{1em}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.25\textwidth, height=0.25\textheight, keepaspectratio]{img/Cliente Movil @firma-logo.jpg}
-\caption{Logo oficial de Cliente móvil @firma}
-\label{Cliente Movil @firma-logo:vv}
-\end{figure}
-
 Ambas aplicaciones cumplen de forma intrínseca con la \textbf{Ley Orgánica de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)} y con el \textbf{Reglamento General de Protección de Datos (RGPD)}. 
 
 Al tratarse de herramientas oficiales desarrolladas por el \textbf{Gobierno de España}, ambas aplicaciones están diseñadas para garantizar la seguridad y confidencialidad en el tratamiento de datos personales durante los procesos de firma electrónica. Este es el requisito fundamental y diferenciador por el cual se escoge \textbf{AutoFirma} y \textbf{Cliente móvil @firma }en lugar de implementar un sistema de firma personalizado, puesto que a dicho sistema de firma personalizado prácticamente se le imposibilitaría el cumplir de forma simultánea con la \textbf{LOPDGDD} como con la \textbf{RGPD} al no estar registrado bajo un \textbf{órgano} \textbf{oficial} del \textbf{Gobierno de España}.
@@ -310,13 +300,13 @@ Por ello, el objetivo \textbf{principal} que pretende \textbf{VitalSanity} es el
 \chapter{Estado del arte}
 \section{Aplicaciones similares}
 \subsection{HCDSNS - España} 
-En España, el \textbf{Ministerio de Sanidad} ha impulsado la \textbf{HCDSNS} (Historia Clínica Digital del Sistema Nacional de Salud) como un repositorio electrónico unificado de información sanitaria esencial, accesible tanto para profesionales autorizados como para los propios ciudadanos.
+En España, el \textbf{Ministerio de Sanidad} ha impulsado la \textbf{HCDSNS}\footnote{Enlace de la página oficial de HCDSNS: \textbf{\textit{\url{https://www.sanidad.gob.es/areas/saludDigital/historiaClinicaSNS/home.htm}}}} (Historia Clínica Digital del Sistema Nacional de Salud) como un repositorio electrónico unificado de información sanitaria esencial, accesible tanto para profesionales autorizados como para los propios ciudadanos.
 
 Esta plataforma nacional permite que un médico en cualquier comunidad autónoma consulte informes clínicos generados en otra región, facilitando la continuidad asistencial en todo el país y evitando pruebas duplicadas. La \textbf{HCDSNS} opera bajo estrictos criterios de seguridad: el acceso requiere \textbf{autenticación robusta} (\textbf{DNIe, certificados electrónicos o sistema Cl@ve}) y queda limitado a fines asistenciales. 
 
 
 \subsection{Proyecto de Historia Clínica Interoperable - España}
-El sector sanitario privado español, aglutinado en la \textbf{Fundación IDIS}, ha desarrollado una plataforma pionera de historia clínica compartida de ámbito nacional para sus pacientes: \textbf{El Proyecto de Historia Clínica Interoperable en la Sanidad Privada}. A finales de \textbf{2023} ya contaba con unos\textbf{ 57.000} \textbf{usuarios conectados} y la participación de al menos 15 entidades sanitarias privadas relevantes (grupos hospitalarios y aseguradoras médicas). 
+El sector sanitario privado español, aglutinado en la \textbf{Fundación IDIS\footnote{Enlace de la página oficial de la Fundación IDIS: \textbf{\textit{\url{https://innovaidis.com/}}}}}, ha desarrollado una plataforma pionera de historia clínica compartida de ámbito nacional para sus pacientes: \textbf{El Proyecto de Historia Clínica Interoperable en la Sanidad Privada}. A finales de \textbf{2023} ya contaba con unos\textbf{ 57.000} \textbf{usuarios conectados} y la participación de al menos 15 entidades sanitarias privadas relevantes (grupos hospitalarios y aseguradoras médicas). 
 
 Esta iniciativa permite que un paciente de la \textbf{sanidad privada} \textbf{acceda a su historial clínico unificado} a través de un portal web o aplicación y pueda \textbf{compartir dicha información –totalmente o por informes seleccionados– con el profesional sanitario que él elija}, independientemente del centro u hospital al que pertenezca dicho profesional. 
 
@@ -324,27 +314,23 @@ En cuanto a la \textbf{seguridad} de esta aplicación, la directriz es equiparab
 
 
 \subsection{Epic MyChart - Internacional}
-\textbf{MyChart} es la plataforma de portal de pacientes de \textbf{Epic}, que permite consultar medicaciones, resultados de pruebas, citas, facturación y presupuestos de forma centralizada para más de 190 millones de pacientes en múltiples organizaciones sanitarias. Además, incorpora comunicaciones seguras entre paciente y profesional y videovisitas integradas.
+\textbf{MyChart}\footnote{Enlace de la página oficial de Epic MyChart: \textbf{\textit{\url{https://www.mychart.org/}}}}
+ es la plataforma de portal de pacientes de \textbf{Epic}, que permite consultar medicaciones, resultados de pruebas, citas, facturación y presupuestos de forma centralizada para más de 190 millones de pacientes en múltiples organizaciones sanitarias. Además, incorpora comunicaciones seguras entre paciente y profesional y videovisitas integradas.
 
 \subsection{Cerner Patient Portal - Estados Unidos}
-Ofrece acceso al \textbf{Registro Médico Electrónico (EMR)} mantenido por el proveedor, con vistas \textbf{seguras} a informes clínicos y comunicación bidireccional entre \textbf{paciente} y \textbf{profesional}. Dispone de funcionalidades para descargar y compartir registros con otros profesionales.
-
-\subsection{Carpeta Personal de Salud (CPS) AppSalut - Cataluña}
-Iniciativa pública que facilita la \textbf{prescripción} e \textbf{integración} de apps \textbf{sanitarias acreditadas}, mostrando gráficos de evolución de datos y permitiendo a profesionales seleccionar información para integrar en la historia clínica. Asimismo, ofrece al ciudadano visualización de datos generados en el \textbf{sistema público catalán} y \textbf{filtros avanzados}.
+\textbf{Cerner Patient Portal}\footnote{Enlace de la página oficial de Cerner Patient Portal: \textbf{\textit{\url{https://cernerhealth.com/}}}} Ofrece acceso al \textbf{Registro Médico Electrónico (EMR)} mantenido por el proveedor, con vistas \textbf{seguras} a informes clínicos y comunicación bidireccional entre \textbf{paciente} y \textbf{profesional}. Dispone de funcionalidades para descargar y compartir registros con otros profesionales.
 
 
 \subsection{Dossier Médical Partagé (DMP) – Francia}
-A nivel europeo, \textbf{Francia} ha implementado desde 2018 el \textbf{Dossier Médical Partagé}, un expediente médico electrónico \textbf{personal y seguro} para cada ciudadano francés. Su objetivo es servir como \textbf{historia clínica digital unificada}: almacena informes médicos, resultados de pruebas, antecedentes de salud, alergias, informes de hospitalización e incluso las voluntades anticipadas del paciente. 
+A nivel europeo, \textbf{Francia} ha implementado desde 2018 el \textbf{Dossier Médical Partagé (DPM\footnote{Enlace de la página oficial de Dossier Médical Partagé: \textbf{\textit{\url{https://www.dmp.fr/}}}})}, un expediente médico electrónico \textbf{personal y seguro} para cada ciudadano francés. Su objetivo es servir como \textbf{historia clínica digital unificada}: almacena informes médicos, resultados de pruebas, antecedentes de salud, alergias, informes de hospitalización e incluso las voluntades anticipadas del paciente. 
 
 El \textbf{DMP} busca \textbf{mejorar la coordinación y continuidad asistencial }centralizando los datos médicos en un “carné de salud” electrónico accesible en línea. Cada ciudadano puede crear gratuitamente su DMP y gestionar quién tiene acceso: \textbf{el paciente mantiene siempre el control sobre quién consulta su expediente}, pudiendo añadir información personal relevante u \textbf{ocultar determinados documentos} para que no sean visibles a profesionales, según su preferencia. De hecho, el sistema envía notificaciones (por correo electrónico) cada vez que se añade un nuevo documento al expediente, reforzando la transparencia hacia el titular de los datos. 
 
 
 \subsection{Elektronische Patientenakte (ePA) - Alemania}
 
-En \textbf{Alemania}, se ha introducido la \textbf{Elektronische Patientenakte}, un expediente electrónico del paciente promovido por las aseguradoras públicas, donde el ciudadano puede gestionar sus registros médicos digitales a través de aplicaciones móviles y controlar el acceso de \textbf{médicos} a dichos datos mediante consentimientos específicos. 
+En \textbf{Alemania}, se ha introducido la \textbf{Elektronische Patientenakte (ePA\footnote{Enlace de la página oficial de Elektronische Patientenakte: \textbf{\textit{\url{https://www.bsi.bund.de/}}}})}, un expediente electrónico del paciente promovido por las aseguradoras públicas, donde el ciudadano puede gestionar sus registros médicos digitales a través de aplicaciones móviles y controlar el acceso de \textbf{médicos} a dichos datos mediante consentimientos específicos. 
 
-\subsection{Expedientes médicos centralizados en Estonia}
-En \textbf{Estonia}, todo ciudadano posee un \textbf{expediente médico digital centralizado}: los profesionales sanitarios acceden a la información con \textbf{autorización}, y el paciente puede revisar en un portal \textbf{quién} ha consultado su historial, pudiendo \textbf{bloquear} el acceso a determinados datos si así lo desea (salvo en emergencias).
 
 \section{Objetivos comunes en este tipo de soluciones}
 Los ejemplos anteriores, tanto \textbf{públicos} como \textbf{privados}, evidencian una serie de \textbf{objetivos comunes} en las soluciones de \textbf{historial clínico centralizado} y \textbf{acceso compartido}:
@@ -382,7 +368,7 @@ El éxito de \textbf{VitalSanity} dependerá de su capacidad para \textbf{alcanz
 \end{figure}
 
 
-\textbf{AutoFirma} es una \textbf{aplicación de escritorio} desarrollada por el \textbf{Gobierno de España} para la firma electrónica de documentos, basada en \textbf{software libre} y \textbf{estándares abiertos} que garantizan la \textbf{interoperabilidad} y la \textbf{seguridad} en las transacciones electrónicas.
+\textbf{AutoFirma}\footnote{Enlace de la página oficial de AutoFirma: \textbf{\textit{\url{https://sedediatid.digital.gob.es/es-es/firmaelectronica/Paginas/AutoFirma.aspx}}}} es una \textbf{aplicación de escritorio} desarrollada por el \textbf{Gobierno de España} para la firma electrónica de documentos, basada en \textbf{software libre} y \textbf{estándares abiertos} que garantizan la \textbf{interoperabilidad} y la \textbf{seguridad} en las transacciones electrónicas.
 
 Forma parte de la suite \textbf{@firma}, un conjunto integral de servicios y herramientas para \textbf{identificación} y \textbf{firma electrónica} que pueden usarse de modo independiente o integrarse en otras aplicaciones.
 
@@ -405,7 +391,7 @@ Constituye la versión móvil de \textbf{AutoFirma}. Se emplea para realizar ope
 \label{logo-autofirma:vv}
 \end{figure}
 
-La comunicación entre la página web y \textbf{Cliente móvil @firma} se realiza mediante el uso de servidores intermedios, lo que permite al usuario firmar documentos sin que la clave privada salga de su dispositivo (este aspecto se describirá en más detalle en apartado de \textbf{'Detalles de Implementación'}.
+La comunicación entre la página web y \textbf{Cliente móvil @firma\footnote{Enlace de descarga de Cliente móvil @firma: \textbf{\textit{\url{https://play.google.com/store/apps/details?id=es.gob.afirma&hl=es}}}}} se realiza mediante el uso de servidores intermedios, lo que permite al usuario firmar documentos sin que la clave privada salga de su dispositivo (este aspecto se describirá en más detalle en apartado de \textbf{'Detalles de Implementación'}.
 
 Aunque \textbf{Cliente móvil @firma} comparta muchos rasgos comunes con \textbf{AutoFirma}, a la hora de establecer la integración con una aplicación existen diferencias claves y no triviales entre ambas que deben de tenerse en cuenta.
 
@@ -423,7 +409,7 @@ La razón principal por la que se ha decidido integrar también \textbf{Cliente 
 \label{aws-logo:vv}
 \end{figure}
 
-\textbf{Amazon Web Services} es una plataforma de servicios en la nube que proporciona recursos como almacenamiento, bases de datos, redes y potencia de cómputo bajo demanda.
+\textbf{AWS\footnote{Enlace de la página oficial de AWS: \textbf{\textit{\url{https://aws.amazon.com/}}}}} es una plataforma de servicios en la nube que proporciona recursos como almacenamiento, bases de datos, redes y potencia de cómputo bajo demanda.
 
 Permite desplegar aplicaciones de cualquier escala sin preocuparse por la infraestructura física. 
 
@@ -440,7 +426,7 @@ Sus principales ventajas son la escalabilidad automática, el soporte, el pago p
 \label{docker-logo:vv}
 \end{figure}
 
-Docker\footnote{Enlace de la página oficial de docker: \textbf{\textit{\url{http://docker.com}}}} es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
+\textbf{Docker}\footnote{Enlace de la página oficial de Docker: \textbf{\textit{\url{http://docker.com}}}} es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
 
 Gracias a su arquitectura cliente-servidor, en la que el cliente Docker comunica con el demonio dockerd mediante una API REST, Docker simplifica la gestión del ciclo de vida de contenedores, imágenes, redes y volúmenes.
 
@@ -462,7 +448,8 @@ Para el desarrollo de la aplicación se ha empleado una base de datos \textbf{Po
 \label{logo-autofirma:vv}
 \end{figure}
 
-Docker Compose es una herramienta incluida en el ecosistema Docker que permite definir y ejecutar aplicaciones compuestas por múltiples contenedores a través de un único fichero YAML (\textit{compose.yml}), desde el cual se pueden desplegar, escalar y gestionar de manera simultánea todos los servicios implicados.
+\textbf{Docker Compose}\footnote{Enlace de la página oficial de Docker Compose: \textbf{\textit{\url{https://docs.docker.com/compose/}}}}
+ es una herramienta incluida en el ecosistema Docker que permite definir y ejecutar aplicaciones compuestas por múltiples contenedores a través de un único fichero YAML (\textit{compose.yml}), desde el cual se pueden desplegar, escalar y gestionar de manera simultánea todos los servicios implicados.
 
 A diferencia de la interfaz de línea de comandos de Docker pura, Docker Compose ofrece comandos especializados (como \textit{docker compose up}, \textit{docker compose down}, \textit{docker compose build} o \textit{docker compose ps}) que facilitan la orquestación de pilas de servicios en hosts únicos, siendo especialmente valiosa para entornos de desarrollo, pruebas automatizadas en CI/CD y despliegues monohost.
 
@@ -481,7 +468,7 @@ Para el desarrollo de la aplicación se ha empleado \textbf{Docker Compose} para
 \label{postgre-sql-logo:vv}
 \end{figure}
 
-PostgreSQL es un sistema de gestión de bases de datos relacional de código abierto, altamente extensible y compatible con SQL,  el cual destaca por su robustez, cumplimiento de estándares y soporte para transacciones avanzadas. 
+\textbf{PostgreSQL}\footnote{Enlace de la página oficial de PostgreSQL: \textbf{\textit{\url{https://www.postgresql.org/}}}} es un sistema de gestión de bases de datos relacional de código abierto, altamente extensible y compatible con SQL,  el cual destaca por su robustez, cumplimiento de estándares y soporte para transacciones avanzadas. 
 
 Para la base de datos dockerizada se ha empleado una imagen de \textbf{Postgres}.
 
@@ -495,7 +482,7 @@ Para la base de datos dockerizada se ha empleado una imagen de \textbf{Postgres}
 \label{mailtrap-logo:vv}
 \end{figure}
 
-Mailtrap es una plataforma de pruebas y entrega de correo electrónico que crea un buzón virtual aislado para capturar todos los mensajes enviados desde entornos de desarrollo, evitando así el envío accidental a usuarios reales. Se utiliza principalmente para previsualizar correos en distintos dispositivos, garantizando la fidelidad del diseño antes de su despliegue en producción. 
+\textbf{Mailtrap}\footnote{Enlace de la página oficial de Mailtrap: \textbf{\textit{\url{https://www.mailtrap.io}}}} es una plataforma de pruebas y entrega de correo electrónico que crea un buzón virtual aislado para capturar todos los mensajes enviados desde entornos de desarrollo, evitando así el envío accidental a usuarios reales. Se utiliza principalmente para previsualizar correos en distintos dispositivos, garantizando la fidelidad del diseño antes de su despliegue en producción. 
 
 Entre sus fortalezas destacan la integración con API RESTful y SMTP para automatizar flujos de QA, la detección temprana de errores en el contenido y la posibilidad de realizar pruebas automatizadas en pipelines de CI/CD sin riesgos.
 
@@ -523,7 +510,7 @@ Sus casos de uso más comunes incluyen la verificación de emails de registro, r
 \label{spring boot logo:vv}
 \end{figure}
 
-Spring Boot es un framework de código abierto desarrollado por Pivotal que simplifica la creación de aplicaciones Java independientes y listas para producción adoptando convenciones opinadas sobre la configuración del ecosistema Spring.
+\textbf{Spring Boot}\footnote{Enlace de la página oficial de Spring Boot: \textbf{\textit{\url{https://spring.io/projects/spring-boot}}}} es un framework de código abierto desarrollado por Pivotal que simplifica la creación de aplicaciones Java independientes y listas para producción adoptando convenciones opinadas sobre la configuración del ecosistema Spring.
 
 Spring Boot proporciona arranques automáticos (Starters), autoconfiguración y un servidor embebido que elimina la dependencia de servidores externos.
 
@@ -545,9 +532,9 @@ Asimismo, también ha sido de gran utilidad su integración nativa con \textbf{X
 \label{git-y-github-logo:vv}
 \end{figure}
 
-\textbf{Git} es un sistema de control de versiones distribuido de código abierto ideado para registrar y gestionar los cambios realizados en los archivos de un proyecto a lo largo del tiempo.
+\textbf{Git}\footnote{Enlace de la página oficial de git: \textbf{\textit{\url{https://git-scm.com/}}}} es un sistema de control de versiones distribuido de código abierto ideado para registrar y gestionar los cambios realizados en los archivos de un proyecto a lo largo del tiempo.
 
-\textbf{GitHub} es una plataforma web que emplea el sistema de control de versiones de \textbf{Git} junto con herramientas integradas de colaboración, seguimiento de incidencias y gestión de proyectos, permitiendo llevar un seguimiento remoto de las diferentes versiones de una aplicación. 
+\textbf{GitHub}\footnote{Enlace de la página oficial de GitHub: \textbf{\textit{\url{https://github.com/}}}} es una plataforma web que emplea el sistema de control de versiones de \textbf{Git} junto con herramientas integradas de colaboración, seguimiento de incidencias y gestión de proyectos, permitiendo llevar un seguimiento remoto de las diferentes versiones de una aplicación. 
 
 Sin duda, estas dos herramientas han sido de las más útiles durante el desarrollo del proyecto. No me imagino ningún proyecto de Software de calidad que no haga uso de un sistema de control de versiones. Ambas me han permitido poder implementar VitalSanity de una forma muy esquemática y ordenada. A nivel personal, me daban la tranquilidad y la seguridad de saber que si en algún momento introducía algún \textbf{bug} muy específico en el código, siempre podría volver atrás a versiones anteriores empleando el comando \textbf{git reset --hard} (comando que he utilizado en muchas ocasiones y que me ha ahorrado muchos dolores de cabeza y muchísimas horas de trabajo).
 
@@ -564,7 +551,7 @@ Asimismo, también se ha empleado un tablero de GitHub para aplicar la metodolog
 \label{Trello logo:vv}
 \end{figure}
 
-Trello es una aplicación web de gestión de proyectos basada que permite representar flujos de trabajo visualmente mediante tableros compuestos por listas y tarjetas.
+\textbf{Trello}\footnote{Enlace de la página oficial de Trello: \textbf{\textit{\url{https://trello.com/}}}} es una aplicación web de gestión de proyectos basada que permite representar flujos de trabajo visualmente mediante tableros compuestos por listas y tarjetas.
 
 Cada una de las tarjetas se distribuyen entre columnas (por ejemplo, “Por hacer”, “En progreso” y “Hecho”) para reflejar el estado actual de las actividades. Este enfoque intuitivo simplifica la organización de proyectos.
 
@@ -602,7 +589,7 @@ La utilidad de estas tres tecnologías en el proyecto es más que evidente: la c
 \label{tailwind-logo:vv}
 \end{figure}
 
-Tailwind CSS es un framework utility-first de CSS que ofrece una amplia colección de clases de bajo nivel para componer diseños de forma rápida y coherente.
+\textbf{Tailwind}\footnote{Enlace de la página oficial de Tailwind CSS: \textbf{\textit{\url{https://tailwindcss.com/}}}} \textbf{CSS} es un framework utility-first de CSS que ofrece una amplia colección de clases de bajo nivel para componer diseños de forma rápida y coherente.
 
 Se ha empleado para desarrollar la \textbf{homepage} de la aplicación.
 
@@ -615,7 +602,7 @@ Se ha empleado para desarrollar la \textbf{homepage} de la aplicación.
 \label{Figma-Logo:vv}
 \end{figure}
 
-Figma es una plataforma de diseño colaborativo en la nube que permite crear, prototipar y compartir interfaces de usuario de forma simultánea y en tiempo real.
+\textbf{Figma}\footnote{Enlace de la página oficial de Figma: \textbf{\textit{\url{https://www.figma.com/}}}} es una plataforma de diseño colaborativo en la nube que permite crear, prototipar y compartir interfaces de usuario de forma simultánea y en tiempo real.
 
 Se ha empleado \textbf{Figma} para desarrollar los \textbf{mockups} de la aplicación. El desarrollar en primer lugar los \textbf{mockups} ha facilitado mucho la posterior implementación de cada una de las vistas de la aplicación. Además, me ha sido de gran utilidad puesto que, gracias a los \textbf{mockups}, tenía en mi mente en todo momento la imagen de una aproximación de como quería que se viese la aplicación.
 
@@ -1102,7 +1089,8 @@ En términos específicos se puede destacar lo siguiente:
 Antes de comenzar con la implementación del proyecto, se realizó un prototipo de la aplicación haciendo uso de la herramienta \textbf{Figma}\footnote{Enlace de la página oficial de Figma: \textbf{\textit{https://www.figma.com/}}}. Como ya se comentó en el apartado de \textbf{Tecnologías utilizadas}, el haber realizado los \textbf{mock ups} ha permitido durante el \textbf{desarrollo} de \textbf{VitalSanity} el tener una idea mucho más clara en todo momento acerca de a qué se tenía que aproximar la versión \textbf{final} de la aplicación.
 
 
-A continuación, se adjunta el \textbf{enlace}\footnote{Enlace a los mockups de VitalSanity: \textbf{\textit{https://www.figma.com/design/C6HbUzbPMusPoAc5d3a4XL/VitalSanity-Mockups?node-id=0-1&t=LxyKeYVzMwgrq6Td-1}}} al Proyecto \textbf{Figma} con los mockups de la aplicación.
+Se puede acceder al proyecto de Figma con los mockups desde este \href{https://www.figma.com/design/C6HbUzbPMusPoAc5d3a4XL/VitalSanity-Mockups?node-id=0-1t=LxyKeYVzMwgrq6Td-1}{\textbf{enlace}}.
+
 
 
 
@@ -2355,16 +2343,17 @@ Existen varios aspectos interesantes los cuales podrían desarrollarse en versio
     \item \textbf{Internacionalizar} la aplicación. Esto implicaría reconsiderar \textbf{los aspectos legales} establecidos. Asimismo, habría que sustituir \textbf{AutoFirma} por una aplicación \textbf{análoga} pero que sea de \textbf{ámbito global}. Por otra parte, habría que implementar en la aplicación mecanismos que permitiesen intercambiar de forma \textbf{segura} información médica entre \textbf{diferentes países}.
     \item Adaptar la aplicación para cumplir con todos los estándares nacionales de intercambio de datos clínicos mencionados en el capítulo de \textbf{requisitos legales} (como \textbf{HL7/FHIR)}.
     \item Agregar sistemas de \textbf{auditorías} y de \textbf{backups automáticos}. Esto le agregaría una capa extra importante de seguridad a la aplicación.
+    \item Puesta en producción de la aplicación. En esta etapa se aproveharía también para darle un uso más avanzado a la gestión de \textbf{AWS-KMS} y las claves de cifrado \textbf{CMK}.
     \item Implementar un sistema de gestión de \textbf{incidencias}.
     \item Implementar \textbf{tests automatizados}.
 \end{itemize}
 
 
-\subsection{Desafíos afrontados}
+\section{Desafíos afrontados}
 
 En este apartado trataremos sobre los \textbf{principales desafíos} que se han tenido que afrontar durante el desarrollo de la aplicación.
 
-\subsubsection{Integración con AutoFirma}
+\subsection{Integración con AutoFirma}
 
 Sin duda, integrar la aplicación con \textbf{AutoFirma} ha supuesto para mí el mayor desafío a la hora de desarrollar \textbf{VitalSanity}.
 
@@ -2396,7 +2385,7 @@ Este ejemplo básico me sirvió para conseguir una comprensión sólida sobre el
 
 El haber desarrollado desde un primer momento este \textbf{ejemplo básico} me ha permitido implementar las funcionalidades de \textbf{firma} y \textbf{cofirma} en la aplicación real de una forma mucho más rápida y ágil. Además, al no estar este ejemplo acoplado con más código, este ejemplo me permitía consultar de forma instantánea cualquier detalle que se me olvidase acerca de la integración.
 
-\subsubsection{Integración con Cliente Móvil @firma}
+\subsection{Integración con Cliente Móvil @firma}
 
 Otro de los desafíos más importantes ha sido el de integrar la versión \textbf{móvil} de \textbf{AutoFirma}. Como se ya se comentó en la sección de \textbf{“Detalles de implementación”}, para conseguir integrar \textbf{Cliente móvil @firma}, había que realizar una serie de cambios \textbf{no triviales}: pasar al modo de \textbf{Servidores Intermedios}, configurar un \textbf{Tomcat Externo} para desplegar los archivos \textbf{WAR} correspondientes a estos servidores intermedios y configurar un \textbf{Nginx} que actuase como \textbf{reverse proxy} para redirigir el tráfico del \textbf{Tomcat} al mismo dominio bajo el que se encuentra la aplicación VitalSanity (para así evitar problemas de \textbf{CORS}). 
 
@@ -2412,7 +2401,7 @@ Este enfoque de directorio persistente también en funcionaría en producción, 
 
 Pese a que sea una solución sencilla, lo complicado era \textbf{diagnosticar} cuál el problema en primer lugar, para lo que tuve que analizar meticulosamente los \textbf{logs} mostrados por el \textbf{Tomcat externo}, además de agregarle un toque de imaginación.
 
-\subsubsection{Autenticación con certificado digital}
+\subsection{Autenticación con certificado digital}
 
 Después de la integración con \textbf{AutoFirma} y su \textbf{versión móvil}, esta ha sido la siguiente funcionalidad más desafiante a la que me he enfrentado en este proyecto.
 
@@ -2439,7 +2428,7 @@ Todo esto pone de manifiesto la \textbf{vital importancia} que tiene \textbf{el 
 
 
 
-\subsubsection{Configuración de Amazon Web Services}
+\subsection{Configuración de Amazon Web Services}
 
 Otro de los desafíos a los que me he enfrentado ha sido con \textbf{Amazon Web Services}.
 
@@ -2458,7 +2447,7 @@ En este caso, lo que más tiempo me ha llegado a quitar no ha sido a nivel de \t
 
 Vuelvo a hacer énfasis en que lo que más me ha costado aquí ha sido establecer los propios razonamientos, de valorar su importancia y de comprenderlo todo bien a nivel \textbf{conceptual}. Una vez que había comprendido de forma completa el concepto, implementarlo a nivel de código o configurarlo en \textbf{AWS} era un proceso directo el cual apenas me quitaba tiempo.
 
-\subsubsection{Compatibilidad con otras asignaturas}
+\subsection{Compatibilidad con otras asignaturas}
 
 Considero que este es uno de los aspectos comunes de todos los estudiantes que más afecta a la hora de la realización del \textbf{TFG}. El hecho de tener que realizar el \textbf{TFG} en paralelo junto con otros proyectos de bastantes asignaturas más establece una dificultad añadida: \textbf{la gestión efectiva del tiempo}. 
 
@@ -2470,10 +2459,10 @@ Yo siempre he defendido aquella frase que versa: “\textbf{el que mucho abarca,
 
 Como \textbf{opinión personal}, pienso que el TFG debería de establecerse de forma única en un año académico separado, como si fuese una \textbf{“mini-tesis”}. Con esto se lograría evitar la dispersión excesiva de conocimiento inconexo, y además se le daría la oportunidad al alumnado de mostrar de una forma mucho más infalible y congruente las habilidades que verdaderamente ha interiorizado a lo largo de todo el grado.
 
-\subsubsection{Maquetación de las vistas de la aplicación}
+\subsection{Maquetación de las vistas de la aplicación}
 Este también ha sido un aspecto que me ha supuesto \textbf{un desafío}. En mis proyectos web anteriores yo me dedicaba sobre todo de la parte más puramente relacionada con el \textbf{backend}. Por está razón, el hecho de tener que desarrollar todas las vistas por mí mismo ha sido una tarea que también me ha consumido bastante tiempo. No obstante, ha sido algo que he cogido con muchas ganas desde el principio ya que desde hace un tiempo me apetecía también probar esta cara del desarrollo web. Asimismo, esto me ha servido para afianzar de forma más robusta mis conocimientos sobre HTML y CSS y sobre todo me ha servido para aprender a realizar \textbf{diseños responsive}, algo que prácticamente no había tocado antes.
 
-\subsubsection{Resto de funcionalidades}
+\subsection{Resto de funcionalidades}
 
 Con respecto al resto de funcionalidades de la aplicación, mencionar que prácticamente ninguna de ellas me ha supuesto una dificultad excesiva. Ya tenía experiencia previa desarrollando aplicaciones web en Spring Boot, lo cual me ha permitido realizar las funcionalidades de carácter genérico de una forma mucho más rápida.
 
