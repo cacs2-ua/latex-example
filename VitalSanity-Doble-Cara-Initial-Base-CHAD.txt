@@ -919,6 +919,9 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 
 Se han identificado un total de \textbf{31} requisitos funcionales.
 
+Las tablas de cada uno de los requisitos funcionales se han incluido en \hyperref[chap:apendices]{\textbf{\textit{este apartado}}} dentro del apéndice.
+
+
 
 \section{Requisitos no funcionales}
 
@@ -2533,7 +2536,7 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 \bibliographystyle{apacite}
 \bibliography{bibliography}
 
-\chapter{Apéndices y Anexos}             % <-- Apéndice A
+\chapter{Apéndices y Anexos}\label{chap:apendices}             % <-- Apéndice A
 % ahora vendrán tus secciones A.1, A.2, etc.,
 % p.ej.:
 \section{Tablas de requisitos funcionales}
