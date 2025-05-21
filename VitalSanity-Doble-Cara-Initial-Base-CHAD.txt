@@ -940,7 +940,7 @@ Mencionar que dentro de los requisitos no funcionales también se incluyen los \
 \section{Cumplimiento de protección de datos}
 }
 
-La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la \textbf{normativa de protección de datos}, en especial al \textbf{RGPD} (Reglamento UE 2016/679) y a la \textbf{LOPDGDD} (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una \textbf{base jurídica} adecuada y garantías elevadas de \textbf{seguridad}.
+La aplicación \textbf{VitalSanity} debe ajustarse estrictamente a la \textbf{normativa de protección de datos}, en especial al \textbf{RGPD} \citep{RGPD} (Reglamento UE 2016/679) y a la \textbf{LOPDGDD} (Ley Orgánica 3/2018). Los datos de salud se consideran categorías especiales de datos que requieren protección reforzada, por lo que su tratamiento solo es lícito si se cuenta con una \textbf{base jurídica} adecuada y garantías elevadas de \textbf{seguridad}.
 
 
 En este sentido, se debe respetar el derecho a la \textbf{confidencialidad} de la información médica de cada paciente: la \textbf{Ley de Autonomía del Paciente} (\textbf{Ley 41/2002}) establece que nadie puede acceder a datos sanitarios sin la debida \textbf{legitimación} o \textbf{autorización} previa del afectado. \textbf{VitalSanity} debe aplicar el principio de \textbf{\textit{privacidad desde el diseño},} implementando medidas \textbf{técnicas} y \textbf{organizativas} robustas (\textbf{control de accesos, cifrado, seudonimización}, etc.) para asegurar la \textbf{integridad} y \textbf{confidencialidad} de la información. 
