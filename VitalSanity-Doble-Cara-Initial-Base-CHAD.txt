@@ -80,10 +80,21 @@
 
 
 \usepackage{titlesec}
+
+\titlespacing*{\section}
+  {0pt}    % indentación a la izquierda
+  {0ex}    % espacio *antes* del título (si quieres, también lo puedes tocar)
+  {0.2ex}
+
+  \titlespacing*{\chapter}
+  {0pt}   % sin indentación lateral extra
+  {0pt}   % espacio *antes* del título (puede quedar en 0)
+  {1.5ex} % espacio *después* del título: ajusta este valor
+  
 \titleformat{\chapter}[display]
   {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}   % formato
   {\chaptername~\thechapter}                              % etiqueta: "Capítulo <n>"
-  {20pt}                                                  % separación etiqueta–título
+  {12pt}                                                  % separación etiqueta–título
   {\Huge}                                                 % formato del título
 
 \titleformat{\section}
