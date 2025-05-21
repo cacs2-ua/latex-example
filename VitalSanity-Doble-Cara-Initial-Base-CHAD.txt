@@ -39,23 +39,17 @@
             citecolor=black,
             urlcolor=black]{hyperref}
 
+            % --- Bibliografía estilo APA (igual que el segundo preámbulo) ---
+\usepackage{apacite}   % Formato APA
+\usepackage{natbib}    % Comandos \citet, \citep, etc.
+\usepackage{breakcites}% Corta correctamente citas largas en línea
+
+
 \usepackage{algorithm2e}
 \usepackage{float} 
 
 \usepackage{xurl}
 
-
-\usepackage[backend=biber,style=numeric,sorting=none,url=true]{biblatex}
-\addbibresource{bibliography.bib}
-
-
-\setlength{\bibhang}{1.5em}
-
-% permite quiebres más laxos de línea (evita desbordes)
-\renewcommand*{\biburlsetup}{\sloppy}   
-
-% opcional: envuelve toda la biblio en \sloppy
-\AtBeginBibliography{\sloppy}
 
 
 \setcounter{tocdepth}{3}
@@ -111,6 +105,12 @@
 
 
 \renewcommand{\textsharp}{$\sharp$}
+
+\bibpunct{(}{)}{;}{a}{,}{,}  % (Opcional) Puntuación idéntica al ejemplo
+
+\addto\captionsspanish{\renewcommand{\bibname}{Bibliografía}}
+\addto\captionsspanish{\renewcommand{\refname}{Bibliografía}}
+
 
 \begin{document}
 
@@ -3440,9 +3440,22 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 
 \appendix
 
-\nocite{*} % Incluye todas las entradas del archivo .bib
-\renewcommand*{\bibfont}{\fontfamily{phv}\selectfont}
-\printbibliography[heading=bibintoc,title={Bibliografía}]
+\nocite{*}                                % lista todo
+
+\makeatletter
+\renewcommand\bibsection{%
+  \cleardoublepage           % nueva página impar
+  \phantomsection            % punto de enlace
+  \addcontentsline{toc}{chapter}{Bibliografía}%
+  \chapter*{Bibliografía}%   título real
+  \@mkboth{Bibliografía}{Bibliografía}% cabeceras
+}
+\makeatother
+
+\bibliographystyle{apacite}
+\bibliography{bibliography}
+
+
 
 \end{document}
 
