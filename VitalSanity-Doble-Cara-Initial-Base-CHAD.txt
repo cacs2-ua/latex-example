@@ -9,7 +9,7 @@
 ]{geometry}
 \usepackage{setspace}
 \onehalfspacing
-\setlength{\parskip}{0.75\baselineskip}  % ← prueba con 0.5–1.0 \baselineskip
+\setlength{\parskip}{0.4\baselineskip}  % ← prueba con 0.5–1.0 \baselineskip
 \setlength{\parindent}{20pt}             % ← conserva la sangría habitual
 \raggedbottom 
 \usepackage[spanish]{babel}
@@ -81,10 +81,11 @@
 
 \usepackage{titlesec}
 
-\titlespacing*{\section}
-  {0pt}    % indentación a la izquierda
-  {0ex}    % espacio *antes* del título (si quieres, también lo puedes tocar)
-  {0.2ex}
+\titlespacing*{\section}{0pt}{7pt}{1pt}
+
+\titlespacing*{\subsection}{0pt}{6pt}{0.8pt}
+
+\titlespacing*{\subsubsection}{0pt}{5pt}{0.5pt}
 
   \titlespacing*{\chapter}
   {0pt}   % sin indentación lateral extra
