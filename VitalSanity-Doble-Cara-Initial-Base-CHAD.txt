@@ -206,9 +206,9 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 
 \section{Contextualización}
 
-En la actualidad, existe un \textbf{elevado} número de centros médicos que siguen empleando un sistema rudimentario a la hora de tratar con los informes y documentos médicos de sus pacientes. 
+En la actualidad, existe una evidente dificultad dentro del intercambio de datos clínicos entre diferentes centros médicos
 
-Por culpa de este sistema arcaico, los pacientes tienden a encontrarse con graves problemas a la hora de realizar trámites aparentemente sencillos, como lo puede ser el hecho de transmitir \textbf{información} desde un centro médico a otro, acción que esconde un sinfín de elementos burocráticos y papeleo innecesario. 
+Por culpa de este sistema arcaico, los pacientes tienden a encontrarse con graves problemas a la hora de realizar trámites aparentemente sencillos, como lo puede ser precisamente el hecho de transmitir \textbf{información} desde un centro médico a otro, acción que esconde un sinfín de elementos burocráticos y papeleo innecesario. 
 
 Toda la complejidad de estas tramitaciones administrativas terminan por sobrepasar la paciencia de los pacientes, perjudicando gravemente a la experiencia y al grado de satisfacción de los mismos.
 
@@ -342,6 +342,8 @@ Los ejemplos anteriores, tanto \textbf{públicos} como \textbf{privados}, eviden
 \item \textbf{Seguridad de la información y cumplimiento legal: } Dada la naturaleza altamente sensible de los datos de salud, estas soluciones comparten el objetivo de garantizar \textbf{la confidencialidad, integridad y disponibilidad} de la información clínica. Implementan \textbf{autenticación fuerte} (\textbf{certificados digitales}, \textbf{identidades electrónicas verificadas}) para el acceso tanto de profesionales como de pacientes, utilizan \textbf{conexiones cifradas} y \textbf{centros de datos seguros}, y se ajustan a las exigencias legales (\textbf{RGPD} en Europa, \textbf{LOPDGDD} en España, etc.). La \textbf{trazabilidad} de cada acción (\textbf{quién} accede, \textbf{cuándo} y \textbf{qué} consulta) y la generación de \textbf{alertas ante accesos no autorizados} constituyen prácticas habituales para proteger los datos. Igualmente, se fomenta el \textbf{almacenamiento seguro} de la información, con \textbf{copias de respaldo} y \textbf{planes de contingencia} para garantizar que el \textbf{historial clínico centralizado} esté disponible incluso ante\textbf{ fallos técnicos} o \textbf{desastres}.
 \item \textbf{Mejora de la eficiencia y reducción del papel: } Estas aplicaciones digitalizan la documentación clínica redunda en una gestión más \textbf{ágil} y \textbf{sin papel} de los procesos sanitarios. Un objetivo común es eliminar trámites físicos engorrosos: por ejemplo, sustituyendo los consentimientos informados y otros formularios en papel por \textbf{documentos electrónicos firmados digitalmente}. La firma electrónica integrada en estas plataformas permite que \textbf{pacientes} y \textbf{profesionales} \textbf{firmen} autorizaciones, consentimientos o informes de alta de forma \textbf{remota o presencial}, con \textbf{plena validez legal}, quedando el documento almacenado de forma segura en el sistema. 
 
+La gran mayoría de estos objetivos son comunes a aquellos que se busca perseguir con \textbf{VitalSanity}. No obstante, existen algunas diferencias con la aplicación desarrollada: \textbf{VitalSanity} es de ámbito nacional (\textbf{\textit{Epic MyChart}} es internacional); en VitalSanity el paciente no \textbf{\textit{'crea'}} su historial médio centralizado, sino que directamente autoriza o desautoriza a profesionales médicos; cuando un paciente autoriza el acceso a su historial, el profesional médico adquiere acceso a toda la información médica del historial siempre que el paciente no lo desautorice (diferencia con respecto al \textbf{DMP}, donde el paciente puede ocultar el acceso a ciertos documentos).
+
 \end{itemize}
 
 
@@ -430,7 +432,7 @@ Gracias a su arquitectura cliente-servidor, en la que el cliente Docker comunica
 
 Entre los principales beneficios de Docker destacan la portabilidad de las aplicaciones, la entrega continua en flujos CI/CD, la escalabilidad dinámica y un uso eficiente de los recursos al ejecutar múltiples contenedores compartiendo el kernel del sistema operativo.
 
- Los casos de uso más comunes incluyen la adopción de arquitecturas de microservicios, la creación de entornos de prueba reproducibles, la migración de aplicaciones heredadas a entornos containerizados y la automatización de despliegues en prácticas DevOps.
+ Los casos de uso más comunes incluyen la adopción de arquitecturas de microservicios, la creación de entornos de prueba reproducibles, la migración de aplicaciones heredadas a entornos \textbf{contenedorizados} y la automatización de despliegues en prácticas DevOps.
 
  Docker otorga portabilidad a cualquier aplicación, lo que permite solucionar problemas de configuración local, evitando así el clásico problema de \textbf{'en mi ordenador sí que funcionaba'}.
 
@@ -488,13 +490,13 @@ Sus casos de uso más comunes incluyen la verificación de emails de registro, r
 \textbf{Mailtrap} ha representado un bloque funcional \textbf{muy importante} ya que es ampliamente utilizado en un gran número de funcionalidades de la aplicación, en particular se usa para:
 
 \begin{itemize}
-    \item Enviar correo de información al paciente cuando un profesional médico le ha solicitado autorización de acceso a su historial.
-    \item Enviar correo de información al profesional médico cuando un paciente ha aceptado la solicitud de autorización.
-    \item Enviar correo de información al profesional médico cuando un paciente ha denegado la solicitud de autorización.
-    \item Enviar correo de información al profesional médico cuando un paciente ha desautorizado el acceso a su historial médico.
-    \item Enviar correo con la clave de acceso cuando un administrador registra a un centro médico.
-    \item Cuando un centro médico registra a profesionales médicos a partir de un fichero \textbf{CSV}, enviar correos con las claves de acceso a cada uno de los profesionales médicos registrados.
-    \item Cuando un paciente se registra, enviarle correo con el código de confirmación.
+    \item Recibir y mostrar correos de información enviados al paciente cuando un profesional médico le ha solicitado autorización de acceso a su historial.
+    \item Recibir y mostrar correos  de información enviados al profesional médico cuando un paciente ha aceptado la solicitud de autorización.
+    \item Recibir y mostrar correos de información enviados al profesional médico cuando un paciente ha denegado la solicitud de autorización.
+    \item Recibir y mostrar correos de información enviados al profesional médico cuando un paciente ha desautorizado el acceso a su historial médico.
+    \item Recibir y mostrar correos con la clave de acceso cuando un administrador registra a un centro médico.
+    \item Cuando un centro médico registra a profesionales médicos a partir de un fichero \textbf{CSV}, \textbf{Mailtrap} se utiliza para recibir y mostrar correos enviados con las claves de acceso a cada uno de los profesionales médicos registrados.
+    \item Cuando un paciente se registra, \textbf{Mailtrap} se utiliza para recibir y mostrar correos enviados con el código de confirmación.
 \end{itemize}
 
 
@@ -619,8 +621,6 @@ A partir de ellas, GitFlow emplea ramas de soporte de vida corta para estructura
 Para integrar cada una de las ramas tanto en \textbf{main} como en \textbf{develop} se ha hecho uso de \textbf{Pull Requests (PR)}. Una pull request es una petición formal para incorporar los cambios de una rama en otra, usualmente acompañada de una discusión o revisión de código.
 
 Cuando una rama está lista, se crea una pull request para integrar su contenido. Las pull requests actúan de este modo como \textbf{puntos de control de calidad}: permiten revisar el código, comentar sobre él, etc. 
-
-Cabe destacar que durante el desarrollo del proyecto, las Pull Requests iban asociadas a \textbf{issues} y a \textbf{milestones} específicos, otorgando así una información más detallada sobre cada una de las funcionalidades. Asimismo, se han configurado cada una de las \textbf{Pull Requests} para que cuando se completasen, se cerrase automáticamente la \textbf{issue} asociada, automatizando de esta forma parte de la gestión del proyecto. 
 
 \subsection{Importancia de Gitflow para el desarrollo de la aplicación}
 
@@ -769,7 +769,7 @@ A continuación se muestra cada una de las versiones de la aplicación:
 
 \end{itemize}
 
-Cada uno de los números de versión se han establecido siguiendo las reglas del versionao semántico que se han expuesto con anterioridad. 
+Cada uno de los números de versión se han establecido siguiendo las reglas del versionado semántico que se han expuesto con anterioridad. 
 
 Aquellas versiones cuyo número \textbf{menor} es par se corresponden con versiones que se publican directamente en la rama \textbf{main} (es decir, se corresponden con ramas de \textbf{release} o con ramas de \textbf{hotfix}). Por otra parte, aquellas versiones cuyo número \textbf{menor} es impar se corresponden con funcionalidades que se desarrollan desde develop (es decir, se corresponden con funcionalidades que se desarrollan en \textbf{feature branches} que provienen de develop).
 
@@ -780,7 +780,7 @@ El uso del versionado semántico se ha aplicado para nombrar los siguientes elem
 \begin{itemize}
     \item Los \textbf{tags} de los commits que completaban una funcionalidad, corregían un bug o abrían una nueva release.
     \item Los milestones.
-    \item Las diferentes imágenes subidas a \textbf{DockerHub}. Esto se ha realizado desde un primer momento para poder facilitar la futura puesta en \textbf{producción}. El disponer de múltiples imágenes de docker bajo versiones específicas es de gran utilidad puesto que se agiliza mucho el proceso de poner en producción la aplicación. De esta forma, se puede poner en producción  a partir de una de las versiones concretas almacenadas en \textbf{DockerHub}. Del mismo modo, si una de las versiones de producción falla, se podría coger una versión anterior de \textbf{DockerHub} anterior, lo que ayudaría a resolver el problema en mucho menos tiempo, dotando así a la puesta en producción de una \textbf{mayor resiliencia}. Todo esto refuerza aún más la idea \textbf{integración continua.}
+    \item Las diferentes imágenes subidas a \textbf{DockerHub}. Esto simplifica de forma notable el momento de puesta en producción. Disponer de una imagen de \textbf{Docker} en \textbf{DockerHub} por cada versión de la aplicación \textbf{acelera} la puesta en marcha y, al mismo tiempo, permite desplegar exactamente la versión que se necesite. 
 \end{itemize}
 
 \begin{figure}[H]
@@ -841,9 +841,6 @@ Por último, destacar que en el tablero de Github se han definido \textbf{workfl
 Es importante destacar también las \textbf{reuniones periódicas} de seguimiento y con mi tutor de \textbf{TFG Carlos}.
 
 Dichas reuniones han resultado de \textbf{gran utilidad} para revisar el \textbf{progreso}, \textbf{resolver dudas}, \textbf{recibir orientación} y asegurar que el proyecto se iba encaminando hacia el cumplimiento de sus objetivos vitales. Asimismo, todas estas reuniones han servido para detectar riesgos o desviaciones a tiempo y proponer correcciones o mejoras en cada sesión.
-
-\subsection{Importancia de las reuniones periódicas para el desarrollo de la aplicación} 
-La agenda de reuniones periódicas ha tenido como meta principal garantizar un \textbf{seguimiento continuo} del proyecto y una alineación constante con los objetivos planteados.
 
 
 
