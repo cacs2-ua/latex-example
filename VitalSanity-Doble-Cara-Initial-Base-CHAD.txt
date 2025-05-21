@@ -34,10 +34,15 @@
 
 \usepackage{array} %para anchos de columna fijos en las tablas
 
-\usepackage[colorlinks=true,
-            linkcolor=black,
-            citecolor=black,
-            urlcolor=black]{hyperref}
+% al final de los \usepackage, justo antes de \begin{document}
+\usepackage[
+  colorlinks=false,       % desactiva el coloreado del texto
+  pdfborder={0 0 1},      % marco de 1 punto
+  linkbordercolor=red,    % color del marco de enlaces internos (índice, \ref, capítulos…)
+  citebordercolor=red,    % color del marco de citas (\cite)
+  urlbordercolor=red      % color del marco de URLs (\url, \href)
+]{hyperref}
+
 
             % --- Bibliografía estilo APA (igual que el segundo preámbulo) ---
 \usepackage{apacite}   % Formato APA
@@ -434,7 +439,7 @@ Sus principales ventajas son la escalabilidad automática, el soporte, el pago p
 \label{docker-logo:vv}
 \end{figure}
 
-Docker\footnote{Enlace de la página oficial de docker: \textbf{\textit{http://docker.com}}} es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
+Docker\footnote{Enlace de la página oficial de docker: \textbf{\textit{\url{http://docker.com}}}} es una plataforma de código abierto para el desarrollo, envío y ejecución de aplicaciones en contenedores, que aísla las aplicaciones de la infraestructura subyacente para asegurar un despliegue rápido y consistente en entornos locales, centros de datos o proveedores de nube.
 
 Gracias a su arquitectura cliente-servidor, en la que el cliente Docker comunica con el demonio dockerd mediante una API REST, Docker simplifica la gestión del ciclo de vida de contenedores, imágenes, redes y volúmenes.
 
@@ -836,7 +841,7 @@ Como ya se ha mencionado, \textbf{Kanban} se ha aplicado en dos tableros diferen
 \caption{Tablero de Github}
 \label{AutoFirma ejemplo base:vv}
 \end{figure}
-Por último, destacar que en el tablero de Github se han definido \textbf{workflos} con el objetivo de automatizar el movimiento de las issues entre las diferentes columnas (por ejemplo, que cuando una \textbf{Pull request} cierre una issue, dicha issue se mueva automáticamente a la columna \textbf{\textit{"Done"}}
+Por último, destacar que en el tablero de Github se han definido \textbf{workflows} con el objetivo de automatizar el movimiento de las issues entre las diferentes columnas (por ejemplo, que cuando una \textbf{Pull request} cierre una issue, dicha issue se mueva automáticamente a la columna \textbf{\textit{"Done"}}
 
 \begin{figure}[H]
 \centering
@@ -890,9 +895,10 @@ En términos específicos se puede destacar lo siguiente:
 \end{itemize}
 
 \section{Prototipado}
-Antes de comenzar con la implementación del proyecto, se realizó un prototipo de la aplicación haciendo uso de la herramienta \textbf{Figma}. Como ya se comentó en el apartado de \textbf{Tecnologías utilizadas}, el haber realizado los \textbf{mock ups} ha permitido durante el \textbf{desarrollo} de \textbf{VitalSanity} el tener una idea mucho más clara en todo momento acerca de a qué se tenía que aproximar la versión \textbf{final} de la aplicación.
+Antes de comenzar con la implementación del proyecto, se realizó un prototipo de la aplicación haciendo uso de la herramienta \textbf{Figma}\footnote{Enlace de la página oficial de Figma: \textbf{\textit{https://www.figma.com/}}}. Como ya se comentó en el apartado de \textbf{Tecnologías utilizadas}, el haber realizado los \textbf{mock ups} ha permitido durante el \textbf{desarrollo} de \textbf{VitalSanity} el tener una idea mucho más clara en todo momento acerca de a qué se tenía que aproximar la versión \textbf{final} de la aplicación.
 
-Asimismo, destacar que los \textbf{mock ups} se han diseñado siguiendo un enfoque \textbf{mobile first}.
+
+A continuación, se adjunta el \textbf{enlace}\footnote{Enlace a los mockups de VitalSanity: \textbf{\textit{https://www.figma.com/design/C6HbUzbPMusPoAc5d3a4XL/VitalSanity-Mockups?node-id=0-1&t=LxyKeYVzMwgrq6Td-1}}} al Proyecto \textbf{Figma} con los mockups de la aplicación.
 
 
 \chapter{Análisis de requisitos}
