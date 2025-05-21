@@ -86,11 +86,19 @@
   {0pt}   % espacio *antes* del título (puede quedar en 0)
   {1.5ex} % espacio *después* del título: ajusta este valor
   
-\titleformat{\chapter}[display]
-  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries}   % formato
-  {\chaptername~\thechapter}                              % etiqueta: "Capítulo <n>"
-  {12pt}                                                  % separación etiqueta–título
-  {\Huge}                                                 % formato del título
+\titleformat{\chapter}[block]
+  {\normalfont\fontfamily{phv}\selectfont\Huge\bfseries} % estilo del bloque
+  {\thechapter.}                                         % etiqueta: solo el número+punto
+  {0.65em}                                                  % separación número–título
+  {}                                                     % código previo al título
+
+
+  \titleformat{name=\chapter,numberless}[block]
+  {\normalfont\fontfamily{phv}\Huge\bfseries}
+  {}
+  {0pt}
+  {}
+
 
 \titleformat{\section}
   {\normalfont\fontfamily{phv}\selectfont\Large\bfseries}{\thesection}{1em}{}
