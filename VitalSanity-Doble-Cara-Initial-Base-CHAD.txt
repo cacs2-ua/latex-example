@@ -3439,8 +3439,7 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 
 
 \appendix
-
-\nocite{*}                                % lista todo
+\nocite{*}                                % sigue incluyendo todas las entradas del .bib
 
 \makeatletter
 \renewcommand\bibsection{%
@@ -3454,6 +3453,16 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 
 \bibliographystyle{apacite}
 \bibliography{bibliography}
+
+\chapter{Apéndices y Anexos}             % <-- Apéndice A
+% ahora vendrán tus secciones A.1, A.2, etc.,
+% p.ej.:
+\section{Tablas de requisitos funcionales}
+\section{Rutas de la aplicación web}
+% …y así sucesivamente…
+
+
+
 
 
 
