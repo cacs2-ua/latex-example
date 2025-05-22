@@ -225,6 +225,10 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 
 \chapter{Introducción y objetivos}
 
+En primer lugar, considero conveniente puntualizar que entre los apartados incluido en el \textbf{apéndice} de este documento se encuentran \hyperref[apendices:ejecucion]{\textbf{\textit{las indicaciones}}} para poder ejecutar y probar la aplicación, así como \hyperref[apendices:enlaces]{\textbf{\textit{los enlaces}}} asociados al desarrollo de la aplicación (repositorio de \textbf{GitHub}, tablero de \textbf{Trello}, ...)
+
+Habiendo hecho esta aclaración, comenzamos con el desarrollo del capítulo.
+
 \section{Contextualización}
 
 En la actualidad, existe una evidente dificultad dentro del intercambio de datos clínicos entre diferentes centros médicos
@@ -635,7 +639,7 @@ Gracias a todo esto, \textbf{Gitflow} ha proporcionado al \textbf{desarrollo de 
 
 \subsection{Resultado de la aplicación de Gitflow}
 
-En el repositorio de \textbf{Github} se han completado un total de \textbf{veinticuatro Pull Requests}, en las que se han aplicado tanto \textbf{feature branches} como \textbf{release branches} y  \textbf{hotfix branches}.
+En el repositorio de \textbf{Github} (el cual puede accederse desde este \href{https://github.com/cacs2-ua/TFG-VitalSanity-05988721G}{\textbf{\textit{enlace}}}) se han completado un total de \textbf{veinticuatro Pull Requests}, en las que se han aplicado tanto \textbf{feature branches} como \textbf{release branches} y  \textbf{hotfix branches}.
 
 Por último, destacar que durante el desarrollo del proyecto las Pull Requests iban asociadas a \textbf{issues} y a \textbf{milestones} específicos, otorgando así una información más detallada sobre cada una de las funcionalidades. Asimismo, se han configurado cada una de las \textbf{Pull Requests} para que cuando se completasen, se cerrase automáticamente la \textbf{issue} asociada, automatizando de esta forma parte de la gestión del proyecto. 
 
@@ -783,7 +787,7 @@ El uso del versionado semántico se ha aplicado para nombrar los siguientes elem
 \begin{itemize}
     \item Los \textbf{tags} de los commits que completaban una funcionalidad, corregían un bug o abrían una nueva release.
     \item Los milestones.
-    \item Las diferentes imágenes subidas a \textbf{DockerHub}. Esto simplifica de forma notable el momento de puesta en producción. Disponer de una imagen de \textbf{Docker} en \textbf{DockerHub} por cada versión de la aplicación \textbf{acelera} la puesta en marcha y, al mismo tiempo, permite desplegar exactamente la versión que se necesite. 
+    \item Las diferentes imágenes subidas a \textbf{DockerHub} (se puede acceder al repositorio de \textbf{DockerHub} desde este \href{https://hub.docker.com/repository/docker/criscacs2/vitalsanity-05988721g}{\textbf{\textit{enlace}}}. Esto simplifica de forma notable el momento de puesta en producción. Disponer de una imagen de \textbf{Docker} en \textbf{DockerHub} por cada versión de la aplicación \textbf{acelera} la puesta en marcha y, al mismo tiempo, permite desplegar exactamente la versión que se necesite. 
 \end{itemize}
 
 \begin{figure}[H]
@@ -807,7 +811,7 @@ Por último, destacar que, como se puede observar en las diferentes versiones de
 
  Kanban es un marco de trabajo ágil que enfatiza la visualización continua del trabajo y la transparencia total del flujo de tareas, permitiendo una planificación y seguimiento efectivos. En Kanban, los elementos de trabajo (tareas, funcionalidades, etc.) se representan en tarjetas dispuestas en columnas que típicamente reflejan estados (como \textbf{Pendiente}, \textbf{En progreso}, \textbf{Terminado}, entre otras posibles opciones. Este tablero visual permite conocer de un vistazo el estado de cada tarea en cada momento. 
 
-Esta metodología se ha empleado tanto en un tablero \textbf{Trello} como en el tablero de \textbf{GitHub} asociado al repositorio de la aplicación.
+Esta metodología se ha empleado tanto en un tablero \textbf{Trello} (accesible desde este \href{https://trello.com/b/ADBzUWRJ/vitalsanity-trello}{\textbf{\textit{enlace}}}) como en el tablero de \textbf{GitHub} (accesible desde este \href{https://github.com/users/cacs2-ua/projects/2}{\textbf{\textit{enlace}}}) asociado al repositorio de la aplicación.
 
 
 \subsection{Importancia de Kanban para el desarrollo de la aplicación} 
@@ -815,7 +819,7 @@ El uso de Kanban ha permitido llevar una organización mucho más efectiva del p
 
 
 \subsection{Resultado de la aplicación de Kanban}
-Como ya se ha mencionado, \textbf{Kanban} se ha aplicado en dos tableros diferentes: por una parte, en el \textbf{tablero de Trello} se definían las tareas a realizar de un modo más genérico, sin entrar en mucho detalle; por otra parte, en el \textbf{tablero de Github} se colocaban cada una de las issued del proyecto, donde cada tarea definida en el \textbf{tablero de Trello} se dividía en varias \textbf{issues} dentro del tablero de \textbf{Github}. De este modo, las \textbf{issues} servían para especificar en más detalle el objetivo final de cada una de las tareas existentes dentro del \textbf{tablero de Trello}.
+Como ya se ha mencionado, \textbf{Kanban} se ha aplicado en dos tableros diferentes: por una parte, en el \textbf{tablero de Trello} se definían las tareas a realizar de un modo más genérico, sin entrar en mucho detalle; por otra parte, en el \textbf{tablero de Github} se colocaban cada una de las issues del proyecto, donde cada tarea definida en el \textbf{tablero de Trello} se dividía en varias \textbf{issues} dentro del tablero de \textbf{Github}. De este modo, las \textbf{issues} servían para especificar en más detalle el objetivo final de cada una de las tareas existentes dentro del \textbf{tablero de Trello}.
 
 
 \begin{figure}[H]
@@ -908,7 +912,7 @@ Los requisitos funcionales se han agrupado por tipo de usuario: \textbf{usuario 
 
 Se han identificado un total de \textbf{31} requisitos funcionales.
 
-Las tablas de cada uno de los requisitos funcionales se han incluido en \hyperref[chap:apendices]{\textbf{\textit{este apartado}}} dentro del apéndice.
+Las tablas de cada uno de los requisitos funcionales se han incluido en \hyperref[apendices:funcionales]{\textbf{\textit{este apartado}}} dentro del apéndice.
 
 
 
@@ -1046,6 +1050,9 @@ Asimismo, se ha asegurado en todo momento de cumplir con el \textbf{Principio de
 Por último, destacar que los datos se almacenan en \textbf{España} (se configura la región del bucket para ello). Con esto se asegura el cumplimiento de la normativa vigente al tratarse \textbf{AutoFirma} y \textbf{Cliente móvil @firma} de aplicaciones desarrolladas por el Gobierno de España.
 
 Todo este conjunto de medidas asegura que toda la información médica en la aplicación quede robustamente protegida,  alcanzando un nivel de seguridad acorde a la naturaleza crítica de dichos datos.
+
+\section{Detalles generales de seguridad}
+Como es evidente, también se han contemplado aquellos aspectos de seguridad más básicos y comunes a toda aplicación software como por ejemplo el uso de \textbf{middlewares} para proteger las rutas de la aplicación tanto por autenticación como por rol de usuario.
 
 
 
@@ -2183,6 +2190,8 @@ Cuando el paciente introduce correctamente el código, se le pide que ingrese lo
 
 Cuando aparece un error \textbf{HTTP}, en lugar de mostrar el mensaje de error en \textbf{bruto}, se ha configurado la aplicación para que se carguen automáticamente \textbf{plantillas de error personalizadas}. \textbf{Spring boot} permite realizar esta acción de una forma muy sencila: nombrar a la plantilla de error que se quiera utilizar para el \textbf{ERROR HTTP 404} como \textbf{404.html} (y lo mismo para el resto de errores).
 
+El error \textbf{HTTP 404} se muestra cuando se intenta acceder a una ruta que no existe y también cuando se intenta acceder a una ruta sin tener los permisos suficientes (\textbf{middlewares por autenticación y por roles de usuario}. Cuando un usuario sin suficientes permisos intenta acceder a un recurso, es preferible mostrar un error \textbf{HTTP 404 Not Found} antes que un error que haga referencia a un acceso no autorizado puesto que el error \textbf{404} revela menos información (por ejemplo, si se mostrase un error \textbf{HTTP 401 Unauthorized}, entonces ya se estaría revelando que el recurso al que se intenta acceder sí que existe).
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth, height=1\textheight, keepaspectratio]{img/version-final-ordenador/errores/404.png}
@@ -2527,10 +2536,10 @@ Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \t
 \bibliographystyle{apacite}
 \bibliography{bibliography}
 
-\chapter{Apéndices y Anexos}\label{chap:apendices}             % <-- Apéndice A
+\chapter{Apéndices y Anexos}           % <-- Apéndice A
 % ahora vendrán tus secciones A.1, A.2, etc.,
 % p.ej.:
-\section{Tablas de requisitos funcionales}
+\section{Tablas de requisitos funcionales}\label{apendices:funcionales}
 
 \subsection{Requisitos funcionales comunes}
 
@@ -3470,12 +3479,178 @@ ser aplicados de \textbf{forma simultánea}. \\
 \label{tab:requisitos-administradores}
 \end{table}
 
+\section{Indicaciones para ejecutar la aplicación}\label{apendices:ejecucion}
 
-\section{Rutas de la aplicación web}
-% …y así sucesivamente…
+Gracias la configuración establecida con \textbf{Docker Compose}, la aplicación puede ejecutarse desde cualquier ordenador mediante  comando \textbf{\textit{docker compose up}}. El único requisito necesario es tener instalado \textbf{Docker}.
+
+Asimismo, la aplicación también puede ser ejecutada mediante los siguientes comandos:
+
+En primer lugar, ejecutar este comando para levantar la base de datos de `PostgreSQL` en un contenedor de `Docker`
+
+\textbf{\textit{docker run --name postgres-vitalsanity-develop -e POSTGRES\_USER=vital -e POSTGRES\_PASSWORD=vital -e POSTGRES\_DB=vital -p 5058:5432 -d postgres:13}}
+
+A continuación, ejecutar el siguiente comando para arrancar la aplicación cargando el perfil de PostgreSQL:
+
+\textbf{\textit{mvn spring-boot:run -D spring-boot.run.profiles=postgres}}
+
+En este caso, para que la aplicación arranque de forma correcta tras la ejecución de estos dos comandos, es necesario tener instalado lo siguiente:
+
+\begin{itemize}
+    \item \textbf{JDK 21}
+    \item \textbf{Maven 3.9.9}
+    \item \textbf{Docker}
+
+\end{itemize}
+
+Vemos como en efecto es mucho más cómodo ejecutar directamente la aplicación mediante \textbf{\textit{docker compose up}}.
+
+
+\section{Enlaces asociados a la aplicación}\label{apendices:enlaces}
+
+A continuación se adjuntan los principales enlaces asociados al desarrollo de la aplicación:
+
+\begin{itemize}
+    \item \href{https://github.com/cacs2-ua/TFG-VitalSanity-05988721G}{\textbf{\textit{Enlace}}} al repositorio de \textbf{GitHub}.
+    \item \href{https://github.com/users/cacs2-ua/projects/2}{\textbf{\textit{Enlace}}} al tablero de \textbf{GitHub}.
+    \item \href{https://trello.com/invite/b/67db39b77016e440b8199bb4/ATTI188c00332a089b767d14c33611f3dacdEA36E0D8/vitalsanity-trello}{\textbf{\textit{Enlace}}} al tablero de \textbf{Trello}.
+    \item \href{https://www.figma.com/design/C6HbUzbPMusPoAc5d3a4XL/VitalSanity-Mockups?node-id=0-1&t=SCJwMClS5oBIZrmt-1}{\textbf{\textit{Enlace}}} al proyecto de \textbf{Figma} con los \textbf{mockups} de la aplicación.
+    \item \href{https://hub.docker.com/repository/docker/criscacs2/vitalsanity-05988721g}{\textbf{\textit{Enlace}}} al repositorio de \textbf{DockerHub}.
+\end{itemize}
+
+\section{Ejemplo de autorización de acceso al historial}
+
+\textbf{AUTORIZACIÓN DE ACCESO AL HISTORIAL MÉDICO}\label{apendices:autorizacion}
+
+\textbf{1. Introducción}\\
+
+A continuación, se presenta el texto completo de la autorización de acceso al historial médico centralizado,
+incluyendo todos los datos proporcionados, estructurado conforme a los requisitos de información y consentimiento
+recogidos en el Reglamento General de Protección de Datos (RGPD) y en la Ley Orgánica 3/2018 de Protección de
+Datos Personales y garantía de los derechos digitales (LOPDGDD). Se detallan las partes intervinientes, la finalidad
+del tratamiento, la base jurídica, el alcance de los derechos de ambas partes intervinientes, el mecanismo de
+revocación, la identificación del responsable del tratamiento, así como las firmas electrónica y cofirma
+respectivamente mediante AutoFirma y su versión móvil (la aplicación de Cliente móvil @firma).
+
+\textbf{2. Identificación de las partes}
+
+\textbf{Profesional médico}
+\begin{itemize}
+    \item \textbf{Nombre:} Cristian Andrés Córdoba Silvestre
+    \item \textbf{Nº Del Documento de Identificación:} 05988721G
+    \item \textbf{Especialidad:} Psicologia
+\end{itemize}
+
+\textbf{Centro médico asociado}
+\begin{itemize}
+    \item \textbf{NIF:} B99877292
+    \item \textbf{Nombre:} Centro Médico Quirón Puertollano
+    \item \textbf{Provincia:} Ciudad Real
+    \item \textbf{Municipio:} Puertollano
+    \item \textbf{Dirección:} Calle Manolo Sanchez Nº 34
+\end{itemize}
+
+\textbf{Paciente}
+\begin{itemize}
+    \item \textbf{Nombre:} Sergio Castillo Blanco
+    \item \textbf{Nº Del Documento de Identificación:} 60704841K
+\end{itemize}
+
+\textbf{3. Objeto y Finalidad de la autorización}
+
+Mediante el presente documento, por una parte, el profesional médico identificado en el apartado 1 solicita
+autorización al historial clínico centralizado del paciente. Por otra parte, el paciente identificado en el apartado 1,
+otorga su consentimiento libre, específico, informado e inequívoco al profesional identificado en el apartado 1 y al
+centro sanitario al que presta servicios para acceder íntegramente a su historial clínico centralizado en la plataforma
+VitalSanity, con la única finalidad de posibilitar la adecuada prestación de atención sanitaria, de conformidad con el
+artículo 9.2.a) RGPD que permite el tratamiento de categorías especiales de datos previo consentimiento explícito del
+interesado.
+
+El acceso comprenderá todos los informes médicos y la documentación clínica asociada que obren en el repositorio,
+incluidos los informes futuros que se incorporen mientras la presente autorización permanezca vigente.
+
+Tras la firma de esta autorización tanto por parte del profesional médico como por parte del paciente, el profesional médico en cuestión tendrá acceso a todo el historial médico centralizado del paciente, lo cual implicará el acceso a
+todos los informes y documentos médicos del paciente, incluyendo informes y documentos creados por otros
+profesionales médicos.
+
+Tras haberse efectuado la autorización, el paciente podrá en cualquier momento desautorizar al profesional médico,
+acción que implicará la pérdida del acceso al historial centralizado por parte del profesional en cuestión. No obstante,
+la acción de desautorización no supondrá la denegación al acceso a informes y documentos propios creados con
+anterioridad, de modo que el profesional médico seguirá teniendo acceso a estos informes y documentos que el
+mismo hubiese agregado al historial del paciente con fecha anterior a la desautorización.
+
+\textbf{4. Responsable y Encargado del tratamiento}
+\begin{itemize}
+    \item \textbf{Responsable:} Centro Médico “Centro Médico Quirón Puertollano” (NIF B99877292).
+    \item \textbf{Encargado:} VitalSanity S.A. (NIF A79667150), Calle Innovación, 123, nº 10, 28001 Madrid, España, correo: vital@sanity.es.
+\end{itemize}
+
+\textbf{5. Información específica de la autorización}
+\begin{itemize}
+    \item \textbf{Motivo de la solicitud:} Evaluar estado emocional tras experiencia traumática
+    \item \textbf{Descripción complementaria:} Se solicita acceso a notas y registros de sesiones previas de psicoterapia, así como a los resultados de pruebas proyectivas y escala de estrés postraumático, para planificar intervenciones psicológicas ajustadas al paciente.
+\end{itemize}
+
+\textbf{6. Base Jurídica del Tratamiento}
+\begin{itemize}
+    \item \textbf{Consentimiento informado:} La legitimación para el tratamiento se basa en el consentimiento libre, específico,informado e inequívoco del paciente, tal como exige el artículo 6 de la LOPDGDD y el artículo 6.1.a) del RGPD.
+    \item \textbf{Datos de salud (categoría especial):} Se trata de datos relativos a la salud, cuya recogida y tratamiento requieren consentimiento explícito conforme al artículo 9.2.a) del RGPD.
+    \item \textbf{Obligación de información:} El responsable ha facilitado a la paciente toda la información prevista en el artículo 13 del RGPD en el momento de la obtención de sus datos.
+    \item \textbf{Deber de confidencialidad:} El profesional y el centro están sujetos al deber de confidencialidad establecido en el artículo 5 de la LOPDGDD y en la Ley 41/2002, que protege la confidencialidad de los datos de salud.
+\end{itemize}
+
+
+\textbf{7. Datos objeto de tratamiento}
+\begin{itemize}
+    \item \textbf{Informes médicos} (con sus descripciones, observaciones, …).
+    \item \textbf{Documentación clínica} (informe de urgencias, notas de evolución, prescripciones, …).
+    \item \textbf{Cualquier dato de salud recabado} en el historial centralizado.
+\end{itemize}
+
+\textbf{8. Principios aplicables}
+
+El tratamiento de los datos se regirá por los principios de licitud, lealtad, transparencia, limitación de la finalidad,
+minimización de datos, exactitud, limitación del plazo de conservación, integridad y confidencialidad establecidos en
+el artículo 5 del RGPD, así como por las garantías adicionales recogidas en la LOPDGDD.
 
 
 
+\textbf{9. Derechos de las partes involucradas}
+\begin{itemize}
+    \item Acceso a sus datos y a la información relacionada (art. 15 RGPD).
+    \item Rectificación de datos inexactos (art. 16 RGPD).
+    \item Supresión de datos («derecho al olvido», art. 17 RGPD).
+    \item Limitación del tratamiento (art. 18 RGPD).
+    \item Portabilidad de los datos (art. 20 RGPD).
+    \item Oposición al tratamiento (art. 21 RGPD).
+    \item Revocación del consentimiento en cualquier momento, sin afectar la licitud del tratamiento previo (art. 7.3 RGPD).
+    \item Derecho a no ser objeto de decisiones automatizadas.
+    \item Podrá dirigir sus solicitudes al Responsable del Tratamiento, quien facilitará su ejercicio en un plazo máximo de un
+    \item mes, prorrogable por otros dos meses en casos de especial complejidad,
+    \item Puede contactar con el Delegado de Protección de Datos en delegadopd@centro-médico-quirón-puertollano.es.
+    \item Puede contactar con el encargado en vital@sanity.es.
+    \item Puede presentarse presencialmente en el domicilio social de las entidades.
+    \item Puede presentar reclamación ante la AEPD.
+\end{itemize}
+
+\textbf{10. Revocación y Plazo de Conservación}
+
+El paciente podrá revocar libremente su consentimiento en cualquier momento, sin que ello afecte la licitud del tratamiento realizado con anterioridad a la revocación, conforme al artículo 7.3 del RGPD, que exige que la retirada del consentimiento sea tan sencilla como su otorgamiento.
+
+Los datos se conservarán únicamente durante el tiempo necesario para cumplir las finalidades sanitarias y para atender las obligaciones legales y de custodia establecidas en la normativa sectorial.
+
+\textbf{11. Medidas de seguridad}
+
+El responsable del tratamiento garantiza la aplicación de las medidas técnicas y organizativas apropiadas para proteger los datos personales frente a destrucción, pérdida, alteración, divulgación o acceso no autorizado, conforme al artículo 32 del RGPD y a las directrices establecidas por la Agencia Española de Protección de Datos.
+
+\textbf{12. Firma y Fecha}
+
+\begin{itemize}
+    \item \textbf{Profesional médico:} firmado electrónicamente por el profesional médico Cristian Andrés Córdoba Silvestre mediante AutoFirma (o mediante su versión para móvil Cliente móvil @firma), conforme a la definición de firma electrónica avanzada en el art. 26 del Reglamento (UE) 910/2014 (eIDAS).
+    \item \textbf{Paciente:} cofirma electrónica mediante Autofirma (o mediante su versión para móvil Cliente móvil @firma), conforme a la definición de firma electrónica avanzada en el art. 26 del Reglamento (UE) 910/2014 (eIDAS).
+    \item \textbf{Validez jurídica:} ambas firmas cumplen los requisitos de seguridad y legalidad establecidos en la Ley 59/2003, de firma electrónica, y tienen plena eficacia probatoria.
+\end{itemize}
+
+\textbf{Fecha de expedición de la autorización:} 22/04/2025
 
 
 
