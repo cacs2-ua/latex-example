@@ -1,0 +1,20 @@
+@misc{ejemplo:completo,
+  author       = {Juan Pérez and María López},
+  title        = {Estudios Avanzados sobre Técnicas Dodecafónicas},
+  howpublished = {PDF disponible en línea},
+  year         = {2023},
+  note         = {Disponible en el repositorio académico de la Universidad},
+  publisher    = {Editorial Académica Música Moderna},
+  isbn         = {978-3-16-148410-0},
+  url          = {http://universidad.edu/repositorio/tecnica-dodecafonica.pdf},
+  month        = {Noviembre},
+  volume       = {3},
+  edition      = {2}
+}
+
+@Misc{docker,
+author = {Docker},
+title = {Docker},
+note = {(Accedido el 01 de mayo de 2025, [En línea])},
+url = "https://www.docker.com/",
+}
