@@ -225,10 +225,6 @@ Con todo esto se busca establecer un sistema robusto, tanto a nivel de \textbf{s
 
 \chapter{Introducción y objetivos}
 
-En primer lugar, considero conveniente puntualizar que entre los apartados incluido en el \textbf{apéndice} de este documento se encuentran \hyperref[apendices:ejecucion]{\textbf{\textit{las indicaciones}}} para poder ejecutar y probar la aplicación, así como \hyperref[apendices:enlaces]{\textbf{\textit{los enlaces}}} asociados al desarrollo de la aplicación (repositorio de \textbf{GitHub}, tablero de \textbf{Trello}, ...)
-
-Habiendo hecho esta aclaración, comenzamos con el desarrollo del capítulo.
-
 \section{Contextualización}
 
 En la actualidad, existe una evidente dificultad dentro del intercambio de datos clínicos entre diferentes centros médicos
@@ -629,6 +625,13 @@ Para integrar cada una de las ramas tanto en \textbf{main} como en \textbf{devel
 
 Cuando una rama está lista, se crea una pull request para integrar su contenido. Las pull requests actúan de este modo como \textbf{puntos de control de calidad}: permiten revisar el código, comentar sobre él, etc. 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/metodologias/pull-requests.png}
+\caption{Pull requests}
+\label{Firma realizada correctamente:vv}
+\end{figure}
+
 \subsection{Importancia de Gitflow para el desarrollo de la aplicación}
 
 \textbf{Gitflow} ha sido de vital importancia para el desarrollo de la aplicación puesto que ha dotado en todo momento a \textbf{VitalSanity} de una gran trazabilidad, quedando reflejados en el repositorio de \textbf{GitHub} los cambios más relevantes que se han ido realizando durante el desarrollo. 
@@ -639,7 +642,7 @@ Gracias a todo esto, \textbf{Gitflow} ha proporcionado al \textbf{desarrollo de 
 
 \subsection{Resultado de la aplicación de Gitflow}
 
-En el repositorio de \textbf{Github} (el cual puede accederse desde este \href{https://github.com/cacs2-ua/TFG-VitalSanity-05988721G}{\textbf{\textit{enlace}}}) se han completado un total de \textbf{veinticuatro Pull Requests}, en las que se han aplicado tanto \textbf{feature branches} como \textbf{release branches} y  \textbf{hotfix branches}.
+En el repositorio de \textbf{Github} (el cual puede accederse desde este \href{https://github.com/cacs2-ua/TFG-VitalSanity-05988721G}{\textbf{\textit{enlace}}}) se han completado un total de \textbf{veinticinco Pull Requests}, en las que se han aplicado tanto \textbf{feature branches} como \textbf{release branches} y  \textbf{hotfix branches}.
 
 Por último, destacar que durante el desarrollo del proyecto las Pull Requests iban asociadas a \textbf{issues} y a \textbf{milestones} específicos, otorgando así una información más detallada sobre cada una de las funcionalidades. Asimismo, se han configurado cada una de las \textbf{Pull Requests} para que cuando se completasen, se cerrase automáticamente la \textbf{issue} asociada, automatizando de esta forma parte de la gestión del proyecto. 
 
@@ -773,6 +776,8 @@ A continuación se muestra cada una de las versiones de la aplicación:
    \item \textbf{v4.1.1:} Página Home y plantillas de error.
 
    \item \textbf{v4.1.2:} Pulir detalles finales.
+
+   \item \textbf{v4.2.0:} Versión final de VitalSanity.
 
 \end{itemize}
 
@@ -1364,7 +1369,7 @@ Con todo esto, se consigue que en la aplicación se pueda firmar y cofirmar docu
 \end{figure}
 
 
-\section{Configuración de AWS}
+\section{Configuración de AWS a nivel de código}
 
 \subsection{Objetos que se almacenan en el bucket}
 En el bucket de AWS asociado a \textbf{VitalSanity} se almacenan los siguientes documentos asociados con el flujo principal de la aplicación:
@@ -1478,7 +1483,7 @@ Este método se utiliza para la subida de documentos asociados a un informe méd
 
 
 
-\section{Configuración específica de AWS}
+\section{Configuración de la Consola de AWS}
 
 \subsection{Principio de Mínimos Privilegios}
 
@@ -2489,6 +2494,8 @@ Esto me sirvió para reafirmar el hecho de que una funcionalidad aparentemente s
 
 \section{Reflexión final}
 
+El mayor aprendizaje que me llevo con este proyecto es la \textbf{autosuperación}, la \textbf{resiliencia} al fallo, la \textbf{constancia} y, sobre todo, \textbf{el vencimiento del miedo a lo desconocido}. 
+
 Este trabajo ha representado uno de mis \textbf{mayores retos} a \textbf{nivel personal}. A diferencia de una práctica convencional de cualquier otra asignatura, considero que un \textbf{buen TFG} posee un elemento \textbf{característico}, \textbf{único} e \textbf{indistinguible}: \textbf{la incertidumbre}. 
 
 Esforzarse en hacer un \textbf{buen TFG} implica explorar \textbf{nuevos horizontes} y salirse del\textbf{ esquema convencional}. Al ir un paso más allá te encuentras con \textbf{desafíos} los cuales no vas a tener la certeza de si vas a poder superarlos, empezando por el hecho de que ni siquiera sabes si aquellos objetivos que estás buscando cumplir realmente se pueden hacer en primer lugar. 
@@ -2507,17 +2514,8 @@ Este esquema de \textbf{"sobresalir y vencer a la incertidumbre"} ha sido mi arm
 
 \textbf{VitalSanity} es un proyecto al cual le he invertido una \textbf{enorme} cantidad de \textbf{esfuerzo} y \textbf{cariño}, y de forma completamente \textbf{honesta} pienso que cualquier persona con la \textbf{suficiente dedicación} podría también desarrollar un \textbf{proyecto} de \textbf{gran calibre}. 
 
-Destacar que tampoco considero que \textbf{VitalSanity} sea una aplicación extremadamente compleja y cuyo nivel sea \textbf{inalcanzable}. Sencillamente, \textbf{VitalSanity} es una aplicación a la que se le ha dedicado \textbf{muchas}, \textbf{muchas horas}.
+Sencillamente, \textbf{VitalSanity} es una aplicación a la que se le ha dedicado \textbf{muchas}, \textbf{muchas horas}.
 
-En síntesis, el mayor aprendizaje que me llevo con este proyecto es la \textbf{autosuperación}, la \textbf{resiliencia} al fallo, la \textbf{constancia} y, sobre todo, \textbf{el vencimiento del miedo a lo desconocido}. 
-
-Como seres humanos estamos \textbf{programados biológicamente} para seguir la vía segura, la vía que menos riesgos presente. Por \textbf{razones evolutivas} esto se ha mantenido de esta manera ya que era lo que maximizaba las probabilidades de supervivencia en nuestro pasado \textbf{prehistórico}. Sin embargo, hace ya bastante tiempo que dejamos atrás el \textbf{mundo de las cavernas} (algo que sabía muy bien \textbf{Platón}).
-
-Es por este principio que, siempre que se quiera \textbf{destacar}, sea en el ámbito que sea, entonces uno debe de estar dispuesto a \textbf{arriesgarse}. Debemos aprender a \textbf{reprogramar nuestra mente} para \textbf{disfrutar de lo desconocido}. 
-
-Para \textbf{triunfar} en la vida, debemos de volvernos \textbf{adictos} a la \textbf{exploración} y a la \textbf{autosuperación}. Para triunfar, debemos de aniquilar por completo el conformismo, y es por todo esto que…
-
-\textit{\textbf{La única forma de romper con el esquema de lo común es abrazar a la incertidumbre, asumir nuevos riesgos, aprender y disfrutar de cada fracaso y, sobre todo, aventurarse en el eterno mundo de lo desconocido.}}
 
 
 \appendix
@@ -3502,7 +3500,37 @@ En este caso, para que la aplicación arranque de forma correcta tras la ejecuci
 
 \end{itemize}
 
-Vemos como en efecto es mucho más cómodo ejecutar directamente la aplicación mediante \textbf{\textit{docker compose up}}.
+Vemos como en efecto es mucho más cómodo ejecutar directamente la aplicación mediante \textbf{\textit{docker compose up}}.\textit{}
+
+
+Una vez se haya arrancado la aplicación, hay que ejecutar el fichero de seeders \\\textbf{\textit{seed\_develop\_db.sql}} (este fichero se ejecuta automáticamente si se ha levantado la aplicación con \textbf{Docker Compose})
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/apendices/seed-db.png}
+\caption{Fichero de seeders}
+\label{default:vv}
+\end{figure}
+
+Finalmente, tras haber ejecutado el fichero de seeders se podrá acceder a la aplicación cualquiera de los usuarios mostrados en la imagen
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.975\textwidth, height=1\textheight, keepaspectratio]{img/apendices/usuarios-db.png}
+\caption{Firma de la autorización realizada correctamente}
+\label{Firma realizada correctamente:vv}
+\end{figure}
+
+Para todos ellos la contraseña de acceso es \textbf{vitalsanity123}.
+
+Asimismo, mencionar que:
+
+\begin{itemize}
+    \item \textbf{\textit{tipo\_id = 1}} se corresponde con el tipo de usuario \textbf{\textit{'administrador'}}
+    \item \textbf{\textit{tipo\_id = 2}} se corresponde con el tipo de usuario \textbf{\textit{'centro medico'}}
+    \item \textbf{\textit{tipo\_id = 3}} se corresponde con el tipo de usuario \textbf{\textit{'profesional médico'}}
+    \item \textbf{\textit{tipo\_id = 4}} se corresponde con el tipo de usuario \textbf{\textit{'paciente'}}
+\end{itemize}
 
 
 \section{Enlaces asociados a la aplicación}\label{apendices:enlaces}
@@ -3518,6 +3546,10 @@ A continuación se adjuntan los principales enlaces asociados al desarrollo de l
 \end{itemize}
 
 \section{Ejemplo de autorización de acceso al historial}
+
+Destacar que dentro de la entrega de este \textbf{TFG}, dentro de la carpeta \textbf{\textit{'ejemplos-autorizaciones-medicas'}} se encuentra un PDF de una autorización firmada de acceso al historial médico centralizado de un paciente y otro PDF de una autorización cofirmada. Al abrir cualquiera de los dos PDF mediante Adobe Acrobat Reader se puede verificar en ambos casos que la firma se muestra con éxito. El contenido de dichos PDF se corresponde con el contenido generado de forma automática cuando se completa el proceso de firma para una autorización (el contenido de los PDF firmados asociados a los informes médicos es análogo al generado para las autorizaciones).
+
+A continuación se adjunta el contenido de ambas autorizaciones para que quede incluido en el apéndice.
 
 \textbf{AUTORIZACIÓN DE ACCESO AL HISTORIAL MÉDICO}\label{apendices:autorizacion}
 
